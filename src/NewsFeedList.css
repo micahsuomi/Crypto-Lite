@@ -1,0 +1,29 @@
+.newsfeed-container {
+    margin-top: 20rem;
+    background-color: white;
+    padding: 5rem;
+}
+
+.newsfeed-wrapper {
+   padding: 5rem;
+   display: grid;
+   grid-template-columns: repeat(6, 1fr);
+   grid-template-rows: repeat(10, 1fr);
+   grid-gap: 1.3rem;
+}
+
+@media(max-width: 768px) {
+
+    .newsfeed-container {
+        padding: 2rem;
+    }
+    .newsfeed-wrapper {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media(max-width: 500px) {
+    .newsfeed-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

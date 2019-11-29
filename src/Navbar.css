@@ -1,0 +1,25 @@
+.navbar {
+    background-image: linear-gradient(135deg, #667eea 0%, #195aae 100%);    padding: 1rem;
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-link {
+    font-size: var(--font-size-small);
+    opacity: .9;
+}
+
+.navbar-link a:hover {
+    color: var(--color-secondary-light);
+    transform: translateY(-.05rem);
+}
+

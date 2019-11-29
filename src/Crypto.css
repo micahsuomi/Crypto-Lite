@@ -1,0 +1,24 @@
+
+
+.crypto-values-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-left: 2rem;
+    margin-right: 2rem;
+    
+}
+
+.crypto-value {
+    font-weight: 400;
+    font-size: var(--font-size-small);
+    align-self: start;
+    
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.blue-text {
+    color: var(--color-secondary-light);
+}

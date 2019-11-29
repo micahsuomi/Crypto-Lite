@@ -1,0 +1,55 @@
+.Crypto-Wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.crypto-market-header {
+    margin-left: 4rem;
+    color: rgb(83, 62, 83);
+    font-size: var(--font-size-small);
+
+    
+}
+
+.list-container {
+    min-height: 100vh;
+}
+.list-container, 
+.list-values,
+.crypto-values {
+    background-color: white;
+    border: 1px solid rgb(235, 240, 241, 0.5);
+    padding: 1.9rem;
+
+}
+.list-values {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    list-style: none;
+    margin-top: 3rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    padding: 2rem 2rem;
+    font-weight: 700;
+    font-size: var(--font-size-small);
+    color: rgb(83, 62, 83);
+
+    
+}
+
+.list-value {
+    color: rgb(83, 62, 83);
+    list-style: none;
+    margin-left: 4rem;
+    margin-right: 4rem;
+     
+}
+
+
+
+
+
+.crypto-value-display {
+    height: 10rem;
+    width: 20rem;
+}

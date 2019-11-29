@@ -1,0 +1,9 @@
+.news-list-container {
+    height: 100vh;
+    background-color: white;
+    padding: 4rem;
+}
+
+.test-content-paragraph {
+    font-size: var(--font-size-medium);
+}

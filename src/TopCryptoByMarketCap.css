@@ -1,0 +1,24 @@
+.market-cap-crypto-container {
+    padding: 3rem 8rem;
+    background-color: white;
+    margin-top: 2rem;
+    height: 150vh;
+}
+
+.market-cap-wrapper {
+    margin-top: 3rem;
+
+   
+}
+
+.market-cap-card-details {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+
+}
+
+.market-cap-card-values {
+    width: 15rem;
+}
