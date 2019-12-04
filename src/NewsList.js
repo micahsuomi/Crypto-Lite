@@ -16,11 +16,11 @@ export class NewsList extends Component {
         fetch("https://min-api.cryptocompare.com/data/v2/news/?lang=EN")
         .then(response => response.json())
         .then(data => {
-            const newData = this.state.newsList.concat([data]);  
-            console.log(newData);
+            // const newData = this.state.newsList.concat([data]);  
+            console.log(data.Data);
 
             this.setState({
-                newsList : newData,
+                newsList : data.Data,
                 loading: false
             })
           
@@ -35,16 +35,21 @@ export class NewsList extends Component {
                     body={newsItem.body}
                     categories={newsItem.categories}
                     title={newsItem.title}
+                    image={newsItem.imageurl}
+                    articleUrl={newsItem.url}
+                    tags={newsItem.tags}
     
              />
          ))
         return (
-            <div class="news-list-container">
-                <h1>News</h1>
+            <div className="news-list-container">
+                <h1 className="main-center-header">Latest News</h1>
+                <div className="news-list-wrapper">
                 {newsList}
+                </div>
             </div>
         )
     }
 }
 
-export default NewsList
+export default NewsList;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './CryptoList.css'; 
 import Crypto from './Crypto';
+import loadingImage from './imgs/loading-spinner.gif';
 
 class CryptoList extends Component {
     constructor() {
@@ -8,7 +9,7 @@ class CryptoList extends Component {
         this.state = {
             cryptos: [],
             title: "Market Prices",
-            loading: false
+            loading: true
         }
     }
     
@@ -39,7 +40,7 @@ class CryptoList extends Component {
             rank={crypto.rank} 
             price={Math.round(100*crypto.price_usd)/100} 
             percentageChange={crypto.percent_change_24h}
-            supply={Math.floor(crypto.available_supply)}
+            supply={Math.floor(Math.round((crypto.available_supply)*0.000001))}
             />
            
             
@@ -49,8 +50,9 @@ class CryptoList extends Component {
       
       return(
           <div className="list-container">
-             
+             <div className="market-prices__header-container">
               <h2 className="crypto-market-header" id="marketPrices">{this.state.loading === true ? "Loading..." : this.state.title}</h2>
+              </div>
               <div className="list-values">
                   <div className="value">Rank</div>
                   <div className="value">Symbol</div>
@@ -64,7 +66,7 @@ class CryptoList extends Component {
              
             <div>
                 <div className="list-value">
-                {cryptos}
+                {this.state.loading ? <img src={loadingImage} className="loading-spinner" alt="loading"/> : cryptos}
 
                 </div>
             </div>
