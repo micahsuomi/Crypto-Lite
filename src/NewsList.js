@@ -42,7 +42,7 @@ export class NewsList extends Component {
              />
          ))
         return (
-            <div className="news-list-container">
+            <div className="news-list-container" id="latestNews">
                 <h1 className="main-center-header">Latest News</h1>
                 <div className="news-list-wrapper">
                 {newsList}
