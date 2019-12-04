@@ -53,7 +53,7 @@ class Navbar extends Component {
                     <li className="navbar-link"><a href="#marketPrices">{this.state.marketPrices}</a></li>
                     <li className="navbar-link"><a href="#home">{this.state.topVolume}</a></li>
                     <li className="navbar-link"><a href="#top5MarketCap">{this.state.top5MarketCap}</a></li>
-                    <li className="navbar-link"><a href="#home">{this.state.news}</a></li>
+                    <li className="navbar-link"><a href="#latestNews">{this.state.news}</a></li>
                     <li className="navbar-link"><a href="#home">{this.state.feeds}</a></li>
 
                 </ul>
