@@ -1,6 +1,6 @@
 .news-list-container {
     background-color: white;
-    padding: 4rem;
+    padding: 4rem 3em;
 }
 
 .news-header {
@@ -16,6 +16,10 @@
 }
 
 @media screen and (max-width: 768px) {
+
+    .news-list-container {
+        padding: 3em 0;
+    }
    .news-list-wrapper {
        grid-template-columns: repeat(4, 1fr);
    } 
