@@ -1,24 +1,28 @@
 .market-cap-crypto-container {
     padding: 3rem 8rem;
     background-color: white;
-    margin-top: 2rem;
-    height: 150vh;
+    margin: 2rem;
+
 }
 
 .market-cap-wrapper {
     margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax( 12em, 1fr));
 
-   
+
 }
 
 .market-cap-card-details {
     list-style: none;
-    display: flex;
     flex-direction: row;
     flex-wrap:wrap;
-
 }
 
 .market-cap-card-values {
     width: 15rem;
+}
+
+@media screen and (max-width: 500px) {
+ 
 }

@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './Navbar';
 import Header from './Header';
 import CryptoList from './CryptoList';
+import TopVolumeList from './TopVolumeList';
 import TopCryptoByMarketCap from './TopCryptoByMarketCap';
 import NewsFeedList from './NewsFeedList';
 import NewsList from './NewsList';
@@ -55,6 +56,7 @@ return (
 
 function App() {
   return(
+    <div className="App">
     <div className="App-top">
       
       <Navbar />
@@ -63,10 +65,12 @@ function App() {
       
       <Header />
       <CryptoList />
+      <TopVolumeList />
       <TopCryptoByMarketCap />
-      <NewsFeedList />
       <NewsList />
+      <NewsFeedList />
   
+    </div>
     </div>
     </div>
   )

@@ -1,0 +1,25 @@
+.top-volume-container {
+    padding: 3rem 2rem;
+    background-color: white;
+    margin-top: 2rem;
+ 
+}
+
+.top-volume-wrapper {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28em, 1fr));
+    justify-items: center;
+    align-items: center;
+    line-height: 1.6;
+
+}
+
+@media screen and (max-width: 500px) {
+    .top-volume-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    }
+}
+
+
+

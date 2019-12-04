@@ -52,3 +52,10 @@
     text-decoration: none;
     color: white;
   }
+
+  @media screen and (max-width: 500px) {
+    .Header {
+      padding: 13rem 2rem;
+
+    }
+  }

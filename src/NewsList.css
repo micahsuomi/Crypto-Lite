@@ -1,9 +1,28 @@
 .news-list-container {
-    height: 100vh;
     background-color: white;
     padding: 4rem;
 }
 
+.news-header {
+    color: var(--color-primary-light);
+}
+.news-list-wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-top: 4rem;
+}
 .test-content-paragraph {
     font-size: var(--font-size-medium);
 }
+
+@media screen and (max-width: 768px) {
+   .news-list-wrapper {
+       grid-template-columns: repeat(4, 1fr);
+   } 
+}
+
+@media screen and (max-width: 500px) {
+    .news-list-wrapper {
+        grid-template-columns: 1fr;
+    } 
+ }

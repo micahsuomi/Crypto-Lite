@@ -41,7 +41,7 @@ html {
 
 @media(max-width: 500px) {
   html {
-      font-size: 45%;
+      font-size: 42%;
   }
 }
 
@@ -54,6 +54,8 @@ body {
 .App {
   background-image: linear-gradient(to right, 
   rgba(79, 172, 254, 1) 0%, rgba(0, 242, 254, 1) 100%);
+  min-height: 100%;
+  overflow: hidden;
 
 }
 

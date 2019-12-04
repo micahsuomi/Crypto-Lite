@@ -14,7 +14,7 @@ class TopCryptoByMarketCap extends Component {
     componentDidMount() {
 
         this.setState({loading: true})
-        fetch("https://api.coinmarketcap.com/v1/ticker/?limit=8")
+        fetch("https://api.coinmarketcap.com/v1/ticker/?limit=12")
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -43,9 +43,7 @@ class TopCryptoByMarketCap extends Component {
             <div className="market-cap-crypto-container" id="top5MarketCap">
                 <h2 className="main-center-header">{this.state.marketCapTitle}</h2>
                 <div className="market-cap-wrapper">
-                        <ul className="market-cap-card-details">
                             {cryptoMarketCap}
-                        </ul>
                     </div>
                 </div>
         )

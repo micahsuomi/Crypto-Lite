@@ -7,6 +7,8 @@ const CryptoMarketCap = (props) => {
     <div className="crypto-card">
         <div className="crypto-header-container">
     <h4 className="crypto-card-symbol-header">{props.name}</h4>
+    <h4 className="crypto-card-symbol-header">{props.symbol}</h4>
+
     </div>
     <div className="crypto-card-body">
     <p className="crypto-card-value">Market Cap: {props.marketCap}</p>

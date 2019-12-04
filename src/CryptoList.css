@@ -1,19 +1,19 @@
-.Crypto-Wrapper {
-    display: flex;
-    justify-content: space-around;
-}
 
+.market-prices__header-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 2rem;
+}
 .crypto-market-header {
-    margin-left: 4rem;
     color: rgb(83, 62, 83);
     font-size: var(--font-size-small);
-
     
 }
 
 .list-container {
     min-height: 100vh;
 }
+
 .list-container, 
 .list-values,
 .crypto-values {
@@ -22,13 +22,19 @@
     padding: 1.9rem;
 
 }
+
+.loading-spinner {
+    width: 7%;
+    position: absolute;
+    top: 38%;
+    left: 46%;
+}
+
 .list-values {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     list-style: none;
-    margin-top: 3rem;
-    margin-left: 4rem;
-    margin-right: 4rem;
+    justify-items: center;
     padding: 2rem 2rem;
     font-weight: 700;
     font-size: var(--font-size-small);
@@ -40,16 +46,34 @@
 .list-value {
     color: rgb(83, 62, 83);
     list-style: none;
-    margin-left: 4rem;
-    margin-right: 4rem;
+    
      
 }
-
-
-
-
 
 .crypto-value-display {
     height: 10rem;
     width: 20rem;
+}
+
+@media screen and (max-width: 768px) {
+    .list-values,
+    .list-value {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .list-values,
+    .list-container {
+        padding: .5em 0;
+    }
+
+    .list-values {
+        font-size: var(--font-size-verysmall);
+    }
+
+    .crypto-values {
+        padding: 1.7em;
+    }
 }

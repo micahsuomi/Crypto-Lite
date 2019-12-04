@@ -7,20 +7,55 @@ class Navbar extends Component {
         this.state={
             home: "Home",
             marketPrices: "Market Prices",
-            top5MarketCap: "Top Crypto by Market Cap",
-            topPerformers: "Top Performers"
+            top5MarketCap: "Top Market Cap",
+            topVolume: "Top volume",
+            news: "Latest News",
+            feeds: "News Feeds",
+            isToggleShowing: true,
+            isExitShowing: false,
+            addClass: true,
+            hideClass: true
         }
+
+        this.toggle = this.toggle.bind(this);
+        this.close = this.close.bind(this);
     }
 
+    toggle() {
+        this.setState({addClass: !this.state.addClass, hideClass: !this.state.hideClass, isToggleShowing: false, isExitShowing: true})
+        
+    }
+
+    close() {
+        this.setState({addClass: !this.state.addClass, isToggleShowing: true, isExitShowing: false})
+
+    }
+    
+
+
+
     render() {
+
+        let navLinksClass =["navbar-links open"];
+        if(this.state.addClass) {
+            navLinksClass.push("open");
+        }
         return(
             <nav className="navbar">
+                {this.state.isToggleShowing ? <div className="hamburger-bar hide-desktop show-tablet" id="open-button" onClick={this.toggle}> 
+                <i class="fas fa-bars fa-4x"></i>
+                </div> : null }
+                {this.state.isExitShowing ? <div className="exit" id="exit-button" onClick={this.close}><i class="fas fa-times fa-4x"></i></div> : null }
 
-                <ul className="navbar-links">
+
+                <ul className={navLinksClass.join('')}>
                     <li className="navbar-link"><a href="#home">{this.state.home}</a></li>
                     <li className="navbar-link"><a href="#marketPrices">{this.state.marketPrices}</a></li>
+                    <li className="navbar-link"><a href="#home">{this.state.topVolume}</a></li>
                     <li className="navbar-link"><a href="#top5MarketCap">{this.state.top5MarketCap}</a></li>
-                    <li className="navbar-link"><a href="#home">{this.state.topPerformers}</a></li>
+                    <li className="navbar-link"><a href="#home">{this.state.news}</a></li>
+                    <li className="navbar-link"><a href="#home">{this.state.feeds}</a></li>
+
                 </ul>
 
             </nav>

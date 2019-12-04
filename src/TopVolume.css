@@ -1,0 +1,15 @@
+.top-volume-name {
+    font-size: var(--font-size-medium);
+    color: var(--color-primary-light);
+}
+
+.top-volume-details {
+    font-size: var(--font-size-small);
+    color: var(--color-primary-dark);
+}
+
+@media screen and (max-width: 500px) {
+    .top-volume-details {
+        font-size: var(--font-size-verysmall);
+    }
+}
