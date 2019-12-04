@@ -1,8 +1,6 @@
 .crypto-card {
     height: 32em;
-    width: 25em;
     box-shadow: 0 2rem 4rem rgb(83, 62, 83, 0.5);
-    margin: 2rem;
     border-radius: 3px;
     text-align: center;
 }

@@ -28,3 +28,35 @@
     color: var(--color-secondary-dark);
     margin-top: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+
+    .news-item {
+        width: 100vw;
+        display: flex;
+        padding: 3em 3em;
+        align-items: center;
+    
+    }
+
+    .news-item__left img {
+        width: 13em;
+        height: 13em;
+    }
+
+    .news-item__right {
+        margin-left: 1.4em;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .news-item__left img {
+        width: 10em;
+        height: 10em;
+    }
+    .news-item__hide-mobile {
+        display: none;
+    }
+}

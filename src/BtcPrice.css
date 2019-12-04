@@ -13,3 +13,9 @@
     font-size: var(--font-size-small);
     margin: 4rem;
 }
+
+@media screen and (max-width: 500px) {
+    .btc-price-container {
+        margin: 1rem 4rem;
+    }
+}
