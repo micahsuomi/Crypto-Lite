@@ -13,7 +13,7 @@ const News = (props) => {
                 <a href={`${props.articleUrl}`}>
 
                 <h3 className="news-header">{props.title}</h3>
-                <p className="news-item-paragraph">{props.body}</p>
+                <p className="news-item-paragraph news-item__hide-mobile">{props.body}</p>
                 <p className="categories">{props.categories}</p></a>
                 {/* <p className="categories">{props.tags}</p> */}
 
