@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './CryptoList.css'; 
 import Crypto from './Crypto';
-import loadingImage from './imgs/loading-spinner.gif';
+import loadingImage from '../../imgs/loading-spinner.gif';
 
 class CryptoList extends Component {
     constructor() {

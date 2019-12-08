@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import Navbar from './Navbar';
+import Navbar from './components/navbar/Navbar';
 import Header from './Header';
-import CryptoList from './CryptoList';
-import TopVolumeList from './TopVolumeList';
-import TopCryptoByMarketCap from './TopCryptoByMarketCap';
-import NewsFeedList from './NewsFeedList';
-import NewsList from './NewsList';
+import CryptoList from './components/cryptoList/CryptoList';
+import VolumesTopSymbols from './VolumesTopSymbols';
+import TopCryptoByMarketCap from './components/topmarketcap/TopCryptoByMarketCap';
+import NewsFeedList from './components/news/NewsFeedList';
+import NewsList from './components/news/NewsList';
 
 
 /*
@@ -65,7 +65,7 @@ function App() {
       
       <Header />
       <CryptoList />
-      <TopVolumeList />
+      <VolumesTopSymbols />
       <TopCryptoByMarketCap />
       <NewsList />
       <NewsFeedList />

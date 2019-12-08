@@ -1,6 +1,5 @@
 .top-volume-container {
-    padding: 3rem 2rem;
-    background-color: white;
+    padding: 4rem 0;
     margin-top: 2rem;
  
 }
@@ -8,10 +7,11 @@
 .top-volume-wrapper {
     margin-top: 3rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(29em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    grid-gap: .2em;
     justify-items: center;
     align-items: center;
-    line-height: 1.6;
+    line-height: 1.3;
 
 }
 

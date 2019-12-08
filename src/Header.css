@@ -53,9 +53,14 @@
     color: white;
   }
 
+  @media screen and (max-width: 768px) {
+    .Header {
+      padding: 20rem 2rem;
+    }
+  }
   @media screen and (max-width: 500px) {
     .Header {
-      padding: 13rem 2rem;
+      padding: 10rem 4rem;
       height: 100vh;
 
     }
