@@ -1,0 +1,9 @@
+.wallets-list-container {
+    padding: 3rem 2rem;
+    background-color: white;
+    margin-top: 20rem;
+}
+
+.wallets-list-wrapper {
+    display: flex;
+}

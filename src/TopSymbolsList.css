@@ -1,0 +1,13 @@
+.top-symbols-list-container {
+    padding: 3rem 2rem;
+    background-color: white;
+    margin-top: 2rem;
+
+}
+
+.top-symbols-list-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

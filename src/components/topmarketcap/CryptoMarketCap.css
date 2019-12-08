@@ -3,6 +3,7 @@
     box-shadow: 0 2rem 4rem rgb(83, 62, 83, 0.5);
     border-radius: 3px;
     text-align: center;
+    width: 25em;
 }
 
 .crypto-card:hover {
@@ -51,6 +52,7 @@
     margin-top: 2rem;
     text-transform: uppercase;
     background-color: var(--color-secondary-dark);
+    font-size: var(--font-size-small);
     border-radius: 3px;
     border: none;
     cursor: pointer;
@@ -65,4 +67,11 @@
 .btn-buy:hover {
     background-color: var(--color-secondary-light-hover);
 
+}
+
+@media screen and (max-width: 500px) {
+    .crypto-card {
+        margin-top: 2rem;
+        width: 24em;
+    }
 }

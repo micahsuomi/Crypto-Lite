@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './NewsList.css';
 import News from './News';
 
-export class NewsList extends Component {
+class NewsList extends Component {
     constructor() {
         super();
         this.state = {

@@ -24,18 +24,17 @@
 }
 
 .loading-spinner {
-    width: 7%;
+    width: 4%;
     position: absolute;
-    top: 38%;
-    left: 46%;
+    top: 88%;
+    left: 50%;
 }
 
 .list-values {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     list-style: none;
-    justify-items: center;
-    padding: 2rem 2rem;
+    justify-items: start;
     font-weight: 700;
     font-size: var(--font-size-small);
     color: rgb(83, 62, 83);

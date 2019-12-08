@@ -3,8 +3,7 @@
 .crypto-values-list {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    justify-items: center;
-    
+    justify-items: start;
     
 }
 
@@ -15,11 +14,7 @@
     
 }
 
-.crypto-value__name {
-    display: flex;
-    justify-content: flex-start;
 
-}
 
 .bold {
     font-weight: 700;
@@ -35,7 +30,8 @@
     }
 
     .crypto-vales-list {
-        grid-template-columns: 5% 5% 10% 15% 10% 15%;
+        grid-template-columns: 2% 5% 10% 15% 10% 15%;
+        padding: .5rem 0 .5rem 0rem;
     }
     .crypto-value {
         font-size: var(--font-size-verysmall);

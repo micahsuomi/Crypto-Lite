@@ -8,7 +8,9 @@ class TopVolumeList extends Component {
         this.state = {
             topVolume: []
         }
+
     }
+    
     componentDidMount() {
         fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD")
         .then(response => response.json())
@@ -22,6 +24,7 @@ class TopVolumeList extends Component {
 
         })
     }
+
     render() {
         const topVolumeData = this.state.topVolume.map((item) => (
             <TopVolume 

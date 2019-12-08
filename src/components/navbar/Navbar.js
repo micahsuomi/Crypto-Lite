@@ -32,8 +32,6 @@ class Navbar extends Component {
     }
     
 
-
-
     render() {
 
         let navLinksClass =["navbar-links open"];
@@ -43,9 +41,9 @@ class Navbar extends Component {
         return(
             <nav className="navbar">
                 {this.state.isToggleShowing ? <div className="hamburger-bar hide-desktop show-tablet" id="open-button" onClick={this.toggle}> 
-                <i class="fas fa-bars fa-4x"></i>
+                <i className="fas fa-bars fa-4x"></i>
                 </div> : null }
-                {this.state.isExitShowing ? <div className="exit" id="exit-button" onClick={this.close}><i class="fas fa-times fa-4x"></i></div> : null }
+                {this.state.isExitShowing ? <div className="exit" id="exit-button" onClick={this.close}><i className="fas fa-times fa-4x"></i></div> : null }
 
 
                 <ul className={navLinksClass.join('')}>
