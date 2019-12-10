@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Header from './Header';
 import CryptoList from './components/cryptoList/CryptoList';
-import VolumesTopSymbols from './VolumesTopSymbols';
+import VolumesTopSymbols from './components/top-symbols-volumes/VolumesTopSymbols';
 import TopCryptoByMarketCap from './components/topmarketcap/TopCryptoByMarketCap';
 import NewsFeedList from './components/news/NewsFeedList';
 import NewsList from './components/news/NewsList';
