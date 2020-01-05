@@ -1,0 +1,8 @@
+.top-volumes-exchanges-container {
+    padding: 0 0;
+}
+
+.top-volumes-exchanges-wrapper {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}

@@ -1,0 +1,22 @@
+.toplist-by-pair-container {
+    padding: 2rem 0;
+    background-color: white;
+    margin-top: 10rem;
+    padding-top: 2rem;
+}
+
+.toplist-by-pair__wrapper {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin-top: 6rem;
+    list-style: none;
+}
+
+.toplist-by-pair__list {
+    font-size: var(--font-size-small);
+    margin-left: 5em;
+}
+
+.toplist-by-pair-item__container {
+    margin-top: 2em;
+}

@@ -6,9 +6,8 @@ const TopSymbolItem = (props) => {
         <div className="top-symbol-item-container">
             <ul className="top-symbol-item-list">
                 {props.key}
-                <li className="top-symbol-item"><div className="bold">From Symbol: </div>{props.fromSymbol}</li>
-                <li className="top-symbol-item"><div className="bold">To Symbol: </div>{props.toSymbol}</li>
-                <li className="top-symbol-item"><div className="bold">Volume: </div>{props.volume}</li>
+                <li className="top-symbol-item"><span className="bold">Symbol:</span> {props.fromSymbol}</li>
+                <li className="top-symbol-item"><span className="bold">Volume:</span> {props.volume}</li>
             </ul>
         </div>
     )

@@ -41,6 +41,7 @@ class CryptoList extends Component {
             price={Math.round(100*crypto.price_usd)/100} 
             percentageChange={crypto.percent_change_24h}
             supply={Math.floor(Math.round((crypto.available_supply)*0.000001))}
+            marketCap={Math.floor(Math.round(crypto.market_cap_usd)*0.0001)}
             />
            
             
@@ -59,9 +60,8 @@ class CryptoList extends Component {
                   <div className="value">Name</div>
                   <div className="value">Price</div>
                   <div className="value">Change (24h)</div>
+                  <div className="value">Market Cap</div>
                   <div className="value">Supply</div>
-                  
-
               </div>
              
             <div>

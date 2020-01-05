@@ -1,0 +1,24 @@
+.top-exchanges-item__container {
+    padding: 2em 0;
+    border: 1px solid rgb(238, 229, 229);
+
+}
+
+.top-exchanges-item__wrapper {
+    display: grid;
+    list-style: none;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    margin-left: 1em;
+}
+
+.top-exchanges-item__item {
+    font-size: var(--font-size-small);
+    color: var(--color-primary-light);
+    margin-left: 1em;
+
+}
+
+.top-exchanges-volume-list {
+    font-size: var(--font-size-small);
+
+}

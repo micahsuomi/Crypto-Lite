@@ -7,8 +7,7 @@
 .newsfeed-wrapper {
    padding: 5rem;
    display: grid;
-   grid-template-columns: repeat(12, 1fr);
-   grid-template-rows: repeat(14, 1fr);
+   grid-template-columns: repeat(10, 1fr);
    grid-gap: 1.3rem;
 }
 

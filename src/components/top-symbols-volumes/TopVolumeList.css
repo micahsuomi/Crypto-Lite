@@ -7,7 +7,7 @@
 .top-volume-wrapper {
     margin-top: 3rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(22em, 1fr));
     grid-gap: .2em;
     justify-items: center;
     align-items: center;

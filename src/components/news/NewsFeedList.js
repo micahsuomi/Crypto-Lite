@@ -18,7 +18,6 @@ class NewsFeedList extends Component {
         fetch("https://min-api.cryptocompare.com/data/news/feeds")
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             // const newData = this.state.newsList.concat([data]);  
             this.setState({
                 newsFeed: data,
@@ -40,7 +39,7 @@ class NewsFeedList extends Component {
              ))
 
         return(
-            <div className="newsfeed-container">
+            <div className="newsfeed-container" id="newsFeed">
                 <h1 className="main-center-header">{this.state.title}</h1>
                  <div className="newsfeed-wrapper">
                     {newsFeed} 

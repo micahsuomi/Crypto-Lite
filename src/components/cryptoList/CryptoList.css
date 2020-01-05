@@ -32,12 +32,14 @@
 
 .list-values {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: 10.28% 12.28% 12.28% 16.28% 16.28% 16.28% 16.28%;  
     list-style: none;
     justify-items: start;
     font-weight: 700;
     font-size: var(--font-size-small);
     color: rgb(83, 62, 83);
+    margin-left: 4rem;
+
 
     
 }
@@ -66,6 +68,7 @@
     .list-values,
     .list-container {
         padding: .5em 0;
+
     }
 
     .list-values {

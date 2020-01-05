@@ -27,6 +27,7 @@
 .categories {
     color: var(--color-secondary-dark);
     margin-top: 1rem;
+    font-size: var(--font-size-verysmall);
 }
 
 @media screen and (max-width: 768px) {

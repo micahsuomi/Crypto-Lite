@@ -17,7 +17,6 @@ class TopCryptoByMarketCap extends Component {
         fetch("https://api.coinmarketcap.com/v1/ticker/?limit=12")
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             this.setState({
                 cryptoMarketCap: data,
                 loading: false

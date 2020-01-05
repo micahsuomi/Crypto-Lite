@@ -19,7 +19,6 @@ class BtcPrice extends Component {
         fetch('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,JPY,EUR')
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             this.setState({ 
                 btcPriceSnaphsot: data, 
                 loading: false

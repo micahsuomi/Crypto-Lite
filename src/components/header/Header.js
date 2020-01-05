@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 import BtcPrice from './BtcPrice';
-import Form from './Form';
+import Form from '../../Form';
 
 const Header = () => {
     return(

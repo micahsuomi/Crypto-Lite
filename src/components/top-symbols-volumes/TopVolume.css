@@ -1,10 +1,12 @@
 .top-volume-card-container {
     height: 34em;
-    border: 1px solid lightgrey;
+    border: 1px solid rgb(248, 247, 247);
     padding: 3rem 1rem;
     border-radius: 2px;
-    background-image: linear-gradient();
-    background-color: rgb(248, 246, 246);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 1)), url("https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-position: center;
+    background-size: cover;
+    
 
 }
 
@@ -16,13 +18,14 @@
 
 
 .top-volume-image {
-    width: 33%;
+    width: 31%;
 }
 
 .top-volume-name {
     font-size: var(--font-size-medium);
     color: var(--color-primary-light);
     text-align: center;
+    margin-top: .5em;
 }
 
 .top-volume-card-wrapper {

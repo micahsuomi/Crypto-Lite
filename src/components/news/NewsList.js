@@ -17,7 +17,6 @@ class NewsList extends Component {
         .then(response => response.json())
         .then(data => {
             // const newData = this.state.newsList.concat([data]);  
-            console.log(data.Data);
 
             this.setState({
                 newsList : data.Data,

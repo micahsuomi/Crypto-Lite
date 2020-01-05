@@ -76,6 +76,7 @@
         text-transform: uppercase;
         font-size: var(--font-size-big);
         animation: movinLeft;
+        margin: 0 .7em;
     }
 
     

@@ -2,7 +2,7 @@
 .Header {
 
     text-align: center;
-    padding: 2rem 2rem;
+    padding: 8rem 2rem;
     height: 70vh;
     background-image: linear-gradient(to right, rgba(79, 172, 254, 0.5) 0%, rgba(0, 242, 254, .7) 100%), 
     url("https://www.ledger.com/wp-content/uploads/2019/04/blogpost-crypto-secure.png");
@@ -60,7 +60,7 @@
   }
   @media screen and (max-width: 500px) {
     .Header {
-      padding: 10rem 4rem;
+      padding: 20em 1em;
       height: 100vh;
 
     }

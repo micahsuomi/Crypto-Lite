@@ -5,7 +5,7 @@ import TopSymbolsList from './TopSymbolsList';
 
 const VolumesTopSymbols = () => {
     return (
-        <div className="volumes-top-symbols__container">
+        <div className="volumes-top-symbols__container" id="topVolume">
             <div className="volumes-top-symbols__wrapper">
 
                 <div><TopVolumeList /></div>

@@ -7,7 +7,7 @@ class TopSymbolsList extends Component {
     constructor() {
         super();
         this.state = {
-            title: "Top Symbols Volume",
+            title: "Exchange Top Symbols By Volume",
             loading: true,
             topSymbol: []
         }

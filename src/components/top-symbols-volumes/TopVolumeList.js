@@ -12,7 +12,7 @@ class TopVolumeList extends Component {
     }
     
     componentDidMount() {
-        fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD")
+        fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=20&tsym=USD")
         .then(response => response.json())
         .then(data => {
             console.log(data.Data);
@@ -41,7 +41,7 @@ class TopVolumeList extends Component {
 
         return (
             <div className="top-volume-container">
-                <h1 className="main-center-header">Top Volume</h1>
+                <h1 className="main-center-header">Top Volume Coins</h1>
                 <div className="top-volume-wrapper">
                 {topVolumeData}
                 </div>

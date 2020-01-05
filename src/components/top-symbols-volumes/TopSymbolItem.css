@@ -5,9 +5,14 @@
 
 .top-symbol-item-list {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+
 }
 
 .top-symbol-item {
     font-size: var(--font-size-small);
     color: var(--primary-dark);
+    display: flex;
 }
