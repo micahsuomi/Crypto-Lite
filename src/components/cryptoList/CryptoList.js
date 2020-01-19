@@ -17,7 +17,8 @@ class CryptoList extends Component {
     componentDidMount() {
 
         this.setState({loading: true})
-        fetch("https://api.coinmarketcap.com/v1/ticker/?limit=100")
+        setInterval(() => {
+            fetch("https://api.coinmarketcap.com/v1/ticker/?limit=100")
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -26,6 +27,8 @@ class CryptoList extends Component {
                 loading: false
             })
         })
+        }, 2000);
+        
 
     }
 
