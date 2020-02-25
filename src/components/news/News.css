@@ -1,6 +1,12 @@
 .news-item {
-    padding: 2rem;
+    padding: 3rem;
     line-height: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 1rem 1rem rgba(54, 51, 51, 0.5);
+    background: white;
+
    
 }
 
@@ -11,12 +17,13 @@
 
 .news-item__left img {
     width: 100%;
+    height: 100%;
     border-radius: 3px;
 }
 
 .news-header {
     font-size: var(--font-size-medium);
-    margin-top: 1rem;
+    margin-top: 1.8rem;
 }
 .news-item-paragraph {
     font-size: var(--font-size-small);

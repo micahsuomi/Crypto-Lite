@@ -15,7 +15,6 @@ class TopVolumeList extends Component {
         fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=20&tsym=USD")
         .then(response => response.json())
         .then(data => {
-            console.log(data.Data);
             
             this.setState({
                 topVolume : data.Data,

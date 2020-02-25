@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './NewsList.css';
 import News from './News';
+import NewsHeader from './NewsHeader';
 
 class NewsList extends Component {
     constructor() {
@@ -16,7 +17,6 @@ class NewsList extends Component {
         fetch("https://min-api.cryptocompare.com/data/v2/news/?lang=EN")
         .then(response => response.json())
         .then(data => {
-            // const newData = this.state.newsList.concat([data]);  
 
             this.setState({
                 newsList : data.Data,
@@ -27,8 +27,8 @@ class NewsList extends Component {
     }
    
     render() {
-        const newsList = this.state.newsList.map(newsItem => (
 
+        const newsList = this.state.newsList.map(newsItem => (
             <News
                     key={newsItem.id}
                     body={newsItem.body}
@@ -41,12 +41,16 @@ class NewsList extends Component {
              />
          ))
         return (
+            <div className="news-container">        
+            <NewsHeader />
             <div className="news-list-container" id="latestNews">
                 <h1 className="main-center-header">Latest News</h1>
                 <div className="news-list-wrapper">
                 {newsList}
                 </div>
             </div>
+            </div>
+
         )
     }
 }

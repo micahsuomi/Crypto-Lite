@@ -16,7 +16,6 @@ class VolumeByPairList extends Component {
         fetch(`https://min-api.cryptocompare.com/data/top/volumes?tsym=BTC`)
         .then(response => response.json())
         .then(data => {
-            console.log(data.Data)
             this.setState({wallets : data.Data,
                 isLoading: false})
            

@@ -28,6 +28,8 @@ class ExchangesList extends Component {
         })
     }
 
+    
+
     render() {
         
        /*const exchanges = this.state.exchangesList.map(exchange => (

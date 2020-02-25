@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import Navbar from './components/navbar/Navbar';
-import Header from './components/header/Header';
+import './Navbar.css';
 import CryptoList from './components/cryptoList/CryptoList';
 import VolumesTopSymbols from './components/top-symbols-volumes/VolumesTopSymbols';
-import TopCryptoByMarketCap from './components/topmarketcap/TopCryptoByMarketCap';
 import NewsFeedList from './components/news/NewsFeedList';
 import NewsList from './components/news/NewsList';
-import TopVolumesExchanges from './TopVolumesExchanges';
-import ExchangesList from './ExchangesList';
+import Home from './Home';
+import Footer from './components/footer/Footer';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 /*
@@ -56,29 +60,93 @@ return (
 
 }*/
 
-function App() {
-  return(
-    <div className="App">
-    <div className="App-top">
-      
-      <Navbar />
+class App extends Component {
+  constructor() {
+      super();
+      this.state={
+          isToggleShowing: true,
+          isExitShowing: false,
+          addClass: true,
+          hideClass: true
+      }
 
-    <div className="App">
+      this.toggle = this.toggle.bind(this);
+      this.close = this.close.bind(this);
+  }
+
+  toggle() {
+      this.setState({addClass: !this.state.addClass, hideClass: !this.state.hideClass, isToggleShowing: false, isExitShowing: true})
       
-      <Header />
-      <CryptoList />
-      <VolumesTopSymbols />
-      <TopVolumesExchanges />
-      <TopCryptoByMarketCap />
-      <NewsList />
-      <NewsFeedList />
-      <ExchangesList />
+  }
+
+  close() {
+      this.setState({addClass: !this.state.addClass, isToggleShowing: true, isExitShowing: false})
+
+  }
   
-    </div>
-    </div>
-    </div>
-  )
-}
 
+  render() {
+
+      let navLinksClass =["navbar-links open"];
+      if(this.state.addClass) {
+          navLinksClass.push("open");
+      }
+      return(
+        <div className="App">
+          <Router>
+          <nav className="navbar">
+              {this.state.isToggleShowing ? <div className="hamburger-bar hide-desktop show-tablet" id="open-button" onClick={this.toggle}> 
+              <i className="fas fa-bars fa-4x"></i>
+              </div> : null }
+              {this.state.isExitShowing ? <div className="exit" id="exit-button" onClick={this.close}><i className="fas fa-times fa-4x"></i></div> : null }
+
+
+              <ul className={navLinksClass.join('')}>
+                  <li className="navbar-link">
+                      <Link to="/">Home</Link>
+                      </li>
+                  <li className="navbar-link">
+                    <Link to="/marketPrices">Market Prices</Link>
+                    </li>
+
+                  <li className="navbar-link">
+                    <Link to="/topVolume">Top Volume</Link>
+                    </li>
+
+                  <li className="navbar-link">
+                    <Link to="/news">News</Link>
+                    </li>
+
+                  <li className="navbar-link"><a href="#newsFeed">{this.state.feeds}</a></li>
+
+              </ul>
+
+          </nav>
+
+          <Switch>
+          <Route path="/marketPrices">
+              <CryptoList />
+            </Route>
+            <Route path="/topVolume">
+              <VolumesTopSymbols />
+            </Route>
+          <Route path="/news">
+              <NewsList />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+          </Router>
+
+        <div className="App">
+      
+        <NewsFeedList />
+        <Footer />
+        </div>
+</div>
+      )
+  }
+}
 
 export default App;

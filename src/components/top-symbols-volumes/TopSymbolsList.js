@@ -17,7 +17,7 @@ class TopSymbolsList extends Component {
         fetch(`https://min-api.cryptocompare.com/data/exchange/top/volume?e=Binance&direction=to?api_key=${API_KEY}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data.Data);
+            console.log(data)
             this.setState({topSymbol : data.Data, 
                 loading : false})
         } )
@@ -26,7 +26,7 @@ class TopSymbolsList extends Component {
         const symbols = this.state.topSymbol.map(symbolItem => (
 
             <TopSymbolItem
-                    key={symbolItem.id}
+                    key = {symbolItem.key}
                     fromSymbol={symbolItem.fromSymbol}
                     toSymbol={symbolItem.toSymbol}
                     volume={symbolItem.volume}

@@ -16,7 +16,6 @@ class TopExchangesVolume extends Component {
         fetch(`https://min-api.cryptocompare.com/data/top/exchanges?fsym=BTC&tsym=USD&limit=21`)
         .then(response => response.json())
         .then(data => {
-            console.log(data.Data);
             this.setState({
                 topExchanges: data.Data,
                 loading: false

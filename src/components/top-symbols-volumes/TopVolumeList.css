@@ -1,14 +1,14 @@
 .top-volume-container {
-    padding: 4rem 0;
+    padding: 5rem 6rem;
     margin-top: 2rem;
  
 }
 
 .top-volume-wrapper {
-    margin-top: 3rem;
+    margin-top: 4rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(22em, 1fr));
-    grid-gap: .2em;
+    grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
+    grid-gap: 2em;
     justify-items: center;
     align-items: center;
     line-height: 1.3;

@@ -7,8 +7,8 @@
 }
 
 .volumes-top-symbols__wrapper {
-    display: grid;
-    grid-template-columns: 70% 30%;
+    display: flex;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 500px) {

@@ -2,6 +2,7 @@ import React from 'react';
 import TopVolumeList from './TopVolumeList';
 import './VolumesTopSymbols.css';
 import TopSymbolsList from './TopSymbolsList';
+import TopVolumesExchanges from '../../components/volumes-exchanges/TopVolumesExchanges';
 
 const VolumesTopSymbols = () => {
     return (
@@ -10,6 +11,8 @@ const VolumesTopSymbols = () => {
 
                 <div><TopVolumeList /></div>
                 <div><TopSymbolsList /></div>
+                <TopVolumesExchanges />
+
 
             </div>
         </div>
