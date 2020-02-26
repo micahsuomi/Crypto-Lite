@@ -84,16 +84,16 @@ class App extends Component {
 
   }
   
-
   render() {
+    console.log(this.state)
 
-      let navLinksClass =["navbar-links open"];
+      let navLinksClass = ["navbar-links open"];
       if(this.state.addClass) {
           navLinksClass.push("open");
       }
       return(
+        <Router>
         <div className="App">
-          <Router>
           <nav className="navbar">
               {this.state.isToggleShowing ? <div className="hamburger-bar hide-desktop show-tablet" id="open-button" onClick={this.toggle}> 
               <i className="fas fa-bars fa-4x"></i>
@@ -137,7 +137,6 @@ class App extends Component {
               <Home />
             </Route>
           </Switch>
-          </Router>
 
         <div className="App">
       
@@ -145,6 +144,8 @@ class App extends Component {
         <Footer />
         </div>
 </div>
+          </Router>
+
       )
   }
 }
