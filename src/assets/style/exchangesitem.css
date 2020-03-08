@@ -1,0 +1,22 @@
+.exchanges-item-container {
+    margin-top: 2rem;
+    border: 1px solid lightgray;
+    padding: 2rem;
+}
+
+.exchange-header {
+    font-size: var(--font-size-medium);
+}
+
+.exchange-details {
+    font-size: var(--font-size-small);
+    list-style: none;
+
+}
+
+.exchange-list {
+    list-style: none;
+}
+.pair-paragraph {
+    font-size: var(--font-size-verysmall)
+}

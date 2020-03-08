@@ -1,20 +1,28 @@
 import React from 'react';
-import './News.css';
+import '../../assets/style/news.css';
 
 const News = (props) => {
+    let {image, articleUrl, title, body, categories} = props;
+    console.log(body.length)
     return(
             <div className="news-item">
-                {props.key}
                 <div className="news-item__left">
-                <img src={`${props.image}`} alt ="news pic" className="news-img"/>
+                <img src={`${image}`} alt ="news pic" className="news-img"/>
                 </div>
 
                 <div className="news-item__right">
-                <a href={`${props.articleUrl}`}>
+                <a href={`${articleUrl}`} target="blank">
 
-                <h3 className="news-header">{props.title}</h3>
-                <p className="news-item-paragraph news-item__hide-mobile">{props.body}</p>
-                <p className="categories">{props.categories}</p></a>
+                <h3 className="news-header">{title}</h3>
+                
+                {
+                    body.length > 120 ? 
+                    <div>
+                    <p className="news-item-paragraph news-item__hide-mobile">{body}</p><button>Read More</button>
+                    </div> : <p className="news-item-paragraph news-item__hide-mobile">{body}</p>
+                }
+                
+                <p className="categories">{categories}</p></a>
                 {/* <p className="categories">{props.tags}</p> */}
 
                 </div>

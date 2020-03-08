@@ -5,6 +5,7 @@ form {
 
 .Search-Container {
     align-self: center;
+    display: flex;
 }
 
 .Search-Bar {

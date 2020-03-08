@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
 import './Navbar.css';
+import Home from './Home';
 import CryptoList from './components/cryptoList/CryptoList';
 import VolumesTopSymbols from './components/top-symbols-volumes/VolumesTopSymbols';
+import ExchangesList from './components/exchanges/ExchangesList';
+import WalletList from './components/wallets/WalletList';
 import NewsFeedList from './components/news/NewsFeedList';
 import NewsList from './components/news/NewsList';
-import Home from './Home';
 import Footer from './components/footer/Footer';
 import {
   BrowserRouter as Router,
@@ -85,7 +87,6 @@ class App extends Component {
   }
   
   render() {
-    console.log(this.state)
 
       let navLinksClass = ["navbar-links open"];
       if(this.state.addClass) {
@@ -96,9 +97,9 @@ class App extends Component {
         <div className="App">
           <nav className="navbar">
               {this.state.isToggleShowing ? <div className="hamburger-bar hide-desktop show-tablet" id="open-button" onClick={this.toggle}> 
-              <i className="fas fa-bars fa-4x"></i>
+              <i className="fas fa-bars fa-3x"></i>
               </div> : null }
-              {this.state.isExitShowing ? <div className="exit" id="exit-button" onClick={this.close}><i className="fas fa-times fa-4x"></i></div> : null }
+              {this.state.isExitShowing ? <div className="exit" id="exit-button" onClick={this.close}><i className="fas fa-times fa-3x"></i></div> : null }
 
 
               <ul className={navLinksClass.join('')}>
@@ -111,6 +112,14 @@ class App extends Component {
 
                   <li className="navbar-link">
                     <Link to="/topVolume">Top Volume</Link>
+                    </li>
+
+                    <li className="navbar-link">
+                    <Link to="/exchanges">Exchanges</Link>
+                    </li>
+
+                    <li className="navbar-link">
+                    <Link to="/wallets">Wallets</Link>
                     </li>
 
                   <li className="navbar-link">
@@ -129,6 +138,12 @@ class App extends Component {
             </Route>
             <Route path="/topVolume">
               <VolumesTopSymbols />
+            </Route>
+            <Route path="/exchanges">
+              <ExchangesList />
+            </Route>
+            <Route path="/wallets">
+              <WalletList />
             </Route>
           <Route path="/news">
               <NewsList />

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Header from './components/header/Header';
-import './components/cryptoList/CryptoList.css'; 
+import './assets/style/cryptolist.css'; 
+import './assets/style/newslist.css'; 
 import Crypto from './components/cryptoList/Crypto';
-import TopCryptoByMarketCap from './components/topmarketcap/TopCryptoByMarketCap';
 import TopVolume from './components/top-symbols-volumes/TopVolume';
-import loadingImage from './imgs/loading-spinner.gif';
+import News from './components/news/News';
+import Loader from './components/commons/Loader';
+import './Home.css';
 
 class Home extends Component {
 
@@ -13,23 +15,23 @@ class Home extends Component {
         this.state = {
             cryptos: [],
             topVolume: [],
-            loading: true
+            newsList: [],
+            isLoading: false
         }
        
     }
    
-  
     componentDidMount() {
+        const APIURL = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD'
 
-        this.setState({loading: true})
-            fetch("https://api.coinmarketcap.com/v1/ticker/?limit=10")
+        fetch(APIURL)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            console.log(data.Data);
             
             this.setState({
-                cryptos: data,
-                loading: false
+                cryptos: data.Data,
+                isLoading: true
             })
 
       
@@ -41,26 +43,38 @@ class Home extends Component {
             
             this.setState({
                 topVolume : data.Data,
-                loading: false
+                isLoading: true
             })
 
+        })
+
+        fetch("https://min-api.cryptocompare.com/data/v2/news/?lang=EN")
+        .then(response => response.json())
+        .then(data => {
+
+            this.setState({
+                newsList : data.Data,
+                loading: false
+            })
+          
         })
 
     }
 
     
     render() {
+        
         const cryptos = this.state.cryptos.map(crypto => (
 
             <Crypto 
-            key={crypto.id} 
-            name={crypto.name} 
-            symbol={crypto.symbol} 
-            rank={crypto.rank} 
-            price={Math.round(100*crypto.price_usd)/100} 
-            percentageChange={crypto.percent_change_24h}
-            supply={Math.floor(Math.round((crypto.available_supply)*0.000001))}
-            marketCap={Math.floor(Math.round(crypto.market_cap_usd)*0.0001)}
+            key={crypto.CoinInfo.id} 
+            img={crypto.CoinInfo.ImageUrl}
+            name={crypto.CoinInfo.FullName} 
+            symbol={crypto.CoinInfo.Name} 
+            price={crypto.DISPLAY.USD.PRICE} 
+            percentageChange={crypto.DISPLAY.USD.CHANGEPCTDAY}
+            supply={crypto.DISPLAY.USD.SUPPLY}
+            marketCap={crypto.DISPLAY.USD.MKTCAP}
             />
 
    
@@ -78,17 +92,35 @@ class Home extends Component {
             totalVolume={item.DISPLAY.USD.TOTALVOLUME24H} />
         
         ))
+
+        const newsList = this.state.newsList.map(newsItem => (
+            <News
+                    key={newsItem.id}
+                    body={newsItem.body}
+                    categories={newsItem.categories}
+                    title={newsItem.title}
+                    image={newsItem.imageurl}
+                    articleUrl={newsItem.url}
+                    tags={newsItem.tags}
+    
+             />
+         ))
         return (
+            
             <div>
                 
                 <Header />
+
                 <div className="list-container">
+                    
              <div className="market-prices__header-container">
-              <h2 className="crypto-market-header" id="marketPrices">{this.state.loading === true ? "Loading..." : this.state.title}</h2>
+                 
+              <h2 className="crypto-market-header" id="marketPrices">{this.state.title}</h2>
               </div>
               <h2 className="main-center-header">Market Prices</h2>
+              
               <div className="list-values">
-                  <div className="value">Rank</div>
+                  <div className="value"></div>
                   <div className="value">Symbol</div>
                   <div className="value">Name</div>
                   <div className="value" >Price</div>
@@ -96,13 +128,19 @@ class Home extends Component {
                   <div className="value">Market Cap</div>
                   <div className="value">Supply</div>
               </div>
+              { this.state.isLoading ? 
+
              
             <div>
-                <div className="list-value">
-                {this.state.loading ? <img src={loadingImage} className="loading-spinner" alt="loading"/> : cryptos}
+                    <div className="list-value">
+                    {cryptos} 
 
                 </div>
+             
+            
             </div>
+            : <Loader />
+        }
             <div className="top-volume-container">
             <h1 className="main-center-header">Top Volume Coins</h1>
                 <div className="top-volume-wrapper">
@@ -110,7 +148,9 @@ class Home extends Component {
                 </div>
             </div>
         </div>
-                <TopCryptoByMarketCap />
+                <div className="news-container">
+                    {newsList}
+                </div>
                 
         
             </div>

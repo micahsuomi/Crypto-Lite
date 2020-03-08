@@ -15,6 +15,10 @@
     
 }
 
+.crypto-img {
+    width: 20%; 
+}
+
 .percentage-change {
     color: white;
 }
@@ -29,12 +33,16 @@
 
 @media screen and (max-width: 500px) {
     .crypto-values {
-        padding: 1em 0;
+        padding: 1em;
     }
 
-    .crypto-vales-list {
-        grid-template-columns: 5% 5% 20% 20% 20% 25%;  
+    .crypto-values-list {
         padding: .5rem 0 .5rem 0rem;
+        margin-left: 0;
+    }
+
+    .crypto-img {
+        width: 30%; 
     }
     .crypto-value {
         font-size: var(--font-size-verysmall);

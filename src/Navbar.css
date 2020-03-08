@@ -45,13 +45,13 @@
     .exit {
         position: absolute;
         top: 20%;
-        right: 2%;
+        right: 3%;
         color: white;
         z-index: 5;
     }
 
     .exit {
-        right: 2.5%;
+        right: 3.25%;
     }
 
     
@@ -74,7 +74,7 @@
 
     .navbar-link {
         text-transform: uppercase;
-        font-size: var(--font-size-big);
+        font-size: var(--font-size-mediumbig);
         animation: movinLeft;
         margin: 0 .7em;
     }

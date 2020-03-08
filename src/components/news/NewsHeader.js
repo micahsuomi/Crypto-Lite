@@ -1,5 +1,5 @@
 import React from 'react';
-import './NewsHeader.css';
+import '../../assets/style/newsheader.css';
 
 const NewsHeader = () => {
     return (

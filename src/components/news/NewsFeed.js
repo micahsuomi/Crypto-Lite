@@ -1,10 +1,9 @@
 import React from 'react';
-import './NewsFeed.css';
+import '../../assets/style/newsfeed.css';
 
-const NewsFeed = ({key, name, language, image}) => {
+const NewsFeed = ({name, language, image}) => {
     return(
             <div className="newsfeed-item">
-                <p> {key}</p>
                 <p className="newsfeed-text"><span className="bold">{name}</span></p>
                 <p className="newsfeed-text">Language: <span className="bold">{language}</span></p>
                 <img src ={image} className="newsfeed-img" alt="news crypto pictures" />

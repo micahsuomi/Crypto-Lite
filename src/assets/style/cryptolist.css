@@ -1,6 +1,6 @@
 
 .form-container {
-    height: 40vh;
+    height: 45vh;
     padding: 10rem;
     display: flex;
     justify-content: center;
@@ -11,22 +11,45 @@
     align-items: center;
     background-image: linear-gradient(to right, rgba(79, 172, 254, 0.5) 0%, rgba(0, 242, 254, .7) 100%), 
     url("https://www.ledger.com/wp-content/uploads/2019/04/blogpost-crypto-secure.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 5rem;
 }
 
 
 input {
+    margin-top: 5rem;
     border: none;
-    padding: 1.7rem;
-    width: 30rem;
-    border-radius: 5px;
+    padding: 1.4rem;
+    width: 34rem;
+    border-radius: 25px;
 }
 
 .form-text {
-    margin-top: 2rem;
+    margin-top: 4rem;
     color: white;
     font-size: var(--font-size-medium);
 }
 
+
+.Btn-Search {
+  padding: 0.49rem;
+  background-color: var(--color-primary-light);
+  border: 0;
+  color: white;
+  text-transform: uppercase;
+  padding: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 1em;
+  border-radius: 25px;
+}
+
+.Btn-Search:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-.05rem);
+
+}
 .market-prices__header-container {
     display: flex;
     justify-content: center;
@@ -40,8 +63,9 @@ input {
 }
 
 .value-link {
-    color: rgb(29, 102, 197);
+    color: var(--color-secondary-dark);
     cursor: pointer;
+    text-decoration: underline;
 }
 
 .list-container, 
@@ -96,6 +120,17 @@ input {
 }
 
 @media screen and (max-width: 500px) {
+
+    .search-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Btn-Search {
+        margin-top: 2rem;
+    }
     .list-values,
     .list-container {
         padding: .5em 0;
@@ -104,9 +139,12 @@ input {
 
     .list-values {
         font-size: var(--font-size-verysmall);
+        grid-template-columns: 10.28% 12.78% 12.18% 16.08% 16.28% 16.28% 16.28%;  
+
     }
 
     .crypto-values {
-        padding: 1.7em;
+        padding: 1em;
     }
 }
+  

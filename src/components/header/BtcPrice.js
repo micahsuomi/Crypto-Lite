@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './BtcPrice.css';
+import '../../assets/style/btcprice.css';
 
 // const API_KEY = "5a3c910d4d4fed7d3d6e711f3845a09d9916452c3ca4f60532b0bc5e703ba41c"
 class BtcPrice extends Component {

@@ -1,11 +1,9 @@
 import React from 'react';
 import './TopVolume.css';
 
-const TopVolume = ({key, image, name, type, open, lastMarket, volume, totalVolume}) => {
+const TopVolume = ({image, name, type, open, lastMarket, volume, totalVolume}) => {
     return (
         <div className="top-volume-card-container">
-                            {key}
-
             <div className="top-volume-head"><img src={`https://www.cryptocompare.com${image}`} className="top-volume-image" alt="crypto" />
             </div>
             <h4 className="top-volume-name"><span className="bold"></span> {name}</h4>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './NewsFeedList.css';
+import '../../assets/style/newsfeedlist.css';
 import NewsFeed from './NewsFeed';
 
 
