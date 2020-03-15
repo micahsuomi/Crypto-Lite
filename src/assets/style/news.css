@@ -42,8 +42,8 @@
 @media screen and (max-width: 768px) {
 
     .news-item {
-        width: 100vw;
-        display: flex;
+        width: 90vw;
+        flex-direction: row;
         padding: 3em 3em;
         align-items: center;
     

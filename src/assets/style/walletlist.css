@@ -1,3 +1,9 @@
 .wallets-container {
     padding: 11rem 9rem;
 }
+
+.wallets-wrapper {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}

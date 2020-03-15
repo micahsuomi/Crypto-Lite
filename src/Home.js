@@ -6,6 +6,7 @@ import Crypto from './components/cryptoList/Crypto';
 import TopVolume from './components/top-symbols-volumes/TopVolume';
 import News from './components/news/News';
 import Loader from './components/commons/Loader';
+import NewFeedList from './components/news/NewsFeedList';
 import './Home.css';
 
 class Home extends Component {
@@ -54,7 +55,7 @@ class Home extends Component {
 
             this.setState({
                 newsList : data.Data,
-                loading: false
+                loading: true
             })
           
         })
@@ -113,12 +114,11 @@ class Home extends Component {
 
                 <div className="list-container">
                     
-             <div className="market-prices__header-container">
+             <div className="market-prices__header-container" id="home-main">
                  
-              <h2 className="crypto-market-header" id="marketPrices">{this.state.title}</h2>
-              </div>
               <h2 className="main-center-header">Market Prices</h2>
-              
+              </div>
+
               <div className="list-values">
                   <div className="value"></div>
                   <div className="value">Symbol</div>
@@ -131,28 +131,35 @@ class Home extends Component {
               { this.state.isLoading ? 
 
              
-            <div>
                     <div className="list-value">
                     {cryptos} 
 
-                </div>
              
             
             </div>
             : <Loader />
         }
+
+        {this.state.isLoading ? 
             <div className="top-volume-container">
             <h1 className="main-center-header">Top Volume Coins</h1>
                 <div className="top-volume-wrapper">
                 {topVolumeData}
                 </div>
             </div>
-        </div>
+            : <Loader />
+        }
+
+        {this.state.isLoading ? 
                 <div className="news-container">
+                 <div className="news-list-wrapper">
                     {newsList}
-                </div>
+                    </div>
+                </div> : <Loader />
+        }
+        <NewFeedList />
                 
-        
+            </div>
             </div>
         )
     }

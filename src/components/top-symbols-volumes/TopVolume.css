@@ -46,3 +46,14 @@
         font-size: var(--font-size-verysmall);
     }
 }
+
+@media screen and (max-width: 320px) {
+    .top-volume-card-container {
+        height: 26em;
+       
+    }
+
+    .top-volume-image {
+        width: 23%;
+    }
+}

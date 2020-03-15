@@ -6,8 +6,9 @@ import CryptoList from './components/cryptoList/CryptoList';
 import VolumesTopSymbols from './components/top-symbols-volumes/VolumesTopSymbols';
 import ExchangesList from './components/exchanges/ExchangesList';
 import WalletList from './components/wallets/WalletList';
-import NewsFeedList from './components/news/NewsFeedList';
+import CurrencyConverter from './components/currencyconverter/CurrencyConverter';
 import NewsList from './components/news/NewsList';
+import './assets/style/newslist.css';
 import Footer from './components/footer/Footer';
 import {
   BrowserRouter as Router,
@@ -16,51 +17,6 @@ import {
   Link
 } from "react-router-dom";
 
-
-/*
-  const App = () => {
-  const cryptoURL = "https://api.coinmarketcap.com/v1/ticker/?limit=100";
-  const [cryptos, crypto] = useState([]);
-
-  useEffect( ()=> {
-  getCrypto();
-  }, []);
-  
-  const getCrypto = async () => {
-    const response = await fetch(`${cryptoURL}`);
-    const data = await response.json();
-    console.log(data);
-
-  };*/
-/*
-class App extends Component {
-  state={
-    cryptoinfoarray: [],
-};
-
-  addCrypto = (cryptoinfo) => {
-    console.log(cryptoinfo);
-    this.setState(prevState =>({
-      cryptoinfoarray: [...prevState.cryptoinfoarray, cryptoinfo],
-    }));
-  }
-
-render() {
-  
-return (
-  <div>
-    <div className="Header">
-      <h1 className="Dashboard-Title">Crypto Dashboard</h1>
-    </div>
-    
-    <Form onSubmit={this.addCrypto} />
-    <CryptoList cryptoinfoarray={this.state.cryptoinfoarray} />
-  
-    </div>
-  )
-}  
-
-}*/
 
 class App extends Component {
   constructor() {
@@ -122,6 +78,10 @@ class App extends Component {
                     <Link to="/wallets">Wallets</Link>
                     </li>
 
+                    <li className="navbar-link">
+                    <Link to="/currencyconverter">Currency Converter</Link>
+                    </li>
+
                   <li className="navbar-link">
                     <Link to="/news">News</Link>
                     </li>
@@ -145,6 +105,9 @@ class App extends Component {
             <Route path="/wallets">
               <WalletList />
             </Route>
+            <Route path="/currencyconverter">
+              <CurrencyConverter />
+            </Route>
           <Route path="/news">
               <NewsList />
             </Route>
@@ -155,7 +118,6 @@ class App extends Component {
 
         <div className="App">
       
-        <NewsFeedList />
         <Footer />
         </div>
 </div>

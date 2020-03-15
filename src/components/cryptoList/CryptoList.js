@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../../assets/style/cryptolist.css'; 
 import Crypto from './Crypto';
+import Loader from '../commons/Loader';
 
 let flag = false;
 const toggle = () => {
@@ -18,7 +19,7 @@ class CryptoList extends Component {
             cryptos: [],
             filteredCryptos: [],
             title: "Market Prices",
-            loading: false,
+            isLoading: false,
             links: {
                 
                     name: 'Name',
@@ -42,17 +43,12 @@ class CryptoList extends Component {
             
         }
 
-        this.sortByName = this.sortByName.bind(this)
-        this.sortByPercentage = this.sortByPercentage.bind(this)
-
        
     }
    
   
     componentDidMount() {
-
-        this.setState({loading: true})
-            fetch(APIURL)
+        fetch(APIURL)
         .then(response => response.json())
         .then(data => {
             let cryptoArr = [];
@@ -71,7 +67,7 @@ class CryptoList extends Component {
             
             this.setState({
                 cryptos: cryptoArr, filteredCryptos: cryptoArr,
-                loading: true,
+                isLoading: true,
                 result: ''
 
             })
@@ -93,19 +89,23 @@ class CryptoList extends Component {
     handleChange = (event) => {
         let cryptoArr = []
         let {value} = event.target;
+        console.log(value)
         this.setState({filteredCryptos: value})
      
             for(const crypto in this.state.cryptos) {
                 let{id, img, symbol, name, price, percentageChange, marketCap, supply} = this.state.cryptos[crypto];
-                console.log(name)
                
                 if(name.toLowerCase().includes(value) || name.includes(value) || symbol.toLowerCase().includes(value) || symbol.includes(value)) {
                     cryptoArr.push({id, img, symbol, name, price, percentageChange, marketCap, supply})
                 }
                 this.setState({filteredCryptos: cryptoArr})
                 this.setState({text: ''});
-                this.setState({result: `There are ${cryptoArr.length} cryptocurrencies with this search result`})
-                console.log(cryptoArr)
+                if(value.length > 0) {
+                    this.setState({result: `There are ${cryptoArr.length} cryptocurrencies with this search result`})
+                } else {
+                    this.setState({result: ''})
+                }
+               
             
     
             
@@ -115,9 +115,8 @@ class CryptoList extends Component {
     }
 
 
-    sortByName() {
+    sortByName = () => {
             this.setState({isNameClicked: true, ischange24hrClicked: false, ismarketCapClicked: false, issupplyClicked: false})
-            console.log(this.state.isNameClicked)
             if(flag === true) {
                 this.setState({
                     cryptos: this.state.cryptos.sort((a, b) => {
@@ -134,7 +133,7 @@ class CryptoList extends Component {
          
 
 }
-    sortByPercentage() {
+    sortByPercentage = () => {
         this.setState({isNameClicked: false, ischange24hrClicked: true, ismarketCapClicked: false, issupplyClicked: false})
         if(flag === true) {
             this.setState({
@@ -211,7 +210,7 @@ class CryptoList extends Component {
                 onChange={this.handleChange}
                 placeholder="search crypto by name or symbol"         
                 />
-            <button className="Btn-Search">Search</button>
+                <button className="Btn-Search">Search</button>
             </div>
             <p className="form-text">{this.state.result}</p>
         </form>
@@ -240,11 +239,11 @@ class CryptoList extends Component {
               </div>
              
             <div>
-                {this.state.loading ? 
+                {this.state.isLoading ? 
                 <div className="list-value">
                 {cryptos} 
                 </div>
-                  :<div className="lds-ellipsis">Loading<div></div><div></div><div></div></div>} 
+                  :<Loader />} 
 
             </div>
         </div> 

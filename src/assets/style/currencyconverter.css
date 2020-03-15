@@ -1,0 +1,82 @@
+.currency-form__container {
+    padding: 10rem 8rem;
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.currency-converter__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.7;
+    border: 1px solid rgb(228, 223, 223);
+    padding: 7rem 8rem;
+    margin-top: 3rem;
+    background-color: lightgrey;
+    width: 55rem;
+    height: 45rem;
+}
+
+label {
+    font-size: var(--font-size-medium); 
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.inputs-arrows__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+input {
+    margin-top: .5rem;
+    width: 29rem;
+}
+.select-currency {
+    margin-top: .5rem;
+    padding: 1rem;
+    width: 24rem;
+
+}
+
+.arrow {
+    color: var(--color-secondary-dark);
+    margin-left: .3rem;
+}
+
+.switch {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+.switch:focus {
+    outline: none;
+}
+
+.calculate-btn {
+    padding: 1.3rem;
+    width: 12rem;
+    margin-top: 3rem;
+    border: none;
+    background-color: var(--color-secondary-dark);
+    color: white;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.result-container {
+    margin-top: 2rem;
+    font-size: var(--font-size-small);
+}

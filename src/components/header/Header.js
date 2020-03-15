@@ -11,7 +11,7 @@ const Header = () => {
             {/* <Form /> */}
             <h1 className="dashboard-title">CryptoLite</h1>
             <h2 className="dashboard-subtitle">Cryptocurrencies data and news from the CryptoCompare APIs</h2>
-            <button className="btn-explore"><a href="#marketPrices">Explore Data</a></button>
+            <button className="btn-explore"><a href="#home-main">Explore Data</a></button>
         </div>
         </div>
     )

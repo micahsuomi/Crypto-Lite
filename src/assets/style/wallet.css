@@ -1,8 +1,9 @@
 .wallet-container {
     height: 34em;
+    width: 40rem;
     border: 1px solid rgb(248, 247, 247);
     padding: 3rem 3rem;
-    border-radius: 2px;
+    border-radius: 3px;
     background-image: linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 1)), url("https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-position: center;
     background-size: cover;
@@ -13,13 +14,15 @@
 
 .wallet-head {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content:center;
     align-items: center;
 }
 
 
 .wallet-logo {
-    width: 6%;
+    height: 5rem;
+    width: 5rem;
 }
 
 .wallet-name {
@@ -29,8 +32,12 @@
 }
 
 
+.wallet-details-list {
+    margin-top: 2rem;
+}
 
 .wallet-details {
     font-size: var(--font-size-small);
     color: var(--color-primary-light);
 }
+

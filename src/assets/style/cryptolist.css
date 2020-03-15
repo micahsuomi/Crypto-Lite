@@ -1,40 +1,45 @@
 
 .form-container {
-    height: 45vh;
+    height: 37vh;
     padding: 10rem;
     display: flex;
     justify-content: center;
-    background-color: lightgray;
+    background-color: rgb(243, 236, 236);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to right, rgba(79, 172, 254, 0.5) 0%, rgba(0, 242, 254, .7) 100%), 
-    url("https://www.ledger.com/wp-content/uploads/2019/04/blogpost-crypto-secure.png");
+    /* background-image: linear-gradient(to right, rgba(79, 172, 254, 0.8) 0%, rgba(0, 242, 254, .9) 100%), 
+    url("https://www.ledger.com/wp-content/uploads/2019/04/blogpost-crypto-secure.png");  */
+    /* background-color: var(--color-secondary-light); */
     background-size: cover;
     background-position: center;
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 
 input {
     margin-top: 5rem;
-    border: none;
+    border: 1px solid var(--color-primary-light);
     padding: 1.4rem;
     width: 34rem;
     border-radius: 25px;
 }
 
+input:focus {
+    outline: none;
+}
+
 .form-text {
     margin-top: 4rem;
-    color: white;
+    color: var(--color-secondary-dark);
     font-size: var(--font-size-medium);
 }
 
 
 .Btn-Search {
   padding: 0.49rem;
-  background-color: var(--color-primary-light);
+  background-color: var(--color-secondary-dark);
   border: 0;
   color: white;
   text-transform: uppercase;
@@ -43,10 +48,11 @@ input {
   cursor: pointer;
   margin-left: 1em;
   border-radius: 25px;
+  width: 10rem;
 }
 
 .Btn-Search:hover {
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-secondary-light);
   transform: translateY(-.05rem);
 
 }
@@ -77,12 +83,6 @@ input {
 
 }
 
-.loading-spinner {
-    width: 4%;
-    position: absolute;
-    top: 88%;
-    left: 50%;
-}
 
 .list-values {
     display: grid;
