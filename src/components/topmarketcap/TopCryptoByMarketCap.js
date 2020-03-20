@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './TopCryptoByMarketCap.css';
+import '../../assets/style/TopCryptoByMarketCap.css';
 import CryptoMarketCap from './CryptoMarketCap';
 
 class TopCryptoByMarketCap extends Component {

@@ -20,12 +20,19 @@
     font-size: var(--font-size-small);
     opacity: .9;
     margin: 0 2em;
+    text-transform: uppercase;
 
 }
 
 .navbar-link a:hover {
     color: var(--color-secondary-light);
     transform: translateY(-.05rem);
+}
+
+.navbar-link a:focus {
+    color: rgb(12, 44, 77);
+    font-weight: 700;
+
 }
 
 

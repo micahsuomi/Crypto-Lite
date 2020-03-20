@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TopVolume from './TopVolume';
-import './TopVolumeList.css';
+import '../../assets/style/TopVolumeList.css';
 
 class TopVolumeList extends Component {
     constructor() {
@@ -15,9 +15,30 @@ class TopVolumeList extends Component {
         fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=20&tsym=USD")
         .then(response => response.json())
         .then(data => {
+            console.log(data.Data)
+            let volumeArr = [];
+            for(const volume in data.Data) {
+
+                let infoData = data.Data[volume].CoinInfo;
+                let priceData = data.Data[volume].DISPLAY.USD;
+                let id = infoData.Id;
+                let img = infoData.ImageUrl;
+                let name = infoData.FullName;
+                let proofType = infoData.ProofType;
+                let open = priceData.OPEN24HOUR;
+                let lastMarket = priceData.LASTMARKET;
+                let volume24HR = priceData.VOLUME24HOUR;
+                let totalVolume = priceData.TOTALVOLUME24H;
+                volumeArr.push({id, img, name, proofType, open, lastMarket, volume24HR, totalVolume});
+
+                
+
+                
+            }
+
             
             this.setState({
-                topVolume : data.Data,
+                topVolume : volumeArr,
                 loading: false
             })
 
@@ -25,16 +46,10 @@ class TopVolumeList extends Component {
     }
 
     render() {
-        const topVolumeData = this.state.topVolume.map((item) => (
+        const topVolumeData = this.state.topVolume.map((volume) => (
             <TopVolume 
-            key={item.CoinInfo.Id}
-            image={item.CoinInfo.ImageUrl}
-            name={item.CoinInfo.FullName} 
-            type={item.CoinInfo.ProofType}
-            open={item.DISPLAY.USD.OPEN24HOUR}
-            lastMarket={item.DISPLAY.USD.LASTMARKET}
-            volume={item.DISPLAY.USD.VOLUME24HOUR}
-            totalVolume={item.DISPLAY.USD.TOTALVOLUME24H} />
+            key={volume.id}
+            volume={volume} />
         
         ))
 

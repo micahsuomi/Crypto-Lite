@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import VolumeByPairItem from './VolumeByPairItem';
-import './VolumeByPairList.css';
+import '../../assets/style/VolumeByPairList.css';
 
 
 class VolumeByPairList extends Component {

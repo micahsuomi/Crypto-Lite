@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import './Navbar.css';
-import Home from './Home';
+import Home from './components/home/Home';
+import NavBar from './components/navbar/Navbar';
 import CryptoList from './components/cryptoList/CryptoList';
+import ViewCrypto from './components/viewcrypto/ViewCrypto';
 import VolumesTopSymbols from './components/top-symbols-volumes/VolumesTopSymbols';
 import ExchangesList from './components/exchanges/ExchangesList';
 import WalletList from './components/wallets/WalletList';
@@ -14,7 +15,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 
@@ -22,98 +22,106 @@ class App extends Component {
   constructor() {
       super();
       this.state={
-          isToggleShowing: true,
-          isExitShowing: false,
-          addClass: true,
-          hideClass: true
+        cryptos: [],
       }
 
-      this.toggle = this.toggle.bind(this);
-      this.close = this.close.bind(this);
+     
   }
 
-  toggle() {
-      this.setState({addClass: !this.state.addClass, hideClass: !this.state.hideClass, isToggleShowing: false, isExitShowing: true})
-      
-  }
+  componentDidMount() {
+    const APIURL = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=USD'
 
-  close() {
-      this.setState({addClass: !this.state.addClass, isToggleShowing: true, isExitShowing: false})
+    fetch(APIURL)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.Data);
+        let cryptoArr = [];
+        for(const crypto in data.Data) {
+            
+            let cryptoInfo = data.Data[crypto].CoinInfo;
+            let cryptoPrice = data.Data[crypto].DISPLAY.USD;
 
-  }
+            let id = cryptoInfo.Id;
+            let img = cryptoInfo.ImageUrl;
+            let name = cryptoInfo.FullName;
+            let symbol = cryptoInfo.Name;
+            let ratings = cryptoInfo.Rating.Weiss;
+            let rating = ratings.Rating;
+            let techAdoption = ratings.TechnologyAdoptionRating;
+            let performance = ratings.MarketPerformanceRating;
+            let hashPerSecond = cryptoInfo.NetHashesPerSecond;
+            let algorithm = cryptoInfo.Algorithm;
+            let proofType = cryptoInfo.ProofType;
+            let blockReward = cryptoInfo.BlockReward;
+            let supply=cryptoPrice.SUPPLY;
+            let marketCap = cryptoPrice.MKTCAP;
+            
+            let price = cryptoPrice.PRICE;
+            let percentageChange = cryptoPrice.CHANGEPCTDAY;
+            let changeDay = cryptoPrice.CHANGEDAY;
+            let lastMarket = cryptoPrice.LASTMARKET;
+            let volume24H = cryptoPrice.VOLUME24HOUR;
+            let open = cryptoPrice.OPEN24HOUR;
+            let high = cryptoPrice.HIGH24HOUR;
+            let low = cryptoPrice.LOW24HOUR;
+            let totalVolume = cryptoPrice.TOTALVOLUME24H;
+
+            cryptoArr.push({id, img, name, symbol, algorithm, proofType, rating, techAdoption, performance, hashPerSecond, blockReward, price, marketCap, lastMarket, changeDay, percentageChange, volume24H, open, high, low, totalVolume, supply})
+            
+        }
+        
+        this.setState({
+            cryptos: cryptoArr,
+            isLoading: true,
+            result: ''
+
+        })
+
+  
+    })
+ 
+
+}
   
   render() {
 
-      let navLinksClass = ["navbar-links open"];
-      if(this.state.addClass) {
-          navLinksClass.push("open");
-      }
-      return(
+  console.log(this.state)
+     return(
         <Router>
         <div className="App">
-          <nav className="navbar">
-              {this.state.isToggleShowing ? <div className="hamburger-bar hide-desktop show-tablet" id="open-button" onClick={this.toggle}> 
-              <i className="fas fa-bars fa-3x"></i>
-              </div> : null }
-              {this.state.isExitShowing ? <div className="exit" id="exit-button" onClick={this.close}><i className="fas fa-times fa-3x"></i></div> : null }
 
-
-              <ul className={navLinksClass.join('')}>
-                  <li className="navbar-link">
-                      <Link to="/">Home</Link>
-                      </li>
-                  <li className="navbar-link">
-                    <Link to="/marketPrices">Market Prices</Link>
-                    </li>
-
-                  <li className="navbar-link">
-                    <Link to="/topVolume">Top Volume</Link>
-                    </li>
-
-                    <li className="navbar-link">
-                    <Link to="/exchanges">Exchanges</Link>
-                    </li>
-
-                    <li className="navbar-link">
-                    <Link to="/wallets">Wallets</Link>
-                    </li>
-
-                    <li className="navbar-link">
-                    <Link to="/currencyconverter">Currency Converter</Link>
-                    </li>
-
-                  <li className="navbar-link">
-                    <Link to="/news">News</Link>
-                    </li>
-
-                  <li className="navbar-link"><a href="#newsFeed">{this.state.feeds}</a></li>
-
-              </ul>
-
-          </nav>
-
+          <NavBar />
           <Switch>
-          <Route path="/marketPrices">
-              <CryptoList />
-            </Route>
-            <Route path="/topVolume">
-              <VolumesTopSymbols />
-            </Route>
-            <Route path="/exchanges">
-              <ExchangesList />
-            </Route>
-            <Route path="/wallets">
-              <WalletList />
-            </Route>
-            <Route path="/currencyconverter">
-              <CurrencyConverter />
-            </Route>
-          <Route path="/news">
-              <NewsList />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
+          <Route path={"/marketprices"} 
+          component={(props)=><CryptoList
+          cryptos={this.state.filteredCryptos}
+          {...props}/>}/>
+
+          <Route path={"/viewcrypto/:id"}
+          component={(props)=><ViewCrypto
+          cryptos={this.state.cryptos}
+          id={props.match.params.id}
+          {...props}/>} />
+          
+             
+            <Route path="/topvolume" 
+            component={()=><VolumesTopSymbols/>} />
+           
+            <Route path={"/exchanges"} 
+            component={ExchangesList} />
+
+            <Route path={"/wallets"} 
+            component={WalletList} />
+             
+            <Route path={"/currencyconverter"}
+            component={CurrencyConverter} />
+              
+          <Route path={"/news"}
+          component={NewsList} />
+            
+            <Route path="/" 
+            component={Home} />
+              
           </Switch>
 
         <div className="App">

@@ -1,5 +1,5 @@
 import React from 'react';
-import './CryptoMarketCap.css';
+import '../../assets/style/CryptoMarketCap.css';
 
 const CryptoMarketCap = (props) => {
     

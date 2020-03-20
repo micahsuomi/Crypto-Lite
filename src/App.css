@@ -72,6 +72,7 @@ body {
 
 .bold {
   font-weight: 700;
+  color: var(--color-primary-dark);
 }
 
 

@@ -1,10 +1,9 @@
 import React from 'react';
-import './TopExchangesItem.css';
+import '../../assets/style/TopExchangesItem.css';
 
-const TopExchangesItem = ({key, exchange, fromSymbol, toSymbol, volume24H, volume24HTo}) => {
+const TopExchangesItem = ({exchange, fromSymbol, toSymbol, volume24H, volume24HTo}) => {
     return (
         <div className="top-exchanges-item__container">
-            {key}
             <ul className="top-exchanges-item__wrapper">
                 <li className="top-exchanges-item__item">{exchange}</li>
                 <li className="top-exchanges-item__item">{fromSymbol}</li>

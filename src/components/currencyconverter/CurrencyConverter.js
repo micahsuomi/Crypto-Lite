@@ -11,10 +11,12 @@ export class CurrencyConverter extends Component {
             xrpPrice: '',
             bchPrice: '',
             ltcPrice: '',
+            etcPrice: '',
             result: '',
             price:'',
             isSwitched: true,
-            cryptoResult:''
+            cryptoResult:'',
+            pricesArr: []
         }
     }
 
@@ -23,6 +25,11 @@ export class CurrencyConverter extends Component {
         fetch(urlBTC)
         .then((response) => response.json())
         .then((data) => {
+           let BTC = {}
+           BTC.name = 'BTC'
+           BTC.priceUSD = data.USD
+           BTC.priceEUR = data.EUR
+           this.setState({pricesArr: [...this.state.pricesArr, BTC]})
            let price = data.USD
            this.setState({btcPrice: price})
 
@@ -32,6 +39,12 @@ export class CurrencyConverter extends Component {
         fetch(urlETH)
         .then((response) => response.json())
         .then((data) => {
+           let ETH = {};
+           ETH.name = 'ETH';
+           ETH.priceUSD = data.USD; 
+           ETH.priceEUR = data.EUR
+
+           this.setState({pricesArr: [...this.state.pricesArr, ETH]})
            let price = data.USD
            this.setState({ethPrice: price})
 
@@ -42,7 +55,12 @@ export class CurrencyConverter extends Component {
         fetch(urlXRP)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
+            let XRP = {};
+           XRP.name = 'XRP';
+           XRP.priceUSD = data.USD; 
+           XRP.priceEUR = data.EUR
+
+           this.setState({pricesArr: [...this.state.pricesArr, XRP]})
            let price = data.USD
            this.setState({xrpPrice: price})
 
@@ -52,9 +70,29 @@ export class CurrencyConverter extends Component {
         fetch(urlBCH)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
+            let BCH = {};
+           BCH.name = 'BCH';
+           BCH.priceUSD = data.USD; 
+           BCH.priceEUR = data.EUR
+
+           this.setState({pricesArr: [...this.state.pricesArr, BCH]})
            let price = data.USD
            this.setState({bchPrice: price})
+
+        })
+
+        const urlETC = 'https://min-api.cryptocompare.com/data/price?fsym=ETC&tsyms=USD,JPY,EUR'
+        fetch(urlETC)
+        .then((response) => response.json())
+        .then((data) => {
+            let ETC = {};
+            ETC.name = 'ETC';
+            ETC.priceUSD = data.USD; 
+            ETC.priceEUR = data.EUR
+
+            this.setState({pricesArr: [...this.state.pricesArr, ETC]})
+           let price = data.USD
+           this.setState({etcPrice: price})
 
         })
 
@@ -63,6 +101,12 @@ export class CurrencyConverter extends Component {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
+            let LTC = {};
+            LTC.name = 'LTC';
+            LTC.priceUSD = data.USD; 
+            LTC.priceEUR = data.EUR
+
+            this.setState({pricesArr: [...this.state.pricesArr, LTC]})
            let price = data.USD
            this.setState({ltcPrice: price})
 
@@ -94,9 +138,8 @@ export class CurrencyConverter extends Component {
     }
 
     selectCurrency = (e) => {
-        let {value, name} = e.target;
+        let {value} = e.target;
         this.setState({price : value})
-        console.log(value, name)
         console.log(this.state.price)
     }
 
@@ -107,9 +150,12 @@ export class CurrencyConverter extends Component {
          
     }
     render() {
+
+        console.log(this.state.pricesArr)
+        let {btcPrice, ethPrice, xrpPrice, bchPrice, etcPrice, ltcPrice} = this.state
         return (
             <div className="currency-form__container">
-                <h1 className="main-center-header">Currency Converter</h1>
+                <h1 className="main-center-header currency-header">Currency Converter</h1>
 
                 {this.state.isSwitched ? 
 
@@ -129,18 +175,15 @@ export class CurrencyConverter extends Component {
                     </div>
                     </div>
 
-                    <label>Crypto</label>
+                    <label>Currency</label>
                     <select className="select-currency" onChange={this.selectCurrency}>
-                        <option>---Choose Currency</option>
-                        <option 
-                        value={this.state.btcPrice}>
-                        BTC
-                        </option>
-                        
-                        <option value={this.state.ethPrice}>ETH</option>
-                        <option value={this.state.bchPrice}>BCH</option>
-                        <option value={this.state.ltcPrice}>LTC</option>
-                        <option value={this.state.xrpPrice}>XRP</option>
+                      <option>---Choose Currency</option>
+                      <option value={btcPrice}>Bitcoin (BTC)</option>
+                      <option value={ethPrice}>Ethereum (ETH)</option>
+                      <option value={xrpPrice}>XRP (XRP)</option>
+                      <option value={bchPrice}>Bitcoin Cash (BCH)</option>
+                      <option value={ltcPrice}>Litecoin (LTC)</option>
+                      <option value={etcPrice}>Ethereum Classic( ETC)</option>
 
                     </select>
                     <div className="btn-arrow__container">
@@ -149,6 +192,7 @@ export class CurrencyConverter extends Component {
                     </div>
                     <div className="result-container" >
                     <h2>{this.state.result}</h2>
+                    
                 </div>
 
                 </form> : 
@@ -170,12 +214,13 @@ export class CurrencyConverter extends Component {
 
                   <label>Currency</label>
                   <select className="select-currency" onChange={this.selectCurrency}>
-                      <option>---Choose Currency</option>
-                      <option value={this.state.btcPrice}>BTC</option>
-                      <option value={this.state.ethPrice}>ETH</option>
-                      <option value={this.state.bchPrice}>BCH</option>
-                      <option value={this.state.ltcPrice}>LTC</option>
-                      <option value={this.state.xrpPrice}>XRP</option>
+                      <option>---Choose Crypto Currency</option>
+                      <option value={btcPrice}>Bitcoin (BTC)</option>
+                      <option value={ethPrice}>Ethereum (ETH)</option>
+                      <option value={xrpPrice}>XRP (XRP)</option>
+                      <option value={bchPrice}>Bitcoin Cash (BCH)</option>
+                      <option value={ltcPrice}>Litecoin (LTC)</option>
+                      <option value={etcPrice}>Ethereum Classic( ETC)</option>
 
 
                   </select>

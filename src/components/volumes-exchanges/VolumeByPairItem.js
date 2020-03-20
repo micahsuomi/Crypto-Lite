@@ -1,10 +1,9 @@
 import React from 'react';
-import './VolumeByPairItem.css';
+import '../../assets/style/VolumeByPairItem.css';
 
-const VolumeByPairItem = ({key, name, supply, symbol, volume}) => {
+const VolumeByPairItem = ({name, supply, symbol, volume}) => {
     return (
         <div className="volume-item-container">
-            {key}
             <ul className="volume-item-list">
                 <li className="volume-list__item"><span className="bold bigger-text">{name}</span></li>
                 <li className="volume-list__item"><span className="bold"></span>{supply}</li>

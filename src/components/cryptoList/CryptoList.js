@@ -3,6 +3,8 @@ import '../../assets/style/cryptolist.css';
 import Crypto from './Crypto';
 import Loader from '../commons/Loader';
 
+
+
 let flag = false;
 const toggle = () => {
   flag = !flag;
@@ -53,7 +55,8 @@ class CryptoList extends Component {
         .then(data => {
             let cryptoArr = [];
             for(const crypto in data.Data) {
-                let id = data.Data[crypto].CoinInfo.id;
+                
+                let id = data.Data[crypto].CoinInfo.Id;
                 let img = data.Data[crypto].CoinInfo.ImageUrl;
                 let name=data.Data[crypto].CoinInfo.FullName;
                 let symbol=data.Data[crypto].CoinInfo.Name;
@@ -71,9 +74,6 @@ class CryptoList extends Component {
                 result: ''
 
             })
-            
-           
-
 
       
         })
@@ -105,9 +105,7 @@ class CryptoList extends Component {
                 } else {
                     this.setState({result: ''})
                 }
-               
-            
-    
+
             
         }
         
@@ -178,30 +176,21 @@ class CryptoList extends Component {
           
 
         const cryptos = this.state.filteredCryptos.map(crypto => (
-
             <Crypto 
-            key={crypto.id} 
-            img={crypto.img}
-            name={crypto.name} 
-            symbol={crypto.symbol} 
-            price={crypto.price} 
-            percentageChange={crypto.percentageChange}
-            supply={crypto.supply}
-            marketCap={crypto.marketCap}
-            />
+            crypto={crypto}/>
 
-   
         ))
-
        
     let {name, price, change24hr, marketCap, supply} = this.state.links;
     let {text} = this.state.text;
-        
       return(
           <div>
             <div>
-                <form onSubmit={this.handleSubmit} className="form-container">
-                <p className="form-text">Top {this.state.cryptos.length} crypto currencies by market cap</p>
+                <form onSubmit={this.handleSubmit} 
+                className="form-container">
+                <p className="form-text">
+                Top {this.state.cryptos.length} crypto currencies by market cap</p>
+
                 <div className="search-container">
                 <input
                 type="text"
@@ -225,17 +214,23 @@ class CryptoList extends Component {
 
                   <div className="value">Symbol</div>
                   <div className="value">
-                  <a href className="value-link" 
-                  onClick={this.sortByName} style={this.state.isNameClicked ? style1 : style2}>{name}</a></div>
-
-                  <div className="value" style={style2}>{price}</div>
+                  <p className="value-link" 
+                  onClick={this.sortByName} 
+                  style={this.state.isNameClicked 
+                  ? style1 : style2}>
+                      {name}</p></div>
 
                   <div className="value" 
-                  style={this.state.isNameClicked ? style1 : style2}><a href className="value-link" onClick={this.sortByPercentage}>{change24hr}</a></div>
+                  style={style2}>{price}</div>
 
-                  <div className="value" style={this.state.isNameClicked ? style1 : style2}><a href className="value-link" onClick={this.sortByMarketCap}>{marketCap}</a></div>
+                  <div className="value" 
+                  style={this.state.isNameClicked ? style1 : style2}><p className="value-link" onClick={this.sortByPercentage}>{change24hr}</p></div>
 
-                  <div className="value" style={this.state.isNameClicked ? style1 : style2}><a href className="value-link" onClick={this.sortBySupply}>{supply}</a></div>
+                  <div className="value" 
+                  style={this.state.isNameClicked ? style1 : style2}>
+                      <p className="value-link" onClick={this.sortByMarketCap}>{marketCap}</p></div>
+
+                  <div className="value" style={this.state.isNameClicked ? style1 : style2}><p className="value-link" onClick={this.sortBySupply}>{supply}</p></div>
               </div>
              
             <div>

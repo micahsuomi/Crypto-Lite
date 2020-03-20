@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TopExchangesItem from './TopExchangesItem';
-import './TopExchangesVolume.css';
+import '../../assets/style/TopExchangesVolume.css';
 
 class TopExchangesVolume extends Component {
     constructor() {
@@ -16,6 +16,7 @@ class TopExchangesVolume extends Component {
         fetch(`https://min-api.cryptocompare.com/data/top/exchanges?fsym=BTC&tsym=USD&limit=21`)
         .then(response => response.json())
         .then(data => {
+            console.log(data.Data)
             this.setState({
                 topExchanges: data.Data,
                 loading: false
@@ -28,7 +29,7 @@ class TopExchangesVolume extends Component {
     render() {
         const topExchangesList = this.state.topExchanges.map(exchange => (
             <TopExchangesItem 
-                key = {exchange.id}
+                key = {exchange.exchange}
                 exchange = {exchange.exchange}
                 fromSymbol = {exchange.fromSymbol}
                 toSymbol = {exchange.toSymbol}

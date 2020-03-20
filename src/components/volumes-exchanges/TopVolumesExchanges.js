@@ -1,6 +1,6 @@
 import React from 'react'
 import VolumeByPairList from './VolumeByPairList';
-import './TopVolumesExchanges.css';
+import '../../assets/style/TopVolumesExchanges.css';
 import TopExchangesVolume from './TopExchangesVolume';
 
 const TopVolumesExchanges = () => {

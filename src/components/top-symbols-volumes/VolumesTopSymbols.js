@@ -1,6 +1,6 @@
 import React from 'react';
 import TopVolumeList from './TopVolumeList';
-import './VolumesTopSymbols.css';
+import '../../assets/style/VolumesTopSymbols.css';
 import TopSymbolsList from './TopSymbolsList';
 import TopVolumesExchanges from '../../components/volumes-exchanges/TopVolumesExchanges';
 

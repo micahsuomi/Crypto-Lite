@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import Header from './components/header/Header';
-import './assets/style/cryptolist.css'; 
-import './assets/style/newslist.css'; 
-import Crypto from './components/cryptoList/Crypto';
-import TopVolume from './components/top-symbols-volumes/TopVolume';
-import News from './components/news/News';
-import Loader from './components/commons/Loader';
-import NewFeedList from './components/news/NewsFeedList';
-import './Home.css';
+import Header from '../header/Header';
+import '../../assets/style/cryptolist.css'; 
+import '../../assets/style/newslist.css'; 
+import Crypto from '../cryptoList/Crypto';
+import TopVolume from '../top-symbols-volumes/TopVolume';
+import News from '../news/News';
+import Loader from '../commons/Loader';
+import NewFeedList from '../news/NewsFeedList';
+import '../../assets/style/Home.css';
+import { NavLink } from 'react-router-dom';
 
 class Home extends Component {
 
@@ -30,9 +31,26 @@ class Home extends Component {
         .then(data => {
             console.log(data.Data);
             
+            let cryptoArr = [];
+            for(const crypto in data.Data) {
+                
+                let id = data.Data[crypto].CoinInfo.Id;
+                let img = data.Data[crypto].CoinInfo.ImageUrl;
+                let name=data.Data[crypto].CoinInfo.FullName;
+                let symbol=data.Data[crypto].CoinInfo.Name;
+                let price = data.Data[crypto].DISPLAY.USD.PRICE;
+                let percentageChange=data.Data[crypto].DISPLAY.USD.CHANGEPCTDAY;
+                let supply=data.Data[crypto].DISPLAY.USD.SUPPLY;
+                let marketCap=data.Data[crypto].DISPLAY.USD.MKTCAP;
+                cryptoArr.push({id, img, name, symbol, price, percentageChange, supply, marketCap})
+                
+            }
+            
             this.setState({
-                cryptos: data.Data,
-                isLoading: true
+                cryptos: cryptoArr, 
+                isLoading: true,
+                result: ''
+
             })
 
       
@@ -41,9 +59,29 @@ class Home extends Component {
         fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD")
         .then(response => response.json())
         .then(data => {
-            
+            console.log(data.Data)
+
+            let volumeArr = [];
+            for(const volume in data.Data) {
+
+                let infoData = data.Data[volume].CoinInfo;
+                let priceData = data.Data[volume].DISPLAY.USD;
+                let id = infoData.Id;
+                let img = infoData.ImageUrl;
+                let name = infoData.FullName;
+                let proofType = infoData.ProofType;
+                let open = priceData.OPEN24HOUR;
+                let lastMarket = priceData.LASTMARKET;
+                let volume24HR = priceData.VOLUME24HOUR;
+                let totalVolume = priceData.TOTALVOLUME24H;
+                volumeArr.push({id, img, name, proofType, open, lastMarket, volume24HR, totalVolume});
+
+                
+
+                
+            }
             this.setState({
-                topVolume : data.Data,
+                topVolume : volumeArr,
                 isLoading: true
             })
 
@@ -68,33 +106,21 @@ class Home extends Component {
         const cryptos = this.state.cryptos.map(crypto => (
 
             <Crypto 
-            key={crypto.CoinInfo.id} 
-            img={crypto.CoinInfo.ImageUrl}
-            name={crypto.CoinInfo.FullName} 
-            symbol={crypto.CoinInfo.Name} 
-            price={crypto.DISPLAY.USD.PRICE} 
-            percentageChange={crypto.DISPLAY.USD.CHANGEPCTDAY}
-            supply={crypto.DISPLAY.USD.SUPPLY}
-            marketCap={crypto.DISPLAY.USD.MKTCAP}
+            key={crypto.id}
+            crypto={crypto} 
+            
             />
-
    
         ))
 
-        const topVolumeData = this.state.topVolume.map((item) => (
+        const topVolumeData = this.state.topVolume.map((volume) => (
             <TopVolume 
-            key={item.CoinInfo.Id}
-            image={item.CoinInfo.ImageUrl}
-            name={item.CoinInfo.FullName} 
-            type={item.CoinInfo.ProofType}
-            open={item.DISPLAY.USD.OPEN24HOUR}
-            lastMarket={item.DISPLAY.USD.LASTMARKET}
-            volume={item.DISPLAY.USD.VOLUME24HOUR}
-            totalVolume={item.DISPLAY.USD.TOTALVOLUME24H} />
+            key={volume.id}
+            volume={volume} />
         
         ))
 
-        const newsList = this.state.newsList.map(newsItem => (
+        const newsList = this.state.newsList.map((newsItem) => (
             <News
                     key={newsItem.id}
                     body={newsItem.body}
@@ -130,23 +156,23 @@ class Home extends Component {
               </div>
               { this.state.isLoading ? 
 
-             
+             <div>
                     <div className="list-value">
                     {cryptos} 
-
-             
-            
+                    </div>
+                    <NavLink to="/marketprices"><p className="view-all">View All</p></NavLink>
             </div>
             : <Loader />
         }
 
         {this.state.isLoading ? 
-            <div className="top-volume-container">
-            <h1 className="main-center-header">Top Volume Coins</h1>
-                <div className="top-volume-wrapper">
-                {topVolumeData}
-                </div>
-            </div>
+
+             <div className="top-volume-container">
+             <h1 className="main-center-header">Top Volume Coins</h1>
+                 <div className="top-volume-wrapper">
+                 {topVolumeData}
+                 </div>
+             </div>
             : <Loader />
         }
 

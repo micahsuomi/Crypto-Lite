@@ -2,10 +2,19 @@
     padding: 10rem 8rem;
     min-height: 100vh;
     background-color: white;
+    background-image: linear-gradient(to right, rgba(79, 172, 254, 0.5) 0%, rgba(0, 242, 254, .7) 100%), 
+    url("https://www.ledger.com/wp-content/uploads/2019/04/blogpost-crypto-secure.png");
+    background-position: top;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.currency-header {
+    font-size: var(--font-size-mediumbig); 
+    color: white;
 }
 
 .currency-converter__form {
@@ -14,12 +23,14 @@
     justify-content: center;
     align-items: center;
     line-height: 1.7;
-    border: 1px solid rgb(228, 223, 223);
+    border: 2px solid var(--color-secondary-dark);
     padding: 7rem 8rem;
-    margin-top: 3rem;
-    background-color: lightgrey;
+    margin-top: 5rem;
+    background-color: rgb(255, 248, 246);
     width: 55rem;
     height: 45rem;
+    border-radius: 5px;
+    
 }
 
 label {
@@ -28,10 +39,12 @@ label {
     text-align: center;
 }
 
-.inputs-arrows__container {
+.inputs-arrows__container,
+.btn-arrow__container {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 4rem;
 
 }
 input {
@@ -41,19 +54,20 @@ input {
 .select-currency {
     margin-top: .5rem;
     padding: 1rem;
-    width: 24rem;
+    width: 35rem;
 
 }
 
 .arrow {
     color: var(--color-secondary-dark);
-    margin-left: .3rem;
+    margin-left: .1rem;
 }
 
 .switch {
     background: none;
     border: none;
     cursor: pointer;
+    margin-left: 1rem;
 }
 
 
@@ -67,7 +81,6 @@ input {
 .calculate-btn {
     padding: 1.3rem;
     width: 12rem;
-    margin-top: 3rem;
     border: none;
     background-color: var(--color-secondary-dark);
     color: white;
