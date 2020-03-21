@@ -34,7 +34,6 @@ class App extends Component {
     fetch(APIURL)
     .then(response => response.json())
     .then(data => {
-        console.log(data.Data);
         let cryptoArr = [];
         for(const crypto in data.Data) {
             
@@ -85,7 +84,6 @@ class App extends Component {
   
   render() {
 
-  console.log(this.state)
      return(
         <Router>
         <div className="App">

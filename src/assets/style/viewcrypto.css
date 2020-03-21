@@ -1,6 +1,10 @@
 .view-crypto__background {
     padding: 8rem 3rem;
     background-color: lightslategrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .view-crypto__container {
@@ -86,7 +90,79 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 4.5rem;
     justify-items: center;
     padding: 1rem 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .view-crypto__background {
+        padding: 0 3rem;
+        background-color: lightslategrey;
+        min-height: 100vh;
+    }
+    .view-crypto__container {
+        padding: 0 1rem;
+        min-height: 54vh;
+        
+    }
+
+    .crypto-content__body {
+        margin-top: 5.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .view-crypto__background {
+        padding: 0 .5rem;
+        
+    }
+    .view-crypto__container {
+        padding: 0;
+        line-height: 1.4;
+
+        
+    }
+
+    .navigation-exit__container {
+        width: 94vw;
+        
+    }
+
+    .view-crypto__header {
+        font-size: var(--font-size-medium)
+    }
+
+    .view-crypto__img {
+        width: 15%;
+        margin-top: 2rem;
+    
+    }
+
+    .view-crypto__name,
+    .view-crypto__symbol {
+        font-size: var(--font-size-medium);
+        margin-top: 1rem;
+    
+    
+    }
+
+    .view-crypto__content {
+        padding: 6rem 0rem;
+    }
+
+
+    .crypto-content__body {
+        margin-top: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    
+    .navigation-exit__container {
+        margin-top: 2rem;
+        
+    }
 }

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Wallet from './Wallet';
 import Loader from '../commons/Loader';
 import '../../assets/style/walletlist.css';
+import '../../assets/style/searchform.css';
+
 
 const API_KEY = '5a3c910d4d4fed7d3d6e711f3845a09d9916452c3ca4f60532b0bc5e703ba41c'
 const URL = 'https://min-api.cryptocompare.com/data/wallets/general?api_key='

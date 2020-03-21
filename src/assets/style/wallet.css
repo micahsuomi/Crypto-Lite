@@ -41,3 +41,34 @@
     color: var(--color-primary-light);
 }
 
+@media screen and (max-width: 1024px) {
+    .wallet-container {
+        height: 41em;
+        width: 35rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wallet-container {
+        height: 41em;
+        width: 28.5rem;
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .wallet-container {
+        height: 37em;
+        width: 50rem;
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .wallet-container {
+        height: 37em;
+        width: 41.5rem;
+    }
+}
+
+

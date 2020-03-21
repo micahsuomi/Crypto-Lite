@@ -1,64 +1,4 @@
 
-.form-container {
-    height: 37vh;
-    padding: 10rem;
-    display: flex;
-    justify-content: center;
-    background-color: rgb(243, 236, 236);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* background-image: linear-gradient(to right, rgba(79, 172, 254, 0.8) 0%, rgba(0, 242, 254, .9) 100%), 
-    url("https://www.ledger.com/wp-content/uploads/2019/04/blogpost-crypto-secure.png");  */
-    /* background-color: var(--color-secondary-light); */
-    background-size: cover;
-    background-position: center;
-    margin-top: 2rem;
-}
-
-.search-container {
-    margin-top: 2rem;
-}
-
-input {
-    margin-top: 5rem;
-    border: 1px solid var(--color-primary-light);
-    padding: 1.4rem;
-    width: 34rem;
-    border-radius: 25px;
-}
-
-input:focus {
-    outline: none;
-}
-
-.form-text {
-    margin-top: 4rem;
-    color: var(--color-secondary-dark);
-    font-size: var(--font-size-medium);
-}
-
-
-.Btn-Search {
-  padding: 0.49rem;
-  background-color: var(--color-secondary-dark);
-  border: 0;
-  color: white;
-  text-transform: uppercase;
-  padding: 1.4rem;
-  font-weight: 700;
-  cursor: pointer;
-  margin-left: 1em;
-  border-radius: 25px;
-  width: 10rem;
-}
-
-.Btn-Search:hover {
-  background-color: var(--color-secondary-light);
-  transform: translateY(-.05rem);
-
-}
 .market-prices__header-container {
     display: flex;
     justify-content: center;
@@ -124,16 +64,6 @@ input:focus {
 
 @media screen and (max-width: 500px) {
 
-    .search-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .Btn-Search {
-        margin-top: 2rem;
-    }
     .list-values,
     .list-container {
         padding: .5em 0;

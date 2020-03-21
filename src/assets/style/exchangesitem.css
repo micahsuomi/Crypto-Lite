@@ -1,16 +1,27 @@
 .exchanges-item-container {
     margin-top: 2rem;
-    border: 1px solid lightgray;
-    padding: 2rem;
+    border: 1px solid rgba(212, 212, 212, .3);
+    padding: 2rem 3rem;
+    /* background-color: var(--color-secondary-dark); */
+    background-color: var(--color-secondary-light-hover);
+    line-height: 1.7;
 }
+
 
 .exchange-header {
     font-size: var(--font-size-medium);
+    color: white;
 }
 
+.exchange-currency {
+    margin-left: 2rem;
+    font-size: var(--font-size-small);
+
+}
 .exchange-details {
     font-size: var(--font-size-small);
     list-style: none;
+    color: white;
 
 }
 
@@ -18,5 +29,25 @@
     list-style: none;
 }
 .pair-paragraph {
-    font-size: var(--font-size-verysmall)
+    font-size: var(--font-size-verysmall);
+    color: white;
+}
+
+details {
+    color: var(--color-secondary-dark);
+    color:white;
+}
+.pairs-list {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    margin-left: 5rem;
+}
+
+.pair {
+    margin-left: 2rem;
+}
+
+.pair-header {
+    color: var(--color-primary-dark);
 }

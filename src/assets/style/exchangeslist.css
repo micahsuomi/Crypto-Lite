@@ -1,6 +1,23 @@
 .exchanges-list__container {
-    padding: 4rem 4rem;
+    padding: 10rem 4rem;
     background-color: white;
-    margin-top: 4rem;
 }
+
+.exchanges-list__wrapper {
+    margin-top: 5rem;
+}
+
+.top-currencies__exchanges__container {
+    padding: 5rem 0;
+
+}
+
+.top-currencies__exchanges__wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 5rem;
+    grid-gap: 2rem;
+    
+}
+
 

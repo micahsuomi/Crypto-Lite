@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../../assets/style/cryptolist.css'; 
+import '../../assets/style/searchform.css';
 import Crypto from './Crypto';
 import Loader from '../commons/Loader';
 
