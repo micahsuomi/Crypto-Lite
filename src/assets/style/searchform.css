@@ -89,3 +89,10 @@ input:focus {
         width: 15rem;
     }
 }
+
+@media screen and (max-width: 320px) {
+    .form-container {
+        height: 36vh;
+        padding: 4rem 3rem;
+    }
+}

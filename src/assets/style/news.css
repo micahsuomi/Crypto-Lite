@@ -62,9 +62,14 @@
 
 @media screen and (max-width: 500px) {
 
+    .news-item {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    
+    }
     .news-item__left img {
-        width: 24em;
-        height: 24em;
+        width: 20em;
+        height: 20em;
     }
     /* .news-item__hide-mobile {
         display: none;

@@ -150,7 +150,7 @@ class Home extends Component {
                   <div className="value" >Price</div>
                   <div className="value">Change (24h)</div>
                   <div className="value">Market Cap</div>
-                  <div className="value">Supply</div>
+                  <div className="value hide-mobile">Supply</div>
               </div>
               { this.state.isLoading ? 
 

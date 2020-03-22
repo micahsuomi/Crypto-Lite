@@ -28,6 +28,14 @@
     
 }
 
+@media screen and (max-width: 500px) {
+    .top-currencies__exchanges__wrapper {
+        grid-template-columns: repeat(3, 1fr);
+     
+        
+    }
+}
+
 
 
 

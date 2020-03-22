@@ -274,9 +274,9 @@ class CryptoList extends Component {
                   style={this.state.isNameClicked ? style1 : style2}>
                       <p className="value-link" onClick={this.sortByMarketCap}>{marketCap}</p></div>
 
-                  <div className="value" 
+                  <div className="value hide-mobile" 
                   style={this.state.isNameClicked ? style1 : style2}>
-                      <p className="value-link hide-mobile" onClick={this.sortBySupply}>{supply}</p></div>
+                      <p className="value-link" onClick={this.sortBySupply}>{supply}</p></div>
               </div>
              
             <div>
