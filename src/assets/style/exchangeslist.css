@@ -12,6 +12,14 @@
 
 }
 
+.top-currencies__exchanges__header {
+    color: var(--color-secondary-dark);
+    font-size: var(--font-size-medium);
+    text-align: center;
+    margin-top: 2rem;
+
+}
+
 .top-currencies__exchanges__wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -19,5 +27,7 @@
     grid-gap: 2rem;
     
 }
+
+
 
 

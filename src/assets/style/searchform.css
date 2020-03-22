@@ -68,7 +68,7 @@ input:focus {
 
 @media screen and (max-width: 500px) {
     .form-container {
-        height: 42vh;
+        height: 33vh;
     }
 
     .search-container {
@@ -80,6 +80,8 @@ input:focus {
 
     .input {
         width: 33rem;
+        padding: 1.3rem;
+        font-size: var(--font-size-verysmall)
     }
 
     .Btn-Search {

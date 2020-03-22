@@ -32,6 +32,9 @@
 }
 
 @media screen and (max-width: 500px) {
+    .hide-mobile {
+        display: none;
+    }
     .crypto-values {
         padding: 1em;
     }
@@ -39,12 +42,13 @@
     .crypto-values-list {
         padding: .5rem 0 .5rem 0rem;
         margin-left: 0;
+        grid-template-columns: 11.28% 11.28% 23.28% 22.28% 15.28% 15.28%;
     }
 
     .crypto-img {
         width: 30%; 
     }
     .crypto-value {
-        font-size: var(--font-size-verysmall);
+        font-size: var(--font-size-small);
     }
 }

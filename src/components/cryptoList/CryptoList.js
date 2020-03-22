@@ -3,6 +3,7 @@ import '../../assets/style/cryptolist.css';
 import '../../assets/style/searchform.css';
 import Crypto from './Crypto';
 import Loader from '../commons/Loader';
+import TopGainer from './TopGainer';
 
 
 
@@ -23,6 +24,7 @@ class CryptoList extends Component {
             filteredCryptos: [],
             title: "Market Prices",
             isLoading: false,
+            isSearching: false,
             links: {
                 
                     name: 'Name',
@@ -102,9 +104,11 @@ class CryptoList extends Component {
                 this.setState({filteredCryptos: cryptoArr})
                 this.setState({text: ''});
                 if(value.length > 0) {
-                    this.setState({result: `There are ${cryptoArr.length} cryptocurrencies with this search result`})
+                    this.setState({
+                        result: `There are ${cryptoArr.length} cryptocurrencies with this search result`,
+                        isSearching: true})
                 } else {
-                    this.setState({result: ''})
+                    this.setState({isSearching: false, result: ''})
                 }
 
             
@@ -137,8 +141,9 @@ class CryptoList extends Component {
         if(flag === true) {
             this.setState({
                 cryptos: this.state.cryptos.sort((a, b) => {
-                    if(a.percentageChange > b.percentageChange) return -1;
-                    if(a.percentageChange < b.percentageChange) return 1;
+
+                    if((a.percentageChange > b.percentageChange) && ( a.percentageChange || b.percentageChange > 0)) return -1;
+                    if((a.percentageChange < b.percentageChange) && ( a.percentageChange || b.percentageChange > 0)) return 1;
                     return 0;
             
                 })
@@ -174,8 +179,35 @@ class CryptoList extends Component {
 
 
     render() {
-          
 
+        let filteredPerformers = []; 
+        let filteredLosers = [];
+        for(const crypto of this.state.filteredCryptos) {
+            let performersObj = {};
+            performersObj.id = crypto.id;
+            performersObj.img = crypto.img;
+            performersObj.name = crypto.name;
+            performersObj.symbol = crypto.symbol;
+            performersObj.price = crypto.price;
+            performersObj.percentageChange = crypto.percentageChange;
+            filteredPerformers.push(performersObj);
+        }
+
+        console.log(filteredPerformers);
+        let sortedPerformers = filteredPerformers.sort((a, b) => {
+            if(a.percentageChange > b.percentageChange) return -1;
+            if(a.percentageChange < b.percentageChange) return 1;
+            return 0
+        })
+        console.log(sortedPerformers);
+        let topFivePerformers = sortedPerformers.slice(0, 5);
+        console.log(topFivePerformers)
+        
+
+        let topGainersList = topFivePerformers.map((performer) => (
+            <TopGainer key={performer.id}
+                       performer={performer} />
+        ))
         const cryptos = this.state.filteredCryptos.map(crypto => (
             <Crypto 
             crypto={crypto}/>
@@ -200,12 +232,23 @@ class CryptoList extends Component {
                 onChange={this.handleChange}
                 placeholder="search crypto by name or symbol"         
                 />
-                <button className="Btn-Search">Search</button>
+                <button className="Btn-Search">Search</button>  
             </div>
             <p className="form-text">{this.state.result}</p>
         </form>
     </div>
-          <div className="list-container">
+    <div className="top-performers__container">
+
+        {
+            this.state.isSearching ? '' :  
+            <div>
+            <h3 className="top-performers__header">Top {topFivePerformers.length} Performers </h3>
+                <div className="top-gainer-list-wrapper">
+                    {topGainersList}
+                </div>
+                </div>
+             }
+            
 
              <div className="market-prices__header-container">
               <h2 className="main-center-header" id="marketPrices">{this.state.title}</h2>
@@ -231,13 +274,18 @@ class CryptoList extends Component {
                   style={this.state.isNameClicked ? style1 : style2}>
                       <p className="value-link" onClick={this.sortByMarketCap}>{marketCap}</p></div>
 
-                  <div className="value" style={this.state.isNameClicked ? style1 : style2}><p className="value-link" onClick={this.sortBySupply}>{supply}</p></div>
+                  <div className="value" 
+                  style={this.state.isNameClicked ? style1 : style2}>
+                      <p className="value-link hide-mobile" onClick={this.sortBySupply}>{supply}</p></div>
               </div>
              
             <div>
                 {this.state.isLoading ? 
+                <div>
+               
                 <div className="list-value">
                 {cryptos} 
+                </div>
                 </div>
                   :<Loader />} 
 

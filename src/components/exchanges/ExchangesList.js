@@ -172,7 +172,7 @@ class ExchangesList extends Component {
                 <div>
                 { this.state.isSearching ? '' :
                 <div className="top-currencies__exchanges__container">
-                    <h2>Top {slicedExchanges.length} exchanges with most currencies</h2>
+                    <h2 className="top-currencies__exchanges__header">Top {slicedExchanges.length} exchanges with most currencies</h2>
                     <div className="top-currencies__exchanges__wrapper">
                     {topCoinsExchanges}
                 </div>

@@ -5,11 +5,29 @@
     padding: 2rem;
     margin-top: 3rem;
 }
+
+.top-performers__container {
+    padding: 5rem 4rem;
+}
+.top-performers__header {
+    color: var(--color-secondary-dark);
+    font-size: var(--font-size-medium);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.top-gainer-list-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 2rem;
+}
+
 .crypto-market-header {
     color: rgb(83, 62, 83);
     font-size: var(--font-size-small);
     
 }
+
 
 .value-link {
     color: var(--color-secondary-dark);
@@ -54,6 +72,12 @@
     width: 20rem;
 }
 
+@media screen and (max-width: 1024px) {
+    .top-performers__container {
+        padding: 5rem 0rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .list-values,
     .list-value {
@@ -63,6 +87,9 @@
 }
 
 @media screen and (max-width: 500px) {
+    .hide-mobile {
+        display: none;
+    }
 
     .list-values,
     .list-container {
@@ -71,8 +98,8 @@
     }
 
     .list-values {
-        font-size: var(--font-size-verysmall);
-        grid-template-columns: 10.28% 12.78% 12.18% 16.08% 16.28% 16.28% 16.28%;  
+        font-size: var(--font-size-small);
+        grid-template-columns: 11.28% 12.78% 22.18% 17.08% 19.28% 15.28%;
 
     }
 

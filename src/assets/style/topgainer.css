@@ -1,0 +1,30 @@
+.top-gainer__container {
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.7;
+}
+
+.top-gainer__img {
+    width: 28%;
+
+}
+
+.top-gainer__name {
+    font-size: var(--font-size-medium);
+    color: var(--color-primary-light);
+    margin-top: 1rem;
+}
+
+.top-gainer__details {
+    font-size: var(--font-size-small);
+}
+
+@media screen and (max-width: 1024px) {
+    .top-gainer__container {
+        padding: 2rem 1rem;
+    }
+}
+
