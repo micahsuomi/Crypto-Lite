@@ -1,10 +1,11 @@
 .exchanges-item-container {
     margin-top: 2rem;
-    border: 1px solid rgba(212, 212, 212, .3);
+    border: .3px solid rgba(212, 212, 212, .3);
     padding: 2rem 3rem;
     /* background-color: var(--color-secondary-dark); */
     background-color: var(--color-secondary-light-hover);
     background-color: slateblue;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
     line-height: 1.7;
 }
 
@@ -17,6 +18,7 @@
 .exchange-currency {
     margin-left: 2rem;
     font-size: var(--font-size-small);
+  
 
 }
 .exchange-details {
@@ -26,12 +28,24 @@
 
 }
 
+.exchange-currency h4 {
+    color: var(--color-secondary-dark);
+}
+details {
+    color: var(--color-secondary-dark);
+}
+summary {
+    color: slateblue;
+}
+
 .exchange-list {
     list-style: none;
+    
 }
 .pair-paragraph {
     font-size: var(--font-size-verysmall);
     color: white;
+    background-color: rgb(152, 152, 155);
 }
 
 details {
@@ -47,8 +61,22 @@ details {
 
 .pair {
     margin-left: 2rem;
+    background-color: slateblue;
+    padding: .2rem .4rem;
+    border-radius: 5px;
 }
 
 .pair-header {
     color: var(--color-primary-dark);
+}
+
+@media screen and (max-width: 500px) {
+    .pairs-list {
+        flex-direction: column;
+    }
+
+    .pair {
+        margin-top: .2rem;
+        width: 5rem;
+    }
 }

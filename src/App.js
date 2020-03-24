@@ -7,6 +7,7 @@ import ViewCrypto from './components/viewcrypto/ViewCrypto';
 import VolumesTopSymbols from './components/top-symbols-volumes/VolumesTopSymbols';
 import ExchangesList from './components/exchanges/ExchangesList';
 import WalletList from './components/wallets/WalletList';
+import Watchlist from './components/watchlist/Watchlist';
 import CurrencyConverter from './components/currencyconverter/CurrencyConverter';
 import NewsList from './components/news/NewsList';
 import './assets/style/newslist.css';
@@ -23,9 +24,14 @@ class App extends Component {
       super();
       this.state={
         cryptos: [],
+        isSwitched: false
       }
 
      
+  }
+
+  switchMode = () => {
+      this.setState({isSwitched: !this.state.isSwitched})
   }
 
   componentDidMount() {
@@ -78,21 +84,24 @@ class App extends Component {
 
   
     })
- 
 
 }
   
   render() {
-
      return(
         <Router>
-        <div className="App">
+        <div className="App" 
+        style={this.state.isSwitched? 
+        {backgroundColor: 'var(--color-night-mode)',
+          color: 'white'} : 
+        {backgroundColor: 'white'}}>
 
-          <NavBar />
+          <NavBar switchMode={this.switchMode}/>
           <Switch>
           <Route path={"/marketprices"} 
           component={(props)=><CryptoList
           cryptos={this.state.filteredCryptos}
+          switchMode={this.state.isSwitched}
           {...props}/>}/>
 
           <Route path={"/viewcrypto/:id"}
@@ -110,27 +119,33 @@ class App extends Component {
 
             <Route path={"/wallets"} 
             component={WalletList} />
+
+            <Route path={"/watchlist"}
+            component={Watchlist} />
              
             <Route path={"/currencyconverter"}
             component={CurrencyConverter} />
               
-          <Route path={"/news"}
-          component={NewsList} />
+            <Route path={"/news"}
+            component={NewsList} />
             
             <Route path="/" 
-            component={Home} />
+            component={Home} 
+            switchMode={this.switchMode}
+            isSwitched={this.state.isSwitched}/>
               
           </Switch>
 
-        <div className="App">
       
         <Footer />
-        </div>
 </div>
           </Router>
 
       )
   }
 }
+
+const styleDay = {backgroundColor: 'white'}
+const styleNight = {backgroundColor: 'var(--color-night-mode)', color: 'white'}
 
 export default App;

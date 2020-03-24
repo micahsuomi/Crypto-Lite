@@ -13,6 +13,10 @@
   --color-secondary-light: rgb(43, 199, 219);
   --color-secondary-light-hover: rgb(27, 203, 216);
   --color-secondary-dark: rgb(25, 90, 174);
+  --color-warning: rgb(255, 0, 98);
+  --color-night-mode: #121212;
+  --color-navbar-day: linear-gradient(135deg, #666fea 0%, #1965a3 100%);
+  --color-navbar-night: linear-gradient(135deg, #af66ea 0%, #C38FFF 100%);
   
   --font-size-big: 5rem; 
   --font-size-mediumbig: 3rem;
@@ -55,8 +59,6 @@ body {
 
 
 .App {
-  /* background-image: linear-gradient(to right, 
-  rgba(79, 172, 254, 1) 0%, rgba(0, 242, 254, 1) 100%); */
   min-height: 100%;
   overflow: hidden;
 
@@ -73,6 +75,13 @@ body {
 .bold {
   font-weight: 700;
   color: var(--color-primary-dark);
+}
+
+.warning {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: var(--font-size-small);
+  color: var(--color-warning);
 }
 
 

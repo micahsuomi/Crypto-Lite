@@ -5,160 +5,101 @@ export class CurrencyConverter extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            pricesArr: [],
+            query: '',
             inputNum: '',
-            btcPrice: '',
-            ethPrice: '',
-            xrpPrice: '',
-            bchPrice: '',
-            ltcPrice: '',
-            etcPrice: '',
+            warning: '',
             result: '',
+            resultSymbol: '',
             price:'',
             isSwitched: true,
-            cryptoResult:'',
-            pricesArr: []
+            cryptoResult:''
         }
     }
 
     componentDidMount() {
-        const urlBTC = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,JPY,EUR'
-        fetch(urlBTC)
-        .then((response) => response.json())
-        .then((data) => {
-           let BTC = {}
-           BTC.name = 'BTC'
-           BTC.priceUSD = data.USD
-           BTC.priceEUR = data.EUR
-           this.setState({pricesArr: [...this.state.pricesArr, BTC]})
-           let price = data.USD
-           this.setState({btcPrice: price})
+
+        const APIURL = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=USD'
+
+        fetch(APIURL)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.Data)
+            let cryptoArr = [];
+            for(const crypto in data.Data) {
+                
+                let id = data.Data[crypto].CoinInfo.Id;
+                let name=data.Data[crypto].CoinInfo.FullName;
+                let symbol=data.Data[crypto].CoinInfo.Name;
+                let price = data.Data[crypto].RAW.USD.PRICE;
+                cryptoArr.push({id, name, symbol, price})
+                
+            }
+            
+            this.setState({
+                pricesArr: cryptoArr
+
+            })
 
         })
-
-        const urlETH = 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,JPY,EUR'
-        fetch(urlETH)
-        .then((response) => response.json())
-        .then((data) => {
-           let ETH = {};
-           ETH.name = 'ETH';
-           ETH.priceUSD = data.USD; 
-           ETH.priceEUR = data.EUR
-
-           this.setState({pricesArr: [...this.state.pricesArr, ETH]})
-           let price = data.USD
-           this.setState({ethPrice: price})
-
-        })
-
         
-        const urlXRP = 'https://min-api.cryptocompare.com/data/price?fsym=XRP&tsyms=USD,JPY,EUR'
-        fetch(urlXRP)
-        .then((response) => response.json())
-        .then((data) => {
-            let XRP = {};
-           XRP.name = 'XRP';
-           XRP.priceUSD = data.USD; 
-           XRP.priceEUR = data.EUR
-
-           this.setState({pricesArr: [...this.state.pricesArr, XRP]})
-           let price = data.USD
-           this.setState({xrpPrice: price})
-
-        })
-
-        const urlBCH = 'https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms=USD,JPY,EUR'
-        fetch(urlBCH)
-        .then((response) => response.json())
-        .then((data) => {
-            let BCH = {};
-           BCH.name = 'BCH';
-           BCH.priceUSD = data.USD; 
-           BCH.priceEUR = data.EUR
-
-           this.setState({pricesArr: [...this.state.pricesArr, BCH]})
-           let price = data.USD
-           this.setState({bchPrice: price})
-
-        })
-
-        const urlETC = 'https://min-api.cryptocompare.com/data/price?fsym=ETC&tsyms=USD,JPY,EUR'
-        fetch(urlETC)
-        .then((response) => response.json())
-        .then((data) => {
-            let ETC = {};
-            ETC.name = 'ETC';
-            ETC.priceUSD = data.USD; 
-            ETC.priceEUR = data.EUR
-
-            this.setState({pricesArr: [...this.state.pricesArr, ETC]})
-           let price = data.USD
-           this.setState({etcPrice: price})
-
-        })
-
-        const urlLTC = 'https://min-api.cryptocompare.com/data/price?fsym=LTC&tsyms=USD,JPY,EUR'
-        fetch(urlLTC)
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-            let LTC = {};
-            LTC.name = 'LTC';
-            LTC.priceUSD = data.USD; 
-            LTC.priceEUR = data.EUR
-
-            this.setState({pricesArr: [...this.state.pricesArr, LTC]})
-           let price = data.USD
-           this.setState({ltcPrice: price})
-
-        })
     }
 
     handleSwitch = () => {
         this.setState({isSwitched: !this.state.isSwitched});
     }
-    handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(this.state.price)
-        console.log(this.state.inputNum)
-        if(this.state.isSwitched) {
-                    
-            let result = this.state.inputNum / this.state.price;
-            console.log(result)
-            this.state.inputNum.length < 1 ? result = 0 : this.setState({result: result})
-    
-            
-        } else {
-            let result = Math.round(this.state.inputNum * this.state.price);
-            console.log(result)
 
-            this.state.inputNum.length < 1 ? result = 0 : this.setState({result: `${result} USD`})
+    //with new functions
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        if(this.state.inputNum.length < 1 || this.state.query === '') {
+            this.setState({
+                warning: 'Please fill both values', 
+                result: '', 
+                resultSymbol: ''})
+
+        } else {
+
+            for(const crypto of this.state.pricesArr) {
+                let symbol = crypto.symbol;
+                if(this.state.query === symbol) {
+                    let {price} = crypto;
+                    if(this.state.isSwitched) {
+                    let result = this.state.inputNum / price;
+                    console.log(result)
+                    this.state.inputNum.length < 1 ? result = 0 : this.setState({result: result, resultSymbol: symbol, warning: ''})
+                    
+                    
+                    } else {
+                        let result = Math.round(this.state.inputNum * price);
+                        this.state.inputNum.length < 1 ? result = 0 : this.setState({result: `${result} USD`, warning: ''})
+                    }
+                }
+            }
         }
-        
         
     }
 
     selectCurrency = (e) => {
         let {value} = e.target;
-        this.setState({price : value})
-        console.log(this.state.price)
+        this.setState({query: value});
+        
     }
 
     handleChange = (e) => {
         let {value} = e.target;
         this.setState({inputNum: value})
-        console.log(this.state.price)
          
     }
+
     render() {
 
-        console.log(this.state.pricesArr)
-        let {btcPrice, ethPrice, xrpPrice, bchPrice, etcPrice, ltcPrice} = this.state
         return (
             <div className="currency-form__container">
                 <h1 className="main-center-header currency-header">Currency Converter</h1>
 
                 {this.state.isSwitched ? 
-
                 <form className="currency-converter__form" onSubmit={this.handleSubmit}>
                     <div>
                     <label>Amount in USD</label>
@@ -178,20 +119,23 @@ export class CurrencyConverter extends Component {
                     <label>Currency</label>
                     <select className="select-currency" onChange={this.selectCurrency}>
                       <option>---Choose Currency</option>
-                      <option value={btcPrice}>Bitcoin (BTC)</option>
-                      <option value={ethPrice}>Ethereum (ETH)</option>
-                      <option value={xrpPrice}>XRP (XRP)</option>
-                      <option value={bchPrice}>Bitcoin Cash (BCH)</option>
-                      <option value={ltcPrice}>Litecoin (LTC)</option>
-                      <option value={etcPrice}>Ethereum Classic( ETC)</option>
+                      <option value='BTC'>Bitcoin (BTC)</option>
+                      <option value='ETH'>Ethereum (ETH)</option>
+                      <option value='XRP'>XRP (XRP)</option>
+                      <option value='BCH'>Bitcoin Cash (BCH)</option>
+                      <option value='LTC'>Litecoin (LTC)</option>
+                      <option value='ETC'>Ethereum Classic( ETC)</option>
 
                     </select>
+                  
                     <div className="btn-arrow__container">
                     <button className="calculate-btn">Calculate</button>
                     
                     </div>
+                <div className="warning">{this.state.warning}</div>
                     <div className="result-container" >
                     <h2>{this.state.result}</h2>
+                    <h2 className="result-symbol">{this.state.resultSymbol}</h2>
                     
                 </div>
 
@@ -214,20 +158,19 @@ export class CurrencyConverter extends Component {
 
                   <label>Currency</label>
                   <select className="select-currency" onChange={this.selectCurrency}>
-                      <option>---Choose Crypto Currency</option>
-                      <option value={btcPrice}>Bitcoin (BTC)</option>
-                      <option value={ethPrice}>Ethereum (ETH)</option>
-                      <option value={xrpPrice}>XRP (XRP)</option>
-                      <option value={bchPrice}>Bitcoin Cash (BCH)</option>
-                      <option value={ltcPrice}>Litecoin (LTC)</option>
-                      <option value={etcPrice}>Ethereum Classic( ETC)</option>
-
-
-                  </select>
+                      <option>---Choose Currency</option>
+                      <option value='BTC'>Bitcoin (BTC)</option>
+                      <option value='ETH'>Ethereum (ETH)</option>
+                      <option value='XRP'>XRP (XRP)</option>
+                      <option value='BCH'>Bitcoin Cash (BCH)</option>
+                      <option value='LTC'>Litecoin (LTC)</option>
+                      <option value='ETC'>Ethereum Classic( ETC)</option>
+                    </select>
                   <div className="btn-arrow__container">
                   <button className="calculate-btn">Calculate</button>
                   
                   </div>
+                  <div className="warning">{this.state.warning}</div>
                   <div className="result-container" >
                     <h2>{this.state.result}</h2>
                 </div>

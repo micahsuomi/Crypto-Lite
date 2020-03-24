@@ -1,8 +1,10 @@
 .navbar {
-    background-image: linear-gradient(135deg, #666fea 0%, #1965a3 100%);    
-    padding: 2rem;
+    /* background-image: linear-gradient(135deg, #666fea 0%, #1965a3 100%);     */
+    padding: 2rem 2rem;
     position: fixed;
     width: 100%;
+    height: 6rem;
+    z-index: 3;
 }
 
 .navbar-links {
@@ -35,10 +37,95 @@
 
 }
 
+.night-mode__switch__container {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    align-items: center;
+}
 
+.onoffswitch {
+    position: relative; 
+    width: 88px;
+    -webkit-user-select:none; 
+    -moz-user-select:none; 
+    -ms-user-select: none;
+    margin-left: 4rem;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; 
+    overflow: hidden; 
+    cursor: pointer;
+    border: .7px solid #999999; 
+    border-radius: 25px;
+    margin-top: -.5rem;
+}
+.onoffswitch-inner {
+    display: block; 
+    width: 200%; 
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; 
+    float: left; 
+    width: 50%; 
+    height: 30px; 
+    padding: 0; 
+    line-height: 30px;
+    font-size: 14px; 
+    color: white; 
+    font-family: Trebuchet, Arial, sans-serif; 
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: rgb(83, 62, 83); 
+    color: #FFFFFF;
+    text-align: left;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    color: #FFFFFF; 
+    background-color: #b1a6a6;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; 
+    width: 19px;
+    height: 19px;
+    margin-right: 5px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 12px;
+    right: 54px; 
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
 .hide-desktop {
     display: none;
 }
+
+.night-mode__label {
+    color: white;
+    margin-left: 2rem;
+    font-size: var(--font-size-verysmall);
+    text-transform: uppercase;
+}
+
 
 @media screen and (max-width: 850px) {
 

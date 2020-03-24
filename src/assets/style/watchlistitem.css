@@ -1,12 +1,22 @@
-.crypto-values-list {
+.watchlist-values-list {
     display: grid;
-    grid-template-columns: 10.28% 12.28% 12.28% 16.28% 16.28% 16.28% 16.28%;  
+    grid-template-columns: 10.28% 12.28% 9.28% 14.28% 13.28% 16.28% 16.28% 15%; 
     justify-items: start;
-    margin-left: 4rem;
+    align-items: center;
     
+    margin-left: 4rem;
+    width: 100vw;
+    padding: 1.5rem 1.4rem;    
+    border-bottom: 1px solid rgba(68, 68, 64, 0.3);
+
 }
 
-.crypto-value {
+.watchlist-values-list:nth-child(1) {
+    border-top: 1px solid rgba(68, 68, 64, 0.3);
+
+}
+
+.watchlist-value {
     font-weight: 400;
     font-size: var(--font-size-small);
     align-self: start;
@@ -26,6 +36,15 @@
 }
 
 .blue-text {
+    color: var(--color-secondary-light);
+}
+
+.delete-currency {
+    color: var(--color-secondary-dark);
+    cursor: pointer;
+}
+
+.delete-currency:hover {
     color: var(--color-secondary-light);
 }
 

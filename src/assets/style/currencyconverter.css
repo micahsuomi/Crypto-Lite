@@ -1,9 +1,9 @@
 .currency-form__container {
     padding: 10rem 8rem;
     min-height: 100vh;
-    background-color: white;
+    /* background-color: white;
     background-image: linear-gradient(to right, rgba(79, 172, 254, 0.5) 0%, rgba(0, 242, 254, .7) 100%), 
-    url("https://www.ledger.com/wp-content/uploads/2019/04/blogpost-crypto-secure.png");
+    url("https://www.ledger.com/wp-content/uploads/2019/04/blogpost-crypto-secure.png"); */
     background-position: top;
     background-size: cover;
     display: flex;
@@ -14,7 +14,7 @@
 
 .currency-header {
     font-size: var(--font-size-mediumbig); 
-    color: white;
+    /* color: white; */
 }
 
 .currency-converter__form {
@@ -50,12 +50,19 @@ label {
 input {
     margin-top: .5rem;
     width: 29rem;
+    
 }
 .select-currency {
     margin-top: .5rem;
     padding: 1rem;
     width: 35rem;
 
+}
+
+input,
+.select-currency {
+    font-family: 'Lato', sans-serif;
+    font-size: var(--font-size-small);
 }
 
 .arrow {
@@ -92,4 +99,19 @@ input {
 .result-container {
     margin-top: 2rem;
     font-size: var(--font-size-small);
+    display: flex;
+    
+}
+
+.result-symbol {
+    margin-left: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+    .currency-converter__form {
+        padding: 7rem 7rem;
+        width: 53rem;
+        
+}
+
 }

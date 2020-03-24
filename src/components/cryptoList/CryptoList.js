@@ -13,7 +13,6 @@ const toggle = () => {
   return flag;
 }
 
-const APIURL = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=USD'
 
 class CryptoList extends Component {
     constructor(props) {
@@ -53,6 +52,8 @@ class CryptoList extends Component {
    
   
     componentDidMount() {
+        const APIURL = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=USD'
+
         fetch(APIURL)
         .then(response => response.json())
         .then(data => {
@@ -92,7 +93,6 @@ class CryptoList extends Component {
     handleChange = (event) => {
         let cryptoArr = []
         let {value} = event.target;
-        console.log(value)
         this.setState({filteredCryptos: value})
      
             for(const crypto in this.state.cryptos) {
@@ -193,15 +193,12 @@ class CryptoList extends Component {
             filteredPerformers.push(performersObj);
         }
 
-        console.log(filteredPerformers);
         let sortedPerformers = filteredPerformers.sort((a, b) => {
             if(a.percentageChange > b.percentageChange) return -1;
             if(a.percentageChange < b.percentageChange) return 1;
             return 0
         })
-        console.log(sortedPerformers);
         let topFivePerformers = sortedPerformers.slice(0, 5);
-        console.log(topFivePerformers)
         
 
         let topGainersList = topFivePerformers.map((performer) => (
@@ -209,8 +206,8 @@ class CryptoList extends Component {
                        performer={performer} />
         ))
         const cryptos = this.state.filteredCryptos.map(crypto => (
-            <Crypto 
-            crypto={crypto}/>
+            <Crypto key={crypto.id}
+                    crypto={crypto}/>
 
         ))
        
@@ -268,7 +265,8 @@ class CryptoList extends Component {
                   style={style2}>{price}</div>
 
                   <div className="value" 
-                  style={this.state.isNameClicked ? style1 : style2}><p className="value-link" onClick={this.sortByPercentage}>{change24hr}</p></div>
+                  style={this.state.isNameClicked ? style1 : style2}>
+                      <p className="value-link" onClick={this.sortByPercentage}>{change24hr}</p></div>
 
                   <div className="value" 
                   style={this.state.isNameClicked ? style1 : style2}>

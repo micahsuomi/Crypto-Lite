@@ -8,7 +8,7 @@
 
 .news-header__left {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(156, 213, 216, 0.4) 100%), 
-    url("../../imgs/newsHeader.jpg");
+    url("./../imgs/newsHeader.jpg");
     background-position: center;
     background-size: cover;
 

@@ -10,7 +10,9 @@ class NavBar extends Component {
             isExitShowing: false,
             addClass: true,
             hideClass: true,
-            isClicked: false
+            isClicked: false,
+            isSwitched: false,
+
         }
   
     
@@ -24,7 +26,6 @@ class NavBar extends Component {
             hideClass: !this.state.hideClass, 
             isToggleShowing: false, 
             isExitShowing: true})
-        console.log('clicking')
     }
   
     close = () => {
@@ -42,6 +43,11 @@ class NavBar extends Component {
             isToggleShowing: true, 
             isExitShowing: false})
     }
+
+    switchMode = () => {
+        this.props.switchMode()
+        this.setState({isSwitched: !this.state.isSwitched})
+    }
     
     render() {
   
@@ -52,14 +58,13 @@ class NavBar extends Component {
         }
             else if(this.state.addClass && this.state.isClicked === true) {
                 navLinksClass.slice(1)
-                console.log(navLinksClass)
             }
         
 
         
         return(
           
-            <nav className="navbar">
+            <nav className="navbar" style={this.state.isSwitched ? {backgroundImage: 'var(--color-navbar-night)'} : {backgroundImage: 'var(--color-navbar-day)'}}>
                 {this.state.isToggleShowing ? <div className="hamburger-bar hide-desktop show-tablet" id="open-button" onClick={this.toggle}> 
                 <i className="fas fa-bars fa-3x"></i>
                 </div> : null }
@@ -95,6 +100,12 @@ class NavBar extends Component {
                       onClick={this.closeNavigation}>
                           Wallets</NavLink>
                       </li>
+
+                      <li className="navbar-link">
+                      <NavLink to="/watchlist" 
+                      onClick={this.closeNavigation}>
+                          Watchlist</NavLink>
+                      </li>
   
                       <li className="navbar-link">
                       <NavLink to="/currencyconverter" 
@@ -107,7 +118,21 @@ class NavBar extends Component {
                       onClick={this.closeNavigation}>
                           News</NavLink>
                       </li>
-  
+                      <ul className="night-mode__switch__container">
+                    <li class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" className="onoffswitch-checkbox" id="myonoffswitch" onClick={this.switchMode}/>
+                        <label className="onoffswitch-label" htmlFor="myonoffswitch">
+                            <span className="onoffswitch-inner"></span>
+                            <span className="onoffswitch-switch"></span>
+                        </label>
+                        
+                    </li>
+                    <li className="night-mode__label">
+                        Night Mode
+                    </li>
+                    </ul>
+                    
+               
                     <li className="navbar-link"><a href="#newsFeed">{this.state.feeds}</a></li>
   
                 </ul>

@@ -9,7 +9,7 @@
 }
 
 .btc-price-text {
-    color: white;
+    color: var(--color-secondary-dark);
     font-size: var(--font-size-small);
     margin: 4rem;
 }

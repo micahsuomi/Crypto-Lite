@@ -18,11 +18,18 @@ class Home extends Component {
             cryptos: [],
             topVolume: [],
             newsList: [],
-            isLoading: false
+            isLoading: false,
+            isSwitched: false,
+            
         }
        
     }
-   
+
+    switchMode = () => {
+        this.props.switchMode()
+        this.setState({isSwitched: !this.state.isSwitched})
+    }
+    
     componentDidMount() {
         const APIURL = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD'
 
@@ -54,6 +61,8 @@ class Home extends Component {
 
       
         })
+
+        
 
         fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD")
         .then(response => response.json())
@@ -136,7 +145,7 @@ class Home extends Component {
                 
                 <Header />
 
-                <div className="list-container">
+            <div className="list-container">
                     
              <div className="market-prices__header-container" id="home-main">
                  

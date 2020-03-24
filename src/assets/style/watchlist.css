@@ -1,0 +1,76 @@
+.watchlist-container {
+    min-height: 100vh;
+    padding: 14rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.watchlist-wrapper {
+    padding: 2rem 5rem;
+   
+}
+
+.watchlist-header {
+    font-size: var(--font-size-mediumbig); 
+
+}
+
+.watchlist-form {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-watchlist__currency {
+    padding: 1rem;
+    width: 35rem;
+    margin-left: 1rem;
+    font-family: 'Lato', sans-serif;
+    font-size: var(--font-size-small);
+
+}
+
+.watchlist-add__btn {
+    padding: 1.4rem;
+    width: 12rem;
+    border: none;
+    background-color: var(--color-secondary-dark);
+    color: white;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.watchlist-currencies__container {
+    padding: .4rem 4rem;
+    
+}
+
+.watchlist-result {
+    text-align: center;
+    font-size: var(--font-size-medium);
+    color: var(--color-secondary-dark);
+    margin-top: 4rem;
+}
+.watchlist-list__values {
+    display: grid;
+    grid-template-columns: 11.48% 12.28% 10.28% 12.28% 13.58% 19.28% 12.28% 15%;
+    justify-items: start;
+    width: 100vw;
+    margin-top: 6rem;
+}
+
+.watchlist-value {
+    font-size: var(--font-size-small);
+}
+
+.watchlist-items {
+    margin-top: 1.7rem;
+}
+
+

@@ -38,21 +38,21 @@
 .list-container, 
 .list-values,
 .crypto-values {
-    background-color: white;
     border: 1px solid rgb(235, 240, 241, 0.5);
-    padding: 1.9rem;
+    padding: 1.8rem 0;
+    
 
 }
 
 
 .list-values {
     display: grid;
-    grid-template-columns: 10.28% 12.78% 12.18% 16.08% 16.28% 16.28% 16.28%;  
+    grid-template-columns: 9.28% 12.78% 12.48% 16.38% 16.28% 16.28% 16.28%;
     list-style: none;
     justify-items: start;
     font-weight: 700;
     font-size: var(--font-size-small);
-    color: rgb(83, 62, 83);
+    /* color: rgb(83, 62, 83); */
     padding-left: 5rem;
     margin-top: 4rem;
 
@@ -61,7 +61,7 @@
 }
 
 .list-value {
-    color: rgb(83, 62, 83);
+    /* color: rgb(83, 62, 83); */
     list-style: none;
     
      

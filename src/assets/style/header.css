@@ -3,30 +3,38 @@
 
     text-align: center;
     padding: 5rem 2rem;
-    height: 70vh;
-    background-image: linear-gradient(to right, rgba(79, 172, 254, 0.5) 0%, rgba(0, 242, 254, .7) 100%), 
-    url("https://www.ledger.com/wp-content/uploads/2019/04/blogpost-crypto-secure.png");
-    background-position: top;
-    background-size: cover;
-    color: white;
+    min-height: 90vh;
+    background-position: center;
+    background-size: cover; 
+    color: var(--color-secondary-dark);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    line-height: 1.7;
+    position: relative;
 
   }
 
+  .crypto-header-img {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 20%;
+  }
+
 .dashboard-title {
-      letter-spacing: 1.3rem;
+      letter-spacing: 1.5rem;
       text-transform: uppercase;
       font-size: var(--font-size-big);
-      text-shadow: 0 1rem 2rem rgba(153, 143, 143, 0.8);
+      text-shadow: 0 .5rem .4rem rgba(21, 31, 165, 0.1);
+
       
   }
 
   .dashboard-subtitle {
     font-size: var(--font-size-medium);
-    text-shadow: 0 1rem 2rem rgba(153, 143, 143, 0.8);
+    text-shadow: 0 .5rem .4rem rgba(153, 143, 143, 0.1);
     margin-top: 1rem;
 
   }
@@ -39,7 +47,6 @@
     background-color: var(--color-secondary-dark);
     text-transform: uppercase;
     font-weight: 700;
-    border-radius: 3px;
     cursor: pointer;
   }
 
@@ -64,6 +71,12 @@
       padding: 20em 1em;
       height: 100vh;
 
+    }
+
+    .crypto-header-img {
+      top: 10%;
+      right: 2%;
+      width: 50%;
     }
 
   }
