@@ -34,7 +34,7 @@
 details {
     color: var(--color-secondary-dark);
 }
-summary {
+.exchange-details {
     color: slateblue;
 }
 

@@ -55,7 +55,7 @@ class Watchlist extends Component {
         e.preventDefault();
         if(this.state.query === '') {
             console.log('select one currency')
-            this.setState({warning: 'Select a Currency'})
+            this.setState({warning: 'Invalid Selection'})
 
         } else {
             this.setState({isSelected: true})
@@ -157,16 +157,16 @@ class Watchlist extends Component {
                       <option value='USDC'>USD Coin</option>     
                     </select>
                     <button className="watchlist-add__btn">Add</button>
-                    <p className="warning">{this.state.warning}</p>
                 </form>
+                <p className="warning">{this.state.warning}</p>
+
             
             </div>
 
             {
                 this.state.isSelected && this.state.watchlistArr.length > 0 ?
             <div className="watchlist-currencies__container">
-                <div className="watchlist-result"><p>{this.state.watchlistArr.length} 
-                 currency in your watchlist
+                <div className="watchlist-result"><p>{this.state.watchlistArr.length} currency in your watchlist
                 </p></div>
 
             <div className="watchlist-list__values">

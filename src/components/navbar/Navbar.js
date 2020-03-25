@@ -41,7 +41,8 @@ class NavBar extends Component {
             isClicked: true, 
             addClass: !this.state.addClass,
             isToggleShowing: true, 
-            isExitShowing: false})
+            isExitShowing: false
+        })
     }
 
     switchMode = () => {
@@ -77,18 +78,28 @@ class NavBar extends Component {
                         onClick={this.closeNavigation}>
                             Home</NavLink>
                         </li>
-                    <li className="navbar-link">
+
+                    <details className="nav-dropdown">
+                        <summary className="nav-summary navbar-link">
+                            Market Data
+                            </summary>
+                  
+                        <ul className="nav-summary__dropdown" style={this.state.isSwitched ? {backgroundImage: 'var(--color-navbar-night)'} : {backgroundImage: 'var(--color-navbar-day)'}}>
+
+                    <li className="navbar-link nested-link">
                       <NavLink to="/marketprices" 
                       onClick={this.closeNavigation}>
                           Market Prices</NavLink>
                       </li>
   
-                    <li className="navbar-link">
+                    <li className="navbar-link nested-link">
                       <NavLink to="/topvolume" 
                       onClick={this.closeNavigation}>
                           Top Volume</NavLink>
                       </li>
-  
+                      </ul>  
+                      </details>
+
                       <li className="navbar-link">
                       <NavLink to="/exchanges" 
                       onClick={this.closeNavigation}>
@@ -100,24 +111,38 @@ class NavBar extends Component {
                       onClick={this.closeNavigation}>
                           Wallets</NavLink>
                       </li>
+                     
+                      <details className="nav-dropdown">
+                        <summary className="nav-summary navbar-link">
+                            Tools
+                            </summary>
 
-                      <li className="navbar-link">
+                        <ul className="nav-summary__dropdown" style={this.state.isSwitched ? {backgroundImage: 'var(--color-navbar-night)'} : {backgroundImage: 'var(--color-navbar-day)'}}>
+
+                      <li className="navbar-link nested-link">
                       <NavLink to="/watchlist" 
                       onClick={this.closeNavigation}>
                           Watchlist</NavLink>
                       </li>
   
-                      <li className="navbar-link">
+                      <li className="navbar-link nested-link">
                       <NavLink to="/currencyconverter" 
                       onClick={this.closeNavigation}>
                           Currency Converter</NavLink>
                       </li>
+                      </ul>
+
+                     
+
+                      </details>
+                    
   
                     <li className="navbar-link">
                       <NavLink to="/news" 
                       onClick={this.closeNavigation}>
                           News</NavLink>
                       </li>
+                      
                       <ul className="night-mode__switch__container">
                     <li class="onoffswitch">
                         <input type="checkbox" name="onoffswitch" className="onoffswitch-checkbox" id="myonoffswitch" onClick={this.switchMode}/>
