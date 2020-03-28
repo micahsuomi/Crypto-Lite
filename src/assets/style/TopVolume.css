@@ -1,5 +1,5 @@
 .top-volume-card-container {
-    height: 34em;
+    height: 29em;
     border: 1px solid rgb(248, 247, 247);
     padding: 3rem 1rem;
     border-radius: 2px;
@@ -44,6 +44,10 @@
 @media screen and (max-width: 500px) {
     .top-volume-details {
         font-size: var(--font-size-verysmall);
+    }
+
+    .top-volume-image {
+        width: 24%;
     }
 }
 

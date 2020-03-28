@@ -67,14 +67,13 @@ body {
 .main-center-header {
   text-align: center;
   font-size: var(--font-size-medium);
-  color: var(--color-primary-light);
+  /* color: var(--color-primary-light); */
   margin-top: 3rem;
   text-transform: uppercase;
 }
 
 .bold {
   font-weight: 700;
-  color: var(--color-primary-dark);
 }
 
 .warning {

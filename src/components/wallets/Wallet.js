@@ -36,7 +36,7 @@ const Wallet = (props) => {
                 <p className="wallet-details">Coins: {coins}</p>
                 <p className="wallet-details">Features: {features}</p>
                 <a href={source}><p className="wallet-details">Source Code: {source}</p></a>>
-                <p className="wallet-details">Ratings: {ratings}</p>
+                <p className="wallet-details">Average Rating: {ratings}</p>
                 <p className="wallet-details">Recommended: {recommended}</p>
             </div>
             </div>

@@ -166,7 +166,7 @@ class Watchlist extends Component {
             {
                 this.state.isSelected && this.state.watchlistArr.length > 0 ?
             <div className="watchlist-currencies__container">
-                <div className="watchlist-result"><p>{this.state.watchlistArr.length} currency in your watchlist
+                <div className="watchlist-result"><p>Watchlist Items: {this.state.watchlistArr.length} 
                 </p></div>
 
             <div className="watchlist-list__values">

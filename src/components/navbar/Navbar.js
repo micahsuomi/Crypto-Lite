@@ -12,6 +12,7 @@ class NavBar extends Component {
             hideClass: true,
             isClicked: false,
             isSwitched: false,
+            isDropDownClicked: false
 
         }
   
@@ -41,8 +42,13 @@ class NavBar extends Component {
             isClicked: true, 
             addClass: !this.state.addClass,
             isToggleShowing: true, 
-            isExitShowing: false
+            isExitShowing: false,
+            isDropDownClicked: true
         })
+    }
+
+    closeDropDown = () => {
+        this.setState({isDropDownClicked: true})
     }
 
     switchMode = () => {
@@ -66,7 +72,8 @@ class NavBar extends Component {
         return(
           
             <nav className="navbar" style={this.state.isSwitched ? {backgroundImage: 'var(--color-navbar-night)'} : {backgroundImage: 'var(--color-navbar-day)'}}>
-                {this.state.isToggleShowing ? <div className="hamburger-bar hide-desktop show-tablet" id="open-button" onClick={this.toggle}> 
+                {this.state.isToggleShowing ? 
+                <div className="hamburger-bar hide-desktop show-tablet" id="open-button" onClick={this.toggle}> 
                 <i className="fas fa-bars fa-3x"></i>
                 </div> : null }
                 {this.state.isExitShowing ? <div className="exit" id="exit-button" onClick={this.close}><i className="fas fa-times fa-3x"></i></div> : null }
@@ -84,7 +91,10 @@ class NavBar extends Component {
                             Market Data
                             </summary>
                   
-                        <ul className="nav-summary__dropdown" style={this.state.isSwitched ? {backgroundImage: 'var(--color-navbar-night)'} : {backgroundImage: 'var(--color-navbar-day)'}}>
+                    <ul className="nav-summary__dropdown" 
+                        style={this.state.isSwitched ? 
+                        {backgroundImage: 'var(--color-navbar-night)'} : 
+                        {backgroundImage: 'var(--color-navbar-day)'}}>
 
                     <li className="navbar-link nested-link">
                       <NavLink to="/marketprices" 
@@ -113,15 +123,20 @@ class NavBar extends Component {
                       </li>
                      
                       <details className="nav-dropdown">
+                          
                         <summary className="nav-summary navbar-link">
                             Tools
                             </summary>
 
-                        <ul className="nav-summary__dropdown" style={this.state.isSwitched ? {backgroundImage: 'var(--color-navbar-night)'} : {backgroundImage: 'var(--color-navbar-day)'}}>
+
+                            <ul className="nav-summary__dropdown" 
+                        style={this.state.isSwitched ? 
+                        {backgroundImage: 'var(--color-navbar-night)'} : 
+                        {backgroundImage: 'var(--color-navbar-day)'}}>
 
                       <li className="navbar-link nested-link">
                       <NavLink to="/watchlist" 
-                      onClick={this.closeNavigation}>
+                      onClick={this.closeDropDown}>
                           Watchlist</NavLink>
                       </li>
   
@@ -131,9 +146,8 @@ class NavBar extends Component {
                           Currency Converter</NavLink>
                       </li>
                       </ul>
-
-                     
-
+                        
+                        
                       </details>
                     
   
@@ -143,21 +157,17 @@ class NavBar extends Component {
                           News</NavLink>
                       </li>
                       
-                      <ul className="night-mode__switch__container">
-                    <li class="onoffswitch">
+                    <li className="onoffswitch">
                         <input type="checkbox" name="onoffswitch" className="onoffswitch-checkbox" id="myonoffswitch" onClick={this.switchMode}/>
                         <label className="onoffswitch-label" htmlFor="myonoffswitch">
                             <span className="onoffswitch-inner"></span>
                             <span className="onoffswitch-switch"></span>
                         </label>
-                        
-                    </li>
-                    <li className="night-mode__label">
+                        <p className="night-mode__paragraph">
                         Night Mode
+                        </p>
                     </li>
-                    </ul>
                     
-               
                     <li className="navbar-link"><a href="#newsFeed">{this.state.feeds}</a></li>
   
                 </ul>

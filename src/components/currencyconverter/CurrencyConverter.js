@@ -123,8 +123,19 @@ export class CurrencyConverter extends Component {
                       <option value='ETH'>Ethereum (ETH)</option>
                       <option value='XRP'>XRP (XRP)</option>
                       <option value='BCH'>Bitcoin Cash (BCH)</option>
+                      <option value='BSV'>Bitcoin SV (BSV)</option>
                       <option value='LTC'>Litecoin (LTC)</option>
-                      <option value='ETC'>Ethereum Classic( ETC)</option>
+                      <option value='EOS'>EOS (EOS)</option>
+                      <option value='BNB'>Binance Coin (BNB)</option>
+                      <option value='XTZ'>Tezos (XTZ)</option>
+                      <option value='XMR'>Monero(XMR)</option>
+                      <option value='XLM'>Stellar(XLM)</option>
+                      <option value='LINK'>ChainLink (LINK)</option>
+                      <option value='ADA'>Cardano (ADA)</option>
+                      <option value='TRX'>TRON (TRX)</option>
+                      <option value='HT'>Huobi Token (HT)</option>
+                      <option value='ETC'>Ethereum Classic (ETC)</option>
+
 
                     </select>
                   
@@ -163,8 +174,18 @@ export class CurrencyConverter extends Component {
                       <option value='ETH'>Ethereum (ETH)</option>
                       <option value='XRP'>XRP (XRP)</option>
                       <option value='BCH'>Bitcoin Cash (BCH)</option>
+                      <option value='BSV'>Bitcoin SV (BSV)</option>
                       <option value='LTC'>Litecoin (LTC)</option>
-                      <option value='ETC'>Ethereum Classic( ETC)</option>
+                      <option value='EOS'>EOS (EOS)</option>
+                      <option value='BNB'>Binance Coin (BNB)</option>
+                      <option value='XTZ'>Tezos (XTZ)</option>
+                      <option value='XMR'>Monero(XMR)</option>
+                      <option value='XLM'>Stellar(XLM)</option>
+                      <option value='LINK'>ChainLink (LINK)</option>
+                      <option value='ADA'>Cardano (ADA)</option>
+                      <option value='TRX'>TRON (TRX)</option>
+                      <option value='HT'>Huobi Token (HT)</option>
+                      <option value='ETC'>Ethereum Classic (ETC)</option>
                     </select>
                   <div className="btn-arrow__container">
                   <button className="calculate-btn">Calculate</button>

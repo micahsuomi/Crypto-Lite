@@ -64,7 +64,7 @@
 
     .news-item {
         flex-direction: column;
-        padding: 2rem 1rem;
+        padding: 4rem 4rem;
     
     }
     .news-item__left img {

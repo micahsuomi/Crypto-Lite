@@ -13,6 +13,15 @@ const toggle = () => {
   return flag;
 }
 
+let index;
+let iconsClass = [
+    {icon1: 'fas fa-sort-up sort-arrow'},
+    {icon2: 'fas fa-sort-down sort-arrow'}
+
+]
+
+let iconStyle;
+console.log(iconStyle)
 
 class CryptoList extends Component {
     constructor(props) {
@@ -26,12 +35,12 @@ class CryptoList extends Component {
             isSearching: false,
             links: {
                 
-                    name: 'Name',
+                    name: 'Name',  
                     isNameClicked: false,
-              
-                    price: 'Price',
-                    isPriceClicked: false,
-              
+
+                    price: 'Price',   
+                    isPrice: false,
+  
                     change24hr: 'Change (24h)',
                     ischange24hrClicked: false,
               
@@ -39,7 +48,8 @@ class CryptoList extends Component {
                     ismarketCapClicked: false,
                
                     supply: 'Supply',
-                    issupplyClicked: false
+                    issupplyClicked: false,
+                    
                 },
             result: ''
 
@@ -57,18 +67,26 @@ class CryptoList extends Component {
         fetch(APIURL)
         .then(response => response.json())
         .then(data => {
+            console.log(data.Data)
             let cryptoArr = [];
             for(const crypto in data.Data) {
-                
-                let id = data.Data[crypto].CoinInfo.Id;
-                let img = data.Data[crypto].CoinInfo.ImageUrl;
-                let name=data.Data[crypto].CoinInfo.FullName;
-                let symbol=data.Data[crypto].CoinInfo.Name;
-                let price = data.Data[crypto].DISPLAY.USD.PRICE;
-                let percentageChange=data.Data[crypto].DISPLAY.USD.CHANGEPCTDAY;
-                let supply=data.Data[crypto].DISPLAY.USD.SUPPLY;
-                let marketCap=data.Data[crypto].DISPLAY.USD.MKTCAP;
-                cryptoArr.push({id, img, name, symbol, price, percentageChange, supply, marketCap})
+                let coinInfo = data.Data[crypto].CoinInfo;
+                let coinDataDisplay = data.Data[crypto].DISPLAY.USD;
+                let coinDataRaw = data.Data[crypto].RAW.USD;
+
+                let id = coinInfo.Id;
+                let img = coinInfo.ImageUrl;
+                let name = coinInfo.FullName;
+                let symbol = coinInfo.Name;
+                let price = coinDataDisplay.PRICE;
+                let rawPrice = coinDataRaw.PRICE;
+                let percentageChange = coinDataDisplay.CHANGEPCTDAY;
+                let rawPercentageChange = coinDataRaw.CHANGEPCTDAY;
+                let rawSupply = coinDataRaw.SUPPLY;
+                let supply = coinDataDisplay.SUPPLY;
+                let rawMarketCap = coinDataRaw.MKTCAP;
+                let marketCap = coinDataDisplay.MKTCAP;
+                cryptoArr.push({id, img, name, symbol, price, rawPrice, percentageChange, rawPercentageChange, rawSupply, supply, marketCap, rawMarketCap})
                 
             }
             
@@ -78,6 +96,8 @@ class CryptoList extends Component {
                 result: ''
 
             })
+
+            console.log(this.state.filteredCryptos)
 
       
         })
@@ -96,10 +116,10 @@ class CryptoList extends Component {
         this.setState({filteredCryptos: value})
      
             for(const crypto in this.state.cryptos) {
-                let{id, img, symbol, name, price, percentageChange, marketCap, supply} = this.state.cryptos[crypto];
+                let{id, img, symbol, name, price, rawPrice, percentageChange, rawPercentageChange, marketCap, rawMarketCap, rawSupply, supply} = this.state.cryptos[crypto];
                
                 if(name.toLowerCase().includes(value) || name.includes(value) || symbol.toLowerCase().includes(value) || symbol.includes(value)) {
-                    cryptoArr.push({id, img, symbol, name, price, percentageChange, marketCap, supply})
+                    cryptoArr.push({id, img, symbol, name, price, rawPrice, percentageChange, rawPercentageChange, marketCap, rawMarketCap, rawSupply, supply})
                 }
                 this.setState({filteredCryptos: cryptoArr})
                 this.setState({text: ''});
@@ -119,10 +139,19 @@ class CryptoList extends Component {
 
 
     sortByName = () => {
-            this.setState({isNameClicked: true, ischange24hrClicked: false, ismarketCapClicked: false, issupplyClicked: false})
+            this.setState({
+                isNameClicked: true,
+                isPriceClicked: false,
+                ischange24hrClicked: false,
+                ismarketCapClicked: false,
+                issupplyClicked: false
+            });
             if(flag === true) {
+                index = 0
+                iconStyle = iconsClass[index].icon1
                 this.setState({
-                    cryptos: this.state.cryptos.sort((a, b) => {
+                    
+                    cryptos: this.state.filteredCryptos.sort((a, b) => {
                         if(a.name > b.name) return -1;
                         if(a.name < b.name) return 1;
                         return 0;
@@ -130,51 +159,133 @@ class CryptoList extends Component {
                     })
                 })
             } else {
-                this.setState({cryptos: this.state.cryptos.reverse()})
+                index = 1
+                iconStyle = iconsClass[index].icon2
+                this.setState({
+                    cryptos: this.state.cryptos.reverse()})
             }
             toggle()
          
+}
 
+
+sortByPrice = () => {
+    this.setState({
+        isNameClicked: false,
+        isPriceClicked: true,
+        ismarketCapClicked: false,
+        issupplyClicked: false
+    });
+    if(flag === true) {
+        index = 0
+        iconStyle = iconsClass[index].icon1
+        this.setState({
+            
+            cryptos: this.state.filteredCryptos.sort((a, b) => {
+                if(a.rawPrice > b.rawPrice) return -1;
+                if(a.rawPrice < b.rawPrice) return 1;
+                return 0;
+        
+            })
+        })
+    } else {
+        index = 1
+        iconStyle = iconsClass[index].icon2
+        this.setState({
+            cryptos: this.state.cryptos.reverse()})
+    }
+    toggle()
+ 
 }
     sortByPercentage = () => {
-        this.setState({isNameClicked: false, ischange24hrClicked: true, ismarketCapClicked: false, issupplyClicked: false})
+        this.setState({
+            isNameClicked: false,
+            isPriceClicked: false,
+            ischange24hrClicked: true,
+            ismarketCapClicked: false,
+            issupplyClicked: false
+        })
+        index = 0
+        iconStyle = iconsClass[index].icon1
         if(flag === true) {
             this.setState({
-                cryptos: this.state.cryptos.sort((a, b) => {
+                cryptos: this.state.filteredCryptos.sort((a, b) => {
 
-                    if((a.percentageChange > b.percentageChange) && ( a.percentageChange || b.percentageChange > 0)) return -1;
-                    if((a.percentageChange < b.percentageChange) && ( a.percentageChange || b.percentageChange > 0)) return 1;
+                    if((a.rawPercentageChange > b.rawPercentageChange)) return -1;
+                    if((a.rawPercentageChange < b.rawPercentageChange)) return 1;
                     return 0;
             
                 })
             })
         } else {
+            index = 1
+            iconStyle = iconsClass[index].icon2
             this.setState({cryptos: this.state.cryptos.reverse()})
         } toggle()
         
     
     }
+
     sortBySupply = () => {
-        this.setState({isNameClicked: false, ischange24hrClicked: false, ismarketCapClicked: false, issupplyClicked: true})
         this.setState({
-        cryptos: this.state.cryptos.sort((a, b) => {
-            if(a.supply > b.supply) return -1;
-            if(a.supply < b.supply) return 1;
-            return 0;
-    
+            isNameClicked: false,
+            isPriceClicked: false,
+            ischange24hrClicked: false,
+            ismarketCapClicked: false,
+            issupplyClicked: true
         })
-    })
+        index = 0
+        iconStyle = iconsClass[index].icon1;
+        if(flag === true) {
+            this.setState({
+                cryptos: this.state.cryptos.sort((a, b) => {
+                                
+                    if(parseInt(a.rawSupply) > parseInt(b.rawSupply)) return -1;
+                    if(parseInt(a.rawSupply) < parseInt(b.rawSupply)) return 1;
+                    return 0;
+
+                    
+            
+                })
+            })
+        } else {
+            this.setState({cryptos: this.state.cryptos.reverse()});
+            index = 1
+            iconStyle = iconsClass[index].icon2;
+        }
+        toggle()
+        
+    
+
 }
 
     sortByMarketCap = () => {
         this.setState({
-            cryptos: this.state.cryptos.sort((a, b) => {
-                if(a.marketCap > b.marketCap) return -1;
-                if(a.marketCap < b.marketCap) return 1;
-                return 0;
-        
+            isNameClicked: false,
+            isPriceClicked: false,
+            ischange24hrClicked: false,
+            ismarketCapClicked: true,
+            issupplyClicked: false
+        });
+        index = 0
+        iconStyle = iconsClass[index].icon1;
+        if(flag === true) {
+            this.setState({
+                cryptos: this.state.filteredCryptos.sort((a, b) => {
+                    if(a.rawMarketCap > b.rawMarketCap) return -1;
+                    if(a.rawMarketCap < b.rawMarketCap) return 1;
+                    return 0;
+            
+                })
             })
-        })
+        
+        } else {
+            this.setState({cryptos: this.state.filteredCryptos.reverse()});
+            index = 1
+            iconStyle = iconsClass[index].icon2;
+        }
+        toggle();
+
     }
 
 
@@ -255,26 +366,67 @@ class CryptoList extends Component {
 
                   <div className="value">Symbol</div>
                   <div className="value">
+                      
+                  {
+                          this.state.isNameClicked ?
+                          <i className={iconStyle}></i>
+                          :
+                          ''
+                      }
+                 
                   <p className="value-link" 
-                  onClick={this.sortByName} 
-                  style={this.state.isNameClicked 
-                  ? style1 : style2}>
-                      {name}</p></div>
+                  onClick={this.sortByName}>{name}</p>
+                      </div>
 
-                  <div className="value" 
-                  style={style2}>{price}</div>
+                  <div className="value">
+                  {
+                    this.state.isPriceClicked ?
+                    <i className={iconStyle}></i>
+                    :
+                    ''
+                }
+                      
+                  <p className="value-link" 
+                    onClick={this.sortByPrice}>{price}</p></div>
 
-                  <div className="value" 
-                  style={this.state.isNameClicked ? style1 : style2}>
-                      <p className="value-link" onClick={this.sortByPercentage}>{change24hr}</p></div>
+                  <div className="value">
+                   {
+                    this.state.ischange24hrClicked ?
+                    <i className={iconStyle}></i>
+                    :
+                    ''
+                }
+           
+                      <p className="value-link" 
+                      onClick={this.sortByPercentage}>
+                          {change24hr}
+                          </p></div>
 
-                  <div className="value" 
-                  style={this.state.isNameClicked ? style1 : style2}>
-                      <p className="value-link" onClick={this.sortByMarketCap}>{marketCap}</p></div>
+                  <div className="value">
+                  {
+                          this.state.ismarketCapClicked ?
+                          <i className={iconStyle}></i>
+                          :
+                          ''
+                      }
+                 
+                      <p className="value-link" 
+                      onClick={this.sortByMarketCap}>
+                          {marketCap}
+                          </p></div>
 
-                  <div className="value hide-mobile" 
-                  style={this.state.isNameClicked ? style1 : style2}>
-                      <p className="value-link" onClick={this.sortBySupply}>{supply}</p></div>
+                  <div className="value hide-mobile">
+                  {
+                          this.state.issupplyClicked ?
+                          <i className={iconStyle}></i>
+                          :
+                          ''
+                      }
+                 
+                      <p className="value-link" 
+                      onClick={this.sortBySupply}>
+                        {supply}
+                        </p></div>
               </div>
              
             <div>

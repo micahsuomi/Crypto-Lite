@@ -69,10 +69,8 @@
 
 .night-mode__switch__container {
     list-style: none;
-    position: absolute;
-    right: 2%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 }
@@ -158,6 +156,11 @@
     text-transform: uppercase;
 }
 
+.night-mode__paragraph {
+    color: white;
+    margin-left: 1.3rem;
+}
+
 
 @media screen and (max-width: 850px) {
 
@@ -188,7 +191,8 @@
         height: 100vh;
         width: 100vw;
         position: fixed;
-        background-image: linear-gradient(135deg, #667eea 0%, #195aae 100%);    
+        /* background-image: linear-gradient(135deg, #667eea 0%, #195aae 100%);     */
+        background-image: inherit;
         top: 0%;
         left: 0%;
         padding: 0;
@@ -225,4 +229,16 @@
     .navbar-links.close {
         display: none;
     }
+
+    
+}
+
+
+@media screen and (max-width: 768px) {
+    .onoffswitch {
+        margin-top: 1.5rem;
+        margin-left: 1.3rem;
+       
+    }
+    
 }

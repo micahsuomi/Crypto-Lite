@@ -29,9 +29,20 @@
 }
 
 
+.value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .value-link {
     color: var(--color-secondary-dark);
     cursor: pointer;
+    margin-left: .4rem;
+}
+
+.value-link:hover {
     text-decoration: underline;
 }
 

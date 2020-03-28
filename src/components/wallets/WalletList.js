@@ -26,16 +26,11 @@ class WalletList extends Component {
             let walletsArr = [];
             for(const key in data.Data) {
                let wallet = data.Data[key];
-               let ratingsArr = []
-               let {Id, Url, LogoUrl, Name, Security, EaseOfUse, Coins, WalletFeatures, SourceCodeUrl, AffiliateURL, Recommended} = wallet;
-               for(const rating in wallet.Rating) {
-                   let ratings = wallet.Rating[rating];
-                   ratingsArr.push(ratings)
-               }
-               walletsArr.push({Id, Url, LogoUrl, Name, Security, EaseOfUse, Coins, WalletFeatures, SourceCodeUrl, AffiliateURL, ratingsArr, Recommended})
+               let {Id, Url, LogoUrl, Name, Security, EaseOfUse, Coins, WalletFeatures, SourceCodeUrl, AffiliateURL, Recommended} = wallet;               
+               let avgRating = wallet.Rating.Avg
+               walletsArr.push({Id, Url, LogoUrl, Name, Security, EaseOfUse, Coins, WalletFeatures, avgRating, SourceCodeUrl, AffiliateURL, Recommended})
             }
             this.setState({wallets: walletsArr, filteredWallets: walletsArr, isLoading: true})
-            console.log(this.state.wallets)
         })
     }
 
@@ -47,14 +42,14 @@ class WalletList extends Component {
     handleChange = (event) => {
         let walletsArr = []
         let {value} = event.target;
-        console.log(value)
         this.setState({filteredWallets: value})
      
             for(const wallet in this.state.wallets) {
-                let{Id, Url, LogoUrl, Name, Security, EaseOfUse, Coins, WalletFeatures, SourceCodeUrl, AffiliateURL, ratingsArr, Recommended} = this.state.wallets[wallet];                
+                let{Id, Url, LogoUrl, Name, Security, EaseOfUse, Coins, WalletFeatures, avgRating, SourceCodeUrl, AffiliateURL, Recommended} = this.state.wallets[wallet];                
                
                 if(Name.toLowerCase().includes(value) || Name.includes(value)) {
-                    walletsArr.push({Id, Url, LogoUrl, Name, Security, EaseOfUse, Coins, WalletFeatures, SourceCodeUrl, AffiliateURL, ratingsArr, Recommended})
+                    walletsArr.push({Id, Url, LogoUrl, Name, Security, EaseOfUse, Coins, WalletFeatures,
+                    avgRating, SourceCodeUrl, AffiliateURL, Recommended})
                 }
                 this.setState({filteredWallets: walletsArr})
                 this.setState({text: ''});
@@ -65,15 +60,15 @@ class WalletList extends Component {
                     this.setState({result: ''});
                 }
             
-                console.log(this.state.filteredWallets)
             
         }
         
         
     }
 
- 
+    
     render() {
+
         let walletList = this.state.filteredWallets.map((wallet) => (
                 <Wallet key={wallet.Id} 
                         url={wallet.Url}
@@ -85,7 +80,7 @@ class WalletList extends Component {
                         features={`${wallet.WalletFeatures.map((coin) => coin)}`}
                         source={wallet.SourceCodeUrl}
                         affiliate={wallet.AffiliateURL}
-                        ratings={`${wallet.ratingsArr.map((rating) => rating)}`}
+                        ratings={wallet.avgRating}
                         recommended={wallet.Recommended ? 'Yes' : 'No'}/>
         ))
 

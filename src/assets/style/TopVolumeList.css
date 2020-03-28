@@ -17,11 +17,11 @@
 
 @media screen and (max-width: 500px) {
     .top-volume-container {
-        padding: 5rem 0;
+        padding: 5rem 2rem;
         margin-top: 2rem;
     }
     .top-volume-wrapper {
-        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
     }
 }
 
