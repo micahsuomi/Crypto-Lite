@@ -1,6 +1,10 @@
 import React from 'react';
 import '../../assets/style/footer.css';
-const footerData = [{
+const footerData = [{   
+                        name: 'Developed By Michele Zucca',
+                        link: 'https://www.linkedin.com/in/michele-zucca/'
+                    },
+                    {   
                         name: 'My Portfolio',
                         link: 'https://michelezuccawebdeveloper.netlify.com/'
                     },

@@ -6,13 +6,14 @@ class TopVolumeList extends Component {
     constructor() {
         super();
         this.state = {
-            topVolume: []
+            topVolume: [],
+            isClicked: false,
         }
 
     }
     
     componentDidMount() {
-        fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=20&tsym=USD")
+        fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD")
         .then(response => response.json())
         .then(data => {
             console.log(data.Data)
@@ -44,6 +45,10 @@ class TopVolumeList extends Component {
 
         })
     }
+    loadMore = () => {
+        this.setState({isClicked: !this.state.isClicked})
+
+   }
 
     render() {
         const topVolumeData = this.state.topVolume.map((volume) => (
@@ -52,6 +57,8 @@ class TopVolumeList extends Component {
             volume={volume} />
         
         ))
+        this.state.isClicked ? topVolumeData.length = 100 : topVolumeData.length = 50;
+
 
         return (
             <div className="top-volume-container">
@@ -59,6 +66,11 @@ class TopVolumeList extends Component {
                 <div className="top-volume-wrapper">
                 {topVolumeData}
                 </div>
+                <div className="btn-view__all__container">
+                <button className="view-all" onClick={this.loadMore}>
+                { this.state.isClicked ? 'Show Less -' : 'Show All +'}
+                </button>
+            </div>
             </div>
         )
     }

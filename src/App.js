@@ -92,8 +92,7 @@ class App extends Component {
         <Router>
         <div className="App" 
         style={this.state.isSwitched? 
-        {backgroundColor: 'var(--color-night-mode)',
-          color: 'white'} : 
+        {backgroundColor: 'var(--color-night-mode)'} : 
         {backgroundColor: 'white'}}>
 
           <NavBar switchMode={this.switchMode}/>
@@ -137,15 +136,21 @@ class App extends Component {
           </Switch>
 
       
-        <Footer />
-</div>
+          <Footer />
+          </div>
           </Router>
 
       )
   }
 }
 
-const styleDay = {backgroundColor: 'white'}
-const styleNight = {backgroundColor: 'var(--color-night-mode)', color: 'white'}
+const styleNight = {
+  backgroundColor: 'var(--color-night-mode)',
+  color: 'white'
+}
 
+const styleDay = {
+  backgroundColor: 'white',
+  color: 'var(--color-primary-dark)'
+}
 export default App;

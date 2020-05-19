@@ -21,7 +21,6 @@ let iconsClass = [
 ]
 
 let iconStyle;
-console.log(iconStyle)
 
 class CryptoList extends Component {
     constructor(props) {
@@ -51,7 +50,8 @@ class CryptoList extends Component {
                     issupplyClicked: false,
                     
                 },
-            result: ''
+            result: '',
+            isClicked: false,
 
             
             
@@ -67,7 +67,6 @@ class CryptoList extends Component {
         fetch(APIURL)
         .then(response => response.json())
         .then(data => {
-            console.log(data.Data)
             let cryptoArr = [];
             for(const crypto in data.Data) {
                 let coinInfo = data.Data[crypto].CoinInfo;
@@ -96,9 +95,6 @@ class CryptoList extends Component {
                 result: ''
 
             })
-
-            console.log(this.state.filteredCryptos)
-
       
         })
      
@@ -288,6 +284,11 @@ sortByPrice = () => {
 
     }
 
+    loadMore = () => {
+        this.setState({isClicked: !this.state.isClicked})
+
+   }
+
 
     render() {
 
@@ -321,6 +322,8 @@ sortByPrice = () => {
                     crypto={crypto}/>
 
         ))
+        this.state.isClicked ? cryptos.length = 100 : cryptos.length = 50;
+
        
     let {name, price, change24hr, marketCap, supply} = this.state.links;
     let {text} = this.state.text;
@@ -440,6 +443,15 @@ sortByPrice = () => {
                   :<Loader />} 
 
             </div>
+            {this.state.isSearching ? ''
+            :
+            <div className="btn-view__all__container">
+                <button className="view-all" onClick={this.loadMore}>
+                { this.state.isClicked ? 'Show Less -' : 'Show All +'}
+                </button>
+            </div>
+             }
+           
         </div> 
         </div>
      

@@ -23,6 +23,8 @@
     opacity: .9;
     margin: 0 2em;
     text-transform: uppercase;
+    cursor: pointer;
+
 
 }
 
@@ -46,8 +48,10 @@
     justify-content: space-around;
     align-items: flex-start;
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 1.81rem;
 }
+
+
 
 @keyframes fade-in {
 	0% {
@@ -162,7 +166,7 @@
 }
 
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1024px) {
 
     .show-tablet {
         display: block;

@@ -12,7 +12,8 @@ class NavBar extends Component {
             hideClass: true,
             isClicked: false,
             isSwitched: false,
-            isDropDownClicked: false
+            isMarketClicked: false,
+            isToolsClicked: false
 
         }
   
@@ -43,12 +44,37 @@ class NavBar extends Component {
             addClass: !this.state.addClass,
             isToggleShowing: true, 
             isExitShowing: false,
-            isDropDownClicked: true
+            isMarketClicked: false,
+            isToolsClicked: false
+
+
         })
+        console.log('close market')
+
     }
 
-    closeDropDown = () => {
-        this.setState({isDropDownClicked: true})
+    openMarket = (e) => {
+        this.setState({isMarketClicked: true,
+                        isToolsClicked: false})
+        console.log('opening market')
+    }
+
+    openTools = () => {
+        this.setState({isToolsClicked: true,
+                        isMarketClicked: false})
+                        console.log('opening tools')
+
+                        
+    }
+
+    closeMarket = () => {
+        this.setState({isMarketClicked: false})
+        console.log('close market')
+    }
+
+    closeTools = () => {
+        this.setState({isToolsClicked: false});
+        console.log('close tools')
     }
 
     switchMode = () => {
@@ -59,6 +85,8 @@ class NavBar extends Component {
     render() {
   
         let navLinksClass = ["navbar-links open close"];
+        let navDrowpDown = ["nav-dropdown"]
+        
         
         if(this.state.addClass === false && this.state.isClicked === false) {
             navLinksClass.push("open");
@@ -86,17 +114,19 @@ class NavBar extends Component {
                             Home</NavLink>
                         </li>
 
-                    <details className="nav-dropdown">
+                    <details className={navDrowpDown.join('')} onClick={this.openMarket} >
                         <summary className="nav-summary navbar-link">
                             Market Data
                             </summary>
                   
-                    <ul className="nav-summary__dropdown" 
-                        style={this.state.isSwitched ? 
+                  { this.state.isMarketClicked ? 
+
+                  <ul className="nav-summary__dropdown"  style={this.state.isSwitched ? 
                         {backgroundImage: 'var(--color-navbar-night)'} : 
                         {backgroundImage: 'var(--color-navbar-day)'}}>
 
-                    <li className="navbar-link nested-link">
+                    <li className="navbar-link nested-link" onClick={this.closeMarket}
+>
                       <NavLink to="/marketprices" 
                       onClick={this.closeNavigation}>
                           Market Prices</NavLink>
@@ -107,7 +137,10 @@ class NavBar extends Component {
                       onClick={this.closeNavigation}>
                           Top Volume</NavLink>
                       </li>
-                      </ul>  
+                      </ul> 
+                      : '' }
+                    
+
                       </details>
 
                       <li className="navbar-link">
@@ -122,21 +155,20 @@ class NavBar extends Component {
                           Wallets</NavLink>
                       </li>
                      
-                      <details className="nav-dropdown">
+                      <details className="nav-dropdown" onClick={this.openTools}>
                           
                         <summary className="nav-summary navbar-link">
                             Tools
                             </summary>
 
-
-                            <ul className="nav-summary__dropdown" 
+                { this.state.isToolsClicked ? <ul className="nav-summary__dropdown" 
                         style={this.state.isSwitched ? 
                         {backgroundImage: 'var(--color-navbar-night)'} : 
                         {backgroundImage: 'var(--color-navbar-day)'}}>
 
                       <li className="navbar-link nested-link">
                       <NavLink to="/watchlist" 
-                      onClick={this.closeDropDown}>
+                      onClick={this.closeNavigation}>
                           Watchlist</NavLink>
                       </li>
   
@@ -145,7 +177,9 @@ class NavBar extends Component {
                       onClick={this.closeNavigation}>
                           Currency Converter</NavLink>
                       </li>
-                      </ul>
+                      </ul> : '' }
+
+                            
                         
                         
                       </details>

@@ -3,7 +3,6 @@
     grid-template-columns: 10.28% 12.28% 9.28% 14.28% 13.28% 16.28% 16.28% 15%; 
     justify-items: start;
     align-items: center;
-    
     margin-left: 4rem;
     width: 100vw;
     padding: 1.5rem 1.4rem;    
@@ -39,33 +38,62 @@
     color: var(--color-secondary-light);
 }
 
-.delete-currency {
-    color: var(--color-secondary-dark);
+.remove-btn {
+    background-color: var(--color-secondary-dark);
     cursor: pointer;
+    padding: 1rem;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Lato';
+
 }
 
-.delete-currency:hover {
-    color: var(--color-secondary-light);
+.remove-btn:hover {
+    background-color: var(--color-secondary-light);
+}
+
+.hide-deskt {
+    display: none;
 }
 
 @media screen and (max-width: 500px) {
+    .watchlist-values-list {
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid lightgray;
+        text-align: center;
+        margin: 1rem;
+        width: 40rem;
+        box-shadow: 0 1rem 2rem rgba(68, 68, 64, 0.3);
+    }
+
+    .crypto-value {
+        width: 88vw;
+        margin-top: .5rem;
+    }
+
+   
     .hide-mobile {
         display: none;
     }
-    .crypto-values {
-        padding: 1em;
-    }
 
-    .crypto-values-list {
-        padding: .5rem 0 .5rem 0rem;
-        margin-left: 0;
-        grid-template-columns: 11.28% 11.28% 23.28% 22.28% 15.28% 15.28%;
+    .show-mobile {
+        display: block;
     }
+    
 
     .crypto-img {
-        width: 30%; 
+        width: 20%; 
+        align-self: center;
     }
     .crypto-value {
         font-size: var(--font-size-small);
+    }
+
+    .remove-btn {
+        margin-top: 1rem;
     }
 }

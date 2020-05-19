@@ -8,7 +8,8 @@ class NewsList extends Component {
         super();
         this.state = {
             newsList: [],
-            loading: true
+            loading: true,
+            isClicked: false
         }
     }
 
@@ -17,6 +18,7 @@ class NewsList extends Component {
         fetch("https://min-api.cryptocompare.com/data/v2/news/?lang=EN")
         .then(response => response.json())
         .then(data => {
+            console.log(data)
 
             this.setState({
                 newsList : data.Data,
@@ -25,6 +27,10 @@ class NewsList extends Component {
           
         })
     }
+    loadMore = () => {
+        this.setState({isClicked: !this.state.isClicked})
+
+   }
    
     render() {
 
@@ -40,6 +46,10 @@ class NewsList extends Component {
     
              />
          ))
+         console.log(newsList.length)
+
+         this.state.isClicked ? newsList.length = newsList.length : newsList.length = 25;
+
         return (
             <div className="news-container">        
             <NewsHeader />
@@ -48,6 +58,11 @@ class NewsList extends Component {
                 <div className="news-list-wrapper">
                 {newsList}
                 </div>
+                <div className="btn-view__all__container">
+                <button className="view-all" onClick={this.loadMore}>
+                { this.state.isClicked ? 'Show Less -' : 'Show All +'}
+                </button>
+            </div>
             </div>
             </div>
 

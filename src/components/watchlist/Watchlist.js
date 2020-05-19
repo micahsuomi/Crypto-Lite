@@ -54,7 +54,7 @@ class Watchlist extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if(this.state.query === '') {
-            console.log('select one currency')
+            console.log('select one currency', this.state.watchlistArr)
             this.setState({warning: 'Invalid Selection'})
 
         } else {
@@ -79,8 +79,13 @@ class Watchlist extends Component {
                     cryptoObj.marketCap = marketCap;
                     // console.log(cryptoObj)
                     //this.setState({watchlistArr: [...this.state.watchlistArr, cryptoObj]})
-                    this.state.watchlistArr.push(cryptoObj)
-                    this.setState({warning: '', query: ''})
+                    if(this.state.watchlistArr.indexOf(symbol) !== -1) {
+                        this.setState({warning: 'already on watchlist'})
+                        
+                    } else {
+                        this.state.watchlistArr.push(cryptoObj)
+                        this.setState({warning: '', query: ''})                    }
+                    
                     // console.log(this.state.watchlistArr)
                     /*
                     if(this.state.watchlistArr.length > 0 && this.state.watchlistArr.length < 2) {
@@ -116,13 +121,6 @@ class Watchlist extends Component {
 
     render() {
 
-        //to copy the values later for the input selections
-        /*
-        for (const crypto of this.state.cryptos) {
-            let {symbol, name} = crypto
-            console.log(symbol, name)
-         }*/
-         
         const watchlist = this.state.watchlistArr.map((watchlist) => (
             <WatchListItem  key = {watchlist.id} 
                             watchlist={watchlist}
@@ -169,7 +167,7 @@ class Watchlist extends Component {
                 <div className="watchlist-result"><p>Watchlist Items: {this.state.watchlistArr.length} 
                 </p></div>
 
-            <div className="watchlist-list__values">
+            <div className="watchlist-list__values hide-mobile">
                   <div className="watchlist-value"></div>
                   <div className="watchlist-value">Symbol</div>
                   <div className="watchlist-value">Name</div>

@@ -5,6 +5,7 @@
     grid-template-columns: repeat(5, 1fr);
 }
 
+
 .lds-ring {
     display: inline-block;
     position: relative;
@@ -41,9 +42,29 @@
     }
   }
 
+  .btn-view__all__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .view-all {
     margin-top: 2rem;
     margin-left: 3rem;
     font-size: var(--font-size-medium);
+    background-color: var(--color-navbar-day);
+    border: none;
+    color: var(--color-secondary-dark);
+    border-bottom: 2px solid var(--color-secondary-dark);
+    cursor: pointer;
+
+  }
+
+  .view-all:hover {
+    color: var(--color-secondary-light);
+    transform: translateY(-.1rem);
+  }
+
+  .view-all:focus {
+    outline: none;
   }
   

@@ -4,12 +4,12 @@
     justify-items: start;
     margin-left: 4rem;
     
+    
 }
 
 .crypto-value {
     font-weight: 400;
     font-size: var(--font-size-small);
-    align-self: start;
     
 }
 

@@ -21,8 +21,11 @@
   --font-size-big: 5rem; 
   --font-size-mediumbig: 3rem;
   --font-size-medium: 2.4rem;
-  --font-size-small: 1.6rem;
+  --font-size-small: 1.8rem;
   --font-size-verysmall: 1.3rem;
+
+  --section-padding: 5rem 20em;
+  
 } 
 
 

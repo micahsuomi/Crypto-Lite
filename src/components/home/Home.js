@@ -7,8 +7,7 @@ import TopVolume from '../top-symbols-volumes/TopVolume';
 import News from '../news/News';
 import Loader from '../commons/Loader';
 import NewFeedList from '../news/NewsFeedList';
-import '../../assets/style/Home.css';
-import { NavLink } from 'react-router-dom';
+import '../../assets/style/home.css';
 
 class Home extends Component {
 
@@ -20,6 +19,10 @@ class Home extends Component {
             newsList: [],
             isLoading: false,
             isSwitched: false,
+            isMarketClicked: false,
+            isVolumeClicked: false,
+            isNewsClicked: false
+
             
         }
        
@@ -31,7 +34,7 @@ class Home extends Component {
     }
     
     componentDidMount() {
-        const APIURL = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD'
+        const APIURL = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=USD'
 
         fetch(APIURL)
         .then(response => response.json())
@@ -49,6 +52,7 @@ class Home extends Component {
                 let supply=data.Data[crypto].DISPLAY.USD.SUPPLY;
                 let marketCap=data.Data[crypto].DISPLAY.USD.MKTCAP;
                 cryptoArr.push({id, img, name, symbol, price, percentageChange, supply, marketCap})
+
                 
             }
             
@@ -64,7 +68,7 @@ class Home extends Component {
 
         
 
-        fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD")
+        fetch("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD")
         .then(response => response.json())
         .then(data => {
 
@@ -97,7 +101,6 @@ class Home extends Component {
         fetch("https://min-api.cryptocompare.com/data/v2/news/?lang=EN")
         .then(response => response.json())
         .then(data => {
-
             this.setState({
                 newsList : data.Data,
                 loading: true
@@ -106,9 +109,23 @@ class Home extends Component {
         })
 
     }
+     loadMoreMarket = () => {
+         this.setState({isMarketClicked: !this.state.isMarketClicked})
+
+    }
+
+    loadMoreTopVolume = () => {
+        this.setState({isVolumeClicked: !this.state.isVolumeClicked})
+
+    }
+    loadMoreNews = () => {
+        this.setState({isNewsClicked: !this.state.isNewsClicked})
+
+}
 
     
     render() {
+        
         
         const cryptos = this.state.cryptos.map(crypto => (
 
@@ -119,6 +136,7 @@ class Home extends Component {
             />
    
         ))
+        this.state.isMarketClicked ? cryptos.length = 30 : cryptos.length = 15;
 
         const topVolumeData = this.state.topVolume.map((volume) => (
             <TopVolume 
@@ -126,6 +144,8 @@ class Home extends Component {
             volume={volume} />
         
         ))
+        this.state.isVolumeClicked ? topVolumeData.length = 20 : topVolumeData.length = 10;
+
 
         const newsList = this.state.newsList.map((newsItem) => (
             <News
@@ -139,9 +159,11 @@ class Home extends Component {
     
              />
          ))
+         this.state.isNewsClicked ? newsList.length = 20 : newsList.length = 10;
+
         return (
             
-            <div>
+            <div className="home-container" style={{padding: '5rem 3rem'}}>
                 
                 <Header />
 
@@ -167,8 +189,14 @@ class Home extends Component {
                     <div className="list-value">
                     {cryptos} 
                     </div>
-                    <NavLink to="/marketprices"><p className="view-all">View All</p></NavLink>
+                    <div className="btn-view__all__container">
+                    <button className="view-all" onClick={this.loadMoreMarket}>
+                        { this.state.isMarketClicked ? 'Show Less -' : 'Show More +'}
+                        </button>
+
+                    </div>
             </div>
+
             : <Loader />
         }
 
@@ -179,19 +207,33 @@ class Home extends Component {
                  <div className="top-volume-wrapper">
                  {topVolumeData}
                  </div>
+                 <div className="btn-view__all__container">
+                    <button className="view-all" onClick={this.loadMoreTopVolume}>
+                        { this.state.isVolumeClicked ? 'Show Less -' : 'Show More +'}
+                        </button>
+
+                    </div>
              </div>
             : <Loader />
         }
 
         {this.state.isLoading ? 
-                <div className="news-container">
+            <div className="news-list-container">
+                <h1 className="main-center-header">Latest News</h1>
+
                  <div className="news-list-wrapper">
                     {newsList}
                     </div>
+                    <div className="btn-view__all__container">
+                    <button className="view-all" onClick={this.loadMoreNews}>
+                        { this.state.isNewsClicked ? 'Show Less -' : 'Show More +'}
+                        </button>
+
+                    </div>
                 </div> : <Loader />
-        }
-        <NewFeedList />
-                
+                }
+                {/* <NewFeedList /> */}
+             
             </div>
             </div>
         )

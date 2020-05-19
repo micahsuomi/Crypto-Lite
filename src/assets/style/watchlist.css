@@ -27,7 +27,7 @@
 
 .select-watchlist__currency {
     padding: 1rem;
-    width: 35rem;
+    width: 35rem; 
     margin-left: 1rem;
     font-family: 'Lato', sans-serif;
     font-size: var(--font-size-small);
@@ -73,6 +73,14 @@
 
 .watchlist-items {
     margin-top: 1.7rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .select-watchlist__currency {
+        width: 19rem;  
+        
+    
+    }
 }
 
 
