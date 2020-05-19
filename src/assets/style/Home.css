@@ -54,7 +54,7 @@
     background-color: var(--color-navbar-day);
     border: none;
     color: var(--color-secondary-dark);
-    border-bottom: 2px solid var(--color-secondary-dark);
+    border-bottom: 2.1px solid var(--color-secondary-dark);
     cursor: pointer;
 
   }
