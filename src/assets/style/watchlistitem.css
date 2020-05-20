@@ -44,7 +44,7 @@
     padding: 1rem;
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     font-family: 'Lato';
 
 }
@@ -67,7 +67,7 @@
         text-align: center;
         margin: 1rem;
         width: 40rem;
-        box-shadow: 0 1rem 2rem rgba(68, 68, 64, 0.3);
+        box-shadow: 0 1rem 2rem rgba(241, 241, 217, 0.3);
     }
 
     .crypto-value {
@@ -85,7 +85,11 @@
     }
     
 
+<<<<<<< HEAD
     .watchlist-crypto__img {
+=======
+    .crypto-watchlist-img {
+>>>>>>> bbc54f48b6ccd48b807db893fa2e2a2cf4f137fa
         width: 20%; 
         align-self: center;
     }
