@@ -6,11 +6,7 @@ const WatchListItem = (props) => {
     return (
         <div className="watchlist-values-list watchlist-values">
             <div className="crypto-value crypto-value__rank">
-<<<<<<< HEAD
             <img src={`https://www.cryptocompare.com${img}`} className="watchlist-crypto__img" alt="crypto"/></div>
-=======
-            <img src={`https://www.cryptocompare.com${img}`} className="crypto-watchlist-img" alt="crypto"/></div>
->>>>>>> bbc54f48b6ccd48b807db893fa2e2a2cf4f137fa
             <div className="crypto-value">{symbol}</div>
             <div className="crypto-value crypto-value__name"><span className="bold">{name}</span></div>
             <div className="crypto-value"><span className="blue-text">${price}</span></div>
