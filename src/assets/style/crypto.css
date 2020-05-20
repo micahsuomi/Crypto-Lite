@@ -14,7 +14,7 @@
 }
 
 .crypto-img {
-    width: 20%; 
+    width: 30%; 
 }
 
 .percentage-change {
@@ -44,8 +44,10 @@
     }
 
     .crypto-img {
-        width: 30%; 
+        width: 6%; 
     }
+
+   
     .crypto-value {
         font-size: var(--font-size-small);
     }

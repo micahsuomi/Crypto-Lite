@@ -22,7 +22,7 @@
     
 }
 
-.crypto-img {
+.watchlist-crypto__img {
     width: 20%; 
 }
 
@@ -85,7 +85,7 @@
     }
     
 
-    .crypto-img {
+    .watchlist-crypto__img {
         width: 20%; 
         align-self: center;
     }

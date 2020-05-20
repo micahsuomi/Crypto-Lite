@@ -55,51 +55,40 @@ class Watchlist extends Component {
         e.preventDefault();
         if(this.state.query === '') {
             console.log('select one currency', this.state.watchlistArr)
-            this.setState({warning: 'Invalid Selection'})
+            this.setState({warning: 'Select one currency'})
 
         } else {
             this.setState({isSelected: true})
 
-            for(const crypto of this.state.cryptos) {
+            for(let i = 0; i < this.state.cryptos.length; i++) {
+                let crypto = this.state.cryptos[i]
                 let symbol = crypto.symbol
-                if(this.state.query === symbol) {
-                    // console.log('this is the query',this.state.query)
-                    // console.log('this is the symbol', crypto.symbol)
-
-                    let cryptoObj = {};
-    
-                    let {id, img, name, symbol, price, percentageChange, supply, marketCap} = crypto;
-                    cryptoObj.id = id;
-                    cryptoObj.img = img;
-                    cryptoObj.name = name;
-                    cryptoObj.symbol = symbol;
-                    cryptoObj.price = price;
-                    cryptoObj.percentageChange = percentageChange;
-                    cryptoObj.supply = supply;
-                    cryptoObj.marketCap = marketCap;
-                    // console.log(cryptoObj)
-                    //this.setState({watchlistArr: [...this.state.watchlistArr, cryptoObj]})
-                    if(this.state.watchlistArr.indexOf(symbol) !== -1) {
-                        this.setState({warning: 'already on watchlist'})
-                        
-                    } else {
-                        this.state.watchlistArr.push(cryptoObj)
-                        this.setState({warning: '', query: ''})                    }
+                let index = this.state.cryptos.indexOf(crypto)
+        
+                if(this.state.query === symbol && this.state.watchlistArr.indexOf(index !== -1)) {
                     
-                    // console.log(this.state.watchlistArr)
-                    /*
-                    if(this.state.watchlistArr.length > 0 && this.state.watchlistArr.length < 2) {
-                        this.setState({
-                            watchListResult: `${this.state.watchlistArr.length} currency in your watchlist`})
-                    } else if(this.state.watchlistArr.length >= 2) {
-                        this.setState({
-                            watchListResult: `${this.state.watchlistArr.length} currencies in your watchlist`})
-                    } else {
-                        this.setState({watchListResult: ''})
-                    }*/
+                    console.log('this is the symbol', crypto.symbol, index)
+                    
+                        console.log(i, crypto, this.state.query)
+                        let cryptoObj = {};
     
-                } 
-
+                        let {id, img, name, symbol, price, percentageChange, supply, marketCap} = crypto;
+                        cryptoObj.id = id;
+                        cryptoObj.img = img;
+                        cryptoObj.name = name;
+                        cryptoObj.symbol = symbol;
+                        cryptoObj.price = price;
+                        cryptoObj.percentageChange = percentageChange;
+                        cryptoObj.supply = supply;
+                        cryptoObj.marketCap = marketCap;
+                        // console.log(cryptoObj)
+                        //this.setState({watchlistArr: [...this.state.watchlistArr, cryptoObj]})
+                        this.state.watchlistArr.push(cryptoObj)
+                        console.log(this.state.watchlistArr)
+                        this.setState({warning: '', query: ''})   
+                    
+                    } 
+                
         }
 
 

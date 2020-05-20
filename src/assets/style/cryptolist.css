@@ -104,6 +104,12 @@
         display: none;
     }
 
+    .top-gainer-list-wrapper {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
+        padding: 2rem;
+    }
+
     .list-values,
     .list-container {
         padding: .5em 0;

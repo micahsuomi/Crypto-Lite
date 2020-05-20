@@ -7,7 +7,7 @@ import TopVolume from '../top-symbols-volumes/TopVolume';
 import News from '../news/News';
 import Loader from '../commons/Loader';
 import NewFeedList from '../news/NewsFeedList';
-import '../../assets/style/home.css';
+import '../../assets/style/Home.css';
 
 class Home extends Component {
 
