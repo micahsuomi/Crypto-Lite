@@ -1,5 +1,7 @@
 
-
+.home-container {
+  padding: 5rem 3rem;
+}
 .top-volume-wrapper-home {
     display: grid;
     grid-template-columns: repeat(5, 1fr);

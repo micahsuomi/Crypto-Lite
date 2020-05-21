@@ -49,6 +49,7 @@
     align-items: flex-start;
     flex-direction: column;
     margin-top: 1.81rem;
+    position: absolute;
 }
 
 
@@ -232,6 +233,10 @@
 
     .navbar-links.close {
         display: none;
+    }
+
+    .nav-dropdown[open] .nav-summary__dropdown {
+        position: relative;
     }
 
     

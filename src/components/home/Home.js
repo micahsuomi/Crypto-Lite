@@ -163,7 +163,7 @@ class Home extends Component {
 
         return (
             
-            <div className="home-container" style={{padding: '5rem 3rem'}}>
+            <div className="home-container">
                 
                 <Header />
 
