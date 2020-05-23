@@ -11,7 +11,13 @@
    grid-gap: 1.3rem;
 }
 
-@media(max-width: 768px) {
+@media screen and (max-width: 1024px) {
+
+    .newsfeed-wrapper {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}
+@media screen and (max-width: 768px) {
 
     .newsfeed-container {
         padding: 2rem;
@@ -21,7 +27,7 @@
     }
 }
 
-@media(max-width: 500px) {
+@media screen and (max-width: 500px) {
     .newsfeed-wrapper {
         grid-template-columns: repeat(2, 1fr);
     }

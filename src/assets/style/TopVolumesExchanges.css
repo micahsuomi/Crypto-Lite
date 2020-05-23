@@ -6,3 +6,9 @@
     display: grid;
     grid-template-columns: 60% 40%;
 }
+
+@media screen and (max-width: 1024px) {
+    .top-volumes-exchanges-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

@@ -65,9 +65,7 @@ class Watchlist extends Component {
                 let symbol = crypto.symbol
                 let index = this.state.cryptos.indexOf(crypto)
         
-                if(this.state.watchlistArr.indexOf(index === -1))
-                console.log(index)
-                if(this.state.query === symbol) {
+                if(this.state.query === symbol && this.state.watchlistArr.indexOf(index === -1)) {
                     
                     console.log('this is the symbol', crypto.symbol, index)
                     
@@ -89,9 +87,7 @@ class Watchlist extends Component {
                         console.log(this.state.watchlistArr)
                         this.setState({warning: '', query: ''})   
                     
-                    } else {
-                        console.log('alrady present')
-                    }
+                    } 
                 
         }
 

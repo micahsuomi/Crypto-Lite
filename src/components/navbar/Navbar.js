@@ -177,7 +177,7 @@ class NavBar extends Component {
                       onClick={this.closeNavigation}>
                           Currency Converter</NavLink>
                       </li>
-                      </ul> : '' }
+                      </ul> : null }
 
                             
                         
