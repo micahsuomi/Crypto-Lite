@@ -55,10 +55,10 @@
     color: var(--color-secondary-dark);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
 
     .news-item {
-        height: 35rem;
+        height: 47rem;
     }
 
     .news-item__left img {

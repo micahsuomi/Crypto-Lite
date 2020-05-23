@@ -38,10 +38,11 @@ class NewsFeedList extends Component {
 
                  />
              ))
+             newsFeed.length = 30;
 
         return(
             <div className="newsfeed-container" id="newsFeed">
-                {/* <h1 className="main-center-header">{this.state.title}</h1> */}
+                <h1 className="main-center-header">{this.state.title}</h1> 
                  <div className="newsfeed-wrapper">
                     {newsFeed} 
                 </div>

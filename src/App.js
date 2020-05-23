@@ -10,6 +10,7 @@ import WalletList from './components/wallets/WalletList';
 import Watchlist from './components/watchlist/Watchlist';
 import CurrencyConverter from './components/currencyconverter/CurrencyConverter';
 import NewsList from './components/news/NewsList';
+import NewsFeedList from './components/news/NewsFeedList';
 import './assets/style/newslist.css';
 import Footer from './components/footer/Footer';
 import {
@@ -134,8 +135,8 @@ class App extends Component {
             isSwitched={this.state.isSwitched}/>
               
           </Switch>
-
-      
+          
+          <NewsFeedList />
           <Footer />
           </div>
           </Router>
