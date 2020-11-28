@@ -50,8 +50,8 @@ const TopGainers = (props: any) => {
   return (
     <div className="top-performers">
       <div className="top-performers__btn-wrapper">
-        <button onClick={showTopFiveGainers} style={isTopPerformersShowing ? styleBtnClicked : styleBtnUnClicked} className="grow">Top 5 Gainers</button>
-        <button onClick={showTopFiveLosers} style={!isTopPerformersShowing ? styleBtnClicked : styleBtnUnClicked} className="grow">Top 5 Losers</button>
+        <button onClick={showTopFiveGainers} style={isTopPerformersShowing && !isTopLosersShowing ? styleBtnClicked : styleBtnUnClicked} className="grow">Top 5 Gainers</button>
+        <button onClick={showTopFiveLosers} style={!isTopPerformersShowing && isTopLosersShowing  ? styleBtnClicked : styleBtnUnClicked} className="grow">Top 5 Losers</button>
       </div>
       { isTopPerformersShowing ?  
         <>

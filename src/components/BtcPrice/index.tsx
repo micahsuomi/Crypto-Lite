@@ -7,6 +7,11 @@ import './style.scss'
 const BtcPrice = () => {
   const [err, btcPrice] = useBtcPrice()
 
+  if(err) {
+    return(
+      <h1>Not Found</h1>
+    )
+  }
   return (
     <div className="btc-price">
       <div className="btc-price__wrapper">

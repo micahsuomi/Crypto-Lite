@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable array-callback-return */
 import { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -91,5 +93,5 @@ export default function useCryptoExchanges(search: string, sort: any) {
     [flag, sort]
   )
 
-  return [err, data]
+  return [err, data, isLoading, sort]
 }

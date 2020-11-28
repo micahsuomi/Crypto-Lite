@@ -99,21 +99,21 @@ export default function Exchanges() {
         { !isLoading ? 
           <>
             <ExchangesTable
-              exchanges={search === '' ? currentExchanges : exchanges}
+              exchanges={search === '' && !isSorting? currentExchanges : exchanges}
               sortExchange={sortExchange} 
               isNameReversing={isNameReversing} 
               isVolumeReversing={isVolumeReversing} 
               isGradePointsReversing={isGradePointsReversing} 
               isAverageRateReversing={isAverageRateReversing}
             /> 
-            {search === '' && (
+            {search === '' && !isSorting ? (
               <Pagination
                 itemsPerPage={exchangesPerPage}
                 totalItems={exchanges?.length}
                 currentPage={currentPage}
                 paginate={paginate}
               />
-            )}
+            ) : null}
           </> 
           : <Loader />
         }
