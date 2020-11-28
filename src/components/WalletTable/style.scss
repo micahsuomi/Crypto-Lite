@@ -1,0 +1,42 @@
+.wallets {
+  padding: 12rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &__header {
+    margin-top: 3rem;
+  }
+  &__wrapper {
+    margin-top: 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: stretch;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wallets-container {
+    padding: 2rem 1rem;
+  }
+
+  .wallets-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wallets-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wallets-container {
+    padding: 2rem 2rem;
+  }
+
+  .wallets-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

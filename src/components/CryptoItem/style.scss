@@ -1,0 +1,56 @@
+.crypto-info {
+  padding: 0.7rem;
+
+  &__link {
+    text-decoration: none;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    list-style: none;
+    justify-items: center;
+    align-items: center;
+    padding: .7rem;
+    border: 1px solid lightgray;
+    width: 100vw;
+
+    li {
+      color: var(--shaded-dark);
+    }
+  }
+  &__languages {
+    list-style: none;
+  }
+  &__infolink:hover {
+    color: var(--primary-dark);
+    transform: scale(1.03);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &__link:active {
+    outline: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .crypto-info {
+    &__list {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    &__button {
+      grid-column: 2/3;
+    }
+    &__infolink {
+      grid-column: 4/5;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .crypto-info {
+    &__list {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+}

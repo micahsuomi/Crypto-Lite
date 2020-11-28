@@ -1,0 +1,22 @@
+.header-container {
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  padding: 6rem 2rem;
+  width: 100vw;
+  height: 13rem;
+  z-index: 2;
+  transition: ease-in-out 0.6s;
+}
+
+.header-wrapper,
+.header-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-wrapper {
+  width: 94vw;
+  padding: 0.8rem;
+}

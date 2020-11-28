@@ -1,0 +1,57 @@
+.wallets {
+  padding: 12rem 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.wallets__header {
+  margin-top: 3rem;
+}
+
+.wallets__wrapper {
+  margin-top: 3.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  justify-items: stretch;
+}
+
+@media screen and (max-width: 1024px) {
+  .wallets-container {
+    padding: 2rem 1rem;
+  }
+  .wallets-wrapper {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wallets-wrapper {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wallets-container {
+    padding: 2rem 2rem;
+  }
+  .wallets-wrapper {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+/*# sourceMappingURL=style.css.map */

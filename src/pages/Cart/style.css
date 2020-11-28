@@ -1,0 +1,110 @@
+.cart__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 7rem 2rem;
+  min-height: 100vh;
+}
+
+.cart__wrapper {
+  background-color: var(--light);
+  height: 30rem;
+  width: 75rem;
+  padding: 2rem 1rem;
+  -webkit-box-shadow: 0 1rem 2rem rgba(164, 177, 177, 0.5);
+          box-shadow: 0 1rem 2rem rgba(164, 177, 177, 0.5);
+  overflow-y: scroll;
+  border-radius: 5px;
+}
+
+.cart__exit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.cart__exit-link {
+  color: var(--primary);
+  margin-left: 1rem;
+}
+
+.cart__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cart__header h3 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.cart__list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  list-style: none;
+  border: 1px solid lightcyan;
+  padding: 1rem 0;
+}
+
+.cart__flag {
+  display: inline-block;
+  overflow: hidden;
+  height: 62px;
+  width: 62px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.cart__flag img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .cart__wrapper {
+    height: 53rem;
+    width: 55rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cart__list {
+    width: 38rem;
+  }
+  .cart__wrapper {
+    height: 68rem;
+    width: 40rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

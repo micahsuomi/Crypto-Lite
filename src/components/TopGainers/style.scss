@@ -1,0 +1,40 @@
+
+.top-performers {
+    padding: 5rem 4rem;
+    &__btn-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            margin: .4rem;
+            padding: .5rem;
+            border-radius: 50px;
+            background-color: var(--primary);
+            border: none;
+            color: white;
+            cursor: pointer;
+            :active {
+                outline: none;
+            }
+        }
+    }
+    h3 {
+        text-align: center;
+        margin-top: 1rem;
+    }
+  }
+  .top-performers__header {
+    color: var(--color-secondary-dark);
+    font-size: var(--font-size-medium);
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .top-gainer-list-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+  }
+  

@@ -1,0 +1,10 @@
+.delete-crypto {
+  color: #c03553;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-crypto:hover {
+  color: #9c1542;
+}
+/*# sourceMappingURL=style.css.map */

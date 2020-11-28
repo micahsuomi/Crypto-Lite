@@ -1,0 +1,30 @@
+.header-container {
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  padding: 6rem 2rem;
+  width: 100vw;
+  height: 13rem;
+  z-index: 2;
+  -webkit-transition: ease-in-out 0.6s;
+  transition: ease-in-out 0.6s;
+}
+
+.header-wrapper,
+.header-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-wrapper {
+  width: 94vw;
+  padding: 0.8rem;
+}
+/*# sourceMappingURL=style.css.map */

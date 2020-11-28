@@ -5,85 +5,123 @@
   scroll-behavior: smooth;
 }
 
-:root {
-  /* color-palette */
-
-  --color-primary-light: rgb(83, 62, 83);
-  --color-primary-dark: rgb(32, 25, 32);
-  --color-secondary-light: rgb(43, 199, 219);
-  --color-secondary-light-hover: rgb(27, 203, 216);
-  --color-secondary-dark: rgb(25, 90, 174);
-  --color-warning: rgb(255, 0, 98);
-  --color-night-mode: #121212;
-  --color-navbar-day: linear-gradient(135deg, #666fea 0%, #1965a3 100%);
-  --color-navbar-night: linear-gradient(135deg, #af66ea 0%, #C38FFF 100%);
-  
-  --font-size-big: 5rem; 
-  --font-size-mediumbig: 3.5rem;
-  --font-size-medium: 2.4rem;
-  --font-size-small: 1.8rem;
-  --font-size-verysmall: 1.3rem;
-
-  --section-padding: 5rem 20em;
-  
-} 
-
-
 html {
-  font-size: 62.5%;
-
+  box-sizing: border-box;
+  font-size: 62, 5%;
 }
 
-@media(max-width: 1250px) {
+.App {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+}
+@media (max-width: 1250px) {
   html {
-      font-size: 56%;
+    font-size: 76%;
   }
 }
 
-@media(max-width: 800px) {
+@media (max-width: 800px) {
   html {
-      font-size: 50%;
+    font-size: 55%;
   }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
   html {
-      font-size: 42%;
+    font-size: 45%;
   }
 }
 
 body {
-
   font-family: 'Lato', sans-serif;
-
-
-
 }
 
+:root {
+  --primary: #4b128b;
+  --color-primary-light: rgb(83, 62, 83);
+  --color-primary-dark: rgb(32, 25, 32);
+  --color-white: rgb(248, 242, 242);
+  --color-light: rgb(211, 202, 202);
+  --color-secondary-light: rgb(43, 199, 219);
+  --color-secondary-light-hover: rgb(27, 203, 216);
+  --color-secondary-dark: rgb(70, 25, 174);
+  --color-warning: rgb(255, 0, 98);
+  --background-day-mode: linear-gradient(135deg, #ede7f1 0%, #dcd2e9 100%);
+  --background-night-mode: linear-gradient(135deg, #353338 0%, #1e1f20 100%);;
+  --color-navbar-day: linear-gradient(135deg, #4b128b 0%, #1d1f20 100%);
+  --btn-disabled: linear-gradient(135deg, #af66ea 0%, #c38fff 100%);
+
+  --font-size-big: 2.8rem;
+  --font-size-mediumbig: 2.2rem;
+  --font-size-medium: 20px;
+  --font-size-small: 14px;
+  --font-size-verysmall: 1.1rem;
+
+  --section-padding: 5rem 20em;
+  /* --primary: rgb(235, 60, 89);
+  --primary-dark: rgb(233, 19, 55);   */
+  --primary-light: rgb(228, 181, 189);
+
+  --secondary: #43d1eb;
+  --secondary-dark: #d61948;
+  --blue: #d7d1f0;
+  --red: #f70944b3;
+  --red-light: #f53c6ab3;
+  --dark: rgb(46, 39, 40);
+  --overlay-mask: rgba(73, 78, 85);
+  --shaded-dark: rgb(40, 36, 58);
+  --yellow: rgb(228, 160, 15);
+}
 
 .App {
   min-height: 100%;
   overflow: hidden;
-
+  position: relative;
 }
 
-.main-center-header {
-  text-align: center;
-  font-size: var(--font-size-medium);
-  /* color: var(--color-primary-light); */
-  margin-top: 3rem;
-  text-transform: uppercase;
+.grow:hover {
+  transform: scale(1.03);
+  transition: all 0.2s ease-in-out;
+}
+.grow-icon:hover {
+  transform: scale(1.12);
+  transition: all 0.2s ease-in-out;
 }
 
-.bold {
-  font-weight: 700;
+.animate-appear {
+  animation: createBox 0.25s;
+}
+.animate-rotate-clockwise {
+  animation: rotateClockwise 0.25s;
+  
 }
 
-.warning {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: var(--font-size-small);
-  color: var(--color-warning);
+.animate-rotate-anticlockwise {
+  animation: rotateantiClockwise 0.25s;
 }
 
-
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+@keyframes rotateantiClockwise {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes createBox {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

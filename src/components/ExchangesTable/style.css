@@ -1,0 +1,79 @@
+.exchanges {
+  padding: 12rem 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.exchanges thead {
+  position: fixed;
+  top: 13%;
+  left: 0%;
+  margin-bottom: 6rem;
+  width: 100vw;
+}
+
+.exchanges tbody {
+  padding-top: 10%;
+}
+
+.exchanges__header {
+  margin-top: 3rem;
+}
+
+.exchanges__wrapper {
+  margin-top: 3.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  justify-items: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 1024px) {
+  .exchanges-container {
+    padding: 2rem 1rem;
+  }
+  .exchanges-wrapper {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .exchanges-wrapper {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .exchanges-container {
+    padding: 2rem 2rem;
+  }
+  .exchanges-wrapper {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+/*# sourceMappingURL=style.css.map */

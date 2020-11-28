@@ -1,0 +1,110 @@
+.wallet {
+  height: 20em;
+  width: 17rem;
+  border: 1px solid #f8f7f7;
+  padding: 2rem 1rem;
+  border-radius: 15px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.97)), to(white)), url("https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.97), white), url("https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  background-size: cover;
+  margin: 1rem;
+}
+
+.wallet__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1.5;
+}
+
+.wallet__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wallet__head a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.wallet__logo {
+  height: 5rem;
+  width: 5rem;
+}
+
+.wallet__name {
+  font-size: var(--font-size-small);
+  color: var(--color-primary-light);
+  margin-top: 1rem;
+}
+
+.wallet__details-list {
+  margin-top: 2rem;
+}
+
+.wallet__details-list p {
+  font-size: var(--font-size-small);
+  color: var(--color-primary-light);
+}
+
+.wallet summary {
+  font-family: 'Lato';
+}
+
+.wallet__view {
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .wallet {
+    height: 41em;
+    width: 35rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wallet {
+    height: 41em;
+    width: 28.5rem;
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wallet {
+    height: 37em;
+    width: 50rem;
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .wallet {
+    height: 37em;
+    width: 41.5rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,55 @@
+.cell {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 17.5% 13% 10% 9% 11% 10% 9%;  
+    justify-items: center;
+    align-items: center;
+    list-style: none;
+    margin-top: 8rem;
+    &__item {
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.7rem;
+      border-radius: 5px;
+      width: 10rem;
+      font-size: var(--font-size-small);
+      z-index: 0;
+      i {
+        margin-left: 0.4rem;
+        display: inline-block;
+      }
+    }
+    &__item:active {
+      color: var(--yellow);
+    }
+    &__form {
+      position: relative;
+      label {
+        font-size: var(--font-size-small);
+      }
+      input {
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        top: -57%;
+        left: 32%;
+        cursor: pointer;
+        opacity: 0;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .cell {
+      padding: 0;
+      grid-template-columns: 24% 14% 27% 11% 26%;
+  
+      &__item {
+        width: 9rem;
+        box-shadow: none;
+      }
+    }
+  }
+  

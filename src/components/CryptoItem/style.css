@@ -1,0 +1,69 @@
+.crypto-info {
+  padding: 0.7rem;
+}
+
+.crypto-info__link {
+  text-decoration: none;
+}
+
+.crypto-info__list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
+  list-style: none;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .7rem;
+  border: 1px solid lightgray;
+  width: 100vw;
+}
+
+.crypto-info__list li {
+  color: var(--shaded-dark);
+}
+
+.crypto-info__languages {
+  list-style: none;
+}
+
+.crypto-info__infolink:hover {
+  color: var(--primary-dark);
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.crypto-info__link:active {
+  outline: none;
+}
+
+@media screen and (max-width: 500px) {
+  .crypto-info__list {
+    -ms-grid-columns: (1fr)[5];
+        grid-template-columns: repeat(5, 1fr);
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
+  }
+  .crypto-info__button {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+  }
+  .crypto-info__infolink {
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+    grid-column: 4/5;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .crypto-info__list {
+    -ms-grid-columns: (1fr)[12];
+        grid-template-columns: repeat(12, 1fr);
+  }
+}
+/*# sourceMappingURL=style.css.map */

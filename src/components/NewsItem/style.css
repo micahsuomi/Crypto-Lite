@@ -1,0 +1,103 @@
+.news-item {
+  padding: 0rem 2rem;
+  line-height: 1;
+  height: 18rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0rem 1rem rgba(54, 51, 51, 0.5);
+          box-shadow: 0 0rem 1rem rgba(54, 51, 51, 0.5);
+  background: white;
+  width: 72vw;
+  margin-top: .8rem;
+  border-radius: 3px;
+}
+
+.news-item__right a {
+  text-decoration: none;
+  color: var(--color-primary-dark);
+}
+
+.news-item__left {
+  display: inline-block;
+  overflow: hidden;
+  height: 165px;
+  width: 165px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.news-item__left img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.news-item__right {
+  padding: 1rem 2rem;
+}
+
+.news-header {
+  font-size: var(--font-size-medium);
+  margin-top: 1rem;
+  text-decoration: underline;
+  color: var(--color-secondary-dark);
+}
+
+.news-item-paragraph {
+  font-size: var(--font-size-small);
+  line-height: 1.7;
+  margin-top: 1.5rem;
+}
+
+.categories {
+  color: var(--color-secondary-dark);
+  margin-top: 1rem;
+  font-size: var(--font-size-verysmall);
+}
+
+.read-more__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.read-more__wrapper a {
+  font-size: var(--font-size-small);
+  color: var(--color-secondary-dark);
+}
+
+@media screen and (max-width: 1024px) {
+  .news-item {
+    height: 47rem;
+  }
+  .news-item__left img {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .news-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 4rem 0;
+    height: 64rem;
+  }
+  .news-item__left img {
+    width: 16em;
+    height: 16em;
+  }
+}
+/*# sourceMappingURL=style.css.map */

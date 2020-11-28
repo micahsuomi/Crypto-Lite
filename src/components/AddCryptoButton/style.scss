@@ -1,0 +1,26 @@
+.add-crypto__btn {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  margin: 0.8rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
+}
+
+.add-crypto__btn-disabled {
+  background-color: var(--primary-light);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 500px) {
+  .add-crypto__btn {
+    font-size: 6px;
+  }
+}

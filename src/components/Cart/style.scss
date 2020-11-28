@@ -1,0 +1,76 @@
+.cart-link {
+  text-decoration: none;
+}
+
+.disabled {
+  pointer-events: 'none';
+}
+
+.watchlist-icon {
+  font-size: 2rem;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.3rem;
+  width: 3.5rem;
+  font-weight: 700;
+  border-radius: 5px;
+  position: relative;
+
+  &__left {
+    color: white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      margin-left: 0.6rem;
+    }
+  }
+  &__link--empty {
+    pointer-events: none;
+  }
+
+  &__link--full {
+    color: var(--light);
+  }
+
+  &__right {
+    background-color: var(--yellow);
+    padding: 0.43rem;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    box-shadow: 0 2rem 3rem rgba(64, 73, 73, 0.5);
+    position: absolute;
+    top: -9%;
+    right: 63.5%;
+  }
+
+  p {
+    color: white;
+    margin-top: -0.3rem;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cart {
+    &__right {
+      height: 13px;
+      width: 12px;
+      box-shadow: 0 2rem 3rem rgba(64, 73, 73, 0.5);
+      position: absolute;
+      top: -17%;
+      right: -31.5%;
+    }
+
+    p {
+      font-size: 8px;
+    }
+  }
+}
