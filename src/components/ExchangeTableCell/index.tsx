@@ -39,7 +39,7 @@ const ExchangesTableCell = ({
           <label htmlFor="name">Volume</label>
           <input
             type="checkbox"
-            value="volume"
+            value="price"
             className="sort__input"
             onChange={sortExchange}
           />
@@ -55,7 +55,7 @@ const ExchangesTableCell = ({
           <label htmlFor="name">Country</label>
           <input
             type="checkbox"
-            value="country"
+            value="price"
             className="sort__input"
             onChange={sortExchange}
           />
@@ -71,7 +71,7 @@ const ExchangesTableCell = ({
           <label htmlFor="name">Grade</label>
           <input
             type="checkbox"
-            value="grade"
+            value="price"
             className="sort__input"
             onChange={sortExchange}
           />
@@ -87,7 +87,7 @@ const ExchangesTableCell = ({
           <label htmlFor="name">Grade Points</label>
           <input
             type="checkbox"
-            value="gradepoints"
+            value="percentagechange"
             className="sort__input"
             onChange={sortExchange}
           />
@@ -103,7 +103,7 @@ const ExchangesTableCell = ({
           <label htmlFor="name">Average Rate</label>
           <input
             type="checkbox"
-            value="averagerate"
+            value="marketcap"
             className="sort__input"
             onChange={sortExchange}
           />

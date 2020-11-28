@@ -48,7 +48,6 @@ export default function Exchanges() {
   const sortExchange = (e: any) => {
     setSort(e.target.value)
     setIsSorting(true)
-    console.log(e.target.value)
   }
 
   useEffect(() => {
@@ -100,21 +99,21 @@ export default function Exchanges() {
         { !isLoading ? 
           <>
             <ExchangesTable
-              exchanges={search === '' && !isSorting ? currentExchanges : exchanges}
+              exchanges={search === '' ? currentExchanges : exchanges}
               sortExchange={sortExchange} 
               isNameReversing={isNameReversing} 
               isVolumeReversing={isVolumeReversing} 
               isGradePointsReversing={isGradePointsReversing} 
               isAverageRateReversing={isAverageRateReversing}
             /> 
-            {search === '' && !isSorting ? (
+            {search === '' && (
               <Pagination
                 itemsPerPage={exchangesPerPage}
                 totalItems={exchanges?.length}
                 currentPage={currentPage}
                 paginate={paginate}
               />
-            ) : null}
+            )}
           </> 
           : <Loader />
         }
