@@ -8,6 +8,8 @@ const ExchangesTableCell = ({
   sortExchange,
   isNameReversing,
   isVolumeReversing,
+  isCountryReversing,
+  isGradeReversing,
   isGradePointsReversing,
   isAverageRateReversing,
 }: ExchangeTableCellProps) => {
@@ -17,16 +19,11 @@ const ExchangesTableCell = ({
     <tr className="cell">
       <td></td>
       <td className="cell__item" style={{ color: theme.text }}>
-        <form className="cell__form">
-          <label htmlFor="name">Name</label>
-          <input
-            type="checkbox"
-            value="name"
-            className="sort__input"
-            onChange={sortExchange}
-          />
-        </form>
-
+        <button
+          value="name"
+          onClick={sortExchange}
+        >Name
+        </button>
         {isNameReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (
@@ -35,15 +32,11 @@ const ExchangesTableCell = ({
       </td>
 
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <form className="cell__form">
-          <label htmlFor="name">Volume</label>
-          <input
-            type="checkbox"
-            value="price"
-            className="sort__input"
-            onChange={sortExchange}
-          />
-        </form>
+        <button
+          value="volume"
+          onClick={sortExchange}
+        >Volume
+        </button>
         {isVolumeReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (
@@ -51,63 +44,49 @@ const ExchangesTableCell = ({
         )}
       </td>
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <form className="cell__form">
-          <label htmlFor="name">Country</label>
-          <input
-            type="checkbox"
-            value="price"
-            className="sort__input"
-            onChange={sortExchange}
-          />
-        </form>
-        {isVolumeReversing ? (
+        <button
+          value="country"
+          onClick={sortExchange}
+        >Country
+        </button>
+        {isCountryReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (
           <i className="fas fa-chevron-down"></i>
         )}
       </td>
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <form className="cell__form">
-          <label htmlFor="name">Grade</label>
-          <input
-            type="checkbox"
-            value="price"
-            className="sort__input"
-            onChange={sortExchange}
-          />
-        </form>
-        {isVolumeReversing ? (
+        <button
+          value="grade"
+          onClick={sortExchange}
+        >Grade
+        </button>
+        {isGradeReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (
           <i className="fas fa-chevron-down"></i>
         )}
       </td>
-      <td className="cell__item grow" style={{ color: theme.text }}>
-        <form className="cell__form">
-          <label htmlFor="name">Grade Points</label>
-          <input
-            type="checkbox"
-            value="percentagechange"
-            className="sort__input"
-            onChange={sortExchange}
-          />
-        </form>
+      <td className="cell__item grow" 
+        style={{ color: theme.text }}>
+        <button
+          value="gradepoints"
+          onClick={sortExchange}
+        >Grade Points
+        </button>
         {isGradePointsReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (
           <i className="fas fa-chevron-down"></i>
         )}
       </td>
-      <td className="cell__item grow" style={{ color: theme.text }}>
-        <form className="cell__form">
-          <label htmlFor="name">Average Rate</label>
-          <input
-            type="checkbox"
-            value="marketcap"
-            className="sort__input"
-            onChange={sortExchange}
-          />
-        </form>
+      <td className="cell__item grow" 
+        style={{ color: theme.text }}>
+        <button
+          value="averagerating"
+          onClick={sortExchange}
+        >Rating
+        </button>
         {isAverageRateReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (

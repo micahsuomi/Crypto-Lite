@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import useBtcPrice from '../../hooks/useBtcPrice'
+import { ThemeContext } from '../../contexts'
 
 import './style.scss'
 
 const BtcPrice = () => {
   const [err, btcPrice] = useBtcPrice()
+  const { theme } = useContext(ThemeContext)
 
   if(err) {
     return(
@@ -13,7 +15,8 @@ const BtcPrice = () => {
     )
   }
   return (
-    <div className="btc-price">
+    <div className="btc-price"
+      style={{ color: theme.homeBanner }}>
       <div className="btc-price__wrapper">
         <p className="btc-price__text">BTC Price</p>
         <p className="btc-price__text">USD {btcPrice && btcPrice.USD}</p>

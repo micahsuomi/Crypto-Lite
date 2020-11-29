@@ -30,14 +30,12 @@ const Exchange = (props: any) => {
     return exchange.Id === id
   })
 
-  console.log(filteredExchange)
-
   return (
     <div
-      className="view-exchange"
+      className="view-exchange-container"
       style={{ backgroundColor: theme.viewItemColor }}
     >
-      <div className="prev">
+      <div className="view-exchange-container__prev">
         {slider.prev !== '' && <ArrowPrev slider={slider}/>}
       </div>
             
@@ -60,7 +58,7 @@ const Exchange = (props: any) => {
         depositMethods={filteredExchange.DepositMethods}
         witdhrawalMethods={filteredExchange.WithdrawalMethods}
       /> 
-      <div className="next">
+      <div className="view-exchange-container__next">
         {slider.next !== '' && (
           <ArrowNext slider={slider}/>
         )}

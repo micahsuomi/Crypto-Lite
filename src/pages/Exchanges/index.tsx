@@ -13,15 +13,15 @@ export default function Exchanges() {
 
   const [search, setSearch] = useState('')
   const [sort, setSort] = useState('')
-  const [err, exchanges, isLoading, changeValue] = useCryptoExchanges(search, sort)
-  
   const [isSorting, setIsSorting] = useState(false)
+  const [flag, setFlag] = useState(false)
+  const [err, exchanges, isLoading, changeValue] = useCryptoExchanges(search, sort, flag)
+  
   const [isNameReversing, setIsNameReversing] = useState(false)
   const [isVolumeReversing, setIsVolumeReversing] = useState(false)
-  const [
-    isGradePointsReversing,
-    setIsGradePointsReversing,
-  ] = useState(false)
+  const [isCountryReversing, setIsCountryReversing] = useState(false)
+  const [isGradeReversing, setIsGradeReversing] = useState(false)
+  const [isGradePointsReversing, setIsGradePointsReversing,] = useState(false)
   const [isAverageRateReversing, setIsAverageRateReversing] = useState(false)
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -34,8 +34,6 @@ export default function Exchanges() {
 
   const paginate = (pageNumber: any) => setCurrentPage(pageNumber)
 
-  console.log(exchanges)
-
   const handleSubmit = (e: any) => {
     e.preventDefault()
   }
@@ -47,9 +45,10 @@ export default function Exchanges() {
 
   const sortExchange = (e: any) => {
     setSort(e.target.value)
+    console.log(e.target.value)
     setIsSorting(true)
   }
-
+ 
   useEffect(() => {
     changeArrowValue(changeValue)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -61,22 +60,32 @@ export default function Exchanges() {
       switch (changeValue) {
       case 'name':
         setIsNameReversing(!isNameReversing)
+        setFlag(!flag)
         break
       case 'volume':
         setIsVolumeReversing(!isVolumeReversing)
         break
+      case 'country':
+        setIsCountryReversing(!isCountryReversing)
+        break
+      case 'grade':
+        setIsGradeReversing(!isGradeReversing)
+        break
       case 'gradepoints':
         setIsGradePointsReversing(!isGradePointsReversing)
         break
-      case 'averagerate':
+      case 'averagerating':
         setIsAverageRateReversing(!isAverageRateReversing)
         break
       default:
       }
     },
     [
+      flag,
       isNameReversing,
       isVolumeReversing,
+      isCountryReversing,
+      isGradeReversing,
       isGradePointsReversing,
       isAverageRateReversing,
     ]
@@ -102,7 +111,9 @@ export default function Exchanges() {
               exchanges={search === '' && !isSorting? currentExchanges : exchanges}
               sortExchange={sortExchange} 
               isNameReversing={isNameReversing} 
-              isVolumeReversing={isVolumeReversing} 
+              isVolumeReversing={isVolumeReversing}
+              isCountryReversing={isCountryReversing} 
+              isGradeReversing={isGradeReversing}
               isGradePointsReversing={isGradePointsReversing} 
               isAverageRateReversing={isAverageRateReversing}
             /> 

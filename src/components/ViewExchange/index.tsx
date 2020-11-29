@@ -27,7 +27,8 @@ const ViewExchange = ({
   const { theme } = useContext(ThemeContext)
   console.log(witdhrawalMethods)
   return (
-    <div className="view-exchange" key={id} style={{ backgroundImage: theme.backgroundColor, color: theme.text }}>
+    <div className="view-exchange" key={id} 
+      style={{ backgroundImage: theme.backgroundColor, color: theme.text }}>
       <div className="view-exchange__exit-container">
         <NavLink to="/exchanges" className="back-link">
           <i className="far fa-window-close fa-2x close-window"></i>

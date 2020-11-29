@@ -71,6 +71,15 @@ export type TitleProps = {
   message?: string
 }
 
+export type TopGainerProps = {
+  id: string 
+  image: string 
+  name: string 
+  symbol: string 
+  price: string 
+  percentageChange: number
+}
+
 export type Crypto = {
   id: string
   image: string
@@ -195,25 +204,31 @@ export type PaginationProps = {
 
 export type ExchangesTableProps = {
   exchanges: any
-  sortExchange: (e: React.FormEvent<HTMLInputElement>) => void
+  sortExchange: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   isNameReversing: boolean
   isVolumeReversing: boolean
+  isCountryReversing: boolean
+  isGradeReversing: boolean
   isGradePointsReversing: boolean
   isAverageRateReversing: boolean
 }
 
 export type ExchangeTableHeaderProps = {
-  sortExchange: (e: React.FormEvent<HTMLInputElement>) => void
+  sortExchange: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   isNameReversing: boolean
   isVolumeReversing: boolean
+  isCountryReversing: boolean
+  isGradeReversing: boolean
   isGradePointsReversing: boolean
   isAverageRateReversing: boolean
 }
 
 export type ExchangeTableCellProps = {
-  sortExchange: (e: React.FormEvent<HTMLInputElement>) => void
+  sortExchange: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   isNameReversing: boolean
   isVolumeReversing: boolean
+  isCountryReversing: boolean
+  isGradeReversing: boolean
   isGradePointsReversing: boolean
   isAverageRateReversing: boolean
 }

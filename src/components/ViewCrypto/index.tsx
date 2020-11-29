@@ -33,7 +33,8 @@ const ViewCrypto = ({
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="view-crypto__container" style={{ backgroundColor: theme.backgroundColor, color: theme.text }}>
+    <div className="view-crypto" 
+      style={{ backgroundColor: theme.backgroundColor, color: theme.text }}>
       <div className="navigation-exit__container">
         <NavLink to="/marketprices" className="back-link">
           <span className="back-to__coins">Back to All Coins</span>
@@ -54,7 +55,7 @@ const ViewCrypto = ({
           </div>
         </div>
 
-        <div className="crypto-content__body">
+        <div className="view-crypto__body">
           <div className="crypto-card-body__info">
             <p className="crypto-content__data">
               <span className="bold">Algorithm:</span> {algorithm}

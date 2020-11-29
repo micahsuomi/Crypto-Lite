@@ -26,17 +26,20 @@
 }
 
 @media screen and (max-width: 768px) {
-  .wallets-wrapper {
-    grid-template-columns: repeat(3, 1fr);
+  .wallets {
+    &__wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
+  
 }
 
 @media screen and (max-width: 500px) {
-  .wallets-container {
-    padding: 2rem 2rem;
-  }
-
-  .wallets-wrapper {
+  .wallets {
+    padding: 15rem 2rem;
+  &__wrapper {
     grid-template-columns: 1fr;
   }
+  }
+
 }

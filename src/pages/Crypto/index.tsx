@@ -31,7 +31,7 @@ const Crypto = (props: any) => {
 
   return (
     <div
-      className="view-crypto"
+      className="view-crypto-container"
       style={{ backgroundImage: theme.viewItemColor }}
     >
       <div className="prev">

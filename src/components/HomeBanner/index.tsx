@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import BtcPrice from '../BtcPrice/index'
 import headerImg from '../../imgs/cryptos.svg'
+import { ThemeContext } from '../../contexts'
 
 import './style.scss'
 
 const Header = () => {
+  const { theme } = useContext(ThemeContext)
   return (
-    <div className="homebanner">
+    <div className="homebanner" 
+      style={{ backgroundColor: theme.backgroundColor, color: theme.homeBanner }}>
       <img src={headerImg} alt="prices pic" />
       <div className="homebanner__wrapper" id="home">
         <BtcPrice />

@@ -95,7 +95,34 @@
 
 @media screen and (max-width: 500px) {
   .currency-converter {
-    padding: 7rem 7rem;
-    width: 53rem;
+    &__form {
+      margin-top: 2rem;
+      width: 47rem;
+      height: 47rem;
+      border-radius: 25px;
+      input {
+        width: 23rem;
+     }
+     select {
+        width: 30rem;
+    }
+    }
+    .calculate-btn {
+      width: 30rem;
+      margin-top:.6rem;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .currency-converter {
+    padding: 1rem 0;
+    &__form {
+      padding: 0rem 1rem;
+      margin-top: 2rem;
+      width: 41rem;
+      height: 44rem;
+      border-radius: 25px;
+    }
   }
 }

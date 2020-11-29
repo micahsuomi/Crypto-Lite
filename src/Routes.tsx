@@ -25,7 +25,6 @@ const Routes = () => {
   const filteredExchanges = useSelector(
     (state: AppState) => state.cryptos.filteredExchanges
   )
-  console.log(filteredExchanges)
 
   const filteredWallets = useSelector(
     (state: AppState) => state.cryptos.filteredWallets

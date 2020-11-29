@@ -1,6 +1,6 @@
 
 .top-performers {
-    padding: 5rem 4rem;
+    padding: 2rem 2rem;
     &__btn-wrapper {
         display: flex;
         justify-content: center;
@@ -8,8 +8,9 @@
 
         button {
             margin: .4rem;
-            padding: .5rem;
+            padding: .7rem;
             border-radius: 50px;
+            width: 14rem;
             background-color: var(--primary);
             border: none;
             color: white;

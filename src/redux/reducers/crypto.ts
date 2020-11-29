@@ -78,10 +78,9 @@ export default function country(
         exchanges
       }
     }
-
+    
     case SEARCH_EXCHANGES: {
       const { exchanges } = action.payload
-      console.log(exchanges)
       return {
         ...state,
         filteredExchanges: exchanges

@@ -67,25 +67,23 @@ const CurrencyConverter = ({ cryptos }: any) => {
 
       {isSwitched ? (
         <form className="currency-converter__form" onSubmit={handleSubmit} 
-          style={{ backgroundColor: theme.headerColor }}>
-          <div>
-            <label htmlFor="Amount in USD" style={{ color: theme.text }}>
+          style={{ backgroundImage: theme.currencyCalcColor }}>
+          <label htmlFor="Amount in USD" style={{ color: theme.text }}>
               Amount in USD
-            </label>
-            <div className="inputs-arrows__container">
-              <input
-                type="text"
-                name="amount"
-                value={amount}
-                placeholder="amount in $"
-                onChange={handleChange}
-                style={{ backgroundColor: theme.inputColor, color: theme.text }}
-              />
-              <button className="switch" onClick={handleSwitch}>
-                <i className="fas fa-long-arrow-alt-up fa-3x arrow"></i>
-                <i className="fas fa-long-arrow-alt-down fa-3x arrow"></i>
-              </button>
-            </div>
+          </label>
+          <div className="inputs-arrows__container">
+            <input
+              type="text"
+              name="amount"
+              value={amount}
+              placeholder="amount in $"
+              onChange={handleChange}
+              style={{ backgroundColor: theme.inputColor, color: theme.text }}
+            />
+            <button className="switch" onClick={handleSwitch}>
+              <i className="fas fa-long-arrow-alt-up fa-3x arrow"></i>
+              <i className="fas fa-long-arrow-alt-down fa-3x arrow"></i>
+            </button>
           </div>
 
           <label htmlFor="currency" style={{ color: theme.text }}>

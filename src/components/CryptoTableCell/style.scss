@@ -42,13 +42,17 @@
 }
 
 @media screen and (max-width: 500px) {
-  .cell {
+  .crypto-cell {
     padding: 0;
-    grid-template-columns:  8.5% 19% 16% 15% 14% 15% 12%;;
+    grid-template-columns:  13.5% 14% 10% 14% 14% 14% 10%;
 
     &__item {
       width: 9rem;
       box-shadow: none;
+      font-size: var(--font-size-verysmall);
+    }
+    label {
+      font-size: var(--font-size-verysmall);
     }
   }
 }

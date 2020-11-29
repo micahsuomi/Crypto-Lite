@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import TopGainerItem from '../TopGainerItem'
+import { ThemeContext } from '../../contexts'
 
 import './style.scss'
 
@@ -10,6 +11,7 @@ const TopGainers = (props: any) => {
 
   const filteredTopPerformers = []
   const filteredTopLosers = []
+  const { theme } = useContext(ThemeContext)
 
   for (const crypto of props.topPerformersData) {
     let performersObj = { id: '', image: '', name: '', symbol: '', price: '', percentageChange: 0 }
@@ -55,19 +57,33 @@ const TopGainers = (props: any) => {
       </div>
       { isTopPerformersShowing ?  
         <>
-          <h3>Top {topFivePerformers.length} Gainers</h3>
+          <h3 style={{color: theme.text}}>Top {topFivePerformers.length} Gainers</h3>
           <div className="top-gainer-list-wrapper">{
             topFivePerformers.map((performer: any) => (
-              <TopGainerItem key={performer.id} performer={performer} />
+              <TopGainerItem 
+                key={performer.id} 
+                id={performer.id}
+                image={performer.image}
+                name={performer.name}
+                symbol={performer.symbol}
+                price={performer.price}
+                percentageChange={performer.percentageChange} />
             ))} 
           </div> 
         </>
         : 
         <>
-          <h3>Top {topFivePerformers.length} Losers</h3>
+          <h3 style={{color: theme.text}}>Top {topFivePerformers.length} Losers</h3>
           <div className="top-gainer-list-wrapper">{
             topFiveLosers.map((performer) => (
-              <TopGainerItem key={performer.id} performer={performer} /> 
+              <TopGainerItem  
+                key={performer.id} 
+                id={performer.id}
+                image={performer.image}
+                name={performer.name}
+                symbol={performer.symbol}
+                price={performer.price}
+                percentageChange={performer.percentageChange} /> 
             ))}</div>
         </>
       } 

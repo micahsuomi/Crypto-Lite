@@ -40,8 +40,8 @@ const ExchangeItem = ({
       <div className="exchange__details-list">
         <p>{rating}</p>
       </div>
-      <div>
-        <NavLink to={`/exchanges/${id}`} className="exchange__view">
+      <div className="exchange__view">
+        <NavLink to={`/exchanges/${id}`}>
           View Details
         </NavLink>
       </div>

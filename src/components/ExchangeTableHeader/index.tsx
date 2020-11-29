@@ -9,6 +9,8 @@ const ExchangeTableHeader = ({
   sortExchange,
   isNameReversing,
   isVolumeReversing,
+  isCountryReversing,
+  isGradeReversing,
   isGradePointsReversing,
   isAverageRateReversing,
 }: ExchangeTableHeaderProps) => {
@@ -17,6 +19,8 @@ const ExchangeTableHeader = ({
       sortExchange={sortExchange}
       isNameReversing={isNameReversing}
       isVolumeReversing={isVolumeReversing}
+      isCountryReversing={isCountryReversing}
+      isGradeReversing={isGradeReversing}
       isGradePointsReversing={isGradePointsReversing}
       isAverageRateReversing={isAverageRateReversing}
     />

@@ -1,4 +1,4 @@
-.view-crypto__container {
+.view-crypto {
   padding: 2rem 3rem;
   min-height: 70vh;
   display: flex;
@@ -8,6 +8,14 @@
   background-color: white;
   border-radius: 2px;
   width: 70vw;
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-top: 4.5rem;
+    justify-items: center;
+    padding: 1rem 2rem;
+  }
 }
 
 .crypto-content__header {
@@ -73,14 +81,7 @@
   font-size: var(--font-size-small);
 }
 
-.crypto-content__body {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
-  margin-top: 4.5rem;
-  justify-items: center;
-  padding: 1rem 2rem;
-}
+
 
 @media screen and (max-width: 1024px) {
   .view-crypto__background {
@@ -88,7 +89,7 @@
     background-color: lightslategrey;
     min-height: 100vh;
   }
-  .view-crypto__container {
+  .view-crypto {
     padding: 0 1rem;
     min-height: 54vh;
   }
@@ -102,12 +103,19 @@
   .view-crypto__background {
     padding: 3rem 0.5rem;
   }
-  .view-crypto__container {
+  .view-crypto {
     padding: 0;
     line-height: 1.4;
+    width: 90vw;
+    &__body {
+      grid-template-columns: 1fr;
+      margin-top: 2rem;
+    }
   }
 
   .navigation-exit__container {
+    width: 87vw;
+    margin-top: 1rem;
     width: 94vw;
   }
 
@@ -127,12 +135,14 @@
   }
 
   .view-crypto__content {
-    padding: 6rem 0rem;
+    padding: 3rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  .crypto-content__body {
-    margin-top: 3.5rem;
-  }
+  
 }
 
 @media screen and (max-width: 320px) {

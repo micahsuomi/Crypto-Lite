@@ -7,9 +7,13 @@ import { ThemeContext } from '../../contexts'
 
 import './style.scss'
 
-const ExchangesTable = ({ exchanges, sortExchange,
+const ExchangesTable = ({ 
+  exchanges, 
+  sortExchange,
   isNameReversing,
   isVolumeReversing,
+  isCountryReversing,
+  isGradeReversing,
   isGradePointsReversing,
   isAverageRateReversing, }: ExchangesTableProps) => {
   const { theme } = useContext(ThemeContext)
@@ -34,7 +38,9 @@ const ExchangesTable = ({ exchanges, sortExchange,
         </h2>
         <ExchangesTableHeader 
           sortExchange={sortExchange} 
-          isNameReversing={isNameReversing} 
+          isNameReversing={isNameReversing}
+          isCountryReversing={isCountryReversing} 
+          isGradeReversing={isGradeReversing}
           isVolumeReversing={isVolumeReversing} 
           isGradePointsReversing={isGradePointsReversing} 
           isAverageRateReversing={isAverageRateReversing} />
