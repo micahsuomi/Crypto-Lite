@@ -94,6 +94,10 @@ export type NewCrypto = {
   supply: number
 }
 
+export type CryptoCartProps = {
+  toggle: () => void
+}
+
 export type CryptoDetails = {
   id: string
   img: string

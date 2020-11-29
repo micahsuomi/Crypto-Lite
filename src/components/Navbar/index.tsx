@@ -53,7 +53,10 @@ const NavBar = () => {
           </li>
 
           <li>
-            <NavLink to="/marketprices" className="navbar__link">
+            <NavLink to="/marketprices" 
+              onClick={toggle}
+              className="navbar__link"
+              activeStyle={{color: 'var(--yellow)'}}>
             Market Prices
             </NavLink>
           </li>
@@ -95,11 +98,12 @@ const NavBar = () => {
         </ul>
         <ul>
           <li>
-            <CryptoCart />
+            <CryptoCart toggle={toggle}/>
           </li>
           <li>
             <NavLink
               to="/currencyconverter"
+              onClick={toggle}
               className="navbar__link"
               title="currency converter"
               activeStyle={{color: 'var(--yellow)'}}>

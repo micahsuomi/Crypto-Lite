@@ -63,11 +63,11 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .cart {
     &__wrapper {
-      height: 53rem;
-      width: 55rem;
+      min-height: 63rem;
+      width: 80vw;
     }
   }
 }

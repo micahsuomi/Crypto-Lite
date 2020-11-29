@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { MdPlaylistAddCheck } from 'react-icons/md'
 
-import { AppState } from '../../types'
+import { AppState, CryptoCartProps } from '../../types'
 
 import './style.scss'
 
-const CryptoCart = () => {
+const CryptoCart = ({ toggle }: CryptoCartProps) => {
   const cryptoBasket = useSelector((state: AppState) => state.cryptos.inCart)
   return (
     <div className="cart">
@@ -20,6 +20,7 @@ const CryptoCart = () => {
         ) : (
           <NavLink
             to="/watchlist"
+            onClick={toggle}
             className="cart__link--full grow"
             title="watchlist"
           >
