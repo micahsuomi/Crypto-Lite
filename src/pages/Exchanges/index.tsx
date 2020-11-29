@@ -96,7 +96,7 @@ export default function Exchanges() {
           handleSubmit={handleSubmit}
           placeholderText={placeholderText}
         />
-        { !isLoading ? 
+        { isLoading ? 
           <>
             <ExchangesTable
               exchanges={search === '' && !isSorting? currentExchanges : exchanges}

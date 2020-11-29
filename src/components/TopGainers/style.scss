@@ -38,3 +38,11 @@
     padding: 1rem 3rem;
   }
   
+  @media screen and (max-width: 500px) {
+    .top-gainer-list-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 1rem;
+      padding: 1rem 1rem;
+    }
+
+  }

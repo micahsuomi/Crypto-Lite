@@ -2,7 +2,7 @@
   display: none;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1024px) {
   .toggle-wrapper {
     background-color: var(--primary-blue);
     display: inline-block;
@@ -12,8 +12,8 @@
     padding: 1px;
     cursor: pointer;
     z-index: 8;
-    margin-left: 90vw;
-    margin-top: -18px;
+    margin-left: 88vw;
+    margin-top: -4px;
   }
 
   .toggle-bar {

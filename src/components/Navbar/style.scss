@@ -83,13 +83,20 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .show-tablet {
-    display: block;
+  .show-tablet-mobile {
+    display: inline-block;
   }
   .navbar {
     height: 5rem;
     ul {
       flex-direction: column;
+      li a {
+        font-size: var(--font-size-big);
+      }
+
+    }
+    &__logo {
+      width: 3.8em;
     }
   }
 

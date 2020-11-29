@@ -11,19 +11,25 @@ const ThemedButton = () => {
   return (
     <div>
       {isSwitched ? (
-        <BsCircleHalf
-          onClick={switchTheme}
-          style={iconStyle}
-          className="grow-icon animate-rotate-clockwise"
-          title="day mode"
-        />
+        <>
+          <BsCircleHalf
+            onClick={switchTheme}
+            style={iconStyle}
+            className="grow-icon animate-rotate-clockwise"
+            title="day mode"
+          />
+          <span className="show-hide-text">Day</span>
+        </>
       ) : (
-        <BsCircleHalf
-          onClick={switchTheme}
-          style={iconStyle}
-          className="grow-icon animate-rotate-anticlockwise"
-          title="night mode"
-        />
+        <>
+          <BsCircleHalf
+            onClick={switchTheme}
+            style={iconStyle}
+            className="grow-icon animate-rotate-anticlockwise"
+            title="night mode"
+          />
+          <span className="show-hide-text">Night</span>
+        </>
       )}
     </div>
   )

@@ -8,14 +8,14 @@ import { AppState } from '../../types'
 import './style.scss'
 
 const CryptoCart = () => {
-  const countriesBasket = useSelector((state: AppState) => state.cryptos.inCart)
+  const cryptoBasket = useSelector((state: AppState) => state.cryptos.inCart)
   return (
     <div className="cart">
       <div className="cart__left">
-        {countriesBasket.length < 1 ? (
+        {cryptoBasket.length < 1 ? (
           <NavLink to="#" className="cart__link--empty">
-            {/* <i className="fas fa-cart-plus fa-2x"></i> */}
             <MdPlaylistAddCheck className="watchlist-icon" />
+            {/* <span>Wishlist</span> */}
           </NavLink>
         ) : (
           <NavLink
@@ -23,16 +23,16 @@ const CryptoCart = () => {
             className="cart__link--full grow"
             title="watchlist"
           >
-            {/* <i className="fas fa-cart-plus fa-2x"></i> */}
             <MdPlaylistAddCheck className="watchlist-icon" />
+            {/* <span>Wishlist</span> */}
           </NavLink>
         )}
       </div>
-      {countriesBasket.length < 1 ? (
+      {cryptoBasket.length < 1 ? (
         ''
       ) : (
         <div className="cart__right animate-appear grow">
-          <p>{countriesBasket.length}</p>
+          <p>{cryptoBasket.length}</p>
         </div>
       )}
     </div>

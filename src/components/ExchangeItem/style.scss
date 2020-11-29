@@ -2,7 +2,7 @@
     height: 20em;
     width: 17rem;
     border: 1px solid #f8f7f7;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     border-radius: 15px;
     background-image: linear-gradient(
         rgba(255, 255, 255, 0.97),
@@ -63,16 +63,11 @@
   }
   
   @media screen and (max-width: 1024px) {
-    .exchange {
-      height: 41em;
-      width: 35rem;
-    }
+    
   }
   
   @media screen and (max-width: 768px) {
     .exchange {
-      height: 41em;
-      width: 28.5rem;
       padding: 2rem 1.5rem;
     }
   }

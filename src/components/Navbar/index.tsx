@@ -103,7 +103,8 @@ const NavBar = () => {
               className="navbar__link"
               title="currency converter"
               activeStyle={{color: 'var(--yellow)'}}>
-              <i className="fas fa-coins"></i>{' '}
+              <i className="fas fa-coins"></i>
+              <span className="hide-desktop show-tablet-mobile"> Currency Converter</span>
             </NavLink>
           </li>
           <li>

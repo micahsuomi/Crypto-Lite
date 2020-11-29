@@ -6,19 +6,18 @@
     flex-direction: column;
     thead {
         position: fixed;
-        top: 13%;
+        top: 2%;
         left: 0%;
         margin-bottom: 6rem;
         width: 100vw;
       }
       tbody {
-        padding-top: 10%;
+        padding-top: 6%;
       }
     &__header {
       margin-top: 3rem;
     }
     &__wrapper {
-      margin-top: 3.5rem;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       justify-items: stretch;
@@ -29,14 +28,10 @@
   }
   
   @media screen and (max-width: 1024px) {
-    .exchanges-container {
-      padding: 2rem 1rem;
-    }
-  
-    .exchanges-wrapper {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    .exchanges {
+      padding: 20rem 2rem;
   }
+}
   
   @media screen and (max-width: 768px) {
     .exchanges-wrapper {
