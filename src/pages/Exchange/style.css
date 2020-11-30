@@ -1,4 +1,4 @@
-.view-exchange {
+.view-exchange-container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 15% 70% 15%;
@@ -8,5 +8,21 @@
           align-items: center;
   padding: 6rem 0;
   position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+  .view-exchange-container {
+    padding: 16rem 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .view-exchange-container {
+    -ms-grid-rows: 5% 90% 5%;
+        grid-template-rows: 5% 90% 5%;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    padding: 5rem 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -40,30 +40,4 @@
 .crypto-info__link:active {
   outline: none;
 }
-
-@media screen and (max-width: 500px) {
-  .crypto-info__list {
-    -ms-grid-columns: (1fr)[5];
-        grid-template-columns: repeat(5, 1fr);
-    -ms-grid-rows: (1fr)[2];
-        grid-template-rows: repeat(2, 1fr);
-  }
-  .crypto-info__button {
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 1;
-    grid-column: 2/3;
-  }
-  .crypto-info__infolink {
-    -ms-grid-column: 4;
-    -ms-grid-column-span: 1;
-    grid-column: 4/5;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .crypto-info__list {
-    -ms-grid-columns: (1fr)[12];
-        grid-template-columns: repeat(12, 1fr);
-  }
-}
 /*# sourceMappingURL=style.css.map */

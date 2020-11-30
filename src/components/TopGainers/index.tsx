@@ -20,7 +20,7 @@ const TopGainers = (props: any) => {
     performersObj.name = crypto.CoinInfo.FullName
     performersObj.symbol = crypto.CoinInfo.Name
     performersObj.price = crypto.DISPLAY.USD.PRICE
-    performersObj.percentageChange = Math.round(crypto.RAW.USD.CHANGEPCTDAY)
+    performersObj.percentageChange = Math.ceil((crypto.RAW.USD.CHANGEPCTDAY * 100)/100)
     filteredTopPerformers.push(performersObj);
     filteredTopLosers.push(performersObj);
 

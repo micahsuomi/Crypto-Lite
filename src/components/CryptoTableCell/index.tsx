@@ -21,33 +21,23 @@ const CryptoTableCell = ({
         Symbol
       </td>
       <td className="crypto-cell__item" style={{ color: theme.text }}>
-        <form className="crypto-cell__form">
-          <label htmlFor="name">Name</label>
-          <input
-            type="checkbox"
-            value="name"
-            className="sort__input"
-            onChange={sortCrypto}
-          />
-        </form>
-
+        <button
+          value="name"
+          onClick={sortCrypto}
+        >Name
+        </button>
         {isNameReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (
           <i className="fas fa-chevron-down"></i>
         )}
       </td>
-
       <td className="crypto-cell__item grow" style={{ color: theme.text }}>
-        <form className="crypto-cell__form">
-          <label htmlFor="name">Price</label>
-          <input
-            type="checkbox"
-            value="price"
-            className="sort__input"
-            onChange={sortCrypto}
-          />
-        </form>
+        <button
+          value="price"
+          onClick={sortCrypto}
+        >Price
+        </button>
         {isPriceReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (
@@ -55,15 +45,11 @@ const CryptoTableCell = ({
         )}
       </td>
       <td className="crypto-cell__item grow" style={{ color: theme.text }}>
-        <form className="crypto-cell__form">
-          <label htmlFor="name">Change 24H</label>
-          <input
-            type="checkbox"
-            value="percentagechange"
-            className="sort__input"
-            onChange={sortCrypto}
-          />
-        </form>
+        <button
+          value="percentagechange"
+          onClick={sortCrypto}
+        >Change 24H
+        </button>
         {isPercentageChangeReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (
@@ -71,15 +57,11 @@ const CryptoTableCell = ({
         )}
       </td>
       <td className="crypto-cell__item grow" style={{ color: theme.text }}>
-        <form className="crypto-cell__form">
-          <label htmlFor="name">Market Cap</label>
-          <input
-            type="checkbox"
-            value="marketcap"
-            className="sort__input"
-            onChange={sortCrypto}
-          />
-        </form>
+        <button
+          value="marketcap"
+          onClick={sortCrypto}
+        >Market Cap
+        </button>
         {isMarketCapReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (
@@ -87,15 +69,11 @@ const CryptoTableCell = ({
         )}
       </td>
       <td className="crypto-cell__item grow" style={{ color: theme.text }}>
-        <form className="crypto-cell__form">
-          <label htmlFor="name">Supply</label>
-          <input
-            type="checkbox"
-            value="supply"
-            className="sort__input"
-            onChange={sortCrypto}
-          />
-        </form>
+        <button
+          value="supply"
+          onClick={sortCrypto}
+        >Supply
+        </button>
         {isSupplyReversing ? (
           <i className="fas fa-chevron-up"></i>
         ) : (

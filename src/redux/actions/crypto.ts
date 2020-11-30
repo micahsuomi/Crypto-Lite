@@ -6,11 +6,13 @@ import {
   ADD_CRYPTO,
   DELETE_CRYPTO,
   SEARCH_CRYPTO,
+  GET_TOPVOLUME,
   GET_CRYPTOWALLETS,
   SEARCH_CRYPTOWALLET,
   GET_CRYPTONEWS,
   NewCrypto,
   Crypto,
+  TopVolume,
   CryptoWallets,
   CryptoNews,
   CryptoActions,
@@ -61,6 +63,15 @@ export function searchCrypto(crypto: Crypto[]): CryptoActions {
   }
 }
 
+export function getTopVolume(topVolume: TopVolume[]): CryptoActions {
+  return {
+    type: GET_TOPVOLUME,
+    payload: {
+      topVolume,
+    },
+  }
+}
+
 export function getCryptoWallets(wallets: any): CryptoActions {
   return {
     type: GET_CRYPTOWALLETS,
@@ -105,6 +116,16 @@ export function fetchCrypto() {
     const res = await fetch(url)
     const cryptos = await res.json()
     dispatch(getCryptos(cryptos.Data))
+  }
+}
+
+export function fetchTopVolume() {
+  const url =
+    'https://min-api.cryptocompare.com/data/top/exchanges?fsym=BTC&tsym=USD&limit=100'
+  return async (dispatch: Dispatch) => {
+    const res = await fetch(url)
+    const topVolume = await res.json()
+    dispatch(getTopVolume(topVolume.Data))
   }
 }
 

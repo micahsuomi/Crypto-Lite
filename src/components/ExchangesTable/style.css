@@ -17,14 +17,14 @@
 
 .exchanges thead {
   position: fixed;
-  top: 13%;
+  top: 2%;
   left: 0%;
   margin-bottom: 6rem;
   width: 100vw;
 }
 
 .exchanges tbody {
-  padding-top: 10%;
+  padding-top: 9%;
 }
 
 .exchanges__header {
@@ -32,7 +32,6 @@
 }
 
 .exchanges__wrapper {
-  margin-top: 3.5rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
@@ -51,12 +50,8 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .exchanges-container {
-    padding: 2rem 1rem;
-  }
-  .exchanges-wrapper {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
+  .exchanges {
+    padding: 20rem 2rem;
   }
 }
 

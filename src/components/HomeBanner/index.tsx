@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 
 import BtcPrice from '../BtcPrice/index'
 import headerImg from '../../imgs/cryptos.svg'
+
 import { ThemeContext } from '../../contexts'
 
 import './style.scss'

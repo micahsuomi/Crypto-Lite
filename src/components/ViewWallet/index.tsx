@@ -24,7 +24,9 @@ const ViewWallet = ({
   const { theme } = useContext(ThemeContext)
   console.log(anonymity)
   return (
-    <div className="view-wallet" key={id} style={{ backgroundColor: theme.backgroundColor, color: theme.text }}>
+    <div className="view-wallet" 
+      key={id} 
+      style={{ backgroundColor: theme.backgroundColor, color: theme.text }}>
       <div className="view-wallet__exit-container">
         <NavLink to="/wallets" className="back-link">
           <i className="far fa-window-close fa-2x close-window"></i>

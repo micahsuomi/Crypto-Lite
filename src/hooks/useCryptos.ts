@@ -35,7 +35,7 @@ export default function useCryptos(search: any, sortCrypto: any) {
   useEffect(() => {
     sortCryptoData(data)
   }, [sortCrypto])
-
+  console.log(data)
   const searchCryptoResults = useCallback(() => {
     const results = cryptos.filter((crypto: any) => {
       if (
@@ -75,9 +75,9 @@ export default function useCryptos(search: any, sortCrypto: any) {
         break
       case 'percentagechange':
         const sortByPercentageChange = cryptos.sort((a: any, b: any) => {
-          if (a.DISPLAY.USD.CHANGEPCTDAY > b.DISPLAY.USD.CHANGEPCTDAY)
+          if (a.RAW.USD.CHANGEPCTDAY > b.RAW.USD.CHANGEPCTDAY)
             return 1
-          if (a.DISPLAY.USD.CHANGEPCTDAY < b.DISPLAY.USD.CHANGEPCTDAY)
+          if (a.RAW.USD.CHANGEPCTDAY < b.RAW.USD.CHANGEPCTDAY)
             return -1
           return 0
         })
@@ -87,16 +87,16 @@ export default function useCryptos(search: any, sortCrypto: any) {
         break
       case 'marketcap':
         const sortByMarketCap = cryptos.sort((a: any, b: any) => {
-          if (a.DISPLAY.USD.MKTCAP > b.DISPLAY.USD.MKTCAP) return 1
-          if (a.DISPLAY.USD.MKTCAP < b.DISPLAY.USD.MKTCAP) return -1
+          if (a.RAW.USD.MKTCAP > b.RAW.USD.MKTCAP) return 1
+          if (a.RAW.USD.MKTCAP < b.RAW.USD.MKTCAP) return -1
           return 0
         })
         setData(flag ? sortByMarketCap : sortByMarketCap.reverse())
         break
       case 'supply':
         const sortBySupply = cryptos.sort((a: any, b: any) => {
-          if (a.DISPLAY.USD.SUPPLY > b.DISPLAY.USD.SUPPLY) return 1
-          if (a.DISPLAY.USD.SUPPLY < b.DISPLAY.USD.SUPPLY) return -1
+          if (a.RAW.USD.SUPPLY > b.RAW.USD.SUPPLY) return 1
+          if (a.RAW.USD.SUPPLY < b.RAW.USD.SUPPLY) return -1
           return 0
         })
         setData(flag ? sortBySupply : sortBySupply.reverse())

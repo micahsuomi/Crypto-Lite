@@ -85,7 +85,6 @@ const CurrencyConverter = ({ cryptos }: any) => {
               <i className="fas fa-long-arrow-alt-down fa-3x arrow"></i>
             </button>
           </div>
-
           <label htmlFor="currency" style={{ color: theme.text }}>
             Currency
           </label>

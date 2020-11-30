@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import CryptoList from './pages/CryptoList'
 import Crypto from './pages/Crypto'
+import TopVolume from './pages/TopVolume'
 import Exchanges from './pages/Exchanges'
 import Exchange from './pages/Exchange'
 import Wallets from './pages/Wallets'
@@ -45,7 +46,7 @@ const Routes = () => {
             <Crypto cryptos={filteredCryptos} {...props} />
           )}
         />
-
+        <Route exact path="/topvolume" component={TopVolume} />
         <Route exact path="/exchanges" component={Exchanges} />
 
         <Route

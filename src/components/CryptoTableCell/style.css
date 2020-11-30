@@ -30,6 +30,16 @@
   z-index: 0;
 }
 
+.crypto-cell__item button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.crypto-cell__item button:active {
+  outline: none;
+}
+
 .crypto-cell__item i {
   margin-left: 0.4rem;
   display: inline-block;
@@ -39,34 +49,20 @@
   color: var(--yellow);
 }
 
-.crypto-cell__form {
-  position: relative;
-}
-
-.crypto-cell__form label {
-  font-size: var(--font-size-small);
-}
-
-.crypto-cell__form input {
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  top: -57%;
-  left: 32%;
-  cursor: pointer;
-  opacity: 0;
-}
-
 @media screen and (max-width: 500px) {
-  .cell {
+  .crypto-cell {
     padding: 0;
-    -ms-grid-columns: 24% 14% 27% 11% 26%;
-        grid-template-columns: 24% 14% 27% 11% 26%;
+    -ms-grid-columns: 13.5% 14% 10% 14% 14% 14% 10%;
+        grid-template-columns: 13.5% 14% 10% 14% 14% 14% 10%;
   }
-  .cell__item {
+  .crypto-cell__item {
     width: 9rem;
     -webkit-box-shadow: none;
             box-shadow: none;
+    font-size: var(--font-size-verysmall);
+  }
+  .crypto-cell label {
+    font-size: var(--font-size-verysmall);
   }
 }
 /*# sourceMappingURL=style.css.map */

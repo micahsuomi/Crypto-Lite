@@ -1,4 +1,17 @@
 .switch-theme__btn {
   cursor: pointer;
 }
+
+.show-hide-text {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .show-hide-text {
+    display: inline-block;
+    color: white;
+    font-size: var(--font-size-mediumbig);
+    margin-left: .5rem;
+  }
+}
 /*# sourceMappingURL=style.css.map */

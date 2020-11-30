@@ -9,10 +9,10 @@ const Wallet = (props: any) => {
   const filteredWallet = props.wallets.find((wallet: any) => {
     return wallet.Id === id
   })
-  console.log(filteredWallet)
+
   return (
     <div className="view-wallet__container"
-      style={{ backgroundColor: theme.viewItemColor }}>
+      style={{ backgroundImage: theme.viewItemColor }}>
       <ViewWallet
         key={filteredWallet.Id}
         id={filteredWallet.Id}

@@ -10,7 +10,6 @@ import './style.scss'
 const CryptoNews = () => {
   const [err, cryptoNews] = useCryptoNews()
   const { theme } = useContext(ThemeContext)
-  const [isClicked, setIsClicked] = useState(false)
 
   const [currentPage, setCurrentPage] = useState(1)
   const [newsPerPage] = useState(10)
@@ -21,10 +20,6 @@ const CryptoNews = () => {
   const currentNews = cryptoNews?.slice(indexFirstNews, indexLastNews)
 
   const paginate = (pageNumber: any) => setCurrentPage(pageNumber)
-
-  const loadMore = () => {
-    setIsClicked(!isClicked)
-  }
 
   const newsList = currentNews?.map((newsItem: any) => (
     <NewsItem
@@ -38,10 +33,8 @@ const CryptoNews = () => {
     />
   ))
 
-  if(err) {
-    return (
-      <h1>Page Not Found</h1>
-    )
+  if (err) {
+    return <h1>Page Not Found</h1>
   }
   return (
     <div
@@ -57,11 +50,6 @@ const CryptoNews = () => {
           currentPage={currentPage}
           paginate={paginate}
         />
-        <div className="btn-view__all__container">
-          <button className="view-all" onClick={loadMore}>
-            {isClicked ? 'Show Less -' : 'Show All + '}
-          </button>
-        </div>
       </div>
     </div>
   )

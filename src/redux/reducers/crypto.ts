@@ -8,6 +8,7 @@ import {
   ADD_CRYPTO,
   DELETE_CRYPTO,
   SEARCH_CRYPTO,
+  GET_TOPVOLUME,
   GET_EXCHANGES,
   SEARCH_EXCHANGES,
   GET_CRYPTOWALLETS,
@@ -21,6 +22,7 @@ export default function country(
     cryptos: [],
     filteredCryptos: [],
     inCart: [],
+    topVolume: [],
     exchanges: [],
     filteredExchanges: [],
     cryptoWallets: [],
@@ -71,6 +73,14 @@ export default function country(
       }
     }
 
+    case GET_TOPVOLUME: {
+      const { topVolume } = action.payload
+      return {
+        ...state,
+        topVolume
+      }
+    }
+
     case GET_EXCHANGES: {
       const { exchanges } = action.payload
       return {
@@ -78,7 +88,7 @@ export default function country(
         exchanges
       }
     }
-    
+
     case SEARCH_EXCHANGES: {
       const { exchanges } = action.payload
       return {

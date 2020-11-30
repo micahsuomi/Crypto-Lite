@@ -20,6 +20,7 @@ const initState: AppState = {
     cryptos: [],
     filteredCryptos: [],
     inCart: [],
+    topVolume: [],
     exchanges: [],
     filteredExchanges: [],
     cryptoWallets: [],

@@ -39,17 +39,17 @@
 }
 
 @media screen and (max-width: 768px) {
-  .wallets-wrapper {
+  .wallets__wrapper {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media screen and (max-width: 500px) {
-  .wallets-container {
-    padding: 2rem 2rem;
+  .wallets {
+    padding: 15rem 2rem;
   }
-  .wallets-wrapper {
+  .wallets__wrapper {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }

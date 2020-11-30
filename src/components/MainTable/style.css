@@ -16,4 +16,13 @@
 .crypto-container tbody {
   padding-top: 10%;
 }
+
+@media screen and (max-width: 500px) {
+  .crypto-container {
+    overflow-x: scroll;
+  }
+  .crypto-container thead {
+    top: 5%;
+  }
+}
 /*# sourceMappingURL=style.css.map */

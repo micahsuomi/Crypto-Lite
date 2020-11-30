@@ -2,10 +2,10 @@
   height: 20em;
   width: 17rem;
   border: 1px solid #f8f7f7;
-  padding: 2rem 1rem;
+  padding: 0 1rem;
   border-radius: 15px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.97)), to(white)), url("https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-image: linear-gradient(rgba(255, 255, 255, 0.97), white), url("https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.97)), to(white)), url(https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.97), white), url(https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
   background-position: center;
   background-size: cover;
   display: -ms-grid;
@@ -17,8 +17,8 @@
       -ms-flex-align: center;
           align-items: center;
   width: 83vw;
-  height: 8rem;
-  margin: 1rem;
+  height: 7rem;
+  margin: .2rem;
 }
 
 .exchange__wrapper {
@@ -78,38 +78,31 @@
   font-family: 'Lato';
 }
 
-.exchange__view {
+.exchange__view a {
   text-decoration: none;
   margin-top: 1rem;
 }
 
-@media screen and (max-width: 1024px) {
-  .exchange {
-    height: 41em;
-    width: 35rem;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .exchange {
-    height: 41em;
-    width: 28.5rem;
     padding: 2rem 1.5rem;
   }
 }
 
 @media screen and (max-width: 500px) {
   .exchange {
-    height: 37em;
+    height: 16em;
     width: 50rem;
     padding: 2rem 1.5rem;
+    -ms-grid-columns: (1fr)[7];
+        grid-template-columns: repeat(7, 1fr);
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
   }
-}
-
-@media screen and (max-width: 320px) {
-  .exchange {
-    height: 37em;
-    width: 41.5rem;
+  .exchange__view {
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+    grid-column: 4/5;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -8,6 +8,7 @@ export const GET_CRYPTOS = 'GET_CRYPTOS'
 export const ADD_CRYPTO = 'ADD_CRYPTO'
 export const DELETE_CRYPTO = 'DELETE_CRYPTO'
 export const SEARCH_CRYPTO = 'SEARCH_CRYPTO'
+export const GET_TOPVOLUME = 'GET_TOPVOLUME'
 export const GET_EXCHANGES = 'GET_EXCHANGES'
 export const SEARCH_EXCHANGES = 'SEARCH_EXCHANGES'
 export const GET_CRYPTOWALLETS = 'GET_CRYPTOWALLETS'
@@ -36,7 +37,7 @@ export type NavbarTogglerProps = {
 export type MainTableProps = {
   cryptos: any
   topPerformersData: any
-  sortCrypto: (e: React.FormEvent<HTMLInputElement>) => void
+  sortCrypto: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   isNameReversing: boolean
   isPriceReversing: boolean
   isPercentageChangeReversing: boolean
@@ -132,6 +133,23 @@ export type CryptoDetails = {
   supply: any
 }
 
+export type TopVolume = {
+  exchange: string
+  fromSymbol: string
+  toSymbol: string
+  volume24h: number
+  volume24hTo: number
+  price: number
+}
+
+export type TopVolumeItemProps = {
+  exchange: string
+  fromSymbol: string
+  toSymbol: string
+  volume24h: number
+  volume24hTo: number
+  price: number
+}
 
 export type CryptoWallets = {
   Id: string
@@ -160,7 +178,7 @@ export type CryptoNews = {
 }
 
 export type CryptoTableHeaderProps = {
-  sortCrypto: (e: React.FormEvent<HTMLInputElement>) => void
+  sortCrypto: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   isNameReversing: boolean
   isPriceReversing: boolean
   isPercentageChangeReversing: boolean
@@ -169,7 +187,7 @@ export type CryptoTableHeaderProps = {
 }
 
 export type CryptoTableCellProps = {
-  sortCrypto: (e: React.FormEvent<HTMLInputElement>) => void
+  sortCrypto: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   isNameReversing: boolean
   isPriceReversing: boolean
   isPercentageChangeReversing: boolean
@@ -347,6 +365,13 @@ export type SearchCryptoAction = {
   }
 }
 
+export type GetTopVolumeAction = {
+  type: typeof GET_TOPVOLUME
+  payload: {
+    topVolume: TopVolume[]
+  }
+}
+
 export type GetExchangesAction = {
   type: typeof GET_EXCHANGES
   payload: {
@@ -388,6 +413,7 @@ export type CryptoActions =
   | AddCryptoAction
   | DeleteCryptoAction
   | SearchCryptoAction
+  | GetTopVolumeAction
   | GetExchangesAction
   | SearchExchangesAction
   | GetCryptoWalletsAction
@@ -400,6 +426,7 @@ export type CryptoState = {
   cryptos: Crypto[]
   filteredCryptos: Crypto[]
   inCart: NewCrypto[]
+  topVolume: TopVolume[]
   exchanges: any
   filteredExchanges: any
   cryptoWallets: any

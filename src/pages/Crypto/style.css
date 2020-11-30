@@ -1,4 +1,4 @@
-.view-crypto {
+.view-crypto-container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 15% 70% 15%;
@@ -8,5 +8,14 @@
           align-items: center;
   padding: 6rem 0;
   position: relative;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 500px) {
+  .view-crypto-container {
+    -ms-grid-columns: 5% 90% 5%;
+        grid-template-columns: 5% 90% 5%;
+    padding: 9rem 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

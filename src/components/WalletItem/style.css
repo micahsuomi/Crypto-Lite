@@ -80,15 +80,15 @@
 
 @media screen and (max-width: 1024px) {
   .wallet {
-    height: 41em;
-    width: 35rem;
+    height: 26em;
+    width: 19rem;
   }
 }
 
 @media screen and (max-width: 768px) {
   .wallet {
-    height: 41em;
-    width: 28.5rem;
+    height: 27em;
+    width: 24.5rem;
     padding: 2rem 1.5rem;
   }
 }
@@ -96,15 +96,15 @@
 @media screen and (max-width: 500px) {
   .wallet {
     height: 37em;
-    width: 50rem;
-    padding: 2rem 1.5rem;
+    width: 36rem;
+    padding: 6rem 1.5rem;
   }
 }
 
 @media screen and (max-width: 320px) {
   .wallet {
     height: 37em;
-    width: 41.5rem;
+    width: 38rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

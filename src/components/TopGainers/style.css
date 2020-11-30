@@ -1,5 +1,5 @@
 .top-performers {
-  padding: 5rem 4rem;
+  padding: 2rem 2rem;
 }
 
 .top-performers__btn-wrapper {
@@ -16,8 +16,9 @@
 
 .top-performers__btn-wrapper button {
   margin: .4rem;
-  padding: .5rem;
+  padding: .7rem;
   border-radius: 50px;
+  width: 12rem;
   background-color: var(--primary);
   border: none;
   color: white;
@@ -47,5 +48,14 @@
       grid-template-columns: repeat(5, 1fr);
   margin-top: 2rem;
   padding: 1rem 3rem;
+}
+
+@media screen and (max-width: 500px) {
+  .top-gainer-list-wrapper {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

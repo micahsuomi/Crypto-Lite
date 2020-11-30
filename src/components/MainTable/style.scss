@@ -16,6 +16,7 @@
 }
 @media screen and (max-width: 500px) {
   .crypto-container {
+    overflow-x: scroll;
   thead {
     top: 5%;
   }

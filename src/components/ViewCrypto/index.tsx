@@ -33,7 +33,7 @@ const ViewCrypto = ({
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="view-crypto" 
+    <div className="view-crypto" key={id}
       style={{ backgroundColor: theme.backgroundColor, color: theme.text }}>
       <div className="navigation-exit__container">
         <NavLink to="/marketprices" className="back-link">

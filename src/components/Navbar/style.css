@@ -131,8 +131,8 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .show-tablet {
-    display: block;
+  .show-tablet-mobile {
+    display: inline-block;
   }
   .navbar {
     height: 5rem;
@@ -142,6 +142,12 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .navbar ul li a {
+    font-size: var(--font-size-big);
+  }
+  .navbar__logo {
+    width: 3.8em;
   }
   .nav-list {
     -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
