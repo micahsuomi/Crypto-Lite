@@ -6,3 +6,9 @@
     background-color: gray;   
     padding: 2rem 2rem; 
 }
+
+@media screen and (max-width: 500px) {
+    .chart-container {
+        height: 40vh;
+    }
+}

@@ -1,7 +1,8 @@
 .footer {
     padding: 2rem;
-    background-image: linear-gradient(135deg, #66e6ea 0%, #199fa3 100%);
     width: 100%;
+    background-image: var(--color-navbar-day);
+    margin-top: 3rem;
   }
   
   .footer-wrapper {

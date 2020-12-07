@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Paper } from '@material-ui/core';
 import {
   Chart,
@@ -18,7 +18,6 @@ const TopFiveSymbolsChart = () => {
   const topFiveSymbols = useSelector((state : AppState) => state.cryptos.topFiveSymbols)
   const { exchange } = topFiveSymbols
   console.log(topFiveSymbols)
-  
   return (
     <Paper className="chart-container"
     >
@@ -27,9 +26,11 @@ const TopFiveSymbolsChart = () => {
       >
         {
           topFiveSymbols.Data.map((s: any) => (
-            <BarSeries name={s.fromSymbol} 
+            <BarSeries 
+              key={s}
+              name={s.fromSymbol} 
               valueField="volume"
-              argumentField="volume" 
+              argumentField="volume"   
             />
           ))
         }

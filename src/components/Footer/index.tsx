@@ -25,7 +25,9 @@ const Footer = () => {
   ));
   return (
     <footer className="footer">
-      <ul className="footer-wrapper">{formattedData}</ul>
+      <ul className="footer-wrapper">
+        {formattedData}
+      </ul>
     </footer>
   );
 };
