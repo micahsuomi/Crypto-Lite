@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { addNewCrypto } from '../../redux/actions'
+import { addNewCrypto, fetchCrypto, fetchCryptoWallets } from '../../redux/actions'
 import {  AppState, NewCrypto } from '../../types'
 import useCryptoNews from '../../hooks/useCryptoNews'
 import useNewsFeeds from '../../hooks/useNewsFeeds'
@@ -38,6 +38,11 @@ export default function Home() {
 
   const { theme } = useContext(ThemeContext)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchCrypto())
+    dispatch(fetchCryptoWallets())
+  }, [dispatch])
 
   const addCrypto = (crypto: any) => {
     // alerts BUTTON
@@ -126,10 +131,10 @@ export default function Home() {
             className="home-page__header" 
             style={{color: theme.text}}>
             <h2>Historical Data</h2></NavLink>
-          <div className="home-page__charts">
+          {/* <div className="home-page__charts">
             <div><DailyPairsChart /></div>
             <div><TopFiveSymbolsChart /></div>
-          </div>
+          </div>  */}
 
           <div className="home-page__section" id="latestNews">
             <NavLink to="/wallets" 

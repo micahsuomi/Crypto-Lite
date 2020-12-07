@@ -23,7 +23,7 @@ const DailyExchangeVolChart = () => {
     <Paper className="chart-container"
     >
       <Chart
-        data={dailyExchangeVol}
+        data={dailyExchangeVol.Data}
       >
         <ArgumentAxis />
         <ValueAxis />
@@ -32,7 +32,7 @@ const DailyExchangeVolChart = () => {
         <EventTracker />
         <Tooltip />
         <Title text="Daily Exchange Vol"/>
-      </Chart>
+      </Chart> 
     </Paper>
   )
   

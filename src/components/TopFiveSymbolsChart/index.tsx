@@ -14,6 +14,7 @@ import { AppState } from '../../types'
 
 import './style.scss'
 
+
 const TopFiveSymbolsChart = () => {
   const topFiveSymbols = useSelector((state : AppState) => state.cryptos.topFiveSymbols)
   const { exchange } = topFiveSymbols

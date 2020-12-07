@@ -5,7 +5,7 @@ import { fetchDailyPairs } from '../../redux/actions/crypto'
 
 import './style.scss'
 
-const DailyPairsForm = () => {
+const DailyPairsForm = (props: any) => {
   const dispatch = useDispatch()
   const [pair, setPair] = useState({
     pairOne: '',
@@ -16,6 +16,7 @@ const DailyPairsForm = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault()
     dispatch(fetchDailyPairs(pair))
+    props.showDailyGraphOnSubmit()
   }
 
   const handleChange = (e: any) => {
