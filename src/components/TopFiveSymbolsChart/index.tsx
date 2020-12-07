@@ -1,13 +1,13 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
-import {
-  Chart,
-  BarSeries,
-  Legend,
-  Tooltip,
-  Title
-} from '@devexpress/dx-react-chart-material-ui';
-import { EventTracker } from '@devexpress/dx-react-chart';
+// import {
+//   Chart,
+//   BarSeries,
+//   Legend,
+//   Tooltip,
+//   Title
+// } from '@devexpress/dx-react-chart-material-ui';
+// import { EventTracker } from '@devexpress/dx-react-chart';
 
 import { useSelector } from 'react-redux'
 import { AppState } from '../../types'
@@ -17,12 +17,12 @@ import './style.scss'
 
 const TopFiveSymbolsChart = () => {
   const topFiveSymbols = useSelector((state : AppState) => state.cryptos.topFiveSymbols)
-  const { exchange } = topFiveSymbols
+  // const { exchange } = topFiveSymbols
   console.log(topFiveSymbols)
   return (
     <Paper className="chart-container"
     >
-      <Chart
+      {/* <Chart
         data={topFiveSymbols.Data}
       >
         {
@@ -39,7 +39,7 @@ const TopFiveSymbolsChart = () => {
         <EventTracker />
         <Tooltip />
         <Title text={`Top Five Symbols ${exchange}`} />
-      </Chart> 
+      </Chart>  */}
     </Paper>
   )
   
