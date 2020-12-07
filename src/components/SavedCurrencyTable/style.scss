@@ -1,0 +1,30 @@
+.saved-currency-table {
+    margin-top: 2rem;
+    &__header {
+        text-align: center;
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    &__row {
+        display: grid;
+        grid-template-columns: 15% 20% 41% 16% 11%;;
+        justify-items: flex-start;
+        align-items: center;
+        margin: .3rem;
+        min-width: 34rem;
+        border: 1px solid rgba(192, 183, 183, 0.5);
+        padding: .5rem .6rem;
+        border-radius: 5px;
+        box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
+        background-color: var(--primary);
+        color: white;
+        td {
+            padding: .2rem .4rem;
+        }
+    }
+
+}

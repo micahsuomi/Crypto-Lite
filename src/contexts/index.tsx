@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 export const themes = {
   light: {
+    iconColor: 'var(--primary-light)',
     backgroundColor: 'white',
     homeBanner: 'var(--color-secondary-dark)',
     headerColor: 'var(--color-light)',
@@ -14,6 +15,7 @@ export const themes = {
     inputColor: 'white',
   },
   dark: {
+    iconColor: 'white',
     backgroundColor: 'var(--dark)',
     homeBanner: 'var(--color-light)',
     headerColor: 'var(--overlay-mask)',

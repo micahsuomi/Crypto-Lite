@@ -1,0 +1,10 @@
+.chart-container {
+  width: 70vw;
+  margin-top: 3rem;
+  border-radius: 25px;
+  -webkit-box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
+          box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
+  background-color: gray;
+  padding: 2rem 2rem;
+}
+/*# sourceMappingURL=style.css.map */

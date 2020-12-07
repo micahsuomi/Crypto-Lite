@@ -6,15 +6,21 @@ import {
   ADD_CRYPTO,
   DELETE_CRYPTO,
   SEARCH_CRYPTO,
-  GET_TOPVOLUME,
+  GET_DAILYPAIRS,
+  GET_TOPFIVESYMBOLS,
+  GET_DAILYEXCHANGEVOL,
   GET_CRYPTOWALLETS,
   SEARCH_CRYPTOWALLET,
   GET_CRYPTONEWS,
+  GET_NEWSFEEDS,
+  SAVE_CONVERSION,
+  DELETE_CURRENCY,
   NewCrypto,
   Crypto,
-  TopVolume,
+  SavedConversionItem,
   CryptoWallets,
   CryptoNews,
+  NewsFeeds,
   CryptoActions,
 } from '../../types'
 
@@ -63,11 +69,29 @@ export function searchCrypto(crypto: Crypto[]): CryptoActions {
   }
 }
 
-export function getTopVolume(topVolume: TopVolume[]): CryptoActions {
+export function getDailyPairs(dailyPairs: any): CryptoActions {
   return {
-    type: GET_TOPVOLUME,
+    type: GET_DAILYPAIRS,
     payload: {
-      topVolume,
+      dailyPairs,
+    },
+  }
+}
+
+export function getDailyExchangeVol(dailyExchangeVol: any): CryptoActions {
+  return {
+    type: GET_DAILYEXCHANGEVOL,
+    payload: {
+      dailyExchangeVol,
+    },
+  }
+}
+
+export function getTopFiveSymbols(topFiveSymbols: any): CryptoActions {
+  return {
+    type: GET_TOPFIVESYMBOLS,
+    payload: {
+      topFiveSymbols,
     },
   }
 }
@@ -94,7 +118,34 @@ export function getCryptoNews(news: CryptoNews[]): CryptoActions {
   return {
     type: GET_CRYPTONEWS,
     payload: {
-      news: news,
+      news
+    },
+  }
+}
+
+export function getNewsFeeds(newsFeeds: NewsFeeds[]): CryptoActions {
+  return {
+    type: GET_NEWSFEEDS,
+    payload: {
+      newsFeeds
+    },
+  }
+}
+
+export function saveConversion(savedConversion: SavedConversionItem): CryptoActions {
+  return {
+    type: SAVE_CONVERSION,
+    payload: {
+      savedConversion,
+    },
+  }
+}
+
+export function deleteCurrency(savedConversion: SavedConversionItem): CryptoActions {
+  return {
+    type: DELETE_CURRENCY,
+    payload: {
+      savedConversion,
     },
   }
 }
@@ -119,13 +170,41 @@ export function fetchCrypto() {
   }
 }
 
-export function fetchTopVolume() {
+export function fetchDailyPairs(pair: any) {
+  let { pairOne, pairTwo, limit } = pair 
   const url =
-    'https://min-api.cryptocompare.com/data/top/exchanges?fsym=BTC&tsym=USD&limit=100'
+    `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${pairOne}&tsym=${pairTwo}&limit=${limit}`
   return async (dispatch: Dispatch) => {
     const res = await fetch(url)
-    const topVolume = await res.json()
-    dispatch(getTopVolume(topVolume.Data))
+    const data = await res.json()
+    data.Data.fromSymbol = pairOne.toUpperCase()
+    data.Data.toSymbol = pairTwo.toUpperCase()
+    dispatch(getDailyPairs(data.Data))
+  }
+}
+
+export function fetchDailyExchangeVol(dailyExchangeQuery: any) {
+  const { exchange, symbol, limit, aggregate } = dailyExchangeQuery
+  const url = 
+`https://min-api.cryptocompare.com/data/exchange/histoday?e=${exchange}&tsym=${symbol}&limit=${limit}&aggregate=${aggregate}`
+  return async (dispatch: Dispatch) => {
+    const res = await fetch(url)
+    const data = await res.json()
+    dispatch(getDailyExchangeVol(data))
+  }
+}
+
+export function fetchTopFiveSymbols(exchange: any) {
+  const API_KEY =
+  "5a3c910d4d4fed7d3d6e711f3845a09d9916452c3ca4f60532b0bc5e703ba41c";
+  const url =
+  `https://min-api.cryptocompare.com/data/exchange/top/volume?e=${exchange}&direction=to?api_key=${API_KEY}`
+  return async (dispatch: Dispatch) => {
+    const res = await fetch(url)
+    const data = await res.json()
+    console.log(data)
+    data.exchange = exchange.toUpperCase()
+    dispatch(getTopFiveSymbols(data))
   }
 }
 
@@ -136,7 +215,6 @@ export function fetchCryptoWallets() {
   return async (dispatch: Dispatch) => {
     const res = await fetch(`${url}${API_KEY}`)
     const data = await res.json()
-    console.log(data.Data)
     const walletsArr = []
     for (const key in data.Data) {
       let wallet = data.Data[key]
@@ -150,7 +228,18 @@ export function fetchCryptoNews() {
   const url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN'
   return async (dispatch: Dispatch) => {
     const res = await fetch(url)
-    const news = await res.json()
-    dispatch(getCryptoNews(news.Data))
+    const data = await res.json()
+    dispatch(getCryptoNews(data.Data))
+  }
+}
+
+
+export function fetchNewsFeeds() {
+  const url = 'https://min-api.cryptocompare.com/data/news/feeds'
+  return async (dispatch: Dispatch) => {
+    const res = await fetch(url)
+    const data = await res.json()
+    console.log(data)
+    dispatch(getNewsFeeds(data))
   }
 }

@@ -19,8 +19,6 @@
   &__left {
     display: inline-block;
     overflow: hidden;
-    height: 165px;
-    width: 165px;
     object-fit: cover;
 
     img {
@@ -77,9 +75,9 @@
 
 @media screen and (max-width: 500px) {
   .news-item {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     padding: 4rem 0;
-    height: 64rem;
+    height: 88rem;
   }
   .news-item__left img {
     width: 16em;

@@ -1,0 +1,31 @@
+.daily-pairs-form {
+    margin-top: 2rem;
+    &__input-topics {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    label {
+        margin-top: .4rem;
+    }
+    input {
+        padding: .4rem;
+        border-radius: 5px;
+        border: 1px solid rgba(128, 121, 121, 0.5);
+        margin: .2rem;
+        margin-top: .5rem;
+    }
+    button {
+        padding: .7rem;
+        width: 10rem;
+        border: none;
+        color: white;
+        text-transform: uppercase;
+        border-radius: 50px;
+        cursor: pointer;
+        background-color: var(--primary);
+        cursor: pointer;
+        margin-top: 1rem;
+
+    }
+}

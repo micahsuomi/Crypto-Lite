@@ -1,24 +1,24 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { fetchTopVolume } from '../redux/actions/crypto'
+import { fetchNewsFeeds } from '../redux/actions/crypto'
 
 import { AppState } from '../types'
 
-export default function useCryptoNews() {
+export default function useNewsFeeds() {
   const dispatch = useDispatch()
   const [data, setData] = useState(Array)
-  const topVolume = useSelector((state: AppState) => state.cryptos.topVolume)
-
+  const newsFeeds = useSelector((state: AppState) => state.cryptos.newsFeeds)
+  console.log(newsFeeds)
   const [err] = useState(null)
 
   useEffect(() => {
-    dispatch(fetchTopVolume())
+    dispatch(fetchNewsFeeds())
   }, [dispatch])
 
   useEffect(() => {
-    setData(topVolume)
-  }, [topVolume])
+    setData(newsFeeds)
+  }, [newsFeeds])
 
   return [err, data]
 }

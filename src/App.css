@@ -39,6 +39,7 @@ body {
 
 :root {
   --primary: #4b128b;
+  --primary-light: #6d5786;
   --color-primary-light: rgb(83, 62, 83);
   --color-primary-dark: rgb(32, 25, 32);
   --color-white: rgb(248, 242, 242);
@@ -61,7 +62,6 @@ body {
   --section-padding: 5rem 20em;
   /* --primary: rgb(235, 60, 89);
   --primary-dark: rgb(233, 19, 55);   */
-  --primary-light: rgb(228, 181, 189);
 
   --secondary: #43d1eb;
   --secondary-dark: #d61948;

@@ -28,8 +28,7 @@
 }
 
 .cart__left {
-  color: white;
-  color: white;
+  color: var(--primary);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

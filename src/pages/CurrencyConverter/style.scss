@@ -1,5 +1,5 @@
 .currency-converter {
-  padding: 7rem 6rem;
+  padding: 7.5rem 6rem;
   min-height: 100vh;
   /* background-color: white;
       background-image: linear-gradient(to right, rgba(79, 172, 254, 0.5) 0%, rgba(0, 242, 254, .7) 100%), 
@@ -10,50 +10,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: flex-start;
+  justify-items: center;
   &__header {
     font-size: var(--font-size-medium);
-    /* color: white; */
-  }
-
-  &__form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    line-height: 1.7;
-    border: 2px solid var(--color-secondary-dark);
-    padding: 2rem 2rem;
-    margin-top: 2rem;
-    width: 30rem;
-    height: 30rem;
-    border-radius: 25px;
-  }
-  label {
-    font-size: var(--font-size-medium);
-    margin-top: 2rem;
     text-align: center;
-  }
-
-  .inputs-arrows__container,
-  .btn-arrow__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-  }
-  input,
-  select {
-    margin-top: 0.5rem;
-    padding: 0.8rem;
-    font-family: 'Lato', sans-serif;
-    font-size: var(--font-size-small);
-  }
-  input {
-    width: 17rem;
-  }
-
-  select {
-    width: 21rem;
+    /* color: white; */
   }
 }
 
@@ -74,7 +38,7 @@
 }
 
 .calculate-btn {
-  padding: 1rem;
+  padding: .7rem;
   width: 10rem;
   border: none;
   color: white;
@@ -95,34 +59,12 @@
 
 @media screen and (max-width: 500px) {
   .currency-converter {
-    &__form {
-      margin-top: 2rem;
-      width: 47rem;
-      height: 47rem;
-      border-radius: 25px;
-      input {
-        width: 23rem;
-     }
-     select {
-        width: 30rem;
-    }
-    }
-    .calculate-btn {
-      width: 30rem;
-      margin-top:.6rem;
-    }
+    grid-template-columns: 1fr;
   }
 }
 
 @media screen and (max-width: 320px) {
   .currency-converter {
     padding: 1rem 0;
-    &__form {
-      padding: 0rem 1rem;
-      margin-top: 2rem;
-      width: 41rem;
-      height: 44rem;
-      border-radius: 25px;
-    }
   }
 }

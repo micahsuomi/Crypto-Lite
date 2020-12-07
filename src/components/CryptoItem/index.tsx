@@ -34,8 +34,8 @@ const CryptoItem = ({
       <td style={percentageChange > 0 ? { color: 'green' } : { color: 'red' }}>
         {percentageChange}%
       </td>
-      <td>{marketCap}</td>
-      <td>{supply}</td>
+      <td className="hide-mobile">{marketCap}</td>
+      <td className="hide-mobile">{supply}</td>
       <td className="crypto-info__button">
         <AddCryptoButton addCrypto={addCrypto} id={id} />
       </td>

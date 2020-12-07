@@ -1,0 +1,32 @@
+.home-page {
+    &__header {
+        margin-top: 6rem;
+        text-decoration: none;
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 2rem;
+        h2 {
+            margin-top: 3rem;
+        }
+    }
+    &__section {
+        margin-top: 2rem;
+    }
+    &__charts {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
+        &__charts > div {
+            width: 10rem;
+        }
+    }
+    &__newsfeeds-wrapper {
+        padding: 5rem;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 1.3rem;
+        padding: 1rem 3rem;
+        margin-top: 3rem;
+    }
+}

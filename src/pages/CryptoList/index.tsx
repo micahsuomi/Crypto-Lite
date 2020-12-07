@@ -15,8 +15,8 @@ const CryptoList = () => {
   const dispatch = useDispatch()
  
   const [search, setSearch] = useState('')
-  const [sortCountry, setSortCountry] = useState('')
-  const [err, cryptos, isLoading, changeValue] = useCryptos(search, sortCountry)
+  const [sort, setSort] = useState('')
+  const [err, cryptos, isLoading, changeValue] = useCryptos(search, sort)
   const [currentPage, setCurrentPage] = useState(1)
   const [cryptosPerPage] = useState(30)
 
@@ -53,7 +53,7 @@ const CryptoList = () => {
   }
 
   const sortCrypto = (e: any) => {
-    setSortCountry(e.target.value)
+    setSort(e.target.value)
     setIsSorting(true)
   }
 

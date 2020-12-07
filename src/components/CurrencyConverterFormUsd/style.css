@@ -1,0 +1,126 @@
+.currency-converter-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1.7;
+  border: 2px solid var(--color-secondary-dark);
+  padding: 2rem 2rem;
+  margin-top: 2rem;
+  width: 23rem;
+  height: 23rem;
+  border-radius: 25px;
+}
+
+.currency-converter-form label {
+  font-size: var(--font-size-small);
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.currency-converter-form .inputs-arrows__container,
+.currency-converter-form .btn-arrow__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1.5rem;
+}
+
+.currency-converter-form input,
+.currency-converter-form select {
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  font-family: 'Lato', sans-serif;
+  font-size: var(--font-size-small);
+  border: none;
+  border-radius: 5px;
+}
+
+.currency-converter-form input {
+  width: 14rem;
+}
+
+.currency-converter-form select {
+  width: 18rem;
+}
+
+.currency-converter-form .arrow {
+  color: var(--color-secondary-dark);
+  margin-left: 0.1rem;
+}
+
+.currency-converter-form .switch {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.currency-converter-form .switch:focus {
+  outline: none;
+}
+
+.currency-converter-form .calculate-btn {
+  padding: .7rem;
+  width: 15rem;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.currency-converter-form .result-container {
+  margin-top: 2rem;
+  font-size: var(--font-size-small);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.currency-converter-form .result-symbol {
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .currency-converter-form {
+    margin-top: 2rem;
+    width: 38rem;
+    height: 38rem;
+    border-radius: 25px;
+  }
+  .currency-converter-form input {
+    width: 23rem;
+  }
+  .currency-converter-form select {
+    width: 30rem;
+  }
+  .calculate-btn {
+    width: 36rem;
+    margin-top: .6rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .currency-converter-form {
+    padding: 0rem 1rem;
+    margin-top: 2rem;
+    border-radius: 25px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

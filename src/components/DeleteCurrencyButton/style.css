@@ -1,0 +1,10 @@
+.delete-currency {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.delete-currency i {
+  color: var(--color-warning);
+}
+/*# sourceMappingURL=style.css.map */

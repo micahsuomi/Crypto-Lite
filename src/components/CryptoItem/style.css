@@ -40,4 +40,15 @@
 .crypto-info__link:active {
   outline: none;
 }
+
+@media screen and (max-width: 500px) {
+  .crypto-info__list {
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+    font-size: 12px;
+  }
+  .hide-mobile {
+    display: none;
+  }
+}
 /*# sourceMappingURL=style.css.map */

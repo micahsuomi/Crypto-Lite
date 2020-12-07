@@ -2,11 +2,14 @@
   background-position: center;
   background-size: cover;
   position: fixed;
-  padding: 6rem 2rem;
+  padding: 2.5rem 2rem;
   width: 100vw;
-  height: 13rem;
+  height: 7.5rem;
   z-index: 2;
   transition: ease-in-out 0.6s;
+  :hover {
+    z-index: 4;
+  }
 }
 
 .header-wrapper,
@@ -19,4 +22,5 @@
 .header-wrapper {
   width: 94vw;
   padding: 0.8rem;
+  margin-top: 0;
 }

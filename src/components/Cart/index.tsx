@@ -1,31 +1,32 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { MdPlaylistAddCheck } from 'react-icons/md'
 
-import { AppState, CryptoCartProps } from '../../types'
+import { AppState } from '../../types'
+import { ThemeContext } from '../../contexts'
 
 import './style.scss'
 
-const CryptoCart = ({ toggle }: CryptoCartProps) => {
+const CryptoCart = () => {
   const cryptoBasket = useSelector((state: AppState) => state.cryptos.inCart)
+  const { theme } = useContext(ThemeContext)
   return (
     <div className="cart">
       <div className="cart__left">
         {cryptoBasket.length < 1 ? (
           <NavLink to="#" className="cart__link--empty">
-            <MdPlaylistAddCheck className="watchlist-icon" />
-            {/* <span>Wishlist</span> */}
+            <MdPlaylistAddCheck className="watchlist-icon"
+              style={{color: theme.iconColor, fontSize: '1.9rem'}} />
           </NavLink>
         ) : (
           <NavLink
             to="/watchlist"
-            onClick={toggle}
             className="cart__link--full grow"
             title="watchlist"
           >
-            <MdPlaylistAddCheck className="watchlist-icon" />
-            {/* <span>Wishlist</span> */}
+            <MdPlaylistAddCheck className="watchlist-icon" 
+              style={{color: theme.iconColor, fontSize: '1.9rem'}}/>
           </NavLink>
         )}
       </div>

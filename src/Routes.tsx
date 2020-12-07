@@ -8,7 +8,7 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import CryptoList from './pages/CryptoList'
 import Crypto from './pages/Crypto'
-import TopVolume from './pages/TopVolume'
+import HistoricalData from './pages/HistoricalData'
 import Exchanges from './pages/Exchanges'
 import Exchange from './pages/Exchange'
 import Wallets from './pages/Wallets'
@@ -16,6 +16,7 @@ import Wallet from './pages/Wallet/index'
 import CryptoNews from './pages/CryptoNews'
 import Cart from './pages/Cart/Cart'
 import CurrencyConverter from './pages/CurrencyConverter'
+import Footer from './components/Footer'
 
 const Routes = () => {
   const cryptos = useSelector((state: AppState) => state.cryptos.cryptos)
@@ -36,9 +37,7 @@ const Routes = () => {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-
         <Route exact path="/marketprices" component={CryptoList} />
-
         <Route
           exact
           path="/crypto/:id"
@@ -46,16 +45,14 @@ const Routes = () => {
             <Crypto cryptos={filteredCryptos} {...props} />
           )}
         />
-        <Route exact path="/topvolume" component={TopVolume} />
+        <Route exact path="/historicaldata" component={HistoricalData} />
         <Route exact path="/exchanges" component={Exchanges} />
-
         <Route
           exact
           path="/exchanges/:id"
           component={(props: any) => <Exchange exchanges={filteredExchanges} {...props} />}
         />
         <Route exact path="/wallets" component={Wallets} />
-
         <Route
           exact
           path="/wallets/:id"
@@ -63,15 +60,12 @@ const Routes = () => {
             <Wallet wallets={filteredWallets} {...props} />
           )}
         />
-
         <Route exact path="/news" component={CryptoNews} />
-
         <Route
           exact
           path="/watchlist"
           component={(props: any) => <Cart cryptos={cryptos} {...props} />}
         />
-
         <Route
           exact
           path="/currencyconverter"
@@ -80,6 +74,7 @@ const Routes = () => {
           )}
         />
       </Switch>
+      <Footer />
     </>
   )
 }

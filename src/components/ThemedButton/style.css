@@ -2,8 +2,11 @@
   cursor: pointer;
 }
 
-.show-hide-text {
-  display: none;
+.switch {
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+  margin-left: 1.5rem;
 }
 
 @media screen and (max-width: 1024px) {

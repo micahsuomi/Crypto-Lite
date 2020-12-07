@@ -1,0 +1,9 @@
+.daily-pairs-header {
+  margin-bottom: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 12% 12% 12% 12% 12% 16% 17%;
+      grid-template-columns: 12% 12% 12% 12% 12% 16% 17%;
+  width: 41rem;
+}
+/*# sourceMappingURL=style.css.map */

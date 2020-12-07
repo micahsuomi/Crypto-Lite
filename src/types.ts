@@ -2,18 +2,28 @@
 export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
 export const TOGGLE_DIALOG = 'TOGGLE_DIALOG'
+
 //crypto types
 export const GET_BTCPRICE = 'GET_BTCPRICE'
 export const GET_CRYPTOS = 'GET_CRYPTOS'
 export const ADD_CRYPTO = 'ADD_CRYPTO'
 export const DELETE_CRYPTO = 'DELETE_CRYPTO'
 export const SEARCH_CRYPTO = 'SEARCH_CRYPTO'
-export const GET_TOPVOLUME = 'GET_TOPVOLUME'
+export const GET_DAILYPAIRS = 'GET_DAILYPAIRS'
+export const GET_DAILYEXCHANGEVOL = 'GET_DAILYEXCHANGEVOL'
+export const GET_TOPFIVESYMBOLS = 'GET_TOPFIVESYMBOLS'
 export const GET_EXCHANGES = 'GET_EXCHANGES'
 export const SEARCH_EXCHANGES = 'SEARCH_EXCHANGES'
 export const GET_CRYPTOWALLETS = 'GET_CRYPTOWALLETS'
 export const SEARCH_CRYPTOWALLET = 'SEARCH_CRYPTOWALLET'
 export const GET_CRYPTONEWS = 'GETCRYPTO_NEWS'
+export const GET_NEWSFEEDS = 'GET_NEWSFEEDS'
+export const SAVE_CONVERSION = 'SAVE_CONVERSION'
+export const DELETE_CURRENCY = 'DELETE_CURRENCY'
+
+//error types
+export const SHOW_ERRORS = 'SHOW_ERRORS'
+export const CLEAR_ERRORS = 'CLEAR_ERRORS'
 
 // Enum
 export enum DialogType {
@@ -104,10 +114,6 @@ export type NewCrypto = {
   supply: number
 }
 
-export type CryptoCartProps = {
-  toggle: () => void
-}
-
 export type CryptoDetails = {
   id: string
   img: string
@@ -133,22 +139,64 @@ export type CryptoDetails = {
   supply: any
 }
 
-export type TopVolume = {
-  exchange: string
-  fromSymbol: string
-  toSymbol: string
-  volume24h: number
-  volume24hTo: number
-  price: number
+export type DailyPairsReq = {
+  pairOne: string
+  pairTwo: string
 }
 
-export type TopVolumeItemProps = {
-  exchange: string
+export type DailyPairs = {
+  close: number
+  high: number
+  low: number
+  open: number
+  time: number
+  volumefrom: number
+  volumeto: number
+  Message: string
+}
+
+export type DailyPairsHeaderProps = {
+  dailyPairs: any
+}
+
+export type DailyPairsTableProps = {
+  dailyPairs: any
+}
+
+export type DailyPairsItemProps = {
+  close: number
+  high: number
+  low: number
+  open: number
+  time: number
+  volumeFrom: number
+  volumeTo: number
+}
+
+export type DailyExchangeVol = {
+  time: number
+  volume: number
+}
+
+export type TopFiveSymbols = {
   fromSymbol: string
   toSymbol: string
-  volume24h: number
-  volume24hTo: number
-  price: number
+  volume: string
+  exchange?: string
+}
+
+export type TopFiveSymbolsHeaderProps = {
+  topFiveSymbols: any
+}
+
+export type TopFiveSymbolsTableProps = {
+  topFiveSymbols: any
+}
+
+export type TopFiveSymbolsItemProps = {
+  fromSymbol: string
+  toSymbol: string
+  volume: string
 }
 
 export type CryptoWallets = {
@@ -175,6 +223,13 @@ export type CryptoNews = {
   title: string
   description: string
   categories: string[]
+}
+
+export type NewsFeeds = {
+  key: string
+  img: string
+  lang: string
+  name: string
 }
 
 export type CryptoTableHeaderProps = {
@@ -312,6 +367,37 @@ export type ViewWalletProps = {
   ratings: number
 }
 
+export type CurrencyConverterFormCryptoProps = {
+  cryptos: any
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
+  amount: number
+  handleChange: React.FormEventHandler<HTMLInputElement>
+  selectCurrency:(event: React.FocusEvent<HTMLSelectElement>) => void
+  handleSwitch: () => void
+  warning: string
+  result: number
+  resultSymbol: string
+}
+
+export type CurrencyConverterFormUsdProps = {
+  cryptos: any
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
+  amount: number
+  handleChange: React.FormEventHandler<HTMLInputElement>
+  selectCurrency:(event: React.FocusEvent<HTMLSelectElement>) => void
+  handleSwitch: () => void
+  warning: string
+  result: number
+}
+
+export type SavedCurrencyTableProps = {
+  savedCurrency: SavedConversionItem[]
+}
+
+export type DeleteCurrencyButtonProps = {
+  deleteOnClick: () => void
+}
+
 export type CryptoNewsItemProps = {
   id: string
   image: string
@@ -321,12 +407,26 @@ export type CryptoNewsItemProps = {
   categories: string[]
 }
 
+export type NewsFeedsItemProps = {
+  id: string,
+  language: string
+  image: string
+  name: string
+}
+
 export type ArrowPrevProps = {
   slider: any
 }
 
 export type ArrowNextProps = {
   slider: any
+}
+
+export type SavedConversionItem = {
+  coin: string
+  price: string
+  amount: number
+  invested: number
 }
 
 //action types
@@ -365,10 +465,24 @@ export type SearchCryptoAction = {
   }
 }
 
-export type GetTopVolumeAction = {
-  type: typeof GET_TOPVOLUME
+export type GetDailyPairsAction = {
+  type: typeof GET_DAILYPAIRS
   payload: {
-    topVolume: TopVolume[]
+    dailyPairs: any
+  }
+}
+
+export type GetDailyExchangeVolAction = {
+  type: typeof GET_DAILYEXCHANGEVOL
+  payload: {
+    dailyExchangeVol: any
+  }
+}
+
+export type TopFiveSymbolsAction = {
+  type: typeof GET_TOPFIVESYMBOLS
+  payload: {
+    topFiveSymbols: any
   }
 }
 
@@ -400,11 +514,44 @@ export type SearchWalletAction = {
   }
 }
 
+export type SaveConversionAction = {
+  type: typeof SAVE_CONVERSION
+  payload: {
+    savedConversion: SavedConversionItem
+  }
+}
+
+export type DeleteCurrencyAction = {
+  type: typeof DELETE_CURRENCY
+  payload: {
+    savedConversion: SavedConversionItem
+  }
+}
+
 export type GetCryptoNewsAction = {
   type: typeof GET_CRYPTONEWS
   payload: {
     news: CryptoNews[]
   }
+}
+
+export type GetNewsFeedsAction = {
+  type: typeof GET_NEWSFEEDS
+  payload: {
+    newsFeeds: NewsFeeds[]
+  }
+}
+
+export type ShowErrorAction = {
+  type: typeof SHOW_ERRORS
+  payload: {
+    msg: any
+    status?: any
+  }
+}
+
+export type ClearErrorAction = {
+  type: typeof CLEAR_ERRORS
 }
 
 export type CryptoActions =
@@ -413,25 +560,40 @@ export type CryptoActions =
   | AddCryptoAction
   | DeleteCryptoAction
   | SearchCryptoAction
-  | GetTopVolumeAction
+  | GetDailyPairsAction
+  | GetDailyExchangeVolAction
+  | TopFiveSymbolsAction
   | GetExchangesAction
   | SearchExchangesAction
   | GetCryptoWalletsAction
   | SearchWalletAction
+  | SaveConversionAction
+  | DeleteCurrencyAction
   | GetCryptoNewsAction
+  | GetNewsFeedsAction
 
+export type ErrorActions = ShowErrorAction | ClearErrorAction
 
 export type CryptoState = {
   btcPrice?: any
   cryptos: Crypto[]
   filteredCryptos: Crypto[]
   inCart: NewCrypto[]
-  topVolume: TopVolume[]
+  dailyPairs: any
+  dailyExchangeVol: any
+  topFiveSymbols: any
   exchanges: any
   filteredExchanges: any
   cryptoWallets: any
   filteredWallets: CryptoWallets[]
   cryptoNews: CryptoNews[]
+  newsFeeds: NewsFeeds[]
+  savedCurrency: SavedConversionItem[]
+}
+
+export type ErrorState = {
+  msg: any
+  status?: any
 }
 
 export type CountState = {
@@ -472,6 +634,8 @@ export type Product = {
 }
 export type ProductState = {
   inCart: Product[]
+  test: any
+
 }
 
 // Using dynamic keys from an enum
@@ -485,4 +649,5 @@ export type AppState = {
   product: ProductState
   ui: UiState
   cryptos: CryptoState
+  error: ErrorState
 }

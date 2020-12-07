@@ -1,0 +1,86 @@
+.historical-data {
+    padding: 3rem 1rem;
+    min-height: 100vh;
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 6rem 3rem;
+    }
+    &__tabs-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        position: relative;
+    }
+    &__btn {
+        padding: 0.5rem;
+        border: none;
+        border-radius: 10px 0 0 0;
+        color: white;
+        cursor: pointer;
+        width: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        text-transform: uppercase;
+        box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
+        position: absolute;
+        background-color: lightgrey;
+        &:hover {
+            background-color: rgb(153, 149, 153);
+        }
+        &:active {
+            outline: none;
+        }
+        &:focus {
+            background-color: var(--primary);
+        }
+        &--daily-pairs {
+            left: 20%;
+           
+        }
+        &--daily-exchange-vol {
+            width: 20rem;
+            right: 42%;
+        }
+        &--top-five {
+            width: 20rem;
+            right: 20%;
+        }  
+    }
+    &__daily {
+        p {
+            margin-top: 1rem;
+        }
+    }
+    &__results {
+        // display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+    }
+    &__show-table-btn {
+        margin-top: 1rem;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 10px 0 0 0;
+        color: white;
+        background-color: hotpink;
+        cursor: pointer;
+        width: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        text-transform: uppercase;
+        box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
+    }
+   
+}

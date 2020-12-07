@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
+import { BsCircleHalf } from 'react-icons/bs'
 
 import { ThemeContext } from '../../contexts'
-import { BsCircleHalf } from 'react-icons/bs'
 
 import './style.scss'
 
 const ThemedButton = () => {
   const { switchTheme, isSwitched } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
 
   return (
     <div>
@@ -14,33 +15,23 @@ const ThemedButton = () => {
         <>
           <BsCircleHalf
             onClick={switchTheme}
-            style={iconStyle}
-            className="grow-icon animate-rotate-clockwise"
+            style={{color: theme.iconColor}}
+            className="grow-icon switch animate-rotate-clockwise"
             title="day mode"
           />
-          <span className="show-hide-text">Day</span>
         </>
       ) : (
         <>
           <BsCircleHalf
             onClick={switchTheme}
-            style={iconStyle}
-            className="grow-icon animate-rotate-anticlockwise"
+            style={{color: theme.iconColor}}
+            className="grow-icon switch animate-rotate-anticlockwise"
             title="night mode"
           />
-          <span className="show-hide-text">Night</span>
         </>
       )}
     </div>
   )
 }
 
-const iconStyle = {
-  color: 'white',
-  height: '1.5rem',
-  width: '1.5rem',
-  cursor: 'pointer',
-  marginLeft: '1.5rem',
-  marginTop: '.3rem',
-}
 export default ThemedButton

@@ -33,6 +33,16 @@
 }
 
 @media screen and (max-width: 500px) {
+  .crypto-info {
+    &__list {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: 12px;
+    }
+   
+  }
+  .hide-mobile {
+    display: none;
+  }
  
 }
 

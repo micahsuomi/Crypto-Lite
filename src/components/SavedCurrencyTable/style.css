@@ -1,0 +1,48 @@
+.saved-currency-table {
+  margin-top: 2rem;
+}
+
+.saved-currency-table__header {
+  text-align: center;
+}
+
+.saved-currency-table__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.saved-currency-table__row {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 15% 20% 41% 16% 11%;
+      grid-template-columns: 15% 20% 41% 16% 11%;
+  justify-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: .3rem;
+  min-width: 34rem;
+  border: 1px solid rgba(192, 183, 183, 0.5);
+  padding: .5rem .6rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
+  background-color: var(--primary);
+  color: white;
+}
+
+.saved-currency-table__row td {
+  padding: .2rem .4rem;
+}
+/*# sourceMappingURL=style.css.map */

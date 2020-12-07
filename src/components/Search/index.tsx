@@ -19,7 +19,9 @@ const Search = ({ search, handleSubmit, handleChange, placeholderText }: SearchP
           placeholder={placeholderText}
           value={search}
           onChange={handleChange}
-          style={{ backgroundColor: theme.backgroundColor, color: theme.text}}
+          style={{ 
+            backgroundColor: theme.backgroundColor, 
+            color: theme.text}}
         />
       </form>
     </div>

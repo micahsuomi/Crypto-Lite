@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { IoIosArrowBack } from 'react-icons/io'
 
 import { ThemeContext } from '../../contexts'
 import { AppState } from '../../types'
-import { IoIosArrowBack } from 'react-icons/io'
 import DeleteCryptoButton from '../../components/DeleteCryptoButton'
 import Image from '../../components/Image'
 import { deleteCrypto } from '../../redux/actions'
@@ -18,10 +18,9 @@ const Cart = (props: any) => {
   const dispatch = useDispatch()
   useEffect(() => {
     if (cryptoBasket.length === 0) {
-      props.history.push('/')
+      props.history.push('/marketprices')
     }
   })
-  console.log(cryptoBasket)
 
   return (
     <div
@@ -30,7 +29,7 @@ const Cart = (props: any) => {
     >
       <div className="cart__wrapper animate-appear">
         <div className="cart__exit">
-          <NavLink to="/" className="cart__exit-link">
+          <NavLink to="/marketprices" className="cart__exit-link">
             <IoIosArrowBack style={{ height: '2rem', width: '2rem' }} />
           </NavLink>
         </div>

@@ -8,26 +8,35 @@ import {
   ADD_CRYPTO,
   DELETE_CRYPTO,
   SEARCH_CRYPTO,
-  GET_TOPVOLUME,
+  GET_DAILYPAIRS,
+  GET_DAILYEXCHANGEVOL,
+  GET_TOPFIVESYMBOLS,
   GET_EXCHANGES,
   SEARCH_EXCHANGES,
   GET_CRYPTOWALLETS,
   SEARCH_CRYPTOWALLET,
   GET_CRYPTONEWS,
+  GET_NEWSFEEDS,
+  SAVE_CONVERSION,
+  DELETE_CURRENCY
 } from '../../types'
 
-export default function country(
+export default function cryptos(
   state: CryptoState = {
     btcPrice: {},
     cryptos: [],
     filteredCryptos: [],
     inCart: [],
-    topVolume: [],
+    dailyPairs: [],
+    dailyExchangeVol: [],
+    topFiveSymbols: [],
     exchanges: [],
     filteredExchanges: [],
     cryptoWallets: [],
     filteredWallets: [],
     cryptoNews: [],
+    newsFeeds: [],
+    savedCurrency: []
   },
   action: CryptoActions
 ): CryptoState {
@@ -46,7 +55,6 @@ export default function country(
         cryptos: [...cryptos],
       }
     }
-
     case ADD_CRYPTO: {
       const { crypto } = action.payload
       if (state.inCart.find((c) => c.name === crypto.name)) {
@@ -57,7 +65,6 @@ export default function country(
         inCart: [...state.inCart, crypto],
       }
     }
-
     case DELETE_CRYPTO: {
       const { crypto } = action.payload
       return {
@@ -72,15 +79,27 @@ export default function country(
         filteredCryptos: crypto,
       }
     }
-
-    case GET_TOPVOLUME: {
-      const { topVolume } = action.payload
+    case GET_DAILYPAIRS: {
+      const { dailyPairs } = action.payload
       return {
         ...state,
-        topVolume
+        dailyPairs
       }
     }
-
+    case GET_DAILYEXCHANGEVOL: {
+      const { dailyExchangeVol } = action.payload
+      return {
+        ...state,
+        dailyExchangeVol
+      }
+    }
+    case GET_TOPFIVESYMBOLS: {
+      const { topFiveSymbols } = action.payload
+      return {
+        ...state,
+        topFiveSymbols
+      }
+    }
     case GET_EXCHANGES: {
       const { exchanges } = action.payload
       return {
@@ -88,7 +107,6 @@ export default function country(
         exchanges
       }
     }
-
     case SEARCH_EXCHANGES: {
       const { exchanges } = action.payload
       return {
@@ -96,7 +114,6 @@ export default function country(
         filteredExchanges: exchanges
       }
     }
-
     case GET_CRYPTOWALLETS: {
       const { wallets } = action.payload
       return {
@@ -104,10 +121,8 @@ export default function country(
         cryptoWallets: wallets,
       }
     }
-
     case SEARCH_CRYPTOWALLET: {
       const { wallet } = action.payload
-      console.log(wallet)
       return {
         ...state,
         filteredWallets: wallet,
@@ -120,7 +135,28 @@ export default function country(
         cryptoNews: news,
       }
     }
-
+    case GET_NEWSFEEDS: {
+      const { newsFeeds } = action.payload
+      console.log(newsFeeds)
+      return {
+        ...state,
+        newsFeeds
+      }
+    }
+    case SAVE_CONVERSION: {
+      const { savedConversion } = action.payload
+      return {
+        ...state,
+        savedCurrency: [...state.savedCurrency, savedConversion]
+      }
+    }
+    case DELETE_CURRENCY: {
+      const { savedConversion } = action.payload
+      return {
+        ...state,
+        savedCurrency: [...state.savedCurrency.filter((c) => c.coin !== savedConversion.coin)]
+      }
+    }
     default:
       return state
   }

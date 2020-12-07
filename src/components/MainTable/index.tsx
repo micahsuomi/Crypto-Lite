@@ -37,7 +37,6 @@ const MainTable = ({
     }
     dispatch(addNewCrypto(newCrypto))
   }
-
   return (
     <>
       <table

@@ -1,0 +1,108 @@
+.currency-converter-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.7;
+    border: 2px solid var(--color-secondary-dark);
+    padding: 2rem 2rem;
+    margin-top: 2rem;
+    width: 23rem;
+    height: 23rem;
+    border-radius: 25px;
+
+    label {
+        font-size: var(--font-size-small);
+        margin-top: 2rem;
+        text-align: center;
+      }
+    
+      .inputs-arrows__container,
+      .btn-arrow__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.5rem;
+      }
+      input,
+      select {
+        margin-top: 0.5rem;
+        padding: 0.6rem;
+        font-family: 'Lato', sans-serif;
+        font-size: var(--font-size-small);
+        border: none;
+        border-radius: 5px;
+      }
+      input {
+        width: 14rem;
+      }
+    
+      select {
+        width: 18rem;
+      }
+      
+.arrow {
+    color: var(--color-secondary-dark);
+    margin-left: 0.1rem;
+  }
+  
+  .switch {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+  
+  .switch:focus {
+    outline: none;
+  }
+  
+  .calculate-btn {
+    padding: .7rem;
+    width: 15rem;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  
+  .result-container {
+    margin-top: 2rem;
+    font-size: var(--font-size-small);
+    display: flex;
+  }
+  
+  .result-symbol {
+    margin-left: 1rem;
+  }
+
+}
+
+
+@media screen and (max-width: 500px) {
+    .currency-converter-form {
+        margin-top: 2rem;
+        width: 38rem;
+        height: 38rem;
+        border-radius: 25px;
+        input {
+          width: 23rem;
+       }
+       select {
+          width: 30rem;
+      }
+      }
+      .calculate-btn {
+        width: 36rem;
+        margin-top:.6rem;
+      }
+  }
+  
+  @media screen and (max-width: 320px) {
+    .currency-converter-form {
+        padding: 0rem 1rem;
+        margin-top: 2rem;
+        border-radius: 25px;
+      }
+  }
