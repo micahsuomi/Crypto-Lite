@@ -1,9 +1,8 @@
 .switch-theme__btn {
   cursor: pointer;
 }
-.switch {
-  height: 1.5rem;
-  width: 1.5rem;
+.theme-switch {
+  font-size: 1.5em;
   cursor: pointer;
   margin-left: 1.5rem;
 }
@@ -14,5 +13,12 @@
     color: white;
     font-size: var(--font-size-mediumbig);
     margin-left: .5rem;
+  }
+}
+
+@media screen and(max-width: 500px) {
+  .theme-switch {
+    font-size: 2.5em;
+    margin-right: 2.6rem;
   }
 }

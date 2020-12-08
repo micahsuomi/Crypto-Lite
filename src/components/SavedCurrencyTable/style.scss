@@ -26,5 +26,12 @@
             padding: .2rem .4rem;
         }
     }
-
+}
+@media screen and (max-width: 500px) {
+    .saved-currency-table {
+        &__row {
+            min-width: 45rem;
+            font-size: var(--font-size-small);
+        }
+    }
 }

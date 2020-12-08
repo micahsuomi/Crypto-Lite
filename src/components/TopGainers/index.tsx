@@ -59,7 +59,7 @@ const TopGainers = (props: any) => {
       { isTopPerformersShowing ?  
         <>
           <h3 style={{color: theme.text}}>Top {topFivePerformers.length} Gainers</h3>
-          <div className="top-gainer-list-wrapper">{
+          <div className="top-performers__wrapper">{
             topFivePerformers.map((performer: any) => (
               <TopGainerItem 
                 key={performer.id} 
@@ -75,7 +75,7 @@ const TopGainers = (props: any) => {
         : 
         <>
           <h3 style={{color: theme.text}}>Top {topFivePerformers.length} Losers</h3>
-          <div className="top-gainer-list-wrapper">{
+          <div className="top-performers__wrapper">{
             topFiveLosers.map((performer) => (
               <TopGainerItem  
                 key={performer.id} 

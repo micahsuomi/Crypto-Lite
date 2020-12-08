@@ -116,9 +116,8 @@ const NavBar = () => {
           to="/currencyconverter"
           title="currency converter"
           activeStyle={{color: 'var(--yellow)'}}>
-          <i className="fas fa-funnel-dollar" 
-            style={{color: theme.iconColor,
-              fontSize: '1.5rem'}}></i>
+          <i className="fas fa-funnel-dollar currency-icon" 
+            style={{color: theme.iconColor}}></i>
         </NavLink>
         <ThemedButton />
         <NavbarToggler

@@ -56,7 +56,7 @@ const CryptoTableCell = ({
           <i className="fas fa-chevron-down"></i>
         )}
       </td>
-      <td className="crypto-cell__item grow" style={{ color: theme.text }}>
+      <td className="crypto-cell__item grow hide-mobile" style={{ color: theme.text }}>
         <button
           value="marketcap"
           onClick={sortCrypto}
@@ -68,7 +68,7 @@ const CryptoTableCell = ({
           <i className="fas fa-chevron-down"></i>
         )}
       </td>
-      <td className="crypto-cell__item grow" style={{ color: theme.text }}>
+      <td className="crypto-cell__item grow hide-mobile" style={{ color: theme.text }}>
         <button
           value="supply"
           onClick={sortCrypto}

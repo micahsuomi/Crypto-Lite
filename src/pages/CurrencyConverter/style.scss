@@ -20,41 +20,19 @@
     /* color: white; */
   }
 }
-
-.arrow {
-  color: var(--color-secondary-dark);
-  margin-left: 0.1rem;
-}
-
-.switch {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-left: 1rem;
-}
-
-.switch:focus {
-  outline: none;
-}
-
-.result-container {
-  margin-top: 2rem;
-  font-size: var(--font-size-small);
-  display: flex;
-}
-
-.result-symbol {
-  margin-left: 1rem;
-}
-
 @media screen and (max-width: 500px) {
   .currency-converter {
     grid-template-columns: 1fr;
+    align-items: center;
+    &__header {
+      font-size: var(--font-size-small);
+    }
   }
 }
 
 @media screen and (max-width: 320px) {
   .currency-converter {
-    padding: 1rem 0;
+      padding: 1rem 0;
+      padding: 12rem 1rem;
   }
 }

@@ -35,8 +35,9 @@
 @media screen and (max-width: 500px) {
   .crypto-info {
     &__list {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: 10% 15% 30% 20% 17% 12% 11%;
       font-size: 12px;
+      justify-items: flex-start;
     }
    
   }

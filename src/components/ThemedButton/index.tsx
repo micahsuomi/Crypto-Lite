@@ -16,7 +16,7 @@ const ThemedButton = () => {
           <BsCircleHalf
             onClick={switchTheme}
             style={{color: theme.iconColor}}
-            className="grow-icon switch animate-rotate-clockwise"
+            className="grow-icon theme-switch animate-rotate-clockwise"
             title="day mode"
           />
         </>
@@ -25,7 +25,7 @@ const ThemedButton = () => {
           <BsCircleHalf
             onClick={switchTheme}
             style={{color: theme.iconColor}}
-            className="grow-icon switch animate-rotate-anticlockwise"
+            className="grow-icon theme-switch animate-rotate-anticlockwise"
             title="night mode"
           />
         </>

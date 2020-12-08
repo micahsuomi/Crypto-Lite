@@ -17,7 +17,7 @@ const CryptoCart = () => {
         {cryptoBasket.length < 1 ? (
           <NavLink to="#" className="cart__link--empty">
             <MdPlaylistAddCheck className="watchlist-icon"
-              style={{color: theme.iconColor, fontSize: '1.9rem'}} />
+              style={{color: theme.iconColor}} />
           </NavLink>
         ) : (
           <NavLink
@@ -26,7 +26,7 @@ const CryptoCart = () => {
             title="watchlist"
           >
             <MdPlaylistAddCheck className="watchlist-icon" 
-              style={{color: theme.iconColor, fontSize: '1.9rem'}}/>
+              style={{color: theme.iconColor}}/>
           </NavLink>
         )}
       </div>

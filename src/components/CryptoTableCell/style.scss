@@ -37,15 +37,21 @@
 @media screen and (max-width: 500px) {
   .crypto-cell {
     padding: 0;
-    grid-template-columns:  13.5% 14% 10% 14% 14% 14% 10%;
+    grid-template-columns: 7.5% 15% 16% 42% 1% 10%;
 
     &__item {
       width: 9rem;
       box-shadow: none;
       font-size: var(--font-size-verysmall);
+      button {
+        font-size: var(--font-size-verysmall);
+      }
     }
     label {
       font-size: var(--font-size-verysmall);
     }
+  }
+  .hide-mobile {
+    display: none;
   }
 }

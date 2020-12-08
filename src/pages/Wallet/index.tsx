@@ -3,6 +3,8 @@ import React, { useContext } from 'react'
 import ViewWallet from '../../components/ViewWallet'
 import { ThemeContext } from '../../contexts'
 
+import './style.scss'
+
 const Wallet = (props: any) => {
   const { theme } = useContext(ThemeContext)
   const id = props.match.params.id

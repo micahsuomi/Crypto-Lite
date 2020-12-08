@@ -5,3 +5,8 @@
     justify-items: flex-start;
     align-items: center;
 }
+@media screen and (max-width: 500px) {
+    .saved-currency-table-header {
+        font-size: var(--font-size-small);
+    }
+}

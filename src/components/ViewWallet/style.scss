@@ -86,9 +86,6 @@
   }
 }
 
-
-
-
 .back-link {
   display: flex;
   align-items: center;
@@ -125,11 +122,6 @@
   align-items: center;
 }
 
-
-
-
-
-
 @media screen and (max-width: 1024px) {
   .view-wallet__background {
     padding: 0 3rem;
@@ -147,16 +139,13 @@
 }
 
 @media screen and (max-width: 500px) {
-  .view-wallet__background {
+  .view-wallet {
     padding: 3rem 0.5rem;
-  }
-  .view-wallet__container {
-    padding: 0;
-    line-height: 1.4;
-  }
-
-  .navigation-exit__container {
-    width: 94vw;
+    min-height: 80vh;
+    width: 100vw;
+    &__exit-container {
+      width: 94vw;
+    }
   }
 
   .view-wallet__header {

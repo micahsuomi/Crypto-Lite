@@ -22,6 +22,9 @@
         justify-content: center;
         align-items: center;
         margin-top: 1.5rem;
+        input {
+          width: 13rem;
+        }
       }
       &__btn-container {
         display: flex;
@@ -52,9 +55,7 @@
         border: none;
         border-radius: 5px;
       }
-      input {
-        width: 14rem;
-      }
+     
     
       select {
         width: 16rem;
@@ -102,20 +103,29 @@
 @media screen and (max-width: 500px) {
     .currency-converter-form {
         margin-top: 2rem;
-        width: 38rem;
-        height: 38rem;
+        width: 43rem;
+        height: 43rem;
         border-radius: 25px;
-        input {
-          width: 23rem;
-       }
-       select {
-          width: 30rem;
-      }
+        .inputs-arrows__container {
+          input {
+            width: 23rem;
+         }
+         select {
+          width: 30rem; 
+        }
+        &__btn-save i {
+          margin-left: 1rem;
+          margin-top: .4rem;
+          font-size: 26px;
       }
       .calculate-btn {
         width: 36rem;
         margin-top:.6rem;
       }
+      }
+     
+      }
+     
   }
   
   @media screen and (max-width: 320px) {
