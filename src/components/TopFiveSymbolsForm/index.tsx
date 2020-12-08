@@ -5,7 +5,7 @@ import { fetchTopFiveSymbols } from '../../redux/actions/crypto'
 
 import './style.scss'
 
-const TopFiveSymbolsForm = () => {
+const TopFiveSymbolsForm = (props: any) => {
   const dispatch = useDispatch()
   const [query, setQuery] = useState()
   
@@ -13,6 +13,9 @@ const TopFiveSymbolsForm = () => {
     e.preventDefault()
     console.log(query)
     dispatch(fetchTopFiveSymbols(query))
+    setTimeout(() => {
+      props.showTopFiveSymbolsGraphOnSubmit()
+    }, 2000);
   }
 
   const handleChange = (e: any) => {

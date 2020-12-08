@@ -5,7 +5,7 @@ import { fetchDailyExchangeVol } from '../../redux/actions/crypto'
 
 import './style.scss'
 
-const DailyPairsForm = () => {
+const DailyPairsForm = (props: any) => {
   const dispatch = useDispatch()
   const [dailyExchangeQuery, setDailyExchangeQuery] = useState({
     exchange: '',
@@ -20,6 +20,9 @@ const DailyPairsForm = () => {
     e.preventDefault()
     console.log(dailyExchangeQuery)
     dispatch(fetchDailyExchangeVol(dailyExchangeQuery))
+    setTimeout(() => {
+      props.showDailyExchangeVolGraphOnSubmit()
+    }, 2000);
   }
 
   const handleChange = (e: any) => {

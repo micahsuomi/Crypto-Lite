@@ -16,7 +16,9 @@ const DailyPairsForm = (props: any) => {
   const handleSubmit = (e: any) => {
     e.preventDefault()
     dispatch(fetchDailyPairs(pair))
-    props.showDailyGraphOnSubmit()
+    setTimeout(() => {
+      props.showDailyGraphOnSubmit()
+    }, 2000);
   }
 
   const handleChange = (e: any) => {

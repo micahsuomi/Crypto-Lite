@@ -24,6 +24,9 @@ const HistoricalData = () => {
   const [isTopFiveSymbolsTableShowing, setIsTopFiveSymbolsTableShowing] = useState(false)
   const { theme } = useContext(ThemeContext)
   const [showDailyGraph, setShowDailyGraph] = useState(false)
+  const [showDailyExchangeVolGraph, setShowDailyExchangeVolGraph] = useState(false)
+  const [showTopFiveSymbolsGraph, setShowTopFiveSymbolsGraph] = useState(false)
+
   console.log('daily pairs', dailyPairs)
   console.log('daily exchange volum', dailyExchangeVol)
   console.log('top five symbols', topFiveSymbols)
@@ -60,7 +63,12 @@ const HistoricalData = () => {
 
   const showDailyGraphOnSubmit = () => {
     setShowDailyGraph(true)
-    console.log(showDailyGraph)
+  }
+  const showDailyExchangeVolGraphOnSubmit = () => {
+    setShowDailyExchangeVolGraph(true)
+  }
+  const showTopFiveSymbolsGraphOnSubmit = () => {
+    setShowTopFiveSymbolsGraph(true)
   }
   
   if(errDailyPairs || errTopFiveSymbols || errDailyExchangeVolume) {
@@ -116,10 +124,10 @@ const HistoricalData = () => {
            <div className="historical-data__daily">
              <h4>Search Daily Exchange Vol (daily Volume)</h4>
              <p>Get the total volume of daily historical exchange data.</p>
-             <DailyExchangeVolForm />
+             <DailyExchangeVolForm showDailyExchangeVolGraphOnSubmit={showDailyExchangeVolGraphOnSubmit}/>
              <div className="historical-data__results">
                <div>
-                 {dailyExchangeVol && <DailyExchangeVolChart /> } 
+                 {showDailyExchangeVolGraph && <DailyExchangeVolChart /> } 
                </div>
              </div>  
            </div>
@@ -128,10 +136,10 @@ const HistoricalData = () => {
            <div className="historical-data__daily">
              <h4>Search Top 5 Symbols per Exchange</h4>
              <p>Search the top five symbols per exchange</p>
-             <TopFiveSymbolsForm />
+             <TopFiveSymbolsForm showTopFiveSymbolsGraphOnSubmit={showTopFiveSymbolsGraphOnSubmit}/>
              <div className="historical-data__results">
                <div>
-                 { topFiveSymbols && <TopFiveSymbolsChart /> }   
+                 { showTopFiveSymbolsGraph && <TopFiveSymbolsChart /> }   
                </div> 
                { isTopFiveSymbolsTableShowing ? 
                  <button onClick={showTopFiveSymbolsTable} 
