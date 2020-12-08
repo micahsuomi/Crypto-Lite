@@ -6,13 +6,14 @@ import { ThemeContext } from '../../contexts'
 import './style.scss'
 
 const TopGainers = (props: any) => {
+  console.log(props)
   const [isTopPerformersShowing, setTopPerformersShowing] = useState(true)
   const [isTopLosersShowing, setTopLosersShowing] = useState(false)
 
   const filteredTopPerformers = []
   const filteredTopLosers = []
   const { theme } = useContext(ThemeContext)
-
+  
   for (const crypto of props.topPerformersData) {
     let performersObj = { id: '', image: '', name: '', symbol: '', price: '', percentageChange: 0 }
     performersObj.id = crypto.CoinInfo.Id
@@ -23,8 +24,8 @@ const TopGainers = (props: any) => {
     performersObj.percentageChange = Math.ceil((crypto.RAW.USD.CHANGEPCTDAY * 100)/100)
     filteredTopPerformers.push(performersObj);
     filteredTopLosers.push(performersObj);
-
   }
+  console.log(props)
   
   const topPerformers = filteredTopPerformers.sort((a, b) => {
     if (a.percentageChange > b.percentageChange) return -1;
@@ -39,7 +40,7 @@ const TopGainers = (props: any) => {
   
   let topFivePerformers = topPerformers.slice(0, 5);
   let topFiveLosers = topLosers.slice(0, 5);
- 
+  
   const showTopFiveGainers = () => {
     setTopPerformersShowing(true)
     setTopLosersShowing(false)
@@ -86,8 +87,7 @@ const TopGainers = (props: any) => {
                 percentageChange={performer.percentageChange} /> 
             ))}</div>
         </>
-      } 
-    
+      }  
     </div>
   )
 }

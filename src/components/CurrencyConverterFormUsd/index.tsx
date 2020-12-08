@@ -13,7 +13,9 @@ const CurrencyConverterFormUsd = ({
   selectCurrency,
   handleSwitch,
   warning,
-  result
+  result,
+  isSaveButtonShowing,
+  saveCurrencyConversion
 }: CurrencyConverterFormUsdProps) => {
   const { theme } = useContext(ThemeContext)
   return (
@@ -57,14 +59,16 @@ const CurrencyConverterFormUsd = ({
           </option>
         ))}
       </select>
-      <div className="btn-arrow__container">
+      <div className="currency-converter-form__btn-container">
         <button
           className="calculate-btn"
           style={{ backgroundColor: theme.bigBtnColor }}
         >
               Calculate
         </button>
-      </div>
+        {isSaveButtonShowing && <button onClick={saveCurrencyConversion} 
+          className="currency-converter-form__btn-save">
+          <i className="fas fa-plus-circle grow"></i></button>}      </div>
       <div className="warning">{warning}</div>
       <div className="result-container">
         <h2>{result > 0 && result + ' USD'}</h2>

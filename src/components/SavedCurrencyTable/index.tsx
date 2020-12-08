@@ -18,8 +18,8 @@ const SavedCurrencyTable = ({ savedCurrency }: SavedCurrencyTableProps) => {
       <thead><SavedCurrencyTableHeader /></thead>
       <tbody className="saved-currency-table__wrapper">
         {savedCurrency?.map((currency: any) => (
-          <tr className="saved-currency-table__row">
-            <td className="saved-currency-table-row__name"><p>{currency.coin}</p></td>
+          <tr className="saved-currency-table__row" key={currency.id}>
+            <td className="saved-currency-table-row__name"><p>{currency.symbol}</p></td>
             <td><p>{currency.price}</p></td>
             <td><p>{currency.amount}</p></td>
             <td><p>${currency.invested}</p></td>

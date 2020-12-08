@@ -239,7 +239,6 @@ export function fetchNewsFeeds() {
   return async (dispatch: Dispatch) => {
     const res = await fetch(url)
     const data = await res.json()
-    console.log(data)
     dispatch(getNewsFeeds(data))
   }
 }

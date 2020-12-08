@@ -377,6 +377,8 @@ export type CurrencyConverterFormCryptoProps = {
   warning: string
   result: number
   resultSymbol: string
+  isSaveButtonShowing: boolean
+  saveCurrencyConversion: () => void
 }
 
 export type CurrencyConverterFormUsdProps = {
@@ -388,6 +390,8 @@ export type CurrencyConverterFormUsdProps = {
   handleSwitch: () => void
   warning: string
   result: number
+  isSaveButtonShowing: boolean
+  saveCurrencyConversion: () => void
 }
 
 export type SavedCurrencyTableProps = {
@@ -423,7 +427,8 @@ export type ArrowNextProps = {
 }
 
 export type SavedConversionItem = {
-  coin: string
+  id: string
+  symbol: string
   price: string
   amount: number
   invested: number

@@ -137,7 +137,6 @@ export default function cryptos(
     }
     case GET_NEWSFEEDS: {
       const { newsFeeds } = action.payload
-      console.log(newsFeeds)
       return {
         ...state,
         newsFeeds
@@ -154,7 +153,7 @@ export default function cryptos(
       const { savedConversion } = action.payload
       return {
         ...state,
-        savedCurrency: [...state.savedCurrency.filter((c) => c.coin !== savedConversion.coin)]
+        savedCurrency: [...state.savedCurrency.filter((c) => c.id !== savedConversion.id)]
       }
     }
     default:

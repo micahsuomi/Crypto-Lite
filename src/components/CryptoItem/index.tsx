@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import { ThemeContext } from '../../contexts'
-import { NavLink } from 'react-router-dom'
 import { Crypto } from '../../types'
 import Image from '../Image/index'
 import AddCryptoButton from '../AddCryptoButton/index'
@@ -28,7 +28,7 @@ const CryptoItem = ({
       </td>
       <td>{symbol}</td>
       <NavLink to={`/crypto/${id}`} className="crypto-info__link">
-        <td>{name}</td>
+        {name}
       </NavLink>
       <td>{price}</td>
       <td style={percentageChange > 0 ? { color: 'green' } : { color: 'red' }}>

@@ -17,12 +17,31 @@
         text-align: left;
       }
     
-      .inputs-arrows__container,
-      .btn-arrow__container {
+      .inputs-arrows__container {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 1.5rem;
+      }
+      &__btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.5rem;
+      }
+      &__btn-save {
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        i {
+          margin-left: 1rem;
+          font-size: 33px;
+          color: var(--primary);
+          &:hover {
+            color: var(--primary-light);
+          }
+        }
       }
       input,
       select {
@@ -38,7 +57,7 @@
       }
     
       select {
-        width: 18rem;
+        width: 16rem;
       }
       
 .arrow {
@@ -59,7 +78,7 @@
   
   .calculate-btn {
     padding: .7rem;
-    width: 10rem;
+    width: 8rem;
     border: none;
     color: white;
     text-transform: uppercase;

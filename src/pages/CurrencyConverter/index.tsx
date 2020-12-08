@@ -9,7 +9,6 @@ import SavedCurrencyTable from '../../components/SavedCurrencyTable'
 import Pagination from '../../components/Pagination'
 import { ThemeContext } from '../../contexts'
 
-
 import './style.scss'
 
 const CurrencyConverter = ({ cryptos }: any) => {
@@ -21,7 +20,8 @@ const CurrencyConverter = ({ cryptos }: any) => {
   const [result, setResult] = useState(0)
   const [isSwitched, setIsSwitched] = useState(true)
   const [savedCurrencyConversion, setSavedCurrencyConversion] = useState({
-    coin: '',
+    id: '',
+    symbol: '',
     price: '',
     amount: 0,
     invested: 0,
@@ -57,6 +57,7 @@ const CurrencyConverter = ({ cryptos }: any) => {
         let symbol = crypto.CoinInfo.Name
         if (query === symbol) {
           let price = crypto.RAW.USD.PRICE
+          let id = crypto.CoinInfo.Id
           if (isSwitched) {
             let result = amount / price
             amount < 1 ? (result = 0) : setResult(result)
@@ -64,7 +65,8 @@ const CurrencyConverter = ({ cryptos }: any) => {
             setWarning('')
             setSavedCurrencyConversion({
               ...savedCurrencyConversion,
-              coin: symbol,
+              id: id,
+              symbol: symbol,
               price: price,
               amount: result,
               invested: amount,
@@ -76,7 +78,8 @@ const CurrencyConverter = ({ cryptos }: any) => {
             setWarning('')
             setSavedCurrencyConversion({
               ...savedCurrencyConversion,
-              coin: symbol,
+              id: id,
+              symbol: symbol,
               price: price,
               amount: amount,
               invested: result,
@@ -124,6 +127,8 @@ const CurrencyConverter = ({ cryptos }: any) => {
             warning={warning}
             result={result}
             resultSymbol={resultSymbol}
+            isSaveButtonShowing={isSaveButtonShowing}
+            saveCurrencyConversion={saveCurrencyConversion}
           />
         ) : (
           <CurrencyConverterFormUsd 
@@ -135,10 +140,10 @@ const CurrencyConverter = ({ cryptos }: any) => {
             amount={amount}
             warning={warning}
             result={result}
+            isSaveButtonShowing={isSaveButtonShowing}
+            saveCurrencyConversion={saveCurrencyConversion}
           />
-          
         )}
-        {isSaveButtonShowing && <button onClick={saveCurrencyConversion}>Save Conversion</button>}
       </div>
       {savedCurrency.length > 0 && 
       <div className="currency-converter__saved-container">

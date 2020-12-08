@@ -9,7 +9,6 @@ export default function useNewsFeeds() {
   const dispatch = useDispatch()
   const [data, setData] = useState(Array)
   const newsFeeds = useSelector((state: AppState) => state.cryptos.newsFeeds)
-  console.log(newsFeeds)
   const [err] = useState(null)
 
   useEffect(() => {

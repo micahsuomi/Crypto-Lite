@@ -7,7 +7,7 @@ import {  AppState, NewCrypto } from '../../types'
 import useCryptoNews from '../../hooks/useCryptoNews'
 import useNewsFeeds from '../../hooks/useNewsFeeds'
 import HomeBanner from '../../components/HomeBanner'
-// import TopGainers from '../../components/TopGainers'
+import TopGainers from '../../components/TopGainers'
 import CryptoItem from '../../components/CryptoItem'
 import WalletItem from '../../components/WalletItem'
 import NewsItem from '../../components/NewsItem'
@@ -22,8 +22,8 @@ export default function Home() {
 
   const [errNews, cryptoNews] = useCryptoNews()
   const [errNewsFeeds, newsFeeds] = useNewsFeeds()
+  const [showTopPerformers, setShowTopPerformers] = useState(false)
 
-  console.log(newsFeeds)
   const [currentPage] = useState(1)
   const [itemsPerPage] = useState(8)
 
@@ -40,10 +40,15 @@ export default function Home() {
   useEffect(() => {
     dispatch(fetchCrypto())
     dispatch(fetchCryptoWallets())
+    setTimeout(() => {
+      setShowTopPerformers(true)
+    }, 2000);
   }, [dispatch])
+  console.log(cryptos)
+
+  //returns 5 news items
 
   const addCrypto = (crypto: any) => {
-    // alerts BUTTON
     let newCrypto: NewCrypto = {
       id: crypto.CoinInfo.Id,
       image: crypto.CoinInfo.ImageUrl,
@@ -52,7 +57,7 @@ export default function Home() {
       price: crypto.DISPLAY.USD.PRICE,
       percentageChange: crypto.DISPLAY.USD.CHANGEPCTDAY,
       marketCap: crypto.DISPLAY.USD.MKTCAP,
-      supply: crypto.DISPLAY.USD.SUPPLY,
+      supply: crypto.DISPLAY.USD.SUPPLY
     }
     dispatch(addNewCrypto(newCrypto))
   }
@@ -85,7 +90,7 @@ export default function Home() {
       ratings={wallet.avgRating}
     />
   ))
-  //returns 5 news items
+
   const newsList = currentNews?.map((newsItem: any) => (
     <NewsItem
       key={newsItem.id}
@@ -115,7 +120,7 @@ export default function Home() {
   return (
     <div className="home-page">
       <HomeBanner />
-      {/* <TopGainers topPerfomersData={cryptos}/> */}
+      { showTopPerformers && <TopGainers topPerformersData={cryptos}/> }
       <div style={{backgroundColor: theme.backgroundColor}}>
         <NavLink to="/marketprices" 
           className="home-page__header" 
