@@ -8,7 +8,7 @@ import {
   Tooltip,
   Title
 } from '@devexpress/dx-react-chart-material-ui';
-import { EventTracker } from '@devexpress/dx-react-chart';
+import { EventTracker, Animation } from '@devexpress/dx-react-chart';
 
 import { useSelector } from 'react-redux'
 
@@ -32,6 +32,7 @@ const DailyExchangeVolChart = () => {
         <EventTracker />
         <Tooltip />
         <Title text="Daily Exchange Vol"/>
+        <Animation />
       </Chart> 
     </Paper>
   )

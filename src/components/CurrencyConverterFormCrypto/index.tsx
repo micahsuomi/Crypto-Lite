@@ -20,7 +20,9 @@ const CurrencyConverterFormCrypto = ({
   
 }: CurrencyConverterFormCryptoProps) => {
   const { theme } = useContext(ThemeContext)
-  
+  for(const crypto of cryptos) {
+    console.log(crypto.RAW)
+  }
   return (
     <form
       className="currency-converter-form"
@@ -55,7 +57,7 @@ const CurrencyConverterFormCrypto = ({
         <option>---Choose Currency</option>
         {cryptos.map((crypto: any) => (
           <option key={crypto.CoinInfo.Id} value={crypto.CoinInfo.Name}>
-            {crypto.CoinInfo.FullName} {crypto.DISPLAY.USD.PRICE}
+            {crypto.CoinInfo.FullName} {crypto.RAW !== undefined && crypto.RAW.USD.PRICE} 
           </option>
         ))}
       </select>

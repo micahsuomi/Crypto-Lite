@@ -201,6 +201,7 @@ export function fetchTopFiveSymbols(exchange: any) {
   `https://min-api.cryptocompare.com/data/exchange/top/volume?e=${exchange}&direction=to?api_key=${API_KEY}`
   return async (dispatch: Dispatch) => {
     const res = await fetch(url)
+    console.log('url here', res)
     const data = await res.json()
     console.log(data)
     data.exchange = exchange.toUpperCase()

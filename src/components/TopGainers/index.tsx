@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 
 import TopGainerItem from '../TopGainerItem'
 import { ThemeContext } from '../../contexts'
@@ -6,27 +6,48 @@ import { ThemeContext } from '../../contexts'
 import './style.scss'
 
 const TopGainers = (props: any) => {
-  console.log(props)
+  console.log(props.topPerformersData)
   const [isTopPerformersShowing, setTopPerformersShowing] = useState(true)
   const [isTopLosersShowing, setTopLosersShowing] = useState(false)
-
-  const filteredTopPerformers = []
-  const filteredTopLosers = []
+  const filteredTopPerformers = [] as any[]
+  const filteredTopLosers = [] as any[]
   const { theme } = useContext(ThemeContext)
-  
+  console.log('top performers data', props)
+
+  // const loadPerformersObj = async () => {
+  //   try {
   for (const crypto of props.topPerformersData) {
-    let performersObj = { id: '', image: '', name: '', symbol: '', price: '', percentageChange: 0 }
+    let performersObj = {
+      id: '',
+      image: '',
+      name: '',
+      symbol: '',
+      price: '',
+      percentageChange: 0,
+    }
+    // console.log(crypto)
     performersObj.id = crypto.CoinInfo.Id
     performersObj.image = crypto.CoinInfo.ImageUrl
     performersObj.name = crypto.CoinInfo.FullName
     performersObj.symbol = crypto.CoinInfo.Name
-    performersObj.price = crypto.DISPLAY.USD.PRICE
-    performersObj.percentageChange = Math.ceil((crypto.RAW.USD.CHANGEPCTDAY * 100)/100)
-    filteredTopPerformers.push(performersObj);
-    filteredTopLosers.push(performersObj);
+    performersObj.price = crypto.DISPLA !== undefined && crypto.DISPLAY.USD.PRICE
+    if(crypto.RAW !== undefined) {
+      performersObj.percentageChange = Math.ceil(
+        (crypto.RAW.USD.CHANGEPCTDAY * 100) / 100
+      ) 
+    }
+         
+    filteredTopPerformers.push(performersObj)
+    filteredTopLosers.push(performersObj)
   }
-  console.log(props)
-  
+  //   } catch (err) {console.log(err)}
+  // }
+  useEffect(() => {
+    // loadPerformersObj()
+  })
+  console.log(filteredTopPerformers)
+  console.log(filteredTopLosers)
+
   const topPerformers = filteredTopPerformers.sort((a, b) => {
     if (a.percentageChange > b.percentageChange) return -1;
     if (a.percentageChange < b.percentageChange) return 1;
@@ -49,7 +70,7 @@ const TopGainers = (props: any) => {
     setTopPerformersShowing(false)
     setTopLosersShowing(true)
   }
- 
+
   return (
     <div className="top-performers">
       <div className="top-performers__btn-wrapper">
@@ -87,7 +108,7 @@ const TopGainers = (props: any) => {
                 percentageChange={performer.percentageChange} /> 
             ))}</div>
         </>
-      }  
+      }   
     </div>
   )
 }
@@ -95,8 +116,8 @@ const TopGainers = (props: any) => {
 export default TopGainers
 
 const styleBtnClicked = {
-  backgroundColor: 'var(--primary)'
+  backgroundColor: 'var(--primary)',
 }
 const styleBtnUnClicked = {
-  backgroundImage: 'var(--btn-disabled)'
+  backgroundImage: 'var(--btn-disabled)',
 }
