@@ -1,5 +1,4 @@
 import * as React from 'react';
-import moment from 'moment';
 import { Paper } from '@material-ui/core';
 import {
   ArgumentAxis,
