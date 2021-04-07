@@ -6,13 +6,13 @@ import { ThemeContext } from '../../contexts'
 import './style.scss'
 
 const TopGainers = (props: any) => {
-  console.log(props.topPerformersData)
+  // console.log(props.topPerformersData)
   const [isTopPerformersShowing, setTopPerformersShowing] = useState(true)
   const [isTopLosersShowing, setTopLosersShowing] = useState(false)
   const filteredTopPerformers = [] as any[]
   const filteredTopLosers = [] as any[]
   const { theme } = useContext(ThemeContext)
-  console.log('top performers data', props)
+  // console.log('top performers data', props)
 
   // const loadPerformersObj = async () => {
   //   try {
@@ -25,7 +25,6 @@ const TopGainers = (props: any) => {
       price: '',
       percentageChange: 0,
     }
-    // console.log(crypto)
     performersObj.id = crypto.CoinInfo.Id
     performersObj.image = crypto.CoinInfo.ImageUrl
     performersObj.name = crypto.CoinInfo.FullName
@@ -45,8 +44,7 @@ const TopGainers = (props: any) => {
   useEffect(() => {
     // loadPerformersObj()
   })
-  console.log(filteredTopPerformers)
-  console.log(filteredTopLosers)
+  
 
   const topPerformers = filteredTopPerformers.sort((a, b) => {
     if (a.percentageChange > b.percentageChange) return -1;

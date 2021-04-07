@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-
 import { AppState } from '../types'
 
 export default function useTopFiveSymbols() {

@@ -168,7 +168,7 @@ export type DailyPairsItemProps = {
   high: number
   low: number
   open: number
-  time: number
+  time: number | string
   volumeFrom: number
   volumeTo: number
 }

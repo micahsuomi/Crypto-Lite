@@ -10,12 +10,11 @@ const DailyPairsForm = (props: any) => {
   const [dailyExchangeQuery, setDailyExchangeQuery] = useState({
     exchange: '',
     symbol: '',
-    limit: '',
-    aggregate: ''
+    limit: 10,
   })
 
   
-  const { exchange, symbol, limit, aggregate } = dailyExchangeQuery
+  const { exchange, symbol, limit } = dailyExchangeQuery
   const handleSubmit = (e: any) => {
     e.preventDefault()
     console.log(dailyExchangeQuery)
@@ -54,21 +53,13 @@ const DailyPairsForm = (props: any) => {
       <div className="daily-pairs-form__input-topics">
         <label htmlFor="from symbol">Limit</label>
         <input 
+          type="number"
           value={limit}
           name="limit"
           onChange={handleChange}
-          placeholder='min 10, max 2000'/>
+          placeholder='min 10, max 2000'
+        />
       </div>
-
-      <div className="daily-pairs-form__input-topics">
-        <label htmlFor="from symbol">Aggregate</label>
-        <input 
-          value={aggregate}
-          name="aggregate"
-          onChange={handleChange}
-          placeholder='min 10, max 2000'/>
-      </div>
-
       <button>Search</button>
     </form> 
   )

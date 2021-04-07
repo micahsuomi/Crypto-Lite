@@ -44,7 +44,6 @@ export default function Home() {
       setShowTopPerformers(true)
     }, 2000);
   }, [dispatch])
-  console.log(cryptos)
 
   //returns 5 news items
 

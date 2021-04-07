@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux'
 import { Paper } from '@material-ui/core';
 import {
   ArgumentAxis,
@@ -9,8 +10,6 @@ import {
   Title
 } from '@devexpress/dx-react-chart-material-ui';
 import { EventTracker, Animation } from '@devexpress/dx-react-chart';
-
-import { useSelector } from 'react-redux'
 
 import { AppState } from '../../types'
 

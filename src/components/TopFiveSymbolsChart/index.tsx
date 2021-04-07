@@ -18,23 +18,22 @@ import './style.scss'
 const TopFiveSymbolsChart = () => {
   const topFiveSymbols = useSelector((state : AppState) => state.cryptos.topFiveSymbols)
   const { exchange } = topFiveSymbols
-
+  console.log(topFiveSymbols.Data)
   return (
     <Paper className="chart-container"
     >
       <Chart
         data={topFiveSymbols.Data}
       >
-        {
-          topFiveSymbols.Data.map((s: any) => (
-            <BarSeries 
-              key={s}
-              name={s.fromSymbol} 
-              valueField="volume"
-              argumentField="volume"   
-            />
-          ))
-        }
+        {/* {
+          topFiveSymbols.Data.map((s: any) => ( */}
+        <BarSeries 
+          name="fromSymbol" 
+          valueField="volume"
+          argumentField="fromSymbol"   
+        />
+        {/* ))
+        } */}
         <Legend />
         <EventTracker />
         <Tooltip />
