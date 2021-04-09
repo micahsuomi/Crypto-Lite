@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import moment from 'moment'
 
 import { DailyPairsTableProps } from '../../types'
 import DailyPairsItem from '../DailyPairsItem'
@@ -9,18 +8,6 @@ import './style.scss'
 
 const DailyPairsTable = ({ dailyPairs }: DailyPairsTableProps) => {
   const { theme } = useContext(ThemeContext)
-
-  const dailyPairsList = dailyPairs.Data?.map((p: any) => (
-    <DailyPairsItem
-      close={p.close}
-      high={p.high}
-      low={p.low}
-      open={p.open}
-      time={moment(p.time, 'LL').fromNow()}
-      volumeFrom={p.volumefrom}
-      volumeTo={p.volumeto}
-    />
-  ))
 
   return (
     <table className="daily-pairs-table" style={{ color: theme.text }}>
@@ -33,7 +20,24 @@ const DailyPairsTable = ({ dailyPairs }: DailyPairsTableProps) => {
         <td>Volume From</td>
         <td>Volume To</td>
       </thead>
-      <tbody className="top-volume__table-body">{dailyPairsList}</tbody>
+      <tbody className="top-volume__table-body">
+        {dailyPairs.Data.map((pair: any) => {
+          const { close, high, low, open, time, volumefrom, volumeto } = pair
+          const unixTime = time
+          const timeStamp = new Date(unixTime * 1000)
+          return (
+            <DailyPairsItem
+              close={close}
+              high={high}
+              low={low}
+              open={open}
+              time={timeStamp.toDateString()}
+              volumeFrom={volumefrom}
+              volumeTo={volumeto}
+            />
+          )
+        })}
+      </tbody>
     </table>
   )
 }
