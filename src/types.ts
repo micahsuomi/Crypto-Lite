@@ -83,11 +83,11 @@ export type TitleProps = {
 }
 
 export type TopGainerProps = {
-  id: string 
-  image: string 
-  name: string 
-  symbol: string 
-  price: string 
+  id: string
+  image: string
+  name: string
+  symbol: string
+  price: string
   percentageChange: number
 }
 
@@ -144,7 +144,7 @@ export type DailyPairsReq = {
   pairTwo: string
 }
 
-export type DailyPairs = {
+export type DailyPairsData = {
   close: number
   high: number
   low: number
@@ -155,8 +155,17 @@ export type DailyPairs = {
   Message: string
 }
 
+export type DailyPairs = {
+  Aggregated: boolean
+  TimeFrom: number
+  TimeTo: number
+  Data: DailyPairsData[]
+  fromSymbol: string
+  toSymbol: string
+}
+
 export type DailyPairsHeaderProps = {
-  dailyPairs: any
+  dailyPairs: DailyPairs
 }
 
 export type DailyPairsTableProps = {
@@ -171,6 +180,11 @@ export type DailyPairsItemProps = {
   time: number | string
   volumeFrom: number
   volumeTo: number
+}
+
+export type DailyPairsChartProps = {
+  //fix this later
+  dailyPairs: any
 }
 
 export type DailyExchangeVol = {
@@ -372,7 +386,7 @@ export type CurrencyConverterFormCryptoProps = {
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
   amount: number
   handleChange: React.FormEventHandler<HTMLInputElement>
-  selectCurrency:(event: React.FocusEvent<HTMLSelectElement>) => void
+  selectCurrency: (event: React.FocusEvent<HTMLSelectElement>) => void
   handleSwitch: () => void
   warning: string
   result: number
@@ -386,7 +400,7 @@ export type CurrencyConverterFormUsdProps = {
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
   amount: number
   handleChange: React.FormEventHandler<HTMLInputElement>
-  selectCurrency:(event: React.FocusEvent<HTMLSelectElement>) => void
+  selectCurrency: (event: React.FocusEvent<HTMLSelectElement>) => void
   handleSwitch: () => void
   warning: string
   result: number
@@ -412,7 +426,7 @@ export type CryptoNewsItemProps = {
 }
 
 export type NewsFeedsItemProps = {
-  id: string,
+  id: string
   language: string
   image: string
   name: string
@@ -640,7 +654,6 @@ export type Product = {
 export type ProductState = {
   inCart: Product[]
   test: any
-
 }
 
 // Using dynamic keys from an enum

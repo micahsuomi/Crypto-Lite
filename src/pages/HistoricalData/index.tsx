@@ -12,7 +12,6 @@ import TopFiveSymbolsForm from '../../components/TopFiveSymbolsForm'
 import TopFiveSymbolsChart from '../../components/TopFiveSymbolsChart'
 import TopFiveSymbolsTable from '../../components/TopFiveSymbolsTable'
 import { ThemeContext } from '../../contexts'
-
 import './style.scss'
 
 const HistoricalData = () => {
@@ -33,8 +32,8 @@ const HistoricalData = () => {
   )
   const [showTopFiveSymbolsGraph, setShowTopFiveSymbolsGraph] = useState(false)
 
-  // console.log('daily pairs', dailyPairs)
-  // console.log('daily exchange volume', dailyExchangeVol)
+  console.log('daily pairs', dailyPairs)
+  console.log('daily exchange volume', dailyExchangeVol)
   console.log('top five symbols', topFiveSymbols)
 
   const [isDailyPairsShowing, setIsDailyPairsShowing] = useState(true)
@@ -54,12 +53,12 @@ const HistoricalData = () => {
     setIsDailyExchangeVolShowing(true)
     setIsTopFiveSymbolsShowing(false)
   }
-
+  /*
   const showTopFiveSymbols = () => {
     setIsDailyPairsShowing(false)
     setIsDailyExchangeVolShowing(false)
     setIsTopFiveSymbolsShowing(true)
-  }
+  }*/
 
   const showDailyPairsTable = () => {
     setIsDailyPairsTableShowing(!isDailyPairsTableShowing)
@@ -121,27 +120,28 @@ const HistoricalData = () => {
             </p>
             <DailyPairsForm showDailyGraphOnSubmit={showDailyGraphOnSubmit} />
             <div className="historical-data__results">
-              <div>{showDailyGraph && <DailyPairsChart />}</div>
-              {
-                showDailyGraph &&
+              <div>
+                {showDailyGraph && <DailyPairsChart dailyPairs={dailyPairs} />}
+              </div>
+              {showDailyGraph && (
                 <>
                   {isDailyPairsTableShowing ? (
                     <button
                       onClick={showDailyPairsTable}
                       className="historical-data__show-table-btn"
                     >
-                  Hide Table
+                      Hide Table
                     </button>
                   ) : (
                     <button
                       onClick={showDailyPairsTable}
                       className="historical-data__show-table-btn"
                     >
-                  Show Table
+                      Show Table
                     </button>
                   )}
                 </>
-              }
+              )}
               {isDailyPairsTableShowing && (
                 <div>
                   <DailyPairsTable dailyPairs={dailyPairs} />
