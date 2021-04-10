@@ -9,7 +9,7 @@ export const themes = {
     tableHead: 'white',
     viewItemColor: 'var(--background-day-mode)',
     text: 'var(--dark)',
-    buttonColor: 'hotpink',
+    buttonColor: 'white',
     currencyCalcColor: 'var(--btn-disabled)',
     bigBtnColor: 'var(--primary)',
     inputColor: 'white',
