@@ -192,6 +192,10 @@ export type DailyExchangeVol = {
   volume: number
 }
 
+export type DailyEchangeVolChart = {
+  data: any
+}
+
 export type TopFiveSymbols = {
   fromSymbol: string
   toSymbol: string

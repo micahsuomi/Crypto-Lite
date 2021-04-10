@@ -17,7 +17,10 @@ const AddCryptoButton = ({ addCrypto, id }: AddCryptoButtonProps) => {
   return (
     <div>
       {cryptosBasket.find((c) => c.id === id) ? (
-        <button className="add-crypto__btn add-crypto__btn-disabled" disabled>
+        <button
+          className="add-crypto__btn add-crypto__btn-disabled animate-appear"
+          disabled
+        >
           <FaStar />
         </button>
       ) : (
@@ -25,6 +28,7 @@ const AddCryptoButton = ({ addCrypto, id }: AddCryptoButtonProps) => {
           className="add-crypto__btn grow"
           style={styledEnabled}
           onClick={addCrypto}
+          title="add to watchlist"
         >
           <FaRegStar />
         </button>

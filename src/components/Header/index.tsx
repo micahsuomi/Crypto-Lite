@@ -6,21 +6,23 @@ import Search from '../Search/index'
 
 import './style.scss'
 
-const Header = ({ 
-  handleSubmit, 
-  handleChange, 
-  search, 
-  placeholderText 
+const Header = ({
+  handleSubmit,
+  handleChange,
+  search,
+  placeholderText,
 }: HeaderProps) => {
   const { theme } = useContext(ThemeContext)
-  
+
   return (
     <div
       className="header-container"
-      style={{ backgroundColor: theme.headerColor, 
-        height: `${search === '' ? '13.5rem' : '9.5rem'}`,
-        padding: `${search === '' ? '6rem 2rem' : '4.35rem 2rem'}`}}
-    > 
+      style={{
+        backgroundColor: theme.headerColor,
+        height: `${search === '' ? '9.5rem' : '9.5rem'}`,
+        padding: `${search === '' ? '4.15rem 2rem' : '4.15rem 2rem'}`,
+      }}
+    >
       <div className="header-wrapper">
         <div className="header-search">
           <Search
@@ -36,4 +38,3 @@ const Header = ({
 }
 
 export default Header
-

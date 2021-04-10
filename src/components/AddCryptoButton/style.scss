@@ -2,7 +2,7 @@
   padding: 0.5rem;
   border: none;
   border-radius: 50px;
-  color: white;
+  color: hotpink;
   cursor: pointer;
   margin: 0.8rem;
   width: 2rem;
@@ -11,7 +11,8 @@
   align-items: center;
   font-size: 16px;
   text-transform: uppercase;
-  box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
+  background-color: transparent;
+  // box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
 }
 
 .add-crypto__btn-disabled {

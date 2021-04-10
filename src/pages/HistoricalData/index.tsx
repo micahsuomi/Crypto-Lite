@@ -155,8 +155,8 @@ const HistoricalData = () => {
             <h4>Search Daily Exchange Vol (daily Volume)</h4>
             <p>
               Get the total volume of daily historical exchange data. If you
-              wish to get all the available historical data, you can enter
-              limit=2000 (earliest timestamp received).{' '}
+              wish to get all the available <br /> historical data, you can
+              enter limit=2000 (earliest timestamp received).{' '}
             </p>
             <DailyExchangeVolForm
               showDailyExchangeVolGraphOnSubmit={
@@ -165,7 +165,9 @@ const HistoricalData = () => {
             />
             <div className="historical-data__results">
               <div>
-                {showDailyExchangeVolGraph && <DailyExchangeVolChart />}
+                {showDailyExchangeVolGraph && (
+                  <DailyExchangeVolChart data={dailyExchangeVol} />
+                )}
               </div>
             </div>
           </div>
