@@ -18,7 +18,7 @@ const MainTable = ({
   isMarketCapReversing,
   isSupplyReversing,
   cryptos,
-  topPerformersData
+  topPerformersData,
 }: MainTableProps) => {
   const { theme } = useContext(ThemeContext)
   const dispatch = useDispatch()
@@ -39,6 +39,7 @@ const MainTable = ({
   }
   return (
     <>
+      <TopGainers topPerformersData={topPerformersData} />
       <table
         className="crypto-container"
         style={{ backgroundColor: theme.backgroundColor }}
@@ -54,7 +55,6 @@ const MainTable = ({
           />
         </thead>
         <tbody>
-          <TopGainers topPerformersData={topPerformersData}/> 
           {cryptos.map((crypto: any) => (
             <CryptoItem
               key={crypto.CoinInfo.Id}
