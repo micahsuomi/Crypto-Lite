@@ -9,15 +9,20 @@ import './style.scss'
 
 const Header = () => {
   const { theme } = useContext(ThemeContext)
+  const { isSwitched } = useContext(ThemeContext)
+
   return (
-    <div className="homebanner" 
-      style={{ backgroundColor: theme.backgroundColor, color: theme.homeBanner }}>
+    <div className={isSwitched ? 'homebanner dark' : 'homebanner light'}>
       <img src={headerImg} alt="prices pic" />
       <div className="homebanner__wrapper" id="home">
         <BtcPrice />
-
-        <h1 className="homebanner__title">CryptoLite</h1>
-        <h2 className="homebanner__subtitle">
+        <h1 className="homebanner__title" style={{ color: theme.homeBanner }}>
+          CryptoLite
+        </h1>
+        <h2
+          className="homebanner__subtitle"
+          style={{ color: theme.homeBanner }}
+        >
           Cryptocurrencies data and news from the CryptoCompare APIs
         </h2>
         <button className="homebanner__btn-explore">

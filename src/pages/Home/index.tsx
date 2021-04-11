@@ -123,8 +123,8 @@ export default function Home() {
   return (
     <div className="home-page">
       <HomeBanner />
-      {showTopPerformers && <TopGainers topPerformersData={cryptos} />}
       <div style={{ backgroundColor: theme.backgroundColor }}>
+        {showTopPerformers && <TopGainers topPerformersData={cryptos} />}
         <NavLink
           to="/marketprices"
           className="home-page__header"

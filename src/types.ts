@@ -35,6 +35,8 @@ export enum DialogType {
 //crypto types here
 export type NavbarTogglerProps = {
   toggle: () => void
+  scrolled: boolean
+  isSwitched: boolean
   isClicked?: boolean
   lineClassOneActive?: string
   lineClassOne?: string
@@ -42,6 +44,10 @@ export type NavbarTogglerProps = {
   lineClassTwo?: string
   lineClassThreeActive?: string
   lineClassThree?: string
+}
+
+export type ThemedButtonProps = {
+  scrolled: boolean
 }
 
 export type MainTableProps = {
@@ -270,6 +276,11 @@ export type CryptoTableCellProps = {
 
 export type Cart = {
   inCart: Crypto[]
+}
+
+export type CryptoCartProps = {
+  scrolled: boolean
+  isSwitched:boolean
 }
 
 export type ImageProps = {

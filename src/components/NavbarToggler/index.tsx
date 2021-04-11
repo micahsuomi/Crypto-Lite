@@ -1,12 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import { NavbarTogglerProps } from '../../types'
-import { ThemeContext } from '../../contexts'
 
 import './style.scss'
 
 const NavbarToggler = ({
   toggle,
+  scrolled,
+  isSwitched,
   isClicked,
   lineClassOneActive,
   lineClassOne,
@@ -15,21 +16,20 @@ const NavbarToggler = ({
   lineClassThreeActive,
   lineClassThree,
 }: NavbarTogglerProps) => {
-  const { theme } = useContext(ThemeContext)
   return (
     <div className="toggle-wrapper">
       <div className="toggle-bar" onClick={toggle}>
         <span
           className={isClicked ? lineClassOneActive : lineClassOne}
-          style={{ backgroundColor: theme.homeBanner }}
+          style={{ backgroundColor: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)' }}
         ></span>
         <span
           className={isClicked ? lineClassTwoActive : lineClassTwo}
-          style={{ backgroundColor: theme.homeBanner }}
+          style={{ backgroundColor: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)' }}
         ></span>
         <span
           className={isClicked ? lineClassThreeActive : lineClassThree}
-          style={{ backgroundColor: theme.homeBanner }}
+          style={{ backgroundColor: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)' }}
         ></span>
       </div>
     </div>

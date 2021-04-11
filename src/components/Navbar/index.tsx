@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import { ImHome } from "react-icons/im";
-import { RiExchangeLine } from "react-icons/ri";
-import { BsNewspaper, BsFillBarChartFill } from "react-icons/bs";
-import { FaWallet, FaChartLine } from "react-icons/fa";
+import { ImHome } from 'react-icons/im'
+import { RiExchangeLine } from 'react-icons/ri'
+import { BsNewspaper, BsFillBarChartFill } from 'react-icons/bs'
+import { FaWallet, FaChartLine } from 'react-icons/fa'
 
 import logo from '../../imgs/logo.svg'
 import NavbarToggler from '../NavbarToggler'
@@ -14,8 +14,9 @@ import { ThemeContext } from '../../contexts'
 import './style.scss'
 
 const NavBar = () => {
-  const { theme } = useContext(ThemeContext)
   const [isClicked, setState] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const { isSwitched } = useContext(ThemeContext)
 
   const navList = 'nav-list'
   const navListOpen = 'nav-list open'
@@ -32,96 +33,116 @@ const NavBar = () => {
   const toggle = () => {
     setState(!isClicked)
   }
+
+  const changeBackground = () => {
+    if (window.scrollY >= 50 || window.innerWidth <= 800) {
+      setScrolled(true)
+    } else {
+      setScrolled(false)
+    }
+  }
+
+  useEffect(() => {
+    changeBackground()
+    window.addEventListener('scroll', changeBackground)
+  })
+
   return (
-    <nav className="navbar" style={{backgroundColor: theme.backgroundColor}}>
+    <nav className={scrolled ? 'navbar active' : 'navbar'}>
       <NavLink to="/">
-        <img src={logo} alt="crypto logo" className="navbar__logo"/>
+        <img src={logo} alt="crypto logo" className="navbar__logo" />
       </NavLink>
       <ul className={isClicked ? navListOpen : navList}>
         <li>
-          <NavLink to="/" 
-            onClick={toggle} 
+          <NavLink
+            to="/"
+            onClick={toggle}
             className="navbar__link"
-            activeStyle={{color: 'var(--yellow)'}}>
+            activeStyle={{ color: 'var(--yellow)' }}
+          >
             <ImHome />
-            <span>
-             Home
-            </span>
+            <span>Home</span>
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/marketprices" 
+          <NavLink
+            to="/marketprices"
             onClick={toggle}
             className="navbar__link"
-            activeStyle={{color: 'var(--yellow)'}}>
+            activeStyle={{ color: 'var(--yellow)' }}
+          >
             <FaChartLine />
-            <span>
-            Market Prices
-            </span>
+            <span>Market Prices</span>
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/historicaldata" 
-            className="navbar__link" 
+          <NavLink
+            to="/historicaldata"
+            className="navbar__link"
             onClick={toggle}
-            activeStyle={{color: 'var(--yellow)'}}>
+            activeStyle={{ color: 'var(--yellow)' }}
+          >
             <BsFillBarChartFill />
-            <span>
-            Historical Data
-            </span>
-          </NavLink> 
-        </li>
-
-        <li>
-          <NavLink to="/exchanges" 
-            className="navbar__link" 
-            onClick={toggle}
-            activeStyle={{color: 'var(--yellow)'}}>
-            <RiExchangeLine 
-              className="navbar__icon"/>
-            <span>
-            Exchanges
-            </span>
+            <span>Historical Data</span>
           </NavLink>
         </li>
 
         <li>
-          <NavLink to="/wallets" 
-            className="navbar__link" 
+          <NavLink
+            to="/exchanges"
+            className="navbar__link"
             onClick={toggle}
-            activeStyle={{color: 'var(--yellow)'}}>
+            activeStyle={{ color: 'var(--yellow)' }}
+          >
+            <RiExchangeLine className="navbar__icon" />
+            <span>Exchanges</span>
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/wallets"
+            className="navbar__link"
+            onClick={toggle}
+            activeStyle={{ color: 'var(--yellow)' }}
+          >
             <FaWallet />
-            <span>
-            Wallets
-            </span>
+            <span>Wallets</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/news" 
-            className="navbar__link" 
+          <NavLink
+            to="/news"
+            className="navbar__link"
             onClick={toggle}
-            activeStyle={{color: 'var(--yellow)'}}>
+            activeStyle={{ color: 'var(--yellow)' }}
+          >
             <BsNewspaper />
-            <span>
-            News
-            </span>
+            <span>News</span>
           </NavLink>
         </li>
       </ul>
       <ul>
-        <CryptoCart />
+        <CryptoCart scrolled={scrolled} isSwitched={isSwitched} />
         <NavLink
           to="/currencyconverter"
           title="currency converter"
-          activeStyle={{color: 'var(--yellow)'}}>
-          <i className="fas fa-funnel-dollar currency-icon" 
-            style={{color: theme.iconColor}}></i>
+          activeStyle={{ color: 'var(--yellow)' }}
+        >
+          <i
+            className="fas fa-funnel-dollar currency-icon grow-icon"
+            style={{
+              color: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)',
+            }}
+          ></i>
         </NavLink>
-        <ThemedButton />
+        <ThemedButton scrolled={scrolled} />
         <NavbarToggler
           toggle={toggle}
+          scrolled={scrolled}
+          isSwitched={isSwitched}
           isClicked={isClicked}
           lineClassOneActive={lineClassOneActive}
           lineClassOne={lineClassOne}

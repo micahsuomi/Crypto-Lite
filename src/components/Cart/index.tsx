@@ -1,16 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { FaRegStar, FaStar } from 'react-icons/fa'
 
-import { AppState } from '../../types'
-import { ThemeContext } from '../../contexts'
+import { AppState, CryptoCartProps } from '../../types'
 
 import './style.scss'
 
-const CryptoCart = () => {
+const CryptoCart = ({ scrolled, isSwitched }: CryptoCartProps) => {
   const cryptoBasket = useSelector((state: AppState) => state.cryptos.inCart)
-  const { theme } = useContext(ThemeContext)
   return (
     <div className="cart" title="watchlist">
       <div className="cart__left">
@@ -18,7 +16,7 @@ const CryptoCart = () => {
           <NavLink to="#" className="cart__link--empty" title="watchlist">
             <FaRegStar
               className="watchlist-icon"
-              style={{ color: theme.iconColor }}
+              style={{ color: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)' }}
             />
           </NavLink>
         ) : (
@@ -29,7 +27,7 @@ const CryptoCart = () => {
           >
             <FaStar
               className="watchlist-icon"
-              style={{ color: theme.iconColor }}
+              style={{ color: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)' }}
             />
           </NavLink>
         )}
