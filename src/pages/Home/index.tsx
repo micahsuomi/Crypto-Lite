@@ -2,8 +2,12 @@ import React, { useState, useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { addNewCrypto, fetchCrypto, fetchCryptoWallets } from '../../redux/actions'
-import {  AppState, NewCrypto } from '../../types'
+import {
+  addNewCrypto,
+  fetchCrypto,
+  fetchCryptoWallets,
+} from '../../redux/actions'
+import { AppState, NewCrypto } from '../../types'
 import useCryptoNews from '../../hooks/useCryptoNews'
 import useNewsFeeds from '../../hooks/useNewsFeeds'
 import HomeBanner from '../../components/HomeBanner'
@@ -42,7 +46,7 @@ export default function Home() {
     dispatch(fetchCryptoWallets())
     setTimeout(() => {
       setShowTopPerformers(true)
-    }, 2000);
+    }, 2000)
   }, [dispatch])
 
   //returns 5 news items
@@ -56,7 +60,7 @@ export default function Home() {
       price: crypto.DISPLAY.USD.PRICE,
       percentageChange: crypto.DISPLAY.USD.CHANGEPCTDAY,
       marketCap: crypto.DISPLAY.USD.MKTCAP,
-      supply: crypto.DISPLAY.USD.SUPPLY
+      supply: crypto.DISPLAY.USD.SUPPLY,
     }
     dispatch(addNewCrypto(newCrypto))
   }
@@ -110,42 +114,35 @@ export default function Home() {
       language={feed.lang}
       image={feed.img}
     />
-  ));
-  
+  ))
+
   if (errNews || errNewsFeeds) {
     return <h1>Page Not Found</h1>
   }
-  
+
   return (
     <div className="home-page">
       <HomeBanner />
-      { showTopPerformers && <TopGainers topPerformersData={cryptos}/> }
-      <div style={{backgroundColor: theme.backgroundColor}}>
-        <NavLink to="/marketprices" 
-          className="home-page__header" 
-          style={{color: theme.text}}>
-          <h2>Latest Market Prices</h2></NavLink>
-        <div className="home-page__section">
-          {cryptoList}
-        </div>
-        <div style={{backgroundColor: theme.backgroundColor}}>
-          <NavLink to="/historicaldata" 
-            className="home-page__header" 
-            style={{color: theme.text}}>
-            <h2>Historical Data</h2></NavLink>
-          {/* <div className="home-page__charts">
-            <div><DailyPairsChart /></div>
-            <div><TopFiveSymbolsChart /></div>
-          </div>  */}
-
+      {showTopPerformers && <TopGainers topPerformersData={cryptos} />}
+      <div style={{ backgroundColor: theme.backgroundColor }}>
+        <NavLink
+          to="/marketprices"
+          className="home-page__header"
+          style={{ color: theme.text }}
+        >
+          <h2 id="home-main">Latest Market Prices</h2>
+        </NavLink>
+        <div className="home-page__section">{cryptoList}</div>
+        <div style={{ backgroundColor: theme.backgroundColor }}>
           <div className="home-page__section" id="latestNews">
-            <NavLink to="/wallets" 
-              className="home-page__header" 
-              style={{color: theme.text}}>
-              <h2>Wallets</h2></NavLink>
-            <div className="wallets__wrapper">
-              {walletList}
-            </div>
+            <NavLink
+              to="/wallets"
+              className="home-page__header"
+              style={{ color: theme.text }}
+            >
+              <h2>Wallets</h2>
+            </NavLink>
+            <div className="wallets__wrapper">{walletList}</div>
           </div>
 
           <div
@@ -153,10 +150,12 @@ export default function Home() {
             style={{ backgroundColor: theme.backgroundColor }}
           >
             <div className="home-page__section" id="latestNews">
-              <NavLink to ="/news" className="home-page__header" style={{color: theme.text}}>
-                <h2>
-              Latest News
-                </h2>
+              <NavLink
+                to="/news"
+                className="home-page__header"
+                style={{ color: theme.text }}
+              >
+                <h2>Latest News</h2>
               </NavLink>
               <div className="news-list__wrapper">{newsList}</div>
             </div>
@@ -165,12 +164,16 @@ export default function Home() {
               style={{ backgroundColor: theme.backgroundColor }}
             >
               <div className="home-page__section" id="latestNews">
-                <NavLink to ="/news" className="home-page__header" style={{color: theme.text}}>
-                  <h2>
-                  News Feeds
-                  </h2>
+                <NavLink
+                  to="/news"
+                  className="home-page__header"
+                  style={{ color: theme.text }}
+                >
+                  <h2>News Feeds</h2>
                 </NavLink>
-                <div className="home-page__newsfeeds-wrapper">{newsFeedsList}</div>
+                <div className="home-page__newsfeeds-wrapper">
+                  {newsFeedsList}
+                </div>
               </div>
             </div>
           </div>

@@ -5,18 +5,17 @@
   color: hotpink;
   cursor: pointer;
   margin: 0.8rem;
-  width: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 20px;
   text-transform: uppercase;
   background-color: transparent;
   // box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
 }
 
 .add-crypto__btn-disabled {
-  background-color: var(--primary-light);
+  // background-color: var(--primary-light);
   pointer-events: none;
 }
 

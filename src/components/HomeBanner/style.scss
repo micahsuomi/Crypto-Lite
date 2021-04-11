@@ -34,13 +34,13 @@
     padding: 1.5rem;
     border: none;
     color: white;
-    background-color: var(--color-secondary-dark);
+    background-color: var(--primary);
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
   }
   &__btn-explore:hover {
-    background-color: var(--color-secondary-light);
+    background-color: var(--primary-light);
     transform: translateY(-0.1rem);
   }
   &__btn-explore a {
