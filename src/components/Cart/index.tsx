@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { MdPlaylistAddCheck } from 'react-icons/md'
+import { FaRegStar, FaStar } from 'react-icons/fa'
 
 import { AppState } from '../../types'
 import { ThemeContext } from '../../contexts'
@@ -16,7 +16,7 @@ const CryptoCart = () => {
       <div className="cart__left">
         {cryptoBasket.length < 1 ? (
           <NavLink to="#" className="cart__link--empty" title="watchlist">
-            <MdPlaylistAddCheck
+            <FaRegStar
               className="watchlist-icon"
               style={{ color: theme.iconColor }}
             />
@@ -27,7 +27,7 @@ const CryptoCart = () => {
             className="cart__link--full grow"
             title="watchlist"
           >
-            <MdPlaylistAddCheck
+            <FaStar
               className="watchlist-icon"
               style={{ color: theme.iconColor }}
             />
