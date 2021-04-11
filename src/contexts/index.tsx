@@ -5,7 +5,7 @@ export const themes = {
     iconColor: 'var(--primary-light)',
     backgroundColor: 'white',
     homeBanner: 'var(--color-secondary-dark)',
-    headerColor: 'var(--primary)',
+    headerColor: 'var(--primary-light)',
     tableHead: 'white',
     viewItemColor: 'var(--background-day-mode)',
     text: 'var(--dark)',

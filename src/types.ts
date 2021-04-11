@@ -272,6 +272,11 @@ export type Cart = {
   inCart: Crypto[]
 }
 
+export type CryptoCartProps = {
+  scrolled: boolean
+  isSwitched: boolean
+}
+
 export type ImageProps = {
   image: string
   name: string

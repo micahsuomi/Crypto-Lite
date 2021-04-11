@@ -23,23 +23,24 @@ Crypto Lite displays real market data from CryptoCompare's APIs: it features mar
 - Redux-thunk
 - Redux-saga
 - Context API
+- DevExtreme React Charts
 - Sass
 
 ## Home
-![Home Page](./readme-imgs/home-page.png)
+![Home Page](./public/readme-imgs/home-page.png)
 
 ## Market Prices
 ## Historical Data
 ## Exchanges
-![Exchanges](./readme-imgs/exchanges.png)
+![Exchanges](./public/readme-imgs/exchanges.png)
 
 ## Wallets
 ## News
 ## Watchlist
-![Watchlist](./readme-imgs/watchlist.png)
+![Watchlist](./public/readme-imgs/watchlist.png)
 
 ## Currency Converter
-![Currency Converter](./readme-imgs/currency-converter.png)
+![Currency Converter](./public/readme-imgs/currency-converter.png)
 
 ## Deployment
 The app is deployed on Netlify and the demo can be found at the following link: https://crypto-lite-tracker.netlify.app/
