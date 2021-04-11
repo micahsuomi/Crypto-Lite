@@ -19,8 +19,8 @@ const Header = ({
       className="header-container"
       style={{
         backgroundColor: theme.headerColor,
-        height: `${search === '' ? '9.5rem' : '9.5rem'}`,
-        padding: `${search === '' ? '2.15rem 2rem' : '2.15rem 2rem'}`,
+        height: `${search === '' ? '6.5rem' : '6.5rem'}`,
+        padding: `${search === '' ? '0.17rem 2rem' : '0.17rem 2rem'}`,
       }}
     >
       <div className="header-wrapper">

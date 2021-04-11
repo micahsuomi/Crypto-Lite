@@ -132,15 +132,17 @@ const NavBar = () => {
           activeStyle={{ color: 'var(--yellow)' }}
         >
           <i
-            className="fas fa-funnel-dollar currency-icon"
+            className="fas fa-funnel-dollar currency-icon grow-icon"
             style={{
-              color: scrolled || isSwitched ? 'white' : 'var(--primary-light)',
+              color: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)',
             }}
           ></i>
         </NavLink>
-        <ThemedButton />
+        <ThemedButton scrolled={scrolled} />
         <NavbarToggler
           toggle={toggle}
+          scrolled={scrolled}
+          isSwitched={isSwitched}
           isClicked={isClicked}
           lineClassOneActive={lineClassOneActive}
           lineClassOne={lineClassOne}

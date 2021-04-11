@@ -1,21 +1,22 @@
 import React, { useContext } from 'react'
 import { BsCircleHalf } from 'react-icons/bs'
 
+import { ThemedButtonProps } from '../../types'
 import { ThemeContext } from '../../contexts'
 
 import './style.scss'
 
-const ThemedButton = () => {
+const ThemedButton = ({
+  scrolled
+}: ThemedButtonProps) => {
   const { switchTheme, isSwitched } = useContext(ThemeContext)
-  const { theme } = useContext(ThemeContext)
-
   return (
     <div>
       {isSwitched ? (
         <>
           <BsCircleHalf
             onClick={switchTheme}
-            style={{color: theme.iconColor}}
+            style={{color: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)'}}
             className="grow-icon theme-switch animate-rotate-clockwise"
             title="day mode"
           />
@@ -24,7 +25,7 @@ const ThemedButton = () => {
         <>
           <BsCircleHalf
             onClick={switchTheme}
-            style={{color: theme.iconColor}}
+            style={{color: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)'}}
             className="grow-icon theme-switch animate-rotate-anticlockwise"
             title="night mode"
           />
