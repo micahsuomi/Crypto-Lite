@@ -8,8 +8,7 @@ import { ThemeContext } from '../../contexts'
 import './style.scss'
 
 const Header = () => {
-  const { theme } = useContext(ThemeContext)
-  const { isSwitched } = useContext(ThemeContext)
+  const { theme, isSwitched } = useContext(ThemeContext)
 
   return (
     <div className={isSwitched ? 'homebanner dark' : 'homebanner light'}>

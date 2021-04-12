@@ -7,10 +7,10 @@
         align-items: center;
 
         button {
-            margin: .4rem;
+            margin: 1rem -0.6rem;
             padding: .7rem;
-            border-radius: 50px;
-            width: 9rem;
+            border-radius: 0 5px 0 0;
+            width: 12rem;
             background-color: var(--primary);
             border: none;
             color: white;
@@ -41,7 +41,7 @@
     .top-performers {
       &__btn-wrapper {
         button {
-          width: 13rem;
+          width: 19rem;
         }
       }
       &__wrapper {
