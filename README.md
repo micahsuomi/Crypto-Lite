@@ -45,7 +45,7 @@ In this page users can view market prices and price changes for the top 100 cryp
 
 ## Historical Data
 
-Historical data shows daily pairs and daily exchange volume data for currencies based on user inputs. The charts and tables are based on updated daily data from the CryptoCompare API.
+Historical data shows daily pairs and daily exchange volume data for currencies based on user inputs. The charts and tables are based on updated data from the CryptoCompare API.
 
 ![Historical Data](./public/readme-imgs/historical-data.png)
 
