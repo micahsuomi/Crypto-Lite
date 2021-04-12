@@ -29,16 +29,29 @@ Crypto Lite displays real market data from CryptoCompare's APIs: it features mar
 - Sass
 
 ## Home
+
+The home page displays a section of most pages, like market prices, exchanges, wallets and news. The hero section has a dark theme switched with Context API.
+
 ![Home Page](./public/readme-imgs/home-page.png)
+![Home Page](./public/readme-imgs/menu.png)
 
 ## Market Prices
+
+In this page users can view market prices and price changes for the top 100 cryptocurrencies based on the CryptoCompare API. The page displays the top 5 gainers and top 5 losers updated in real time based on percentage change per day. The market prices table has a table head where the user can sort crypto based on price, percentage change, market cap and circulating supply. Each crypto displayed has an add to watchlist button to allow the user to add selected currencies to a watchlist. By clicking on each coin, users can view more details for each cryptocurrency.
+
 ![Market Prices](./public/readme-imgs/market-prices.png)
 ![Market Prices](./public/readme-imgs/coin-info.JPG)
 
 ## Historical Data
+
+Historical data shows daily pairs and daily exchange volume data for currencies based on user inputs. The charts and tables are based on updated daily data from the CryptoCompare API.
+
 ![Historical Data](./public/readme-imgs/historical-data.png)
 
 ## Exchanges
+
+This page displays a list of available exchanges that users can sort by name, volume, country, grade, gradepoints and rating. Grades vary from A to E and grade points from 0 to 100. By clicking on View Details, users can view more detailed data for each exchange.
+
 ![Exchanges](./public/readme-imgs/exchanges.png)
 
 ## Wallets
