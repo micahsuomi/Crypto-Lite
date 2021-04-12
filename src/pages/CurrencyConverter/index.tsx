@@ -22,6 +22,7 @@ const CurrencyConverter = ({ cryptos }: any) => {
   const [savedCurrencyConversion, setSavedCurrencyConversion] = useState({
     id: '',
     symbol: '',
+    image: '',
     price: '',
     amount: 0,
     invested: 0,
@@ -59,6 +60,7 @@ const CurrencyConverter = ({ cryptos }: any) => {
         if (query === symbol) {
           let price = crypto.RAW.USD.PRICE
           let id = crypto.CoinInfo.Id
+          const image = crypto.CoinInfo.ImageUrl
           if (isSwitched) {
             let result = amount / price
             amount < 1 ? (result = 0) : setResult(result)
@@ -68,6 +70,7 @@ const CurrencyConverter = ({ cryptos }: any) => {
               ...savedCurrencyConversion,
               id: id,
               symbol: symbol,
+              image: image,
               price: price,
               amount: result,
               invested: amount,
@@ -81,6 +84,7 @@ const CurrencyConverter = ({ cryptos }: any) => {
               ...savedCurrencyConversion,
               id: id,
               symbol: symbol,
+              image: image,
               price: price,
               amount: amount,
               invested: result,
@@ -131,6 +135,7 @@ const CurrencyConverter = ({ cryptos }: any) => {
             warning={warning}
             result={result}
             resultSymbol={resultSymbol}
+            image={savedCurrencyConversion?.image}
             isSaveButtonShowing={isSaveButtonShowing}
             saveCurrencyConversion={saveCurrencyConversion}
           />
@@ -149,7 +154,7 @@ const CurrencyConverter = ({ cryptos }: any) => {
           />
         )}
       </div>
-      {savedCurrency.length > 0 && (
+      {savedCurrency.length > 0 ? (
         <div className="currency-converter__saved-container">
           <h3
             className="saved-currency-table__header"
@@ -166,6 +171,15 @@ const CurrencyConverter = ({ cryptos }: any) => {
               paginate={paginate}
             />
           )}
+        </div>
+      ) : (
+        <div className="currency-converter__saved-container">
+          <h3
+            className="saved-currency-table__header"
+            style={{ color: theme.text }}
+          >
+            No Saved Conversions
+          </h3>
         </div>
       )}
     </div>

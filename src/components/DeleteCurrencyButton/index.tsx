@@ -6,7 +6,11 @@ import './style.scss'
 
 const DeleteCurrencyButton = ({ deleteOnClick }: DeleteCurrencyButtonProps) => {
   return (
-    <button onClick={deleteOnClick} className="delete-currency grow" title="remove currency">
+    <button
+      onClick={deleteOnClick}
+      className="delete-currency grow"
+      title="remove currency"
+    >
       <i className="fas fa-minus fa-2x"></i>
     </button>
   )

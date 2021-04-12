@@ -290,6 +290,9 @@ export type CryptoCartProps = {
 export type ImageProps = {
   image: string
   name: string
+  big?: boolean
+  medium?: boolean
+  small?: boolean
 }
 
 export type AddCryptoButtonProps = {
@@ -410,6 +413,7 @@ export type CurrencyConverterFormCryptoProps = {
   warning: string
   result: number
   resultSymbol: string
+  image: string
   isSaveButtonShowing: boolean
   saveCurrencyConversion: () => void
 }

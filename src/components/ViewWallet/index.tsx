@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import { ViewWalletProps } from '../../types'
 import { ThemeContext } from '../../contexts'
+import Image from '../Image'
 
 import './style.scss'
 
@@ -36,11 +37,7 @@ const ViewWallet = ({
       <div className="view-wallet__content">
         <div className="view-wallet__header-container">
           <h4 className="view-wallet__header">Wallet Info</h4>
-          <img
-            src={`https://www.cryptocompare.com${logo}`}
-            className="view-wallet__img"
-            alt="crypto pic"
-          />
+          <Image image={logo} name={name} big />
           <div className="header-symbol__container">
             <h4 className="view-wallet__name">{name}</h4>
           </div>

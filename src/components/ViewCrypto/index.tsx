@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import { CryptoDetails } from '../../types'
 import { ThemeContext } from '../../contexts'
+import Image from '../Image'
 
 import './style.scss'
 
@@ -33,8 +34,11 @@ const ViewCrypto = ({
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className="view-crypto" key={id}
-      style={{ backgroundColor: theme.backgroundColor, color: theme.text }}>
+    <div
+      className="view-crypto"
+      key={id}
+      style={{ backgroundColor: theme.backgroundColor, color: theme.text }}
+    >
       <div className="navigation-exit__container">
         <NavLink to="/marketprices" className="back-link">
           <span className="back-to__coins">Back to All Coins</span>
@@ -44,11 +48,7 @@ const ViewCrypto = ({
       <div className="view-crypto__content">
         <div className="crypto-content__header">
           <h1 className="view-crypto__header">Coin Info</h1>
-          <img
-            src={`https://www.cryptocompare.com${img}`}
-            className="view-crypto__img"
-            alt="crypto pic"
-          />
+          <Image image={img} name={name} big />
           <div className="header-symbol__container">
             <h4 className="view-crypto__name">{name}</h4>
             <h4 className="view-crypto__symbol">{symbol}</h4>

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import { ViewExchangeProps } from '../../types'
 import { ThemeContext } from '../../contexts'
+import Image from '../Image'
 
 import './style.scss'
 
@@ -40,11 +41,7 @@ const ViewExchange = ({
         <h4 className="view-exchange__header">Exchange Info</h4>
         <div className="view-exchange__header-container">
           <div className="header-symbol__container">
-            <img
-              src={`https://www.cryptocompare.com${image}`}
-              className="view-exchange__img"
-              alt={name}
-            />
+            <Image image={image} name={name} big />
           </div>
           <div className="view-exchange__description">
             <h4 className="view-exchange__name">{name}</h4>

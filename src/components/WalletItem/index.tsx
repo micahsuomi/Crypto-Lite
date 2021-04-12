@@ -30,8 +30,10 @@ const WalletItem = ({
     <div className={isSwitched ? 'wallet dark' : 'wallet light'} key={id}>
       <div className="wallet__wrapper">
         <div className="wallet__head">
-          <Image image={logo} name={name} />
-          <h4 className="wallet__name" style={{ color: theme.text }}>{name}</h4>
+          <Image image={logo} name={name} medium />
+          <h4 className="wallet__name" style={{ color: theme.text }}>
+            {name}
+          </h4>
         </div>
         <div className="wallet__details-list">
           <p style={{ color: theme.text }}>Security: {security}</p>
