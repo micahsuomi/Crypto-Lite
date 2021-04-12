@@ -86,6 +86,7 @@ The whole application uses a theme switch functionality created with Context API
 ![Theme Switch](./public/readme-imgs/dark-mode.png)
 
 ## Deployment
+
 The app is deployed on Netlify and the demo can be found at the following link: https://crypto-lite-tracker.netlify.app/
 
 
