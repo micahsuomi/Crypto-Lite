@@ -34,7 +34,7 @@ const CryptoNews = () => {
   ))
 
   if (err) {
-    return <h1>Page Not Found</h1>
+    return <h1 style={{ color: theme.text }}>Page Not Found</h1>
   }
   return (
     <div
@@ -42,7 +42,9 @@ const CryptoNews = () => {
       style={{ backgroundColor: theme.backgroundColor }}
     >
       <div className="news-list" id="latestNews">
-        <h2 className="news-list__header">Latest News</h2>
+        <h2 className="news-list__header" style={{ color: theme.text }}>
+          Latest News
+        </h2>
         <div className="news-list__wrapper">{newsList}</div>
         <Pagination
           itemsPerPage={newsPerPage}
