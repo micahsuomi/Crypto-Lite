@@ -34,7 +34,11 @@ const ExchangesTableCell = ({
       </td>
 
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <button value="volume" onClick={sortExchange}>
+        <button
+          value="volume"
+          onClick={sortExchange}
+          style={{ color: theme.text }}
+        >
           Volume
         </button>
         {isVolumeReversing ? (
@@ -44,7 +48,11 @@ const ExchangesTableCell = ({
         )}
       </td>
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <button value="country" onClick={sortExchange}>
+        <button
+          value="country"
+          onClick={sortExchange}
+          style={{ color: theme.text }}
+        >
           Country
         </button>
         {isCountryReversing ? (
@@ -54,7 +62,11 @@ const ExchangesTableCell = ({
         )}
       </td>
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <button value="grade" onClick={sortExchange}>
+        <button
+          value="grade"
+          onClick={sortExchange}
+          style={{ color: theme.text }}
+        >
           Grade
         </button>
         {isGradeReversing ? (
@@ -64,7 +76,11 @@ const ExchangesTableCell = ({
         )}
       </td>
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <button value="gradepoints" onClick={sortExchange}>
+        <button
+          value="gradepoints"
+          onClick={sortExchange}
+          style={{ color: theme.text }}
+        >
           Grade Points
         </button>
         {isGradePointsReversing ? (
@@ -74,7 +90,11 @@ const ExchangesTableCell = ({
         )}
       </td>
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <button value="averagerating" onClick={sortExchange}>
+        <button
+          value="averagerating"
+          onClick={sortExchange}
+          style={{ color: theme.text }}
+        >
           Rating
         </button>
         {isAverageRateReversing ? (
