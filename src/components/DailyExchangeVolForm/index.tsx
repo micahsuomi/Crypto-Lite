@@ -13,32 +13,30 @@ const DailyPairsForm = (props: any) => {
     limit: 10,
   })
 
-  
   const { exchange, symbol, limit } = dailyExchangeQuery
   const handleSubmit = (e: any) => {
     e.preventDefault()
-    console.log(dailyExchangeQuery)
     dispatch(fetchDailyExchangeVol(dailyExchangeQuery))
     setTimeout(() => {
       props.showDailyExchangeVolGraphOnSubmit()
-    }, 2000);
+    }, 2000)
   }
 
   const handleChange = (e: any) => {
     const { name, value } = e.target
-    setDailyExchangeQuery({...dailyExchangeQuery, [name]: value}) 
+    setDailyExchangeQuery({ ...dailyExchangeQuery, [name]: value })
   }
 
   return (
-    <form onSubmit={handleSubmit}
-      className="daily-exchange-vol-form">
+    <form onSubmit={handleSubmit} className="daily-exchange-vol-form">
       <div className="daily-pairs-form__input-topics">
         <label htmlFor="from symbol">Exchange</label>
-        <input 
+        <input
           value={exchange}
           name="exchange"
           onChange={handleChange}
-          placeholder='e.g. Binance'/>
+          placeholder="e.g. Binance"
+        />
       </div>
 
       <div className="daily-pairs-form__input-topics">
@@ -47,21 +45,22 @@ const DailyPairsForm = (props: any) => {
           value={symbol}
           name="symbol"
           onChange={handleChange}
-          placeholder='e.g. BTC'/>
+          placeholder="e.g. BTC"
+        />
       </div>
 
       <div className="daily-pairs-form__input-topics">
         <label htmlFor="from symbol">Limit</label>
-        <input 
+        <input
           type="number"
           value={limit}
           name="limit"
           onChange={handleChange}
-          placeholder='min 10, max 2000'
+          placeholder="min 10, max 2000"
         />
       </div>
       <button>Search</button>
-    </form> 
+    </form>
   )
 }
 

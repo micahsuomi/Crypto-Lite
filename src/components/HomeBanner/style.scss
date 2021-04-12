@@ -55,7 +55,7 @@
     color: white;
   }
 }
-.light {
+.banner-light {
   background-image: linear-gradient(
       to right,
       rgba(243, 233, 233, 0.8) 0%,
@@ -65,7 +65,7 @@
   background-size: cover;
   background-position: top;
 }
-.dark {
+.banner-dark {
   background-image: linear-gradient(
         to right,
         rgba(39, 37, 37, 0.8) 0%,

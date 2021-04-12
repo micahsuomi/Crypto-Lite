@@ -204,7 +204,6 @@ export function fetchTopFiveSymbols(exchange: any) {
   return async (dispatch: Dispatch) => {
     const res = await fetch(url)
     const data = await res.json()
-    console.log(data.Data)
     data.exchange = exchange.toUpperCase()
     data.Data.map((d: any) => parseInt(d.fromSymbol))
     data.Data.map((d: any) => parseInt(d.toSymbol))

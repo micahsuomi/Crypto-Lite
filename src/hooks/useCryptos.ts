@@ -35,7 +35,7 @@ export default function useCryptos(search: any, sortCrypto: any) {
   useEffect(() => {
     sortCryptoData(data)
   }, [sortCrypto])
-  console.log(data)
+
   const searchCryptoResults = useCallback(() => {
     const results = cryptos.filter((crypto: any) => {
       if (
@@ -75,10 +75,8 @@ export default function useCryptos(search: any, sortCrypto: any) {
         break
       case 'percentagechange':
         const sortByPercentageChange = cryptos.sort((a: any, b: any) => {
-          if (a.RAW.USD.CHANGEPCTDAY > b.RAW.USD.CHANGEPCTDAY)
-            return 1
-          if (a.RAW.USD.CHANGEPCTDAY < b.RAW.USD.CHANGEPCTDAY)
-            return -1
+          if (a.RAW.USD.CHANGEPCTDAY > b.RAW.USD.CHANGEPCTDAY) return 1
+          if (a.RAW.USD.CHANGEPCTDAY < b.RAW.USD.CHANGEPCTDAY) return -1
           return 0
         })
         setData(

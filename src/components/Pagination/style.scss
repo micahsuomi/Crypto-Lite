@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
+  padding: 3rem 2rem;
   h4 {
     text-align: center;
   }
@@ -26,6 +26,6 @@
     cursor: pointer;
     border: none;
     border-radius: 50px;
-    box-shadow: 0 1rem 1rem rgba(rgb(136, 136, 153), 0.3);
+    box-shadow: 0 .2rem 1rem rgba(rgb(136, 136, 153), 0.3);
   }
 }

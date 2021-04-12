@@ -11,7 +11,6 @@ export function showErrors(msg: any, status: number): ErrorActions {
 }
 
 export function clearErrors(): ErrorActions {
-  console.log('calling from here')
   return {
     type: CLEAR_ERRORS,
   }

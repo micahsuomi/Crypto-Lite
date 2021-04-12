@@ -3,18 +3,25 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { fetchExchangesInfo, searchCryptoExchanges } from '../redux/actions/exchange'
+import {
+  fetchExchangesInfo,
+  searchCryptoExchanges,
+} from '../redux/actions/exchange'
 
 import { AppState } from '../types'
 
-export default function useCryptoExchanges(search: string, sort: any, flag: boolean) {
+export default function useCryptoExchanges(
+  search: string,
+  sort: any,
+  flag: boolean
+) {
   const dispatch = useDispatch()
   const [data, setData] = useState(Array)
   const exchanges = useSelector((state: AppState) => state.cryptos.exchanges)
   const [isLoading, setIsLoading] = useState(false)
   const [err] = useState(null)
   // const [flag, setFlag] = useState(false)
-  
+
   useEffect(() => {
     dispatch(fetchExchangesInfo())
   }, [dispatch])
@@ -24,7 +31,6 @@ export default function useCryptoExchanges(search: string, sort: any, flag: bool
     setIsLoading(true)
   }, [exchanges])
 
-  
   const searchExchangeResults = useCallback(() => {
     const results = exchanges.filter((exchange: any) => {
       if (
@@ -84,15 +90,11 @@ export default function useCryptoExchanges(search: string, sort: any, flag: bool
         break
       case 'gradepoints':
         const sortByGradePoints = exchanges.sort((a: any, b: any) => {
-          if (a.GradePoints > b.GradePoints)
-            return 1
-          if (a.GradePoints < b.GradePoints)
-            return -1
+          if (a.GradePoints > b.GradePoints) return 1
+          if (a.GradePoints < b.GradePoints) return -1
           return 0
         })
-        setData(
-          flag ? sortByGradePoints : sortByGradePoints.reverse()
-        )
+        setData(flag ? sortByGradePoints : sortByGradePoints.reverse())
         break
       case 'averagerating':
         const sortByAverageRate = exchanges.sort((a: any, b: any) => {
@@ -106,7 +108,5 @@ export default function useCryptoExchanges(search: string, sort: any, flag: bool
     },
     [flag, sort]
   )
-  console.log(flag)
-
   return [err, data, isLoading, sort]
 }

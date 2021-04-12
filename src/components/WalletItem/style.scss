@@ -1,14 +1,9 @@
 .wallet {
-  height: 20em;
+  min-height: 20em;
   width: 17rem;
   border: 1px solid #f8f7f7;
   padding: 2rem 1rem;
   border-radius: 15px;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.97),
-      rgba(255, 255, 255, 1)
-    ),
-    url('https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   background-position: center;
   background-size: cover;
   margin: 1rem;
@@ -55,6 +50,22 @@
     text-decoration: none;
     margin-top: 1rem;
   }
+}
+
+.light {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.97),
+    rgba(255, 255, 255, 1)
+  ),
+  url('https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+
+.dark {
+  background-image: linear-gradient(
+    rgba(59, 55, 55, 0.97),
+    rgb(44, 43, 43)
+  ),
+  url('https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 }
 
 @media screen and (max-width: 1024px) {

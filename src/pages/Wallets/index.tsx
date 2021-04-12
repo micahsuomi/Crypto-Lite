@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, Fragment } from 'react'
 
 import useCryptoWallets from '../../hooks/useCryptoWallets'
@@ -13,8 +12,7 @@ export default function CryptoWallets() {
   const [err, cryptoWallets] = useCryptoWallets(search)
   const [currentPage, setCurrentPage] = useState(1)
   const [walletsPerPage] = useState(30)
-
-  //get current books
+  //get current wallets
   const indexLastWallet = currentPage * walletsPerPage
   const indexFirstWallet = indexLastWallet - walletsPerPage
   const currentWallets = cryptoWallets?.slice(indexFirstWallet, indexLastWallet)
@@ -27,14 +25,11 @@ export default function CryptoWallets() {
 
   const handleChange = (e: any) => {
     setSearch(e.target.value)
-    console.log(e.target.value)
   }
   const placeholderText = 'search wallet by name'
 
-  if(err) {
-    return (
-      <h1>Page Not Found</h1>
-    )
+  if (err) {
+    return <h1>Page Not Found</h1>
   }
   return (
     <>

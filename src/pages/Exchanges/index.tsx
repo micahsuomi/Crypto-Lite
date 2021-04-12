@@ -10,18 +10,21 @@ import Loader from '../../components/Loader'
 import './style.scss'
 
 export default function Exchanges() {
-
   const [search, setSearch] = useState('')
   const [sort, setSort] = useState('')
   const [isSorting, setIsSorting] = useState(false)
   const [flag, setFlag] = useState(false)
-  const [err, exchanges, isLoading, changeValue] = useCryptoExchanges(search, sort, flag)
-  
+  const [err, exchanges, isLoading, changeValue] = useCryptoExchanges(
+    search,
+    sort,
+    flag
+  )
+
   const [isNameReversing, setIsNameReversing] = useState(false)
   const [isVolumeReversing, setIsVolumeReversing] = useState(false)
   const [isCountryReversing, setIsCountryReversing] = useState(false)
   const [isGradeReversing, setIsGradeReversing] = useState(false)
-  const [isGradePointsReversing, setIsGradePointsReversing,] = useState(false)
+  const [isGradePointsReversing, setIsGradePointsReversing] = useState(false)
   const [isAverageRateReversing, setIsAverageRateReversing] = useState(false)
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -30,7 +33,10 @@ export default function Exchanges() {
   //get current exchanges
   const indexLastExchange = currentPage * exchangesPerPage
   const indexFirstExchange = indexLastExchange - exchangesPerPage
-  const currentExchanges = exchanges?.slice(indexFirstExchange, indexLastExchange)
+  const currentExchanges = exchanges?.slice(
+    indexFirstExchange,
+    indexLastExchange
+  )
 
   const paginate = (pageNumber: any) => setCurrentPage(pageNumber)
 
@@ -45,10 +51,9 @@ export default function Exchanges() {
 
   const sortExchange = (e: any) => {
     setSort(e.target.value)
-    console.log(e.target.value)
     setIsSorting(true)
   }
- 
+
   useEffect(() => {
     changeArrowValue(changeValue)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,10 +96,8 @@ export default function Exchanges() {
     ]
   )
 
-  if(err) {
-    return (
-      <h1>Page Not Found</h1>
-    )
+  if (err) {
+    return <h1>Page Not Found</h1>
   }
   return (
     <>
@@ -105,18 +108,20 @@ export default function Exchanges() {
           handleSubmit={handleSubmit}
           placeholderText={placeholderText}
         />
-        { isLoading ? 
+        {isLoading ? (
           <>
             <ExchangesTable
-              exchanges={search === '' && !isSorting? currentExchanges : exchanges}
-              sortExchange={sortExchange} 
-              isNameReversing={isNameReversing} 
+              exchanges={
+                search === '' && !isSorting ? currentExchanges : exchanges
+              }
+              sortExchange={sortExchange}
+              isNameReversing={isNameReversing}
               isVolumeReversing={isVolumeReversing}
-              isCountryReversing={isCountryReversing} 
+              isCountryReversing={isCountryReversing}
               isGradeReversing={isGradeReversing}
-              isGradePointsReversing={isGradePointsReversing} 
+              isGradePointsReversing={isGradePointsReversing}
               isAverageRateReversing={isAverageRateReversing}
-            /> 
+            />
             {search === '' && !isSorting ? (
               <Pagination
                 itemsPerPage={exchangesPerPage}
@@ -125,9 +130,10 @@ export default function Exchanges() {
                 paginate={paginate}
               />
             ) : null}
-          </> 
-          : <Loader />
-        }
+          </>
+        ) : (
+          <Loader />
+        )}
       </Fragment>
     </>
   )

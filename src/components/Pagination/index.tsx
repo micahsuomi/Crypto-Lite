@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { PaginationProps } from '../../types'
+import { ThemeContext } from '../../contexts'
 
 import './style.scss'
 
@@ -10,15 +11,16 @@ const Pagination = ({
   currentPage,
   paginate,
 }: PaginationProps) => {
+  const { theme } = useContext(ThemeContext)
   const pageNumbers = []
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i)
   }
 
   return (
-    <div className="pagination">
+    <div className="pagination" style={{ backgroundColor: theme.backgroundColor }}>
       <div className="pagination__header">
-        <h4>Page {currentPage}</h4>
+        <h4 style={{color: theme.text}}>Page {currentPage}</h4>
       </div>
       <ul className="pagination__wrapper">
         {pageNumbers.map((num) => (

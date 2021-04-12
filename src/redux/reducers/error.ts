@@ -4,7 +4,7 @@ import {
   SHOW_ERRORS,
   CLEAR_ERRORS,
 } from '../../types'
-  
+
 export default function error(
   state: ErrorState = {
     msg: {},
@@ -14,7 +14,6 @@ export default function error(
 ): ErrorState {
   switch (action.type) {
   case SHOW_ERRORS:
-    console.log('from reducer', action.payload.msg)
     return {
       ...state,
       msg: action.payload.msg,
@@ -30,4 +29,3 @@ export default function error(
     return state
   }
 }
-  

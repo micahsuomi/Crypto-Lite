@@ -57,9 +57,17 @@
   justify-content: flex-end;
 }
 
-.read-more__wrapper a {
+.read-more-link {
   font-size: var(--font-size-small);
+  background-color: transparent;
+}
+
+.read-more-link.light {
   color: var(--color-secondary-dark);
+}
+
+.read-more-link.dark {
+  color: white;
 }
 
 @media screen and (max-width: 1024px) {

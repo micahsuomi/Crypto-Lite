@@ -27,7 +27,9 @@ const CurrencyConverter = ({ cryptos }: any) => {
     invested: 0,
   })
   const [isSaveButtonShowing, setIsSaveButtonShowing] = useState(false)
-  const savedCurrency = useSelector((state: AppState) => state.cryptos.savedCurrency)
+  const savedCurrency = useSelector(
+    (state: AppState) => state.cryptos.savedCurrency
+  )
   const { theme } = useContext(ThemeContext)
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -36,12 +38,11 @@ const CurrencyConverter = ({ cryptos }: any) => {
   //get current crypto list
   const indexLastCurrency = currentPage * currenciesPerPage
   const indexFirstCurrency = indexLastCurrency - currenciesPerPage
-  const currentSavedCurrencies = savedCurrency?.slice(indexFirstCurrency, indexLastCurrency)
-  console.log(savedCurrency)
-  console.log(currentSavedCurrencies)
-
+  const currentSavedCurrencies = savedCurrency?.slice(
+    indexFirstCurrency,
+    indexLastCurrency
+  )
   const paginate = (pageNumber: any) => setCurrentPage(pageNumber)
-
 
   const handleSwitch = () => {
     setIsSwitched(!isSwitched)
@@ -112,12 +113,15 @@ const CurrencyConverter = ({ cryptos }: any) => {
       style={{ backgroundColor: theme.backgroundColor }}
     >
       <div className="currency-converter__form-container">
-        <h1 className="currency-converter__header" style={{ color: theme.text }}>
-        Currency Converter
+        <h1
+          className="currency-converter__header"
+          style={{ color: theme.text }}
+        >
+          Currency Converter
         </h1>
 
         {isSwitched ? (
-          <CurrencyConverterFormCrypto 
+          <CurrencyConverterFormCrypto
             cryptos={cryptos}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
@@ -131,7 +135,7 @@ const CurrencyConverter = ({ cryptos }: any) => {
             saveCurrencyConversion={saveCurrencyConversion}
           />
         ) : (
-          <CurrencyConverterFormUsd 
+          <CurrencyConverterFormUsd
             cryptos={cryptos}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
@@ -145,24 +149,27 @@ const CurrencyConverter = ({ cryptos }: any) => {
           />
         )}
       </div>
-      {savedCurrency.length > 0 && 
-      <div className="currency-converter__saved-container">
-        <h3 className="saved-currency-table__header" style={{ color: theme.text }}>
-        Saved Currency Conversions
-        </h3>
-        <SavedCurrencyTable savedCurrency={currentSavedCurrencies} />
-        {savedCurrency.length > 5 && 
-         <Pagination
-           itemsPerPage={currenciesPerPage}
-           totalItems={savedCurrency?.length}
-           currentPage={currentPage}
-           paginate={paginate}
-         />}
-      </div>}
+      {savedCurrency.length > 0 && (
+        <div className="currency-converter__saved-container">
+          <h3
+            className="saved-currency-table__header"
+            style={{ color: theme.text }}
+          >
+            Saved Currency Conversions
+          </h3>
+          <SavedCurrencyTable savedCurrency={currentSavedCurrencies} />
+          {savedCurrency.length > 5 && (
+            <Pagination
+              itemsPerPage={currenciesPerPage}
+              totalItems={savedCurrency?.length}
+              currentPage={currentPage}
+              paginate={paginate}
+            />
+          )}
+        </div>
+      )}
     </div>
   )
 }
 
 export default CurrencyConverter
-
-

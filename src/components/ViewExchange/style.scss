@@ -17,7 +17,7 @@
 
   &__header-container {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
   }
@@ -117,7 +117,7 @@
 }
 
 .view-exchange__img {
-  width: 80%;
+  width: 13%;
   margin-top: 1rem;
 }
 

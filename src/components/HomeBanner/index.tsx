@@ -8,11 +8,10 @@ import { ThemeContext } from '../../contexts'
 import './style.scss'
 
 const Header = () => {
-  const { theme } = useContext(ThemeContext)
-  const { isSwitched } = useContext(ThemeContext)
+  const { theme, isSwitched } = useContext(ThemeContext)
 
   return (
-    <div className={isSwitched ? 'homebanner dark' : 'homebanner light'}>
+    <div className={isSwitched ? 'homebanner banner-dark' : 'homebanner banner-light'}>
       <img src={headerImg} alt="prices pic" />
       <div className="homebanner__wrapper" id="home">
         <BtcPrice />
