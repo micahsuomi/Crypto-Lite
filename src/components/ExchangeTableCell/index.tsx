@@ -22,7 +22,9 @@ const ExchangesTableCell = ({
         <button
           value="name"
           onClick={sortExchange}
-        >Name
+          style={{ color: theme.text }}
+        >
+          Name
         </button>
         {isNameReversing ? (
           <i className="fas fa-chevron-up"></i>
@@ -32,10 +34,8 @@ const ExchangesTableCell = ({
       </td>
 
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <button
-          value="volume"
-          onClick={sortExchange}
-        >Volume
+        <button value="volume" onClick={sortExchange}>
+          Volume
         </button>
         {isVolumeReversing ? (
           <i className="fas fa-chevron-up"></i>
@@ -44,10 +44,8 @@ const ExchangesTableCell = ({
         )}
       </td>
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <button
-          value="country"
-          onClick={sortExchange}
-        >Country
+        <button value="country" onClick={sortExchange}>
+          Country
         </button>
         {isCountryReversing ? (
           <i className="fas fa-chevron-up"></i>
@@ -56,10 +54,8 @@ const ExchangesTableCell = ({
         )}
       </td>
       <td className="cell__item grow" style={{ color: theme.text }}>
-        <button
-          value="grade"
-          onClick={sortExchange}
-        >Grade
+        <button value="grade" onClick={sortExchange}>
+          Grade
         </button>
         {isGradeReversing ? (
           <i className="fas fa-chevron-up"></i>
@@ -67,12 +63,9 @@ const ExchangesTableCell = ({
           <i className="fas fa-chevron-down"></i>
         )}
       </td>
-      <td className="cell__item grow" 
-        style={{ color: theme.text }}>
-        <button
-          value="gradepoints"
-          onClick={sortExchange}
-        >Grade Points
+      <td className="cell__item grow" style={{ color: theme.text }}>
+        <button value="gradepoints" onClick={sortExchange}>
+          Grade Points
         </button>
         {isGradePointsReversing ? (
           <i className="fas fa-chevron-up"></i>
@@ -80,12 +73,9 @@ const ExchangesTableCell = ({
           <i className="fas fa-chevron-down"></i>
         )}
       </td>
-      <td className="cell__item grow" 
-        style={{ color: theme.text }}>
-        <button
-          value="averagerating"
-          onClick={sortExchange}
-        >Rating
+      <td className="cell__item grow" style={{ color: theme.text }}>
+        <button value="averagerating" onClick={sortExchange}>
+          Rating
         </button>
         {isAverageRateReversing ? (
           <i className="fas fa-chevron-up"></i>
