@@ -34,7 +34,7 @@ Crypto Lite displays real market data from CryptoCompare's APIs: it features mar
 The home page displays a section of most pages, like market prices, exchanges, wallets and news. The hero section has a dark theme switched with Context API.
 
 ![Home Page](./public/readme-imgs/home-page.png)
-![Home Page](./public/readme-imgs/menu.png)
+![Home Page](./public/readme-imgs/menu.JPG)
 
 ## Market Prices
 
@@ -53,7 +53,7 @@ Historical data shows daily pairs and daily exchange volume data for currencies 
 
 This page displays a list of available exchanges that users can sort by name, volume, country, grade, gradepoints and rating. Grades vary from A to E and grade points from 0 to 100. By clicking on View Details, users can view more detailed data for each exchange.
 
-![Exchanges](./public/readme-imgs/exchanges.png)
+![Exchanges](./public/readme-imgs/exchanges.JPG)
 
 ## Wallets
 

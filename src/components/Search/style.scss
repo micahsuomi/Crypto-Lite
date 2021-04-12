@@ -14,6 +14,13 @@
     background-color: white;
   }
 
+  input[type="text"] {
+    background: url("../../imgs/search-solid.svg");
+    background-repeat: no-repeat;
+    background-size: 5% auto;
+    background-position: 96.5% 50%;
+  }
+
   input:focus {
     outline: none;
   }
