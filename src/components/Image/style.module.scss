@@ -1,10 +1,9 @@
-.image-container {
+.big_image {
   display: inline-block;
   overflow: hidden;
-  height: 37px;
-  width: 37px;
+  height: 147px;
+  width: 147px;
   object-fit: cover;
-
   img {
     object-fit: cover;
     width: 100%;
@@ -12,14 +11,21 @@
   }
 }
 
-.image-big {
+.small_image {
+  display: inline-block;
+  overflow: hidden;
+  height: 37px;
+  width: 37px;
+  object-fit: cover;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
 
-}
-.image-small {
-  
-}
 @media screen and (max-width: 500px) {
-  .image-container {
+  .small_image {
     height: 20px;
     width: 20px;
   }

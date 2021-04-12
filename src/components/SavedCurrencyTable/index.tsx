@@ -29,7 +29,7 @@ const SavedCurrencyTable = ({ savedCurrency }: SavedCurrencyTableProps) => {
         {savedCurrency?.map((currency: any) => (
           <tr className="saved-currency-table__row" key={currency.id}>
             <td>
-              <Image image={currency.image} name={currency.symbol} />
+              <Image image={currency.image} name={currency.symbol} small />
             </td>
             <td className="saved-currency-table-row__name">
               <p style={{ color: theme.text }}>{currency.symbol}</p>

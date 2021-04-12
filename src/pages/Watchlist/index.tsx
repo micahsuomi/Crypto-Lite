@@ -63,7 +63,7 @@ const Watchlist = ({ cryptos }: WatchListProps, props: any) => {
           </div>
           {cryptoBasket.map((crypto: any) => (
             <ul className="cart__list" key={crypto.id}>
-              <Image image={crypto.image} name={crypto.name} />
+              <Image image={crypto.image} name={crypto.name} small />
               <li>{crypto.symbol}</li>
               <li>{crypto.name}</li>
               <li>{crypto.price}</li>

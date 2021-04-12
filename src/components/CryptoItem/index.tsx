@@ -24,7 +24,7 @@ const CryptoItem = ({
   return (
     <tr className="crypto-info__list" style={{ color: theme.text }}>
       <td>
-        <Image image={image} name={name} />
+        <Image image={image} name={name} small />
       </td>
       <td>{symbol}</td>
       <NavLink to={`/crypto/${id}`} className="crypto-info__link">

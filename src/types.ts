@@ -290,6 +290,8 @@ export type CryptoCartProps = {
 export type ImageProps = {
   image: string
   name: string
+  big?: boolean
+  small?: boolean
 }
 
 export type AddCryptoButtonProps = {

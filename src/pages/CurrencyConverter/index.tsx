@@ -135,7 +135,7 @@ const CurrencyConverter = ({ cryptos }: any) => {
             warning={warning}
             result={result}
             resultSymbol={resultSymbol}
-            image={savedCurrencyConversion.image}
+            image={savedCurrencyConversion?.image}
             isSaveButtonShowing={isSaveButtonShowing}
             saveCurrencyConversion={saveCurrencyConversion}
           />
