@@ -6,7 +6,7 @@
   grid-template-columns: 30% 70%;
   justify-items: center;
   align-items: center;
-  box-shadow: 0 0rem 1rem rgba(54, 51, 51, 0.5);
+  border-top: 1.5px solid #e5dcdc;  
   background: white;
   width: 72vw;
   margin-top: 0.8rem;
@@ -23,7 +23,7 @@
 
     img {
       object-fit: cover;
-      width: 52%;
+      width: 40%;
       height: 55%;
     }
   }

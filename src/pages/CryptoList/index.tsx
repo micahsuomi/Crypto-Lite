@@ -110,7 +110,7 @@ const CryptoList = () => {
         {!isLoading ? (
           <Loader />
         ) : (
-          <div>
+          <>
             <div className="cryptos">
               <MainTable
                 cryptos={!isSorting && search=== '' ? currentCryptos : cryptos}
@@ -131,7 +131,7 @@ const CryptoList = () => {
                 paginate={paginate}
               />
             ): null}
-          </div>
+          </>
         )}
       </Fragment>
     </>
