@@ -291,6 +291,7 @@ export type ImageProps = {
   image: string
   name: string
   big?: boolean
+  medium?: boolean
   small?: boolean
 }
 
