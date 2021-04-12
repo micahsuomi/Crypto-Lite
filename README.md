@@ -34,7 +34,7 @@ Crypto Lite displays real market data from CryptoCompare's APIs: it features mar
 The home page displays a section of most pages, like market prices, exchanges, wallets and news. The hero section has a dark theme switched with Context API.
 
 ![Home Page](./public/readme-imgs/home-page.png)
-![Home Page](./public/readme-imgs/menu.png)
+![Home Page](./public/readme-imgs/menu.JPG)
 
 ## Market Prices
 
@@ -45,7 +45,7 @@ In this page users can view market prices and price changes for the top 100 cryp
 
 ## Historical Data
 
-Historical data shows daily pairs and daily exchange volume data for currencies based on user inputs. The charts and tables are based on updated daily data from the CryptoCompare API.
+Historical data shows daily pairs and daily exchange volume data for currencies based on user inputs. The charts and tables are based on updated data from the CryptoCompare API.
 
 ![Historical Data](./public/readme-imgs/historical-data.png)
 
@@ -53,7 +53,7 @@ Historical data shows daily pairs and daily exchange volume data for currencies 
 
 This page displays a list of available exchanges that users can sort by name, volume, country, grade, gradepoints and rating. Grades vary from A to E and grade points from 0 to 100. By clicking on View Details, users can view more detailed data for each exchange.
 
-![Exchanges](./public/readme-imgs/exchanges.png)
+![Exchanges](./public/readme-imgs/exchanges.JPG)
 
 ## Wallets
 
@@ -86,6 +86,7 @@ The whole application uses a theme switch functionality created with Context API
 ![Theme Switch](./public/readme-imgs/dark-mode.png)
 
 ## Deployment
+
 The app is deployed on Netlify and the demo can be found at the following link: https://crypto-lite-tracker.netlify.app/
 
 
