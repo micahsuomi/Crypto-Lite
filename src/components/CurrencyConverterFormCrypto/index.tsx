@@ -16,13 +16,9 @@ const CurrencyConverterFormCrypto = ({
   result,
   resultSymbol,
   isSaveButtonShowing,
-  saveCurrencyConversion
-  
+  saveCurrencyConversion,
 }: CurrencyConverterFormCryptoProps) => {
   const { theme } = useContext(ThemeContext)
-  for(const crypto of cryptos) {
-    console.log(crypto.RAW)
-  }
   return (
     <form
       className="currency-converter-form"
@@ -30,7 +26,7 @@ const CurrencyConverterFormCrypto = ({
       style={{ backgroundImage: theme.currencyCalcColor }}
     >
       <label htmlFor="Amount in USD" style={{ color: theme.text }}>
-            Amount in USD
+        Amount in USD
       </label>
       <div className="inputs-arrows__container">
         <input
@@ -47,7 +43,7 @@ const CurrencyConverterFormCrypto = ({
         </button>
       </div>
       <label htmlFor="currency" style={{ color: theme.text }}>
-            Currency
+        Currency
       </label>
       <select
         className="select-currency"
@@ -57,7 +53,8 @@ const CurrencyConverterFormCrypto = ({
         <option>---Choose Currency</option>
         {cryptos.map((crypto: any) => (
           <option key={crypto.CoinInfo.Id} value={crypto.CoinInfo.Name}>
-            {crypto.CoinInfo.FullName} {crypto.RAW !== undefined && crypto.RAW.USD.PRICE} 
+            {crypto.CoinInfo.FullName}{' '}
+            {crypto.RAW !== undefined && crypto.RAW.USD.PRICE}
           </option>
         ))}
       </select>
@@ -67,11 +64,16 @@ const CurrencyConverterFormCrypto = ({
           className="calculate-btn"
           style={{ backgroundColor: theme.bigBtnColor }}
         >
-              Calculate
+          Calculate
         </button>
-        {isSaveButtonShowing && <button onClick={saveCurrencyConversion} 
-          className="currency-converter-form__btn-save">
-          <i className="fas fa-plus-circle grow"></i></button>}
+        {isSaveButtonShowing && (
+          <button
+            onClick={saveCurrencyConversion}
+            className="currency-converter-form__btn-save"
+          >
+            <i className="fas fa-plus-circle grow"></i>
+          </button>
+        )}
       </div>
       <div className="warning">{warning}</div>
       <div className="result-container">

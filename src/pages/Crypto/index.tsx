@@ -10,7 +10,7 @@ import './style.scss'
 const Crypto = (props: any) => {
   const { theme } = useContext(ThemeContext)
   const id = props.match.params.id
- 
+
   const slider = {
     index: '',
     prev: '',
@@ -18,7 +18,6 @@ const Crypto = (props: any) => {
   }
 
   const filteredCrypto = props.cryptos.find((crypto: any, index: any) => {
-    console.log(crypto)
     slider.index = index
     slider.prev = index === 0 ? '' : props.cryptos[index - 1].CoinInfo.Id
     slider.next =
@@ -35,9 +34,9 @@ const Crypto = (props: any) => {
       style={{ backgroundImage: theme.viewItemColor }}
     >
       <div className="prev">
-        {slider.prev !== '' && <ArrowPrev slider={slider}/>}
+        {slider.prev !== '' && <ArrowPrev slider={slider} />}
       </div>
-      
+
       <ViewCrypto
         id={filteredCrypto.CoinInfo.Id}
         img={filteredCrypto.CoinInfo.ImageUrl}
@@ -67,9 +66,7 @@ const Crypto = (props: any) => {
         supply={filteredCrypto.DISPLAY.USD.SUPPLY}
       />
       <div className="next">
-        {slider.next !== '' && (
-          <ArrowNext slider={slider}/>
-        )}
+        {slider.next !== '' && <ArrowNext slider={slider} />}
       </div>
     </div>
   )

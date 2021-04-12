@@ -15,9 +15,7 @@ import { DailyPairsChartProps } from '../../types'
 import './style.scss'
 
 const DailyPairsChart = ({ dailyPairs }: DailyPairsChartProps) => {
-  console.log(dailyPairs)
   const { fromSymbol, toSymbol } = dailyPairs
-
   return (
     <Paper className="chart-container">
       <Chart data={dailyPairs.Data}>

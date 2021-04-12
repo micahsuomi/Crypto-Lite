@@ -22,11 +22,12 @@ const ViewWallet = ({
   ratings,
 }: ViewWalletProps) => {
   const { theme } = useContext(ThemeContext)
-  console.log(anonymity)
   return (
-    <div className="view-wallet" 
-      key={id} 
-      style={{ backgroundColor: theme.backgroundColor, color: theme.text }}>
+    <div
+      className="view-wallet"
+      key={id}
+      style={{ backgroundColor: theme.backgroundColor, color: theme.text }}
+    >
       <div className="view-wallet__exit-container">
         <NavLink to="/wallets" className="back-link">
           <i className="far fa-window-close fa-2x close-window"></i>
@@ -55,27 +56,25 @@ const ViewWallet = ({
             </p>
             <p className="view-wallet__data">
               <i className="fas fa-lock"></i>
-              Security: 
+              Security:
               <span>{security}</span>
             </p>
             <p className="view-wallet__data">
               <span>Anonimity: </span> {anonymity}
             </p>
             <p className="view-wallet__data">
-              Ease of use: 
+              Ease of use:
               <span>{easeOfUse}</span>
             </p>
             <p className="view-wallet__data">
-              Rating: 
+              Rating:
               <span>{ratings}</span>
             </p>
             <p>Platforms</p>
             <ul className="view-wallet__platforms">
               {platforms.map((platform) => (
-                <li className="view-wallet__data">
-                  {platform}
-                </li>
-              ))} 
+                <li className="view-wallet__data">{platform}</li>
+              ))}
             </ul>
             <p>Coins</p>
             <ul className="view-wallet__coins">

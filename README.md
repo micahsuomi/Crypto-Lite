@@ -26,6 +26,7 @@ Crypto Lite displays real market data from CryptoCompare's APIs: it features mar
 - Redux-saga
 - Context API
 - DevExtreme React Charts
+- Local Storage
 - Sass
 
 ## Home
@@ -55,19 +56,33 @@ This page displays a list of available exchanges that users can sort by name, vo
 ![Exchanges](./public/readme-imgs/exchanges.png)
 
 ## Wallets
+
+Here are displayed around 250 wallets with data collected from the wallet’s API. Users can view data per wallet such as ease of use, platforms for which the wallet is available, coins, security and anonymity.
+
 ![Wallets](./public/readme-imgs/wallets.png)
 ![Wallets](./public/readme-imgs/view-wallet.JPG)
 
 ## News
+
+News for cryptocurrencies are another feature brought by the CryptoCompare APIs. This page displays 50 news items divided in 5 pages and updated in real time from the API. Each news article, when clicked, redirects to its original publisher, as a way to generate more clicks for that particular crypto website.
+
 ![News](./public/readme-imgs/news.png)
 
 ## Watchlist
+
+In this watchlist cart are displayed all the cryptocurrencies added to the watchlist, which the user can remove. If there are no currencies on the watchlist, this page is not clickable.
 ![Watchlist](./public/readme-imgs/watchlist.png)
 
 ## Currency Converter
+
+With the currency converter, users can convert a selected amount of USDT into crypto and vice versa. After converting into currency, the conversion can be saved on a table displayed on the right, that the user can always access or from which the saved conversion can be later deleted.
+
 ![Currency Converter](./public/readme-imgs/currency-converter.png)
 
 ## Theme Switch
+
+The whole application uses a theme switch functionality created with Context API. The app theme can be switched from light mode to dark mode.
+
 ![Theme Switch](./public/readme-imgs/dark-mode.png)
 
 ## Deployment

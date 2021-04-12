@@ -10,9 +10,6 @@ import './style.scss'
 const Exchange = (props: any) => {
   const { theme } = useContext(ThemeContext)
   const id = props.match.params.id
-  console.log(id)
-  console.log(props)
-
   const slider = {
     index: '',
     prev: '',
@@ -23,9 +20,7 @@ const Exchange = (props: any) => {
     slider.index = index
     slider.prev = index === 0 ? '' : props.exchanges[index - 1].Id
     slider.next =
-      index === props.exchanges - 1
-        ? ''
-        : props.exchanges[index + 1].Id
+      index === props.exchanges - 1 ? '' : props.exchanges[index + 1].Id
 
     return exchange.Id === id
   })
@@ -36,9 +31,9 @@ const Exchange = (props: any) => {
       style={{ backgroundColor: theme.viewItemColor }}
     >
       <div className="view-exchange-container__prev">
-        {slider.prev !== '' && <ArrowPrev slider={slider}/>}
+        {slider.prev !== '' && <ArrowPrev slider={slider} />}
       </div>
-            
+
       <ViewExchange
         key={filteredExchange.Id}
         id={filteredExchange.Id}
@@ -57,11 +52,9 @@ const Exchange = (props: any) => {
         itemType={filteredExchange.ItemType}
         depositMethods={filteredExchange.DepositMethods}
         witdhrawalMethods={filteredExchange.WithdrawalMethods}
-      /> 
+      />
       <div className="view-exchange-container__next">
-        {slider.next !== '' && (
-          <ArrowNext slider={slider}/>
-        )}
+        {slider.next !== '' && <ArrowNext slider={slider} />}
       </div>
     </div>
   )

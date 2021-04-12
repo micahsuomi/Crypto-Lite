@@ -13,7 +13,7 @@ import './style.scss'
 
 const CryptoList = () => {
   const dispatch = useDispatch()
- 
+
   const [search, setSearch] = useState('')
   const [sort, setSort] = useState('')
   const [err, cryptos, isLoading, changeValue] = useCryptos(search, sort)
@@ -36,7 +36,7 @@ const CryptoList = () => {
   const [isSupplyReversing, setIsSupplyReversing] = useState(false)
 
   const paginate = (pageNumber: any) => setCurrentPage(pageNumber)
-  
+
   const placeholderText = 'search crypto by name or symbol'
 
   useEffect(() => {
@@ -49,7 +49,6 @@ const CryptoList = () => {
 
   const handleChange = (e: any) => {
     setSearch(e.target.value)
-    console.log(e.target.value)
   }
 
   const sortCrypto = (e: any) => {
@@ -93,10 +92,8 @@ const CryptoList = () => {
     ]
   )
 
-  if(err) {
-    return (
-      <h1>Page Not Found</h1>
-    )
+  if (err) {
+    return <h1>Page Not Found</h1>
   }
   return (
     <>
@@ -113,7 +110,7 @@ const CryptoList = () => {
           <>
             <div className="cryptos">
               <MainTable
-                cryptos={!isSorting && search=== '' ? currentCryptos : cryptos}
+                cryptos={!isSorting && search === '' ? currentCryptos : cryptos}
                 topPerformersData={cryptos}
                 sortCrypto={sortCrypto}
                 isNameReversing={isNameReversing}
@@ -123,14 +120,14 @@ const CryptoList = () => {
                 isSupplyReversing={isSupplyReversing}
               />
             </div>
-            {!isSorting && search ===''? (
+            {!isSorting && search === '' ? (
               <Pagination
                 itemsPerPage={cryptosPerPage}
                 totalItems={cryptos?.length}
                 currentPage={currentPage}
                 paginate={paginate}
               />
-            ): null}
+            ) : null}
           </>
         )}
       </Fragment>

@@ -1,36 +1,33 @@
-import React from 'react';
-import { Paper } from '@material-ui/core';
+import React from 'react'
+import { Paper } from '@material-ui/core'
 import {
   Chart,
   BarSeries,
   Legend,
   Tooltip,
-  Title
-} from '@devexpress/dx-react-chart-material-ui';
-import { EventTracker, Animation } from '@devexpress/dx-react-chart';
+  Title,
+} from '@devexpress/dx-react-chart-material-ui'
+import { EventTracker, Animation } from '@devexpress/dx-react-chart'
 
 import { useSelector } from 'react-redux'
 import { AppState } from '../../types'
 
 import './style.scss'
 
-
 const TopFiveSymbolsChart = () => {
-  const topFiveSymbols = useSelector((state : AppState) => state.cryptos.topFiveSymbols)
+  const topFiveSymbols = useSelector(
+    (state: AppState) => state.cryptos.topFiveSymbols
+  )
   const { exchange } = topFiveSymbols
-  console.log(topFiveSymbols.Data)
   return (
-    <Paper className="chart-container"
-    >
-      <Chart
-        data={topFiveSymbols.Data}
-      >
+    <Paper className="chart-container">
+      <Chart data={topFiveSymbols.Data}>
         {/* {
           topFiveSymbols.Data.map((s: any) => ( */}
-        <BarSeries 
-          name="fromSymbol" 
+        <BarSeries
+          name="fromSymbol"
           valueField="volume"
-          argumentField="fromSymbol"   
+          argumentField="fromSymbol"
         />
         {/* ))
         } */}
@@ -39,10 +36,9 @@ const TopFiveSymbolsChart = () => {
         <Tooltip />
         <Title text={`Top Five Symbols ${exchange}`} />
         <Animation />
-      </Chart> 
+      </Chart>
     </Paper>
   )
-  
 }
 
 export default TopFiveSymbolsChart

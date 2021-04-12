@@ -15,7 +15,6 @@ import { DailyEchangeVolChart } from '../../types'
 import './style.scss'
 
 const DailyExchangeVolChart = ({ data }: DailyEchangeVolChart) => {
-  console.log(data)
   return (
     <Paper className="chart-container">
       <Chart data={data.Data}>
