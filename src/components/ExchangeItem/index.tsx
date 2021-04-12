@@ -25,7 +25,7 @@ const ExchangeItem = ({
       }
     >
       <div className="exchange__head">
-        <Image image={logo} name={name} />
+        <Image image={logo} name={name} small />
       </div>
       <div>
         <h4 className="exchange__name" style={{ color: theme.text }}>
