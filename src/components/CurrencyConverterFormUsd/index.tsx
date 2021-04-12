@@ -32,7 +32,7 @@ const CurrencyConverterFormUsd = ({
 
       <div className="inputs-arrows__container">
         <input
-          type="text"
+          type="number"
           name="amount"
           value={amount}
           placeholder="amount in crypto"
@@ -67,7 +67,7 @@ const CurrencyConverterFormUsd = ({
           onClick={saveCurrencyConversion}
           className="currency-converter-form__btn-save"
         >
-          <i className="fas fa-plus-circle grow"></i>
+          Save Currency
         </button>
       )}
       <div className="warning">{warning}</div>

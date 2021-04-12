@@ -35,7 +35,7 @@ const CurrencyConverterFormCrypto = ({
 
       <div className="inputs-arrows__container">
         <input
-          type="text"
+          type="number"
           name="amount"
           value={amount}
           placeholder="amount in $"
@@ -81,7 +81,7 @@ const CurrencyConverterFormCrypto = ({
       <div className="result-container">
         {result > 0 && (
           <>
-            <Image image={image} name={resultSymbol} />
+            <Image image={image} name={resultSymbol} small />
             <h2 className="result-symbol">
               {result} {resultSymbol}
             </h2>
