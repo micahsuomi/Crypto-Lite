@@ -145,6 +145,10 @@ export type CryptoDetails = {
   supply: any
 }
 
+export type WatchListProps = {
+  cryptos: any
+}
+
 export type DailyPairsReq = {
   pairOne: string
   pairTwo: string
@@ -280,7 +284,7 @@ export type Cart = {
 
 export type CryptoCartProps = {
   scrolled: boolean
-  isSwitched:boolean
+  isSwitched: boolean
 }
 
 export type ImageProps = {

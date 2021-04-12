@@ -14,7 +14,7 @@ import Exchange from './pages/Exchange'
 import Wallets from './pages/Wallets'
 import Wallet from './pages/Wallet/index'
 import CryptoNews from './pages/CryptoNews'
-import Cart from './pages/Cart/Cart'
+import Watchlist from './pages/Watchlist'
 import CurrencyConverter from './pages/CurrencyConverter'
 import Footer from './components/Footer'
 
@@ -50,7 +50,9 @@ const Routes = () => {
         <Route
           exact
           path="/exchanges/:id"
-          component={(props: any) => <Exchange exchanges={filteredExchanges} {...props} />}
+          component={(props: any) => (
+            <Exchange exchanges={filteredExchanges} {...props} />
+          )}
         />
         <Route exact path="/wallets" component={Wallets} />
         <Route
@@ -64,7 +66,7 @@ const Routes = () => {
         <Route
           exact
           path="/watchlist"
-          component={(props: any) => <Cart cryptos={cryptos} {...props} />}
+          component={(props: any) => <Watchlist cryptos={cryptos} {...props} />}
         />
         <Route
           exact
