@@ -49,12 +49,12 @@ const ViewWallet = ({
           <div className="viw-wallet__info">
             <p className="view-wallet__data">
               <a href={url} target="blank" className="grow">
-                <i className="fas fa-globe fa-2x"></i>
+                <i className="fas fa-globe"></i>
                 <span>Website</span>
               </a>
             </p>
             <p className="view-wallet__data">
-              <i className="fas fa-lock fa-2x"></i>
+              <i className="fas fa-lock"></i>
               Security: 
               <span>{security}</span>
             </p>
@@ -93,7 +93,7 @@ const ViewWallet = ({
             </ul>
             <p className="view-wallet__data">
               <a href={source} target="blank" className="grow">
-                <i className="fab fa-github-alt fa-2x"></i>
+                <i className="fab fa-github-alt"></i>
                 <span>Github</span>
               </a>
             </p>

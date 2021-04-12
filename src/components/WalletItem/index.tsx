@@ -29,13 +29,6 @@ const WalletItem = ({
       <div className="wallet__wrapper">
         <div className="wallet__head">
           <Image image={logo} name={name} />
-          {/* <div className="wallet__head-image">
-            <img
-              src={`https://www.cryptocompare.com${logo}`}
-              alt="wallet logo"
-              className="wallet__logo"
-            />
-          </div> */}
           <h4 className="wallet__name">{name}</h4>
         </div>
         <div className="wallet__details-list">
