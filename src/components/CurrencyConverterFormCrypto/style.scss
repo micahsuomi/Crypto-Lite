@@ -7,24 +7,23 @@
     border: 2px solid var(--color-secondary-dark);
     padding: 2rem 2rem;
     margin-top: 2rem;
-    width: 23rem;
-    height: 23rem;
-    border-radius: 25px;
-
+    width: 25rem;
+    height: 27rem;
+    &__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     label {
         font-size: var(--font-size-small);
-        margin-top: 2rem;
-        text-align: left;
+        margin-top: .4rem;
       }
     
       .inputs-arrows__container {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 1.5rem;
-        input {
-          width: 13rem;
-        }
+        margin-top: 0.5rem;      
       }
       &__btn-container {
         display: flex;
@@ -36,7 +35,7 @@
         border: none;
         background: none;
         cursor: pointer;
-
+        margin-top: .6rem;
         i {
           margin-left: 1rem;
           font-size: 33px;
@@ -48,17 +47,13 @@
       }
       input,
       select {
+        width: 16.5rem;
         margin-top: 0.5rem;
         padding: 0.6rem;
         font-family: 'Lato', sans-serif;
         font-size: var(--font-size-small);
-        border: none;
+        // border: none;
         border-radius: 5px;
-      }
-     
-    
-      select {
-        width: 16rem;
       }
       
 .arrow {
@@ -79,11 +74,12 @@
   
   .calculate-btn {
     padding: .7rem;
-    width: 8rem;
+    width: 16.5rem;
     border: none;
     color: white;
     text-transform: uppercase;
-    border-radius: 50px;
+    border-radius: 5px;
+    margin-top: 2rem;
     cursor: pointer;
   }
   

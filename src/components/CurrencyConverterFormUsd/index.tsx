@@ -15,37 +15,33 @@ const CurrencyConverterFormUsd = ({
   warning,
   result,
   isSaveButtonShowing,
-  saveCurrencyConversion
+  saveCurrencyConversion,
 }: CurrencyConverterFormUsdProps) => {
   const { theme } = useContext(ThemeContext)
   return (
-    <form
-      className="currency-converter-form"
-      onSubmit={handleSubmit}
-      style={{ backgroundImage: theme.currencyCalcColor }}
-    >
-      <div>
+    <form className="currency-converter-form" onSubmit={handleSubmit}>
+      <div className="currency-converter-form__header">
         <label htmlFor="amount" style={{ color: theme.text }}>
-              Amount in Crypto
+          Amount in Crypto
         </label>
-        <div className="inputs-arrows__container">
-          <input
-            type="text"
-            name="amount"
-            value={amount}
-            placeholder="amount in crypto"
-            onChange={handleChange}
-            style={{ backgroundColor: theme.inputColor, color: theme.text }}
-          />
-          <button className="switch" onClick={handleSwitch}>
-            <i className="fas fa-long-arrow-alt-down fa-3x arrow"></i>
-            <i className="fas fa-long-arrow-alt-up fa-3x arrow"></i>
-          </button>
-        </div>
+        <button className="switch" onClick={handleSwitch}>
+          <i className="fas fa-long-arrow-alt-down fa-2x arrow"></i>
+          <i className="fas fa-long-arrow-alt-up fa-2x arrow"></i>
+        </button>
       </div>
 
+      <div className="inputs-arrows__container">
+        <input
+          type="text"
+          name="amount"
+          value={amount}
+          placeholder="amount in crypto"
+          onChange={handleChange}
+          style={{ backgroundColor: theme.inputColor, color: theme.text }}
+        />
+      </div>
       <label htmlFor="currency" style={{ color: theme.text }}>
-            Currency
+        Currency
       </label>
       <select
         className="select-currency"
@@ -55,20 +51,25 @@ const CurrencyConverterFormUsd = ({
         <option>---Choose Currency</option>
         {cryptos.map((crypto: any) => (
           <option key={crypto.CoinInfo.Id} value={crypto.CoinInfo.Name}>
-            {crypto.CoinInfo.FullName} {crypto.DISPLAY.USD.PRICE}
+            {crypto.CoinInfo.FullName}
+            {crypto.DISPLAY.USD.PRICE}
           </option>
         ))}
       </select>
-      <div className="currency-converter-form__btn-container">
+      <button
+        className="calculate-btn grow"
+        style={{ backgroundColor: theme.bigBtnColor }}
+      >
+        Calculate
+      </button>
+      {isSaveButtonShowing && (
         <button
-          className="calculate-btn"
-          style={{ backgroundColor: theme.bigBtnColor }}
+          onClick={saveCurrencyConversion}
+          className="currency-converter-form__btn-save"
         >
-              Calculate
+          <i className="fas fa-plus-circle grow"></i>
         </button>
-        {isSaveButtonShowing && <button onClick={saveCurrencyConversion} 
-          className="currency-converter-form__btn-save">
-          <i className="fas fa-plus-circle grow"></i></button>}      </div>
+      )}
       <div className="warning">{warning}</div>
       <div className="result-container">
         <h2>{result > 0 && result + ' USD'}</h2>

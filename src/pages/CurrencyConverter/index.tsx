@@ -108,11 +108,11 @@ const CurrencyConverter = ({ cryptos }: any) => {
   }
 
   return (
-    <div
-      className="currency-converter"
-      style={{ backgroundColor: theme.backgroundColor }}
-    >
-      <div className="currency-converter__form-container">
+    <div className="currency-converter">
+      <div
+        className="currency-converter__form-container"
+        style={{ backgroundColor: theme.backgroundColor }}
+      >
         <h1
           className="currency-converter__header"
           style={{ color: theme.text }}
@@ -149,7 +149,7 @@ const CurrencyConverter = ({ cryptos }: any) => {
           />
         )}
       </div>
-      {savedCurrency.length > 0 && (
+      {savedCurrency.length > 0 ? (
         <div className="currency-converter__saved-container">
           <h3
             className="saved-currency-table__header"
@@ -166,6 +166,15 @@ const CurrencyConverter = ({ cryptos }: any) => {
               paginate={paginate}
             />
           )}
+        </div>
+      ) : (
+        <div className="currency-converter__saved-container">
+          <h3
+            className="saved-currency-table__header"
+            style={{ color: theme.text }}
+          >
+            No Saved Conversions
+          </h3>
         </div>
       )}
     </div>
