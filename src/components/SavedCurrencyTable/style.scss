@@ -11,7 +11,7 @@
     }
     &__row {
         display: grid;
-        grid-template-columns: 15% 20% 41% 16% 11%;;
+        grid-template-columns: 12% 12% 19% 36% 12% 7%;
         justify-items: flex-start;
         align-items: center;
         margin: .3rem;
@@ -20,8 +20,8 @@
         padding: .5rem .6rem;
         border-radius: 5px;
         box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
-        background-color: var(--primary);
-        color: white;
+        // background-color: var(--primary);
+        // color: white;
         td {
             padding: .2rem .4rem;
         }

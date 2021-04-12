@@ -410,6 +410,7 @@ export type CurrencyConverterFormCryptoProps = {
   warning: string
   result: number
   resultSymbol: string
+  image: string
   isSaveButtonShowing: boolean
   saveCurrencyConversion: () => void
 }

@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { ThemeContext } from '../../contexts'
 
 import './style.scss'
 
 const SavedCurrencyTableHeaer = () => {
+  const { theme } = useContext(ThemeContext)
   return (
     <tr className="saved-currency-table-header">
-      <td>Name</td>
-      <td>Price</td>
-      <td>Amount</td>
-      <td>Total</td>
+      <td></td>
+      <td style={{ color: theme.text }}>Name</td>
+      <td style={{ color: theme.text }}>Price</td>
+      <td style={{ color: theme.text }}>Amount</td>
+      <td style={{ color: theme.text }}>Total</td>
     </tr>
   )
 }

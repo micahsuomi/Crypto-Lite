@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { ImageProps } from '../../types'
+
 import './style.scss'
 
 const Image = ({ image, name }: ImageProps) => {

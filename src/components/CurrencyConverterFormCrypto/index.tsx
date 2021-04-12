@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 
 import { CurrencyConverterFormCryptoProps } from '../../types'
 import { ThemeContext } from '../../contexts'
+import Image from '../Image'
 
 import './style.scss'
 
@@ -15,6 +16,7 @@ const CurrencyConverterFormCrypto = ({
   warning,
   result,
   resultSymbol,
+  image,
   isSaveButtonShowing,
   saveCurrencyConversion,
 }: CurrencyConverterFormCryptoProps) => {
@@ -66,19 +68,24 @@ const CurrencyConverterFormCrypto = ({
         Calculate
       </button>
       {isSaveButtonShowing && (
-        <button
-          onClick={saveCurrencyConversion}
-          className="currency-converter-form__btn-save"
-        >
-          Save Currency
-        </button>
+        <>
+          <button
+            onClick={saveCurrencyConversion}
+            className="currency-converter-form__btn-save"
+          >
+            Save Currency
+          </button>
+        </>
       )}
       <div className="warning">{warning}</div>
       <div className="result-container">
         {result > 0 && (
-          <h2 className="result-symbol">
-            {result} {resultSymbol}
-          </h2>
+          <>
+            <Image image={image} name={resultSymbol} />
+            <h2 className="result-symbol">
+              {result} {resultSymbol}
+            </h2>
+          </>
         )}
       </div>
     </form>

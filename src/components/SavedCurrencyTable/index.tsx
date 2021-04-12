@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { SavedCurrencyTableProps } from '../../types'
 import SavedCurrencyTableHeader from '../../components/SavedCurrencyTableHeader'
 import { deleteCurrency } from '../../redux/actions/crypto'
+import Image from '../Image/index'
 import DeleteCurrencyButton from '../../components/DeleteCurrencyButton'
 import { ThemeContext } from '../../contexts'
 
@@ -21,20 +22,26 @@ const SavedCurrencyTable = ({ savedCurrency }: SavedCurrencyTableProps) => {
       <thead>
         <SavedCurrencyTableHeader />
       </thead>
-      <tbody className="saved-currency-table__wrapper">
+      <tbody
+        className="saved-currency-table__wrapper"
+        style={{ backgroundColor: theme.backgroundColor }}
+      >
         {savedCurrency?.map((currency: any) => (
           <tr className="saved-currency-table__row" key={currency.id}>
+            <td>
+              <Image image={currency.image} name={currency.symbol} />
+            </td>
             <td className="saved-currency-table-row__name">
-              <p>{currency.symbol}</p>
+              <p style={{ color: theme.text }}>{currency.symbol}</p>
             </td>
             <td>
-              <p>{currency.price}</p>
+              <p style={{ color: theme.text }}>{currency.price}</p>
             </td>
             <td>
-              <p>{currency.amount}</p>
+              <p style={{ color: theme.text }}>{currency.amount}</p>
             </td>
             <td>
-              <p>${currency.invested}</p>
+              <p style={{ color: theme.text }}>${currency.invested}</p>
             </td>
             <td>
               <DeleteCurrencyButton
