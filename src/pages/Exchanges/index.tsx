@@ -3,11 +3,13 @@ import React, { useState, useEffect, useCallback, Fragment } from 'react'
 
 import useCryptoExchanges from '../../hooks/useCryptoExchanges'
 import Header from '../../components/Header'
+import Section from '../../components/Section'
+import TitleContainer from '../../components/TitleContainer'
+import Title from '../../components/Title'
 import ExchangesTable from '../../components/ExchangesTable'
 import Pagination from '../../components/Pagination'
 import Loader from '../../components/Loader'
-
-import './style.scss'
+import { pageBanners } from '../../utils/page-banners'
 
 export default function Exchanges() {
   const [search, setSearch] = useState('')
@@ -108,32 +110,39 @@ export default function Exchanges() {
           handleSubmit={handleSubmit}
           placeholderText={placeholderText}
         />
-        {isLoading ? (
-          <>
-            <ExchangesTable
-              exchanges={
-                search === '' && !isSorting ? currentExchanges : exchanges
-              }
-              sortExchange={sortExchange}
-              isNameReversing={isNameReversing}
-              isVolumeReversing={isVolumeReversing}
-              isCountryReversing={isCountryReversing}
-              isGradeReversing={isGradeReversing}
-              isGradePointsReversing={isGradePointsReversing}
-              isAverageRateReversing={isAverageRateReversing}
-            />
-            {search === '' && !isSorting ? (
-              <Pagination
-                itemsPerPage={exchangesPerPage}
-                totalItems={exchanges?.length}
-                currentPage={currentPage}
-                paginate={paginate}
+        <Section>
+          {isLoading ? (
+            <>
+              <TitleContainer>
+                {pageBanners.map((p) => (
+                  <Title title={p.exchanges} alignCenter />
+                ))}
+              </TitleContainer>
+              <ExchangesTable
+                exchanges={
+                  search === '' && !isSorting ? currentExchanges : exchanges
+                }
+                sortExchange={sortExchange}
+                isNameReversing={isNameReversing}
+                isVolumeReversing={isVolumeReversing}
+                isCountryReversing={isCountryReversing}
+                isGradeReversing={isGradeReversing}
+                isGradePointsReversing={isGradePointsReversing}
+                isAverageRateReversing={isAverageRateReversing}
               />
-            ) : null}
-          </>
-        ) : (
-          <Loader />
-        )}
+              {search === '' && !isSorting ? (
+                <Pagination
+                  itemsPerPage={exchangesPerPage}
+                  totalItems={exchanges?.length}
+                  currentPage={currentPage}
+                  paginate={paginate}
+                />
+              ) : null}
+            </>
+          ) : (
+            <Loader />
+          )}
+        </Section>
       </Fragment>
     </>
   )

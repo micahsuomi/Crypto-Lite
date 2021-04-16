@@ -80,9 +80,12 @@ export type HeaderProps = {
 export type SearchProps = {
   search?: string
   handleSubmit: Function
-  // handleChange: (keyword: string) => void;
   handleChange: React.FormEventHandler<HTMLInputElement>
   placeholderText: string
+}
+
+export type SectionContainerProps = {
+  children?: React.ReactNode
 }
 
 export type TitleContainerProps = {
@@ -116,6 +119,7 @@ export type Crypto = {
   marketCap: number
   supply: number
   addCrypto: () => void
+  isHomePage?: boolean
 }
 
 export type NewCrypto = {

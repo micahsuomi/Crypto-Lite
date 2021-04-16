@@ -1,18 +1,18 @@
 .exchanges {
-    padding: 12rem 3rem;
+    padding: 2rem 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     thead {
-        position: fixed;
+        // position: fixed;
         top: 2%;
         left: 0%;
-        margin-bottom: 6rem;
+        margin-bottom: 1rem;
         width: 100vw;
       }
       tbody {
-        padding-top: 13%;
+        padding-top: 1%;
       }
     &__header {
       margin-top: 13rem;

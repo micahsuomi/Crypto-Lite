@@ -7,15 +7,16 @@ import { ThemeContext } from '../../contexts'
 
 import './style.scss'
 
-const ExchangesTable = ({ 
-  exchanges, 
+const ExchangesTable = ({
+  exchanges,
   sortExchange,
   isNameReversing,
   isVolumeReversing,
   isCountryReversing,
   isGradeReversing,
   isGradePointsReversing,
-  isAverageRateReversing, }: ExchangesTableProps) => {
+  isAverageRateReversing,
+}: ExchangesTableProps) => {
   const { theme } = useContext(ThemeContext)
   let exchangesList = exchanges?.map((exchange: any) => (
     <ExchangeItem
@@ -31,23 +32,22 @@ const ExchangesTable = ({
     />
   ))
   return (
-    <table className="exchanges" style={{ backgroundColor: theme.backgroundColor }}>
+    <table
+      className="exchanges"
+      style={{ backgroundColor: theme.backgroundColor }}
+    >
       <thead style={{ backgroundColor: theme.tableHead }}>
-        <h2 className="exchanges__header" style={{ color: theme.text }}>
-        Exchanges Info
-        </h2>
-        <ExchangesTableHeader 
-          sortExchange={sortExchange} 
+        <ExchangesTableHeader
+          sortExchange={sortExchange}
           isNameReversing={isNameReversing}
-          isCountryReversing={isCountryReversing} 
+          isCountryReversing={isCountryReversing}
           isGradeReversing={isGradeReversing}
-          isVolumeReversing={isVolumeReversing} 
-          isGradePointsReversing={isGradePointsReversing} 
-          isAverageRateReversing={isAverageRateReversing} />
+          isVolumeReversing={isVolumeReversing}
+          isGradePointsReversing={isGradePointsReversing}
+          isAverageRateReversing={isAverageRateReversing}
+        />
       </thead>
-      <tbody className="exchanges__wrapper">
-        {exchangesList}
-      </tbody>
+      <tbody className="exchanges__wrapper">{exchangesList}</tbody>
     </table>
   )
 }

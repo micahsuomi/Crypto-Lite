@@ -23,11 +23,9 @@ import './style.scss'
 export default function Home() {
   const cryptos = useSelector((state: AppState) => state.cryptos.cryptos)
   const wallets = useSelector((state: AppState) => state.cryptos.cryptoWallets)
-
   const [errNews, cryptoNews] = useCryptoNews()
   const [errNewsFeeds, newsFeeds] = useNewsFeeds()
   const [showTopPerformers, setShowTopPerformers] = useState(false)
-
   const [currentPage] = useState(1)
   const [itemsPerPage] = useState(8)
 
@@ -37,9 +35,9 @@ export default function Home() {
   const currentNews = cryptoNews?.slice(indexFirstItem, indexLastItem)
   const currentWallets = wallets?.slice(indexFirstItem, indexLastItem)
   const currentCryptos = cryptos?.slice(indexFirstItem, indexLastItem)
-
   const { theme } = useContext(ThemeContext)
   const dispatch = useDispatch()
+  const [isHomePage] = useState(true)
 
   useEffect(() => {
     dispatch(fetchCrypto())
@@ -77,6 +75,7 @@ export default function Home() {
       marketCap={crypto.DISPLAY.USD.MKTCAP}
       supply={crypto.DISPLAY.USD.SUPPLY}
       addCrypto={() => addCrypto(crypto)}
+      isHomePage={isHomePage}
     />
   ))
 
