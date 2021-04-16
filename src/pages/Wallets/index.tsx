@@ -43,7 +43,7 @@ export default function CryptoWallets() {
           handleSubmit={handleSubmit}
           placeholderText={placeholderText}
         />
-        <Section>
+        <Section padding="lg">
           <TitleContainer>
             {pageBanners.map((p) => (
               <Title title={p.wallets} alignCenter />

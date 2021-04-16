@@ -87,6 +87,7 @@ export type SearchProps = {
 export type SectionPadding = 'sm' | 'md' | 'lg'
 
 export type SectionProps = {
+  className?: string
   padding?: SectionPadding
   children?: React.ReactNode
 }

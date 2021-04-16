@@ -110,7 +110,7 @@ export default function Exchanges() {
           handleSubmit={handleSubmit}
           placeholderText={placeholderText}
         />
-        <Section>
+        <Section padding="lg">
           {isLoading ? (
             <>
               <TitleContainer>

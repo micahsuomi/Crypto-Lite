@@ -13,8 +13,6 @@ import './style.scss'
 
 const CryptoNews = () => {
   const [err, cryptoNews] = useCryptoNews()
-  const { theme } = useContext(ThemeContext)
-
   const [currentPage, setCurrentPage] = useState(1)
   const [newsPerPage] = useState(10)
 
@@ -24,6 +22,7 @@ const CryptoNews = () => {
   const currentNews = cryptoNews?.slice(indexFirstNews, indexLastNews)
 
   const paginate = (pageNumber: any) => setCurrentPage(pageNumber)
+  const { theme } = useContext(ThemeContext)
 
   const newsList = currentNews?.map((newsItem: any) => (
     <NewsItem
@@ -42,20 +41,18 @@ const CryptoNews = () => {
   }
   return (
     <Section>
-      <div className="news-list" id="latestNews">
-        <TitleContainer>
-          {pageBanners.map((p) => (
-            <Title title={p.news} alignCenter />
-          ))}
-        </TitleContainer>
-        <div className="news-list__wrapper">{newsList}</div>
-        <Pagination
-          itemsPerPage={newsPerPage}
-          totalItems={cryptoNews?.length}
-          currentPage={currentPage}
-          paginate={paginate}
-        />
-      </div>
+      <TitleContainer>
+        {pageBanners.map((p) => (
+          <Title title={p.news} alignCenter />
+        ))}
+      </TitleContainer>
+      <div className="news-list__wrapper">{newsList}</div>
+      <Pagination
+        itemsPerPage={newsPerPage}
+        totalItems={cryptoNews?.length}
+        currentPage={currentPage}
+        paginate={paginate}
+      />
     </Section>
   )
 }

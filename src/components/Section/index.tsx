@@ -3,13 +3,19 @@ import React, { useContext } from 'react'
 import { ThemeContext } from '../../contexts'
 import { SectionProps } from '../../types'
 
-import './style.scss'
+import classNames from 'classnames'
 
-const Section = ({ padding, children }: SectionProps) => {
+import styles from './style.module.scss'
+
+const Section = ({ padding, children, className }: SectionProps) => {
   const { theme } = useContext(ThemeContext)
   return (
     <div
-      className="section-container"
+      className={classNames(styles.section, className, {
+        [styles.padding_small]: padding === 'sm',
+        [styles.padding_medium]: padding === 'md',
+        [styles.padding_large]: padding === 'lg',
+      })}
       style={{ backgroundColor: theme.backgroundColor }}
     >
       {children}
