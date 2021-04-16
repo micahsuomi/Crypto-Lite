@@ -1,13 +1,14 @@
 .crypto-cell {
   padding: 1rem;
   display: grid;
-  grid-template-columns: 11.5% 15% 10% 15% 11% 13% 12%;  
-  justify-items: center;
+  grid-template-columns: 6.5% 10% 15.5% 10% 11% 16% 18%;  
+  justify-items: flex-start;
   align-items: center;
   list-style: none;
   margin-top: 2rem;
   &__item {
     color: black;
+    font-weight: 700;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +21,7 @@
       background: none;
       border: none;
       cursor: pointer;
+      font-weight: 700;
     }
     button:active {
       outline: none;

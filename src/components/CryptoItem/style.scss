@@ -6,16 +6,19 @@
   }
   &__list {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: 10% 10% 16% 10% 10% 15% 20% 15%;
     list-style: none;
     justify-items: center;
     align-items: center;
-    padding: .7rem;
+    padding: .7rem 2rem;
     border: 1px solid lightgray;
     width: 100vw;
 
     li {
       color: var(--shaded-dark);
+    }
+    td {
+      justify-self: start;
     }
   }
   &__languages {

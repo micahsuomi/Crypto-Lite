@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { FaBitcoin } from 'react-icons/fa'
 
 import { AppState } from '../../types'
 import CurrencyConverterFormCrypto from '../../components/CurrencyConverterFormCrypto'
@@ -173,13 +174,14 @@ const CurrencyConverter = ({ cryptos }: any) => {
           )}
         </div>
       ) : (
-        <div className="currency-converter__saved-container">
+        <div className="currency-converter__saved-container--empty">
           <h3
             className="saved-currency-table__header"
             style={{ color: theme.text }}
           >
             No Saved Conversions
           </h3>
+          <FaBitcoin className="currency-converter__btc-icon" />
         </div>
       )}
     </div>

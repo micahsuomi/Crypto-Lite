@@ -1,0 +1,19 @@
+
+.section {
+    padding: 2rem 0;
+}
+
+@media screen and (min-width: 768px) {
+    .section {
+        padding: 5rem 2rem;
+    }
+    .padding_large {
+        padding: 12rem 3rem 3rem 3rem;
+    }
+    .padding_medium {
+        padding: 7rem 3rem;
+    }
+    .padding_small {
+        padding: 3rem 3rem;
+    }
+}

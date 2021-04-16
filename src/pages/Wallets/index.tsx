@@ -2,9 +2,12 @@ import React, { useState, Fragment } from 'react'
 
 import useCryptoWallets from '../../hooks/useCryptoWallets'
 import Header from '../../components/Header'
+import Section from '../../components/Section'
+import TitleContainer from '../../components/TitleContainer'
+import Title from '../../components/Title'
 import WalletTable from '../../components/WalletTable'
 import Pagination from '../../components/Pagination'
-
+import { pageBanners } from '../../utils/page-banners'
 import './style.scss'
 
 export default function CryptoWallets() {
@@ -40,19 +43,25 @@ export default function CryptoWallets() {
           handleSubmit={handleSubmit}
           placeholderText={placeholderText}
         />
-
-        <WalletTable
-          cryptoWallets={search === '' ? currentWallets : cryptoWallets}
-        />
-
-        {search === '' && (
-          <Pagination
-            itemsPerPage={walletsPerPage}
-            totalItems={cryptoWallets?.length}
-            currentPage={currentPage}
-            paginate={paginate}
+        <Section padding="lg">
+          <TitleContainer>
+            {pageBanners.map((p) => (
+              <Title title={p.wallets} alignCenter />
+            ))}
+          </TitleContainer>
+          <WalletTable
+            cryptoWallets={search === '' ? currentWallets : cryptoWallets}
           />
-        )}
+
+          {search === '' && (
+            <Pagination
+              itemsPerPage={walletsPerPage}
+              totalItems={cryptoWallets?.length}
+              currentPage={currentPage}
+              paginate={paginate}
+            />
+          )}
+        </Section>
       </Fragment>
     </>
   )

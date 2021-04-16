@@ -17,6 +17,7 @@ const Image = ({
     [styles.medium_image]: medium,
     [styles.small_image]: small,
   })
+
   return (
     <div className={imageStyles}>
       <img src={`https://www.cryptocompare.com${image}`} alt={name} />
