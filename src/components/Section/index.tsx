@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 
 import { ThemeContext } from '../../contexts'
-import { SectionContainerProps } from '../../types'
+import { SectionProps } from '../../types'
 
 import './style.scss'
 
-const Section = ({ children }: SectionContainerProps) => {
+const Section = ({ padding, children }: SectionProps) => {
   const { theme } = useContext(ThemeContext)
   return (
     <div

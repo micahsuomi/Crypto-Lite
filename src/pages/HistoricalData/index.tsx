@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 
 import useDailyPairs from '../../hooks/useDailyPairs'
 import useTopFiveSymbols from '../../hooks/useTopFiveSymbols'
@@ -11,7 +11,7 @@ import DailyExchangeVolChart from '../../components/DailyExchangeVolChart'
 import TopFiveSymbolsForm from '../../components/TopFiveSymbolsForm'
 import TopFiveSymbolsChart from '../../components/TopFiveSymbolsChart'
 import TopFiveSymbolsTable from '../../components/TopFiveSymbolsTable'
-import { ThemeContext } from '../../contexts'
+import Section from '../../components/Section'
 import TitleContainer from '../../components/TitleContainer'
 import Title from '../../components/Title'
 import { pageBanners } from '../../utils/page-banners'
@@ -29,7 +29,6 @@ const HistoricalData = () => {
     isTopFiveSymbolsTableShowing,
     setIsTopFiveSymbolsTableShowing,
   ] = useState(false)
-  const { theme } = useContext(ThemeContext)
   const [showDailyGraph, setShowDailyGraph] = useState(false)
   const [showDailyExchangeVolGraph, setShowDailyExchangeVolGraph] = useState(
     false
@@ -87,10 +86,7 @@ const HistoricalData = () => {
   }
 
   return (
-    <div
-      className="historical-data"
-      style={{ backgroundColor: theme.backgroundColor }}
-    >
+    <Section>
       <TitleContainer>
         {pageBanners.map((p) => (
           <Title title={p.historicalData} alignCenter />
@@ -212,7 +208,7 @@ const HistoricalData = () => {
           </div>
         )}
       </div>
-    </div>
+    </Section>
   )
 }
 

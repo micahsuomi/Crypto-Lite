@@ -4,6 +4,10 @@ import NewsItem from '../../components/NewsItem'
 import useCryptoNews from '../../hooks/useCryptoNews'
 import { ThemeContext } from '../../contexts'
 import Pagination from '../../components/Pagination'
+import Section from '../../components/Section'
+import TitleContainer from '../../components/TitleContainer'
+import Title from '../../components/Title'
+import { pageBanners } from '../../utils/page-banners'
 
 import './style.scss'
 
@@ -37,14 +41,13 @@ const CryptoNews = () => {
     return <h1 style={{ color: theme.text }}>Page Not Found</h1>
   }
   return (
-    <div
-      className="news-container"
-      style={{ backgroundColor: theme.backgroundColor }}
-    >
+    <Section>
       <div className="news-list" id="latestNews">
-        <h2 className="news-list__header" style={{ color: theme.text }}>
-          Latest News
-        </h2>
+        <TitleContainer>
+          {pageBanners.map((p) => (
+            <Title title={p.news} alignCenter />
+          ))}
+        </TitleContainer>
         <div className="news-list__wrapper">{newsList}</div>
         <Pagination
           itemsPerPage={newsPerPage}
@@ -53,7 +56,7 @@ const CryptoNews = () => {
           paginate={paginate}
         />
       </div>
-    </div>
+    </Section>
   )
 }
 

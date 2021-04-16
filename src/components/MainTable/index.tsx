@@ -25,7 +25,6 @@ const MainTable = ({
   const dispatch = useDispatch()
 
   const addCrypto = (crypto: any) => {
-    // alerts BUTTON
     let newCrypto: NewCrypto = {
       id: crypto.CoinInfo.Id,
       image: crypto.CoinInfo.ImageUrl,

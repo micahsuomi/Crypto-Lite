@@ -84,7 +84,10 @@ export type SearchProps = {
   placeholderText: string
 }
 
-export type SectionContainerProps = {
+export type SectionPadding = 'sm' | 'md' | 'lg'
+
+export type SectionProps = {
+  padding?: SectionPadding
   children?: React.ReactNode
 }
 

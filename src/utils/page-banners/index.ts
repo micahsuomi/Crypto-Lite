@@ -12,9 +12,9 @@ export const pageBanners = [
     exchanges: 'Exchanges',
   },
   {
-    wallets: 'Wallets',
+    wallets: 'Wallets Info',
   },
   {
-    news: 'News',
+    news: 'Latest News',
   },
 ]
