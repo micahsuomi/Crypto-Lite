@@ -27,9 +27,11 @@ const CryptoItem = ({
         <Image image={image} name={name} small />
       </td>
       <td>{symbol}</td>
-      <NavLink to={`/crypto/${id}`} className="crypto-info__link">
-        {name}
-      </NavLink>
+      <td>
+        <NavLink to={`/crypto/${id}`} className="crypto-info__link">
+          {name}
+        </NavLink>
+      </td>
       <td>{price}</td>
       <td style={percentageChange > 0 ? { color: 'green' } : { color: 'red' }}>
         {percentageChange}%

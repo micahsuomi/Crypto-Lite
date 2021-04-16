@@ -21,10 +21,8 @@ const CryptoTableCell = ({
         Symbol
       </td>
       <td className="crypto-cell__item" style={{ color: theme.text }}>
-        <button
-          value="name"
-          onClick={sortCrypto}
-        >Name
+        <button value="name" onClick={sortCrypto} style={{ color: theme.text }}>
+          Name
         </button>
         {isNameReversing ? (
           <i className="fas fa-chevron-up"></i>
@@ -36,7 +34,9 @@ const CryptoTableCell = ({
         <button
           value="price"
           onClick={sortCrypto}
-        >Price
+          style={{ color: theme.text }}
+        >
+          Price
         </button>
         {isPriceReversing ? (
           <i className="fas fa-chevron-up"></i>
@@ -48,7 +48,9 @@ const CryptoTableCell = ({
         <button
           value="percentagechange"
           onClick={sortCrypto}
-        >Change 24H
+          style={{ color: theme.text }}
+        >
+          24h%
         </button>
         {isPercentageChangeReversing ? (
           <i className="fas fa-chevron-up"></i>
@@ -56,11 +58,16 @@ const CryptoTableCell = ({
           <i className="fas fa-chevron-down"></i>
         )}
       </td>
-      <td className="crypto-cell__item grow hide-mobile" style={{ color: theme.text }}>
+      <td
+        className="crypto-cell__item grow hide-mobile"
+        style={{ color: theme.text }}
+      >
         <button
           value="marketcap"
           onClick={sortCrypto}
-        >Market Cap
+          style={{ color: theme.text }}
+        >
+          Market Cap
         </button>
         {isMarketCapReversing ? (
           <i className="fas fa-chevron-up"></i>
@@ -68,11 +75,16 @@ const CryptoTableCell = ({
           <i className="fas fa-chevron-down"></i>
         )}
       </td>
-      <td className="crypto-cell__item grow hide-mobile" style={{ color: theme.text }}>
+      <td
+        className="crypto-cell__item grow hide-mobile"
+        style={{ color: theme.text }}
+      >
         <button
           value="supply"
           onClick={sortCrypto}
-        >Supply
+          style={{ color: theme.text }}
+        >
+          Circulating Supply
         </button>
         {isSupplyReversing ? (
           <i className="fas fa-chevron-up"></i>
