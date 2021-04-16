@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 // Action types
 export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
@@ -83,9 +85,16 @@ export type SearchProps = {
   placeholderText: string
 }
 
+export type TitleContainerProps = {
+  children?: React.ReactNode
+}
+
 export type TitleProps = {
-  cryptos: any
-  message?: string
+  title?: string
+  big?: boolean
+  medium?: boolean
+  small?: boolean
+  alignCenter?: boolean
 }
 
 export type TopGainerProps = {
@@ -120,7 +129,7 @@ export type NewCrypto = {
   supply: number
 }
 
-export type CryptoDetails = {
+export type CryptoDetailsProps = {
   id: string
   img: string
   name: string
@@ -143,6 +152,7 @@ export type CryptoDetails = {
   low: any
   totalVolume: any
   supply: any
+  redirectToHome?: boolean
 }
 
 export type WatchListProps = {

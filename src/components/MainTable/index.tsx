@@ -7,6 +7,7 @@ import { MainTableProps, NewCrypto } from '../../types'
 import CryptoTableHeader from '../CryptoTableHeader'
 import TopGainers from '../TopGainers'
 import CryptoItem from '../CryptoItem'
+import { pageBanners } from '../../utils/page-banners'
 
 import './style.scss'
 
@@ -40,6 +41,11 @@ const MainTable = ({
   return (
     <>
       <TopGainers topPerformersData={topPerformersData} />
+      <div className="crypto-banner">
+        {pageBanners.map((p) => (
+          <h2>{p.marketPrices}</h2>
+        ))}
+      </div>
       <table
         className="crypto-container"
         style={{ backgroundColor: theme.backgroundColor }}

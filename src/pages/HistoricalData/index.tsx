@@ -12,6 +12,10 @@ import TopFiveSymbolsForm from '../../components/TopFiveSymbolsForm'
 import TopFiveSymbolsChart from '../../components/TopFiveSymbolsChart'
 import TopFiveSymbolsTable from '../../components/TopFiveSymbolsTable'
 import { ThemeContext } from '../../contexts'
+import TitleContainer from '../../components/TitleContainer'
+import Title from '../../components/Title'
+import { pageBanners } from '../../utils/page-banners'
+
 import './style.scss'
 
 const HistoricalData = () => {
@@ -87,9 +91,12 @@ const HistoricalData = () => {
       className="historical-data"
       style={{ backgroundColor: theme.backgroundColor }}
     >
-      <h2 className="news-list__header" style={{ color: theme.text }}>
-        Historical Data
-      </h2>
+      <TitleContainer>
+        {pageBanners.map((p) => (
+          <Title title={p.historicalData} alignCenter />
+        ))}
+      </TitleContainer>
+
       <div className="historical-data__tabs-wrapper">
         <button
           onClick={showDailyPairs}

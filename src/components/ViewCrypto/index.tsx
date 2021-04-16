@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { CryptoDetails } from '../../types'
+import { CryptoDetailsProps } from '../../types'
 import { ThemeContext } from '../../contexts'
 import Image from '../Image'
 
@@ -30,7 +30,7 @@ const ViewCrypto = ({
   low,
   totalVolume,
   supply,
-}: CryptoDetails) => {
+}: CryptoDetailsProps) => {
   const { theme } = useContext(ThemeContext)
 
   return (
