@@ -19,9 +19,18 @@
     text-align: center;
     /* color: white; */
   }
+  &__saved-container--empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100%;
+  }
   &__btc-icon {
     color: var(--primary);
-    font-size: 30px;
+    font-size: 62px;
+    opacity: .3;
+    margin-top: 1rem;
   }
 }
 @media screen and (max-width: 500px) {

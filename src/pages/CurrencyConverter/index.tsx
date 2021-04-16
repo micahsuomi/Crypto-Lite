@@ -174,14 +174,14 @@ const CurrencyConverter = ({ cryptos }: any) => {
           )}
         </div>
       ) : (
-        <div className="currency-converter__saved-container">
+        <div className="currency-converter__saved-container--empty">
           <h3
             className="saved-currency-table__header"
             style={{ color: theme.text }}
           >
             No Saved Conversions
           </h3>
-          <FaBitcoin className="saved-currency-table__btc-icon" />
+          <FaBitcoin className="currency-converter__btc-icon" />
         </div>
       )}
     </div>
