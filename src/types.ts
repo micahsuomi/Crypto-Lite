@@ -161,6 +161,11 @@ export type CryptoDetailsProps = {
   totalVolume: any
   supply: any
   redirectToHome?: boolean
+  loadChart?: boolean
+}
+
+export type SwitchCryptoChartButtonsProps = {
+  switchChart: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 export type WatchListProps = {
@@ -212,7 +217,14 @@ export type DailyPairsItemProps = {
 
 export type DailyPairsChartProps = {
   //fix this later
-  dailyPairs: any
+  dailyPairs?: any
+  pairOne?: string
+  pairTwo?: string
+}
+
+export type DailyPairsChartVolumeProps = {
+  //fix this later
+  dailyPairs?: any
 }
 
 export type DailyExchangeVol = {

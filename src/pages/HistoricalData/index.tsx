@@ -123,9 +123,7 @@ const HistoricalData = () => {
             </p>
             <DailyPairsForm showDailyGraphOnSubmit={showDailyGraphOnSubmit} />
             <div className="historical-data__results">
-              <div>
-                {showDailyGraph && <DailyPairsChart dailyPairs={dailyPairs} />}
-              </div>
+              <div>{showDailyGraph && <DailyPairsChart />}</div>
               {showDailyGraph && (
                 <>
                   {isDailyPairsTableShowing ? (

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 
 import ViewCrypto from '../../components/ViewCrypto'
-import ArrowPrev from '../../components/ArrowPrev'
-import ArrowNext from '../../components/ArrowNext'
+// import ArrowPrev from '../../components/ArrowPrev'
+// import ArrowNext from '../../components/ArrowNext'
 import { ThemeContext } from '../../contexts'
 
 import './style.scss'
@@ -33,9 +33,9 @@ const Crypto = (props: any) => {
       className="view-crypto-container"
       style={{ backgroundImage: theme.viewItemColor }}
     >
-      <div className="prev">
+      {/* <div className="prev">
         {slider.prev !== '' && <ArrowPrev slider={slider} />}
-      </div>
+      </div> */}
 
       <ViewCrypto
         id={filteredCrypto.CoinInfo.Id}
@@ -64,10 +64,11 @@ const Crypto = (props: any) => {
         low={filteredCrypto.DISPLAY.USD.LOW24HOUR}
         totalVolume={filteredCrypto.DISPLAY.USD.TOTALVOLUME24H}
         supply={filteredCrypto.DISPLAY.USD.SUPPLY}
+        loadChart
       />
-      <div className="next">
+      {/* <div className="next">
         {slider.next !== '' && <ArrowNext slider={slider} />}
-      </div>
+      </div> */}
     </div>
   )
 }

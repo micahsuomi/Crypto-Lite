@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-
 import { AppState } from '../types'
 
 export default function useDailyPairs() {
@@ -9,10 +8,10 @@ export default function useDailyPairs() {
   const dailyPairs = useSelector((state: AppState) => state.cryptos.dailyPairs)
 
   const [err] = useState(null)
-
+  console.log(dailyPairs)
   useEffect(() => {
     setData(dailyPairs)
-  }, [dailyPairs])
+  }, [dailyPairs, data])
 
-  return [err, data]
+  return [err, dailyPairs]
 }

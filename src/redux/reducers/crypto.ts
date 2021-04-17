@@ -18,7 +18,7 @@ import {
   GET_CRYPTONEWS,
   GET_NEWSFEEDS,
   SAVE_CONVERSION,
-  DELETE_CURRENCY
+  DELETE_CURRENCY,
 } from '../../types'
 
 export default function cryptos(
@@ -36,7 +36,7 @@ export default function cryptos(
     filteredWallets: [],
     cryptoNews: [],
     newsFeeds: [],
-    savedCurrency: []
+    savedCurrency: [],
   },
   action: CryptoActions
 ): CryptoState {
@@ -81,37 +81,38 @@ export default function cryptos(
     }
     case GET_DAILYPAIRS: {
       const { dailyPairs } = action.payload
+      console.log('from reducer', dailyPairs)
       return {
         ...state,
-        dailyPairs
+        dailyPairs,
       }
     }
     case GET_DAILYEXCHANGEVOL: {
       const { dailyExchangeVol } = action.payload
       return {
         ...state,
-        dailyExchangeVol
+        dailyExchangeVol,
       }
     }
     case GET_TOPFIVESYMBOLS: {
       const { topFiveSymbols } = action.payload
       return {
         ...state,
-        topFiveSymbols
+        topFiveSymbols,
       }
     }
     case GET_EXCHANGES: {
       const { exchanges } = action.payload
       return {
         ...state,
-        exchanges
+        exchanges,
       }
     }
     case SEARCH_EXCHANGES: {
       const { exchanges } = action.payload
       return {
         ...state,
-        filteredExchanges: exchanges
+        filteredExchanges: exchanges,
       }
     }
     case GET_CRYPTOWALLETS: {
@@ -139,21 +140,23 @@ export default function cryptos(
       const { newsFeeds } = action.payload
       return {
         ...state,
-        newsFeeds
+        newsFeeds,
       }
     }
     case SAVE_CONVERSION: {
       const { savedConversion } = action.payload
       return {
         ...state,
-        savedCurrency: [...state.savedCurrency, savedConversion]
+        savedCurrency: [...state.savedCurrency, savedConversion],
       }
     }
     case DELETE_CURRENCY: {
       const { savedConversion } = action.payload
       return {
         ...state,
-        savedCurrency: [...state.savedCurrency.filter((c) => c.id !== savedConversion.id)]
+        savedCurrency: [
+          ...state.savedCurrency.filter((c) => c.id !== savedConversion.id),
+        ],
       }
     }
     default:

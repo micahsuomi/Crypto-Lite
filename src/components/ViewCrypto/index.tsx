@@ -1,6 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect, useCallback, useContext } from 'react'
+import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { Paper } from '@material-ui/core'
 
+import useDailyPairs from '../../hooks/useDailyPairs'
+import { fetchDailyPairs } from '../../redux/actions/crypto'
+import SwitchChartButtons from '../../components/SwitchCryptoChartButtons'
+import DailyPairsChart from '../../components/DailyPairsChart'
 import { CryptoDetailsProps } from '../../types'
 import { ThemeContext } from '../../contexts'
 import Image from '../Image'
@@ -32,7 +38,76 @@ const ViewCrypto = ({
   supply,
 }: CryptoDetailsProps) => {
   const { theme } = useContext(ThemeContext)
+  const dispatch = useDispatch()
+  const [errDailyPairs, dailyPairs] = useDailyPairs()
 
+  const [pair, setPair] = useState({
+    pairOne: symbol,
+    pairTwo: 'usd',
+    limit: 6,
+  })
+  const switchChart = useCallback(
+    (e: any) => {
+      const { value } = e.target
+      console.log(e.target.value)
+      if (value === 'day') {
+        setPair({
+          ...pair,
+          limit: 1,
+        })
+      }
+      if (value === 'week') {
+        setPair({
+          ...pair,
+          limit: 6,
+        })
+      }
+      if (value === 'month') {
+        setPair({
+          ...pair,
+          limit: 30,
+        })
+      }
+      if (value === 'threemonths') {
+        setPair({
+          ...pair,
+          limit: 90,
+        })
+      }
+      if (value === 'sixmonths') {
+        setPair({
+          ...pair,
+          limit: 180,
+        })
+      }
+      if (value === 'year') {
+        setPair({
+          ...pair,
+          limit: 360,
+        })
+      }
+      if (value === 'all') {
+        setPair({
+          ...pair,
+          limit: 2000,
+        })
+      }
+    },
+    [pair]
+  )
+  console.log('daily pairs from hook to viewcrypto', dailyPairs)
+  const loadChart = useCallback(() => {
+    dispatch(fetchDailyPairs(pair))
+  }, [dispatch, pair])
+
+  useEffect(() => {
+    loadChart()
+  }, [loadChart])
+  if (errDailyPairs) {
+    return <h1>not found</h1>
+  }
+
+  const { pairOne, pairTwo } = pair
   return (
     <div
       className="view-crypto"
@@ -48,14 +123,19 @@ const ViewCrypto = ({
       <div className="view-crypto__content">
         <div className="crypto-content__header">
           <h1 className="view-crypto__header">Coin Info</h1>
-          <Image image={img} name={name} big />
+          {/* <Image image={img} name={name} big />
           <div className="header-symbol__container">
             <h4 className="view-crypto__name">{name}</h4>
             <h4 className="view-crypto__symbol">{symbol}</h4>
-          </div>
+          </div> */}
         </div>
 
         <div className="view-crypto__body">
+          <div className="header-symbol__container">
+            <Image image={img} name={name} medium />
+            <h4 className="view-crypto__name">{name}</h4>
+            <h4 className="view-crypto__symbol">{symbol}</h4>
+          </div>
           <div className="crypto-card-body__info">
             <p className="crypto-content__data">
               <span className="bold">Algorithm:</span> {algorithm}
@@ -118,6 +198,18 @@ const ViewCrypto = ({
           </div>
         </div>
       </div>
+      <SwitchChartButtons switchChart={switchChart} />
+      <Paper className="chart-container">
+        {dailyPairs !== undefined ? (
+          <DailyPairsChart
+            dailyPairs={dailyPairs}
+            pairOne={pairOne}
+            pairTwo={pairTwo}
+          />
+        ) : (
+          'Loading Chart'
+        )}
+      </Paper>
     </div>
   )
 }
