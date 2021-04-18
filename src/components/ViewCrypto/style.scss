@@ -83,12 +83,16 @@
 
 
 .chart-container {
-  width: 62vw;
+  width: 83.5vw;
   margin-top: 3rem;
   border-radius: 25px;
   box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
   background-color: gray;   
   padding: 2rem 2rem; 
+}
+
+.volume {
+  height: 48vh;
 }
 
 @media screen and (max-width: 1024px) {

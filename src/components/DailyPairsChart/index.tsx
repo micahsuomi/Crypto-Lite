@@ -13,6 +13,13 @@ import { DailyPairsChartProps } from '../../types'
 
 import './style.scss'
 
+const titleStyle = {
+  fontSize: '18px',
+}
+const titleComponent = (props: any) => (
+  <Title.Text {...props} style={titleStyle} />
+)
+
 const DailyPairsChart = ({
   dailyPairs,
   pairOne,
@@ -20,7 +27,6 @@ const DailyPairsChart = ({
 }: DailyPairsChartProps) => {
   // const dailyPairs = useSelector((state: AppState) => state.cryptos.dailyPairs)
   // console.log(dailyPairs)
-
   // const { fromSymbol, toSymbol } = dailyPairs
   return (
     <Chart data={dailyPairs}>
@@ -37,6 +43,7 @@ const DailyPairsChart = ({
         text={`Price History for ${pairOne && pairOne.toUpperCase()}/${
           pairTwo && pairTwo.toUpperCase()
         }`}
+        textComponent={titleComponent}
       />
       {/* <Animation /> */}
     </Chart>

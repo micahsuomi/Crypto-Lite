@@ -7,8 +7,10 @@ import useDailyPairs from '../../hooks/useDailyPairs'
 import { fetchDailyPairs } from '../../redux/actions/crypto'
 import SwitchChartButtons from '../../components/SwitchCryptoChartButtons'
 import DailyPairsChart from '../../components/DailyPairsChart'
+import DailyPairsChartVolume from '../../components/DailyPairsChartVolume'
 import { CryptoDetailsProps } from '../../types'
 import { ThemeContext } from '../../contexts'
+
 import Image from '../Image'
 
 import './style.scss'
@@ -95,7 +97,7 @@ const ViewCrypto = ({
     },
     [pair]
   )
-  console.log('daily pairs from hook to viewcrypto', dailyPairs)
+  // console.log('daily pairs from hook to viewcrypto', dailyPairs)
   const loadChart = useCallback(() => {
     dispatch(fetchDailyPairs(pair))
   }, [dispatch, pair])
@@ -206,6 +208,13 @@ const ViewCrypto = ({
             pairOne={pairOne}
             pairTwo={pairTwo}
           />
+        ) : (
+          'Loading Chart'
+        )}
+      </Paper>
+      <Paper className="chart-container volume">
+        {dailyPairs !== undefined ? (
+          <DailyPairsChartVolume dailyPairs={dailyPairs} />
         ) : (
           'Loading Chart'
         )}
