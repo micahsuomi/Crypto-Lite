@@ -6,10 +6,16 @@
   position: relative;
   min-height: 100vh;
 }
+@media screen and (max-width: 768px) {
+  .view-crypto-container {
+    padding: 9rem 2rem;
+  }
+
+}
 @media screen and (max-width: 500px) {
   .view-crypto-container {
     // grid-template-columns: 5% 90% 5%;
-    padding: 9rem 0;
+    padding: 5rem 0;
   }
 
 }
