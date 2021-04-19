@@ -4,7 +4,7 @@ import useDailyPairs from '../../hooks/useDailyPairs'
 import useTopFiveSymbols from '../../hooks/useTopFiveSymbols'
 import useDailyExchangeVol from '../../hooks/useDailyExchangeVol'
 import DailyPairsForm from '../../components/DailyPairsForm'
-import DailyPairsTable from '../../components/DailyPairsTable'
+// import DailyPairsTable from '../../components/DailyPairsTable'
 import DailyPairsChart from '../../components/DailyPairsChart'
 import DailyExchangeVolForm from '../../components/DailyExchangeVolForm'
 import DailyExchangeVolChart from '../../components/DailyExchangeVolChart'
@@ -14,13 +14,22 @@ import TopFiveSymbolsTable from '../../components/TopFiveSymbolsTable'
 import Section from '../../components/Section'
 import TitleContainer from '../../components/TitleContainer'
 import Title from '../../components/Title'
-import { pageBanners } from '../../utils/page-banners'
+
+import { pagesLocale } from '../../utils/page-banners'
 
 import './style.scss'
 
 const HistoricalData = () => {
-  const [errDailyPairs, dailyPairs] = useDailyPairs()
-  const [errDailyExchangeVolume, dailyExchangeVol] = useDailyExchangeVol()
+  const [symbol] = useState('')
+  const [query] = useState('')
+  const [loadChartOnPageLoad] = useState(false)
+  const [errDailyPairs, dailyPairsData] = useDailyPairs(
+    symbol,
+    query,
+    loadChartOnPageLoad
+  )
+  console.log(dailyPairsData)
+  const [errDailyExchangeVolume, dailyExchangeVolData] = useDailyExchangeVol()
   const [errTopFiveSymbols, topFiveSymbols] = useTopFiveSymbols()
   const [isDailyPairsTableShowing, setIsDailyPairsTableShowing] = useState(
     false
@@ -35,8 +44,8 @@ const HistoricalData = () => {
   )
   const [showTopFiveSymbolsGraph, setShowTopFiveSymbolsGraph] = useState(false)
 
-  console.log('daily pairs', dailyPairs)
-  console.log('daily exchange volume', dailyExchangeVol)
+  console.log('daily pairs', dailyPairsData)
+  console.log('daily exchange volume', dailyExchangeVolData)
   console.log('top five symbols', topFiveSymbols)
 
   const [isDailyPairsShowing, setIsDailyPairsShowing] = useState(true)
@@ -44,7 +53,7 @@ const HistoricalData = () => {
     false
   )
   const [isTopFiveSymbolsShowing, setIsTopFiveSymbolsShowing] = useState(false)
-
+  const [exchangeName, setExchangeName] = useState('')
   const showDailyPairs = () => {
     setIsDailyPairsShowing(true)
     setIsDailyExchangeVolShowing(false)
@@ -74,8 +83,9 @@ const HistoricalData = () => {
   const showDailyGraphOnSubmit = () => {
     setShowDailyGraph(true)
   }
-  const showDailyExchangeVolGraphOnSubmit = () => {
+  const showDailyExchangeVolGraphOnSubmit = (dailyExchangeQuery: any) => {
     setShowDailyExchangeVolGraph(true)
+    setExchangeName(dailyExchangeQuery.exchange)
   }
   const showTopFiveSymbolsGraphOnSubmit = () => {
     setShowTopFiveSymbolsGraph(true)
@@ -85,12 +95,13 @@ const HistoricalData = () => {
     return <h1>Page Not Found</h1>
   }
 
+  const { title } = pagesLocale.historicalData.headers
+  const { dailyPairs, dailyExchangeVol } = pagesLocale.historicalData
+
   return (
     <Section>
       <TitleContainer>
-        {pageBanners.map((p) => (
-          <Title title={p.historicalData} alignCenter />
-        ))}
+        <Title title={title} alignCenter />
       </TitleContainer>
 
       <div className="historical-data__tabs-wrapper">
@@ -116,16 +127,11 @@ const HistoricalData = () => {
       <div className="historical-data__wrapper">
         {isDailyPairsShowing && (
           <div className="historical-data__daily">
-            <h4>Search for daily pairs to view price history</h4>
-            <p>
-              If you want to view the entire price history of the selected
-              crypto, enter 2000 as limit
-            </p>
+            <h4>{dailyPairs.title}</h4>
+            <p>{dailyPairs.description}</p>
             <DailyPairsForm showDailyGraphOnSubmit={showDailyGraphOnSubmit} />
             <div className="historical-data__results">
-              <div>
-                {showDailyGraph && <DailyPairsChart dailyPairs={dailyPairs} />}
-              </div>
+              <div>{showDailyGraph && <DailyPairsChart />}</div>
               {showDailyGraph && (
                 <>
                   {isDailyPairsTableShowing ? (
@@ -147,7 +153,7 @@ const HistoricalData = () => {
               )}
               {isDailyPairsTableShowing && (
                 <div>
-                  <DailyPairsTable dailyPairs={dailyPairs} />
+                  {/* <DailyPairsTable dailyPairs={dailyPairsData} /> */}
                 </div>
               )}
             </div>
@@ -155,7 +161,7 @@ const HistoricalData = () => {
         )}
         {isDailyExchangeVolShowing && (
           <div className="historical-data__daily">
-            <h4>Search Daily Exchange Vol (daily Volume)</h4>
+            <h4>{dailyExchangeVol.title}</h4>
             <p>
               Get the total volume of daily historical exchange data. If you
               wish to get all the available <br /> historical data, you can
@@ -169,7 +175,10 @@ const HistoricalData = () => {
             <div className="historical-data__results">
               <div>
                 {showDailyExchangeVolGraph && (
-                  <DailyExchangeVolChart data={dailyExchangeVol} />
+                  <DailyExchangeVolChart
+                    data={dailyExchangeVolData}
+                    title={exchangeName && exchangeName}
+                  />
                 )}
               </div>
             </div>

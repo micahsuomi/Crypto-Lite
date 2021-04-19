@@ -2,7 +2,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-
 import { AppState } from './types'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'

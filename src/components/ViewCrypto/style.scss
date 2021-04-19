@@ -7,10 +7,10 @@
   line-height: 1.7;
   background-color: white;
   border-radius: 2px;
-  width: 70vw;
+  width: 91vw;
   &__body {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
     margin-top: 4.5rem;
     justify-items: center;
@@ -25,7 +25,7 @@
   align-items: center;
 }
 .navigation-exit__container {
-  width: 63vw;
+  width: 84vw;
   display: flex;
   justify-content: flex-end;
 }
@@ -82,6 +82,18 @@
 }
 
 
+.chart-container {
+  width: 83.5vw;
+  margin-top: 3rem;
+  border-radius: 25px;
+  box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
+  background-color: gray;   
+  padding: 2rem 2rem; 
+}
+
+.volume {
+  height: 48vh;
+}
 
 @media screen and (max-width: 1024px) {
   .view-crypto__background {
@@ -141,6 +153,9 @@
     justify-content: center;
     align-items: center;
   }
+  .chart-container {
+    height: 40vh;
+}
 
   
 }

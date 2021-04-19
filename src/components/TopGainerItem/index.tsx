@@ -19,7 +19,7 @@ const TopGainerItem = ({
   return (
     <NavLink to={`/crypto/${id}`} className="top-gainer-link">
       <div className="top-gainer grow">
-        <Image image={image} name={name} medium />
+        <Image image={image} name={name} small />
         <h3 className="top-gainer__name" style={{ color: theme.homeBanner }}>
           {name}
         </h3>

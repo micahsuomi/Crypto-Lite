@@ -1,0 +1,17 @@
+.btn-chart-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    button {
+      cursor: pointer;
+      min-width: 5rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: .3rem .7rem;
+      box-shadow: 0 .4rem .3rem rgba($color: #dfd8d8, $alpha: 0.5);
+      :active {
+          background-color: var(--color-secondary-light);
+      }
+    }
+  }

@@ -1,5 +1,4 @@
-import { ReactNode } from 'react'
-
+/* eslint-disable no-unused-vars */
 // Action types
 export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
@@ -28,6 +27,7 @@ export const SHOW_ERRORS = 'SHOW_ERRORS'
 export const CLEAR_ERRORS = 'CLEAR_ERRORS'
 
 // Enum
+
 export enum DialogType {
   SignIn = 'signIn',
   SignUp = 'signUp',
@@ -161,6 +161,11 @@ export type CryptoDetailsProps = {
   totalVolume: any
   supply: any
   redirectToHome?: boolean
+  loadChart?: boolean
+}
+
+export type SwitchCryptoChartButtonsProps = {
+  switchChart: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 export type WatchListProps = {
@@ -212,7 +217,14 @@ export type DailyPairsItemProps = {
 
 export type DailyPairsChartProps = {
   //fix this later
-  dailyPairs: any
+  dailyPairs?: any
+  pairOne?: string
+  pairTwo?: string
+}
+
+export type DailyPairsChartVolumeProps = {
+  //fix this later
+  dailyPairs?: any
 }
 
 export type DailyExchangeVol = {
@@ -220,8 +232,13 @@ export type DailyExchangeVol = {
   volume: number
 }
 
-export type DailyEchangeVolChart = {
+export type DailyEchangeVolFormProps = {
+  showDailyExchangeVolGraphOnSubmit: Function
+}
+
+export type DailyEchangeVolChartProps = {
   data: any
+  title?: string
 }
 
 export type TopFiveSymbols = {
@@ -698,6 +715,7 @@ export type ProductState = {
 }
 
 // Using dynamic keys from an enum
+
 export type UiState = {
   dialogOpen: {
     [key in DialogType]?: boolean
