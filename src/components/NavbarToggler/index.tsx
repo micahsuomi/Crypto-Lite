@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react'
 
 import { NavbarTogglerProps } from '../../types'
@@ -18,18 +20,27 @@ const NavbarToggler = ({
 }: NavbarTogglerProps) => {
   return (
     <div className="toggle-wrapper">
-      <div className="toggle-bar" onClick={toggle}>
+      <div className="toggle-bar" onClick={toggle} role="button">
         <span
           className={isClicked ? lineClassOneActive : lineClassOne}
-          style={{ backgroundColor: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)' }}
+          style={{
+            backgroundColor:
+              scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)',
+          }}
         ></span>
         <span
           className={isClicked ? lineClassTwoActive : lineClassTwo}
-          style={{ backgroundColor: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)' }}
+          style={{
+            backgroundColor:
+              scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)',
+          }}
         ></span>
         <span
           className={isClicked ? lineClassThreeActive : lineClassThree}
-          style={{ backgroundColor: scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)' }}
+          style={{
+            backgroundColor:
+              scrolled || isSwitched ? 'white' : 'var(--color-secondary-dark)',
+          }}
         ></span>
       </div>
     </div>

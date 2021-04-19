@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState, useContext } from 'react'
+// import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Paper } from '@material-ui/core'
 
 import useDailyPairs from '../../hooks/useDailyPairs'
-import { fetchDailyPairs } from '../../redux/actions/crypto'
+// import { fetchDailyPairs } from '../../redux/actions/crypto'
 import SwitchChartButtons from '../../components/SwitchCryptoChartButtons'
 import DailyPairsChart from '../../components/DailyPairsChart'
 import DailyPairsChartVolume from '../../components/DailyPairsChartVolume'
@@ -40,18 +40,29 @@ const ViewCrypto = ({
   supply,
 }: CryptoDetailsProps) => {
   const { theme } = useContext(ThemeContext)
-  const dispatch = useDispatch()
-  const [errDailyPairs, dailyPairs] = useDailyPairs()
-
+  // const dispatch = useDispatch()
+  const [loadChartOnPageLoad] = useState(true)
+  const [query, setQuery] = useState('')
+  const [errDailyPairs, dailyPairs, pair] = useDailyPairs(
+    symbol,
+    query,
+    loadChartOnPageLoad
+  )
+  console.log(pair)
+  /*
   const [pair, setPair] = useState({
     pairOne: symbol,
     pairTwo: 'usd',
     limit: 6,
-  })
+  })*/
+  //this one will be moved to useDailyPairs hook
+
+  /*
   const switchChart = useCallback(
     (e: any) => {
       const { value } = e.target
       console.log(e.target.value)
+      setQuery(value)
       if (value === 'day') {
         setPair({
           ...pair,
@@ -96,15 +107,21 @@ const ViewCrypto = ({
       }
     },
     [pair]
-  )
+  )*/
+  const switchChart = (e: any) => {
+    const { value } = e.target
+    console.log(e.target.value)
+    setQuery(value)
+  }
   // console.log('daily pairs from hook to viewcrypto', dailyPairs)
+  /*
   const loadChart = useCallback(() => {
     dispatch(fetchDailyPairs(pair))
   }, [dispatch, pair])
 
   useEffect(() => {
     loadChart()
-  }, [loadChart])
+  }, [loadChart])*/
   if (errDailyPairs) {
     return <h1>not found</h1>
   }

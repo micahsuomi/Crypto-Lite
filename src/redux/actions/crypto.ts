@@ -175,30 +175,47 @@ export function fetchCrypto() {
   }
 }
 
+//testing this API to get data for all coins
+/*
+export function fetchAllCrypto() {
+  const url =
+    'https://min-api.cryptocompare.com/data/all/coinlist'
+  return async (dispatch: Dispatch) => {
+    const res = await fetch(url)
+    const cryptos = await res.json()
+    const cryptoArr = []
+    cryptoArr.push(cryptos.Data)
+    console.log(cryptoArr.length)
+    console.log(cryptoArr)
+    // dispatch(getCryptos(cryptos.Data))
+  }
+}
+*/
+
 export function fetchDailyPairs(pair: any) {
   let { pairOne, pairTwo, limit } = pair
-  console.log(pair)
   const url = `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${pairOne}&tsym=${pairTwo}&limit=${limit}`
   return async (dispatch: Dispatch) => {
     const res = await fetch(url)
     const data = await res.json()
     data.Data.Data.forEach((pair: any) => {
       const unixTime = pair.time
-      console.log(unixTime)
       const timeStamp = new Date(unixTime * 1000)
       if (limit === 1 || limit === 6) {
-        console.log(timeStamp)
+        console.log(pair)
         pair.time = timeStamp.toDateString()
         pair.time = moment(pair.time).format('ll')
       }
       if (limit === 30) {
         pair.time = timeStamp.toDateString()
         pair.time = moment(pair.time).format('ll').slice(0, 6)
+        console.log(pair)
       }
       if (limit === 2000) {
+        // console.log(pair.time)
         // const timeStamp = new Date(unixTime * 1000)
-        console.log(timeStamp)
-        // pair.time = moment(pair.time).format('YYYY')
+        // console.log(moment.utc(pair.time).format('YYYY'))
+        // pair.time = timeStamp.toDateString()
       }
       // pair.time = moment(pair.time).format('ll')
     })

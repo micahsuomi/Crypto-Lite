@@ -9,7 +9,7 @@ import rootSaga from './sagas'
 const initState: AppState = {
   product: {
     inCart: [],
-    test: []
+    test: [],
   },
 
   ui: {
@@ -30,13 +30,13 @@ const initState: AppState = {
     filteredWallets: [],
     cryptoNews: [],
     newsFeeds: [],
-    savedCurrency: []
+    savedCurrency: [],
   },
 
   error: {
     msg: {},
-    status: null
-  }
+    status: null,
+  },
 }
 
 export default function makeStore(initialState = initState) {

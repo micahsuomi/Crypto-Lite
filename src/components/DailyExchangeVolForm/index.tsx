@@ -1,24 +1,29 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
+import { AppState, DailyEchangeVolFormProps } from '../../types'
 import { fetchDailyExchangeVol } from '../../redux/actions/crypto'
 
 import './style.scss'
 
-const DailyPairsForm = (props: any) => {
+const DailyPairsForm = ({
+  showDailyExchangeVolGraphOnSubmit,
+}: DailyEchangeVolFormProps) => {
   const dispatch = useDispatch()
+  const exchanges = useSelector((state: AppState) => state.cryptos.exchanges)
   const [dailyExchangeQuery, setDailyExchangeQuery] = useState({
     exchange: '',
     symbol: '',
     limit: 10,
   })
+  const { symbol, limit } = dailyExchangeQuery
 
-  const { exchange, symbol, limit } = dailyExchangeQuery
   const handleSubmit = (e: any) => {
     e.preventDefault()
+    console.log(dailyExchangeQuery)
     dispatch(fetchDailyExchangeVol(dailyExchangeQuery))
     setTimeout(() => {
-      props.showDailyExchangeVolGraphOnSubmit()
+      showDailyExchangeVolGraphOnSubmit(dailyExchangeQuery)
     }, 2000)
   }
 
@@ -31,12 +36,27 @@ const DailyPairsForm = (props: any) => {
     <form onSubmit={handleSubmit} className="daily-exchange-vol-form">
       <div className="daily-pairs-form__input-topics">
         <label htmlFor="from symbol">Exchange</label>
-        <input
+        {/* <input
           value={exchange}
           name="exchange"
           onChange={handleChange}
           placeholder="e.g. Binance"
-        />
+        /> */}
+        <select
+          className="select-currency"
+          onBlur={handleChange}
+          required
+          name="exchange"
+          // onBlur={selectCurrency}
+          // style={{ backgroundColor: theme.inputColor, color: theme.text }}
+        >
+          <option>---Select Exchange</option>
+          {exchanges.map((exchange: any) => (
+            <option key={exchange.Id} value={exchange.Name}>
+              {exchange.Name}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="daily-pairs-form__input-topics">
@@ -46,6 +66,7 @@ const DailyPairsForm = (props: any) => {
           name="symbol"
           onChange={handleChange}
           placeholder="e.g. BTC"
+          required
         />
       </div>
 
@@ -57,6 +78,7 @@ const DailyPairsForm = (props: any) => {
           name="limit"
           onChange={handleChange}
           placeholder="min 10, max 2000"
+          required
         />
       </div>
       <button>Search</button>
