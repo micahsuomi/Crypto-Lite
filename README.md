@@ -16,6 +16,8 @@ Crypto Lite displays real market data from CryptoCompare's APIs: it features mar
 - [Watchlist](#watchlist)
 - [Currency Converter](#currency-converter)
 - [Theme Switch](#theme-switch)
+- [Improvements](#improvements)
+
 - [Deployment](#deployment)
 
 # Tech Stack Used
@@ -41,7 +43,9 @@ The home page displays a section of most pages, like market prices, exchanges, w
 In this page users can view market prices and price changes for the top 100 cryptocurrencies based on the CryptoCompare API. The page displays the top 5 gainers and top 5 losers updated in real time based on percentage change per day. The market prices table has a table head where the user can sort crypto based on price, percentage change, market cap and circulating supply. Each crypto displayed has an add to watchlist button to allow the user to add selected currencies to a watchlist. By clicking on each coin, users can view more details for each cryptocurrency.
 
 ![Market Prices](./public/readme-imgs/market-prices.png)
-![Market Prices](./public/readme-imgs/coin-info.JPG)
+
+By clicking on each currency, users can view more details regarding a certain crypto, like proof of type, hash rate, rating, open price, high, low, including weekly, monthly, 6 months, and all time charts for price and volume.
+![Market Prices](./public/readme-imgs/coin-info.png)
 
 ## Historical Data
 
@@ -53,7 +57,7 @@ Historical data shows daily pairs and daily exchange volume data for currencies 
 
 This page displays a list of available exchanges that users can sort by name, volume, country, grade, gradepoints and rating. Grades vary from A to E and grade points from 0 to 100. By clicking on View Details, users can view more detailed data for each exchange.
 
-![Exchanges](./public/readme-imgs/exchanges.JPG)
+![Exchanges](./public/readme-imgs/exchanges.png)
 
 ## Wallets
 
@@ -88,6 +92,12 @@ The whole application uses a theme switch functionality created with Context API
 ## Deployment
 
 The app is deployed on Netlify and the demo can be found at the following link: https://crypto-lite-tracker.netlify.app/
+
+## Improvements
+The app has some improvements to be made
+- Convert epoch time values in charts to timestamp values
+- Improve responsivness
+- CryptoCompare only provides data such as price, market cap, current supply, percentage change for the top 100 cryptocurrencies. In the future, I will work with different crypto APIs in order to provide more market data about all cryptocurrencies.  
 
 
 
