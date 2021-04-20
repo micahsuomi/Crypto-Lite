@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import {
   ArgumentAxis,
   ValueAxis,
@@ -10,18 +10,8 @@ import {
 import { EventTracker } from '@devexpress/dx-react-chart'
 
 import { DailyPairsChartProps } from '../../types'
-// import moment from 'moment'
+//import moment from 'moment'
 import './style.scss'
-const lines = document.querySelector('.argument')
-console.log(lines?.textContent)
-const time = lines?.textContent && lines?.textContent
-console.log(time)
-// const timeStamp = time && new Date(parseInt(time) * 1000).toDateString()
-// console.log(timeStamp)
-
-// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-// lines?.textContent && lines?.textContent === timeStamp
-// const timeStamp = new Date(parseInt(lines?.textContent) * 1000)
 
 const titleStyle = {
   fontSize: '18px',
@@ -29,14 +19,19 @@ const titleStyle = {
 const argumentStyle = {
   fontSize: '12px',
 }
+//testing this to change time format
+/*const linesCollection = document.querySelectorAll('.argument')
+console.log(linesCollection[0].children)
+
+if(linesCollection !== undefined) {
+  for (const c in linesCollection[0].children) {
+    console.log(linesCollection[0].children[c].textContent)
+  }
+} */
 
 const titleComponent = (props: any) => (
   <Title.Text {...props} style={titleStyle} />
 )
-/*
-const lineComponent = (props: any) => (
-   <LineSeries.Path id="lines"className="lines" {...props} style={titleStyle} />
- )*/
 
 const argumentComponent = (props: any) => (
   <ArgumentAxis.Root
@@ -52,10 +47,8 @@ const DailyPairsChart = ({
   pairOne,
   pairTwo,
 }: DailyPairsChartProps) => {
-  // console.log(dailyPairs)
-  // const { fromSymbol, toSymbol } = dailyPairs
   return (
-    <Chart data={dailyPairs}>
+    <Chart data={dailyPairs} height={350}>
       <ArgumentAxis rootComponent={argumentComponent} />
       <ValueAxis />
       <LineSeries

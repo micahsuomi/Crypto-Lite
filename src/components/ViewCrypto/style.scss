@@ -1,5 +1,5 @@
 .view-crypto {
-  padding: 2rem 3rem;
+  padding: 2rem 6rem;
   min-height: 70vh;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@
   align-items: center;
 }
 .navigation-exit__container {
-  width: 84vw;
+  width: 81vw;
   display: flex;
   justify-content: flex-end;
 }
@@ -82,12 +82,12 @@
 }
 
 .chart-container {
-  width: 83.5vw;
+  width: 100%;
   margin-top: 3rem;
   border-radius: 25px;
   box-shadow: 0 1rem 2rem rgba(151, 163, 163, 0.5);
   background-color: gray;
-  padding: 2rem 2rem;
+  padding: 2rem 4rem;
 }
 
 .volume {
